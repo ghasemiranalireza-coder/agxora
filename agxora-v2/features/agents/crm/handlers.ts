@@ -17,7 +17,7 @@ import { buildLeadActionQueue } from "./prioritize";
 import { advanceCrmCustomerStatus, loadCrmStatusesForOrganization } from "./status";
 import { getCampaignCrmSync, getGrowthCrmLink, syncGrowthProfileToCrm } from "./sync";
 import type { CrmFollowUpKind } from "./types";
-import type { CrmCustomerStatus } from "@/app/lib/crm/directory";
+import type { CrmCustomerRecord, CrmCustomerStatus } from "@/app/lib/crm/directory";
 import {
   AGENT_CRM_CUSTOMER_READ_FIELDS,
   agentCrmCustomerIdErrorMessage,
@@ -282,6 +282,183 @@ function markCampaignFollowUpTask(
   });
 }
 
+async function resolveOrchestrationCustomer(
+  ctx: ToolInvocationContext,
+  requestedCustomerId: string | undefined,
+): Promise<
+  | { readonly ok: true; readonly customer: CrmCustomerRecord }
+  | { readonly ok: false; readonly result: ToolInvocationResult }
+> {
+  const started = Date.now();
+  const provider = getCrmBridgeProvider();
+  if (!provider.available) {
+    return {
+      ok: false,
+      result: {
+        ok: false,
+        error: "CRM is unavailable for the first-customer Agent path.",
+        output: { crmAvailable: false, crmSuccess: false, mutated: false },
+        durationMs: Date.now() - started,
+      },
+    };
+  }
+  const listed = await provider.listCustomers(ctx.organizationId);
+  const resolved = resolveFirstCustomerCrmCustomerId({
+    requestedId: requestedCustomerId,
+    goal:
+      readString(ctx.params, "goal") ??
+      readString(ctx.params, "step") ??
+      readString(ctx.params, "title"),
+    customerIds: listed.map((customer) => customer.id),
+  });
+  if (!resolved.ok) {
+    return {
+      ok: false,
+      result: {
+        ok: false,
+        error: firstCustomerCrmCustomerResolveErrorMessage(resolved.error),
+        output: {
+          crmAvailable: true,
+          crmSuccess: false,
+          mutated: false,
+          issue: resolved.error,
+        },
+        durationMs: Date.now() - started,
+      },
+    };
+  }
+  const customer = await provider.getCustomer(resolved.id);
+  if (!customer || customer.organizationId !== ctx.organizationId) {
+    return {
+      ok: false,
+      result: {
+        ok: false,
+        error: "Customer not found",
+        output: { crmAvailable: true, crmSuccess: false, mutated: false },
+        durationMs: Date.now() - started,
+      },
+    };
+  }
+  return { ok: true, customer };
+}
+
+/**
+ * Read / prepare / verify steps for a business-goal plan.
+ * These actions never create a CRM note.
+ */
+async function handleCrmOrchestrationAction(
+  ctx: ToolInvocationContext,
+  started: number,
+  action: "load_customer_context" | "prepare_crm_note" | "verify_crm_note",
+  requestedCustomerId: string | undefined,
+): Promise<ToolInvocationResult> {
+  const resolved = await resolveOrchestrationCustomer(ctx, requestedCustomerId);
+  if (!resolved.ok) {
+    return { ...resolved.result, durationMs: Date.now() - started };
+  }
+  const customer = resolved.customer;
+  const provider = getCrmBridgeProvider();
+
+  if (action === "load_customer_context") {
+    return {
+      ok: true,
+      output: {
+        action,
+        customer: publicCustomerFields(customer),
+        fields: AGENT_CRM_CUSTOMER_READ_FIELDS,
+        readOnly: true,
+        mutated: false,
+        crmAvailable: true,
+        crmSuccess: false,
+      },
+      durationMs: Date.now() - started,
+    };
+  }
+
+  if (action === "prepare_crm_note") {
+    const body =
+      readString(ctx.params, "body") ??
+      readString(ctx.params, "goal") ??
+      readString(ctx.params, "step") ??
+      "";
+    return {
+      ok: true,
+      output: {
+        action,
+        readOnly: true,
+        mutated: false,
+        crmAvailable: true,
+        crmSuccess: false,
+        draft: {
+          title: readString(ctx.params, "title") ?? "Follow-up",
+          body,
+          customerId: customer.id,
+          companyName: customer.companyName,
+          author: FIRST_CUSTOMER_NOTE_AUTHOR,
+        },
+        customer: publicCustomerFields(customer),
+      },
+      durationMs: Date.now() - started,
+    };
+  }
+
+  const noteId = readString(ctx.params, "noteId");
+  if (!noteId) {
+    return {
+      ok: false,
+      error: "CRM note was not created.",
+      output: {
+        action,
+        verified: false,
+        mutated: false,
+        crmAvailable: true,
+        crmSuccess: false,
+        customerId: customer.id,
+      },
+      durationMs: Date.now() - started,
+    };
+  }
+  const notes = await provider.listNotes(customer.id);
+  const note = notes.find(
+    (item) => item.id === noteId && item.customerId === customer.id,
+  );
+  if (!note || note.organizationId !== ctx.organizationId) {
+    return {
+      ok: false,
+      error: "CRM note was not found after execution.",
+      output: {
+        action,
+        verified: false,
+        mutated: false,
+        crmAvailable: true,
+        crmSuccess: false,
+        customerId: customer.id,
+        noteId,
+      },
+      durationMs: Date.now() - started,
+    };
+  }
+  return {
+    ok: true,
+    output: {
+      action,
+      verified: true,
+      mutated: false,
+      crmAvailable: true,
+      crmSuccess: true,
+      customerId: customer.id,
+      note: {
+        id: note.id,
+        customerId: note.customerId,
+        title: note.title,
+        body: note.body,
+        author: note.author,
+      },
+    },
+    durationMs: Date.now() - started,
+  };
+}
+
 export async function handleCrmTool(
   ctx: ToolInvocationContext,
 ): Promise<ToolInvocationResult> {
@@ -291,6 +468,19 @@ export async function handleCrmTool(
   if (requestedCustomerId) {
     const issue = agentCrmCustomerIdIssue(requestedCustomerId);
     if (issue) return invalidCustomerIdResult(started, issue);
+  }
+
+  if (
+    action === "load_customer_context" ||
+    action === "prepare_crm_note" ||
+    action === "verify_crm_note"
+  ) {
+    return handleCrmOrchestrationAction(
+      ctx,
+      started,
+      action,
+      requestedCustomerId,
+    );
   }
 
   if (action === "get_customer" || action === "read_customer") {

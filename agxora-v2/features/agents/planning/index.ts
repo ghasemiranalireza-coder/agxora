@@ -76,9 +76,19 @@ export function markStepStatus(
   stepId: string,
   status: TaskStatus,
 ): AgentPlan {
+  return updatePlanStep(plan, stepId, { status });
+}
+
+export function updatePlanStep(
+  plan: AgentPlan,
+  stepId: string,
+  patch: Partial<Omit<PlanStep, "id" | "dependsOn">>,
+): AgentPlan {
   return {
     ...plan,
-    steps: plan.steps.map((s) => (s.id === stepId ? { ...s, status } : s)),
+    steps: plan.steps.map((step) =>
+      step.id === stepId ? { ...step, ...patch } : step,
+    ),
     updatedAt: new Date().toISOString(),
   };
 }

@@ -20,8 +20,21 @@ import { createAgentMessage } from "../orchestration";
 import {
   decomposeGoal,
   markStepStatus,
+  updatePlanStep,
   validatePlan,
 } from "../planning";
+import {
+  applyCapabilityStepSuccess,
+  cancelBusinessGoalApproval,
+  capabilityExecutionContext,
+  failOrchestrationStep,
+  isOrchestrationPlan,
+  noteIdFromOutput,
+  orchestrationPlanGate,
+  outputVerified,
+  resolveStepCapability,
+  syncOrchestration,
+} from "../orchestration/goalPlan";
 import { buildReasoningTrace } from "../reasoning";
 import { assertToolAllowed, assertWorkspaceIsolation } from "../security";
 import { agentsStore } from "../store";
@@ -293,6 +306,10 @@ export const agentOsService = {
     readonly goal?: string;
     readonly payload?: Readonly<Record<string, unknown>>;
     readonly toolId?: ToolId;
+    /** Prebuilt plan. When set, executeTask does not decompose the goal again. */
+    readonly plan?: AgentPlan;
+    /** Business-goal mutations stay at 1 so a failure is not retried into a second write. */
+    readonly maxAttempts?: number;
   }): Promise<AgentTask> {
     this.ensureWorkspace(input.organizationId);
     const runtime = agentsStore
@@ -303,6 +320,10 @@ export const agentOsService = {
     if (!runtime.enabled || runtime.status === "paused") {
       throw new Error("Agent is not active");
     }
+    if (input.plan) {
+      assertWorkspaceIsolation(input.organizationId, input.plan.organizationId);
+      agentsStore.upsertPlan(input.plan);
+    }
 
     const task: AgentTask = {
       id: createId("atask"),
@@ -311,13 +332,15 @@ export const agentOsService = {
       title: input.title,
       status: "pending",
       priority: 1,
+      planId: input.plan?.id,
       input: {
         goal: input.goal ?? input.title,
         ...(input.payload ?? {}),
         ...(input.toolId ? { toolId: input.toolId } : {}),
+        ...(input.plan?.goalId ? { businessGoalId: input.plan.goalId } : {}),
       },
       attempt: 1,
-      maxAttempts: 3,
+      maxAttempts: input.maxAttempts ?? 3,
       createdAt: nowIso(),
     };
     agentsStore.upsertTask(task);
@@ -439,6 +462,10 @@ export const agentOsService = {
         throw new Error("Plan creation failed");
       }
       let activePlan: AgentPlan = plan;
+      if (isOrchestrationPlan(activePlan)) {
+        activePlan = syncOrchestration(task, activePlan, "running");
+        plan = activePlan;
+      }
 
       execution = updateExecution(
         updateExecutionLifecycle(execution, "EXECUTING", {
@@ -460,17 +487,33 @@ export const agentOsService = {
           continue;
         }
 
-        const stepToolId = step.toolId ?? def.tools[0];
+        const capability = resolveStepCapability(step);
         execution = updateExecution({
           ...execution,
           currentStepId: step.id,
           updatedAt: nowIso(),
         });
+        if (step.capabilityId && !capability) {
+          throw new Error(`Unsupported capability: ${step.capabilityId}`);
+        }
+        if (capability?.mutating && !capability.approvalRequired) {
+          throw new Error(
+            `Capability ${capability.id} cannot mutate without approval`,
+          );
+        }
+        if (capability?.mutating && step.status === "running") {
+          return task;
+        }
+
+        const stepToolId = capability?.toolId ?? step.toolId ?? def.tools[0];
         let stepPlan: AgentPlan = activePlan;
 
         if (stepToolId) {
           assertToolAllowed(def, stepToolId, settings);
           const tool = getToolDefinition(stepToolId);
+          const requiresApproval = capability
+            ? capability.approvalRequired
+            : Boolean(tool?.requiresApproval);
           const existingApproval = agentsStore
             .getSnapshot()
             .approvals.find(
@@ -480,7 +523,7 @@ export const agentOsService = {
                 approval.toolId === stepToolId,
             );
 
-          if (tool?.requiresApproval) {
+          if (requiresApproval) {
             if (!existingApproval || existingApproval.state === "REQUIRES_APPROVAL") {
               const approval =
                 existingApproval ??
@@ -493,7 +536,9 @@ export const agentOsService = {
                   stepId: step.id,
                   toolId: stepToolId,
                   action: step.title,
-                  reason: `${tool.name} requires approval before side effects.`,
+                  reason:
+                    step.reason ??
+                    `${tool?.name ?? stepToolId} requires approval before side effects.`,
                 });
               agentsStore.upsertApproval(approval);
               stepPlan = markStepStatus(stepPlan, step.id, "blocked");
@@ -531,6 +576,14 @@ export const agentOsService = {
                 stepId: step.id,
                 toolId: stepToolId,
               });
+              if (isOrchestrationPlan(activePlan)) {
+                activePlan = syncOrchestration(
+                  task,
+                  activePlan,
+                  "waiting_for_approval",
+                );
+                plan = activePlan;
+              }
               return task;
             }
             if (existingApproval.state === "REJECTED") {
@@ -571,6 +624,25 @@ export const agentOsService = {
             }
           }
 
+          if (capability?.mutating && noteIdFromOutput(step.result)) {
+            stepPlan = applyCapabilityStepSuccess(
+              stepPlan,
+              step.id,
+              step.result,
+              capability,
+            );
+            agentsStore.upsertPlan(stepPlan);
+            activePlan = stepPlan;
+            plan = stepPlan;
+            continue;
+          }
+          if (capability?.mutating) {
+            stepPlan = updatePlanStep(stepPlan, step.id, { status: "running" });
+            agentsStore.upsertPlan(stepPlan);
+            activePlan = stepPlan;
+            plan = stepPlan;
+          }
+
           const startedAt = Date.now();
           recordEvent(
             createStepExecution({
@@ -590,11 +662,27 @@ export const agentOsService = {
             organizationId: task.organizationId,
             agentInstanceId: task.agentInstanceId,
             taskId: task.id,
-            params: { step: step.title, goal, ...task.input },
+            params: capability
+              ? capabilityExecutionContext({
+                  goal,
+                  step,
+                  taskInput: task.input,
+                  plan: activePlan,
+                  capability,
+                })
+              : { step: step.title, goal, ...task.input },
           });
           agentsStore.bumpToolInvocations();
           if (!result.ok) throw new Error(result.error ?? "Tool failed");
-          stepPlan = markStepStatus(stepPlan, step.id, "completed");
+          if (capability?.mutating && !noteIdFromOutput(result.output)) {
+            throw new Error("CRM note was not created.");
+          }
+          if (capability?.verifies && !outputVerified(result.output)) {
+            throw new Error("CRM note was not verified.");
+          }
+          stepPlan = capability
+            ? applyCapabilityStepSuccess(stepPlan, step.id, result.output, capability)
+            : markStepStatus(stepPlan, step.id, "completed");
           agentsStore.upsertPlan(stepPlan);
           activePlan = stepPlan;
           plan = stepPlan;
@@ -612,7 +700,7 @@ export const agentOsService = {
               input: { step: step.title, goal },
               result: result.output,
               durationMs: Date.now() - startedAt,
-              approvalState: tool?.requiresApproval ? "APPROVED" : undefined,
+              approvalState: requiresApproval ? "APPROVED" : undefined,
             }),
           );
         } else {
@@ -633,6 +721,20 @@ export const agentOsService = {
             }),
           );
         }
+      }
+
+      if (isOrchestrationPlan(activePlan)) {
+        const gate = orchestrationPlanGate(activePlan);
+        if (gate === "waiting") return task;
+        if (gate !== "ok") {
+          throw new Error(
+            gate === "failed"
+              ? "A plan step failed"
+              : "Plan did not finish every step",
+          );
+        }
+        activePlan = syncOrchestration(task, activePlan, "verified_complete");
+        plan = activePlan;
       }
 
       execution = updateExecution(
@@ -752,6 +854,25 @@ export const agentOsService = {
       return task;
     } catch (err) {
       const message = err instanceof Error ? err.message : "Task failed";
+      const storedPlan = task.planId
+        ? agentsStore.getSnapshot().plans.find((item) => item.id === task.planId)
+        : undefined;
+      if (isOrchestrationPlan(storedPlan)) {
+        const goal = (agentsStore.getSnapshot().businessGoals ?? []).find(
+          (item) =>
+            item.id === storedPlan.goalId &&
+            item.organizationId === task.organizationId,
+        );
+        if (goal?.status !== "completed") {
+          const failedPlan = failOrchestrationStep(
+            storedPlan,
+            execution.currentStepId,
+            message,
+          );
+          agentsStore.upsertPlan(failedPlan);
+          syncOrchestration(task, failedPlan, "failed", message);
+        }
+      }
       execution = updateExecution(
         updateExecutionLifecycle(execution, "FAILED", {
           error: message,
@@ -807,6 +928,9 @@ export const agentOsService = {
       .getSnapshot()
       .approvals.find((candidate) => candidate.id === input.approvalId);
     if (!approval) throw new Error("Approval not found");
+    if (approval.state === "APPROVED" || approval.state === "REJECTED") {
+      return approval;
+    }
     const resolved = finalizeApproval(
       approval,
       input.state,
@@ -857,6 +981,10 @@ export const agentOsService = {
     if (input.state === "APPROVED") {
       await this.resumeExecution(resolved.executionId);
     } else {
+      cancelBusinessGoalApproval(
+        resolved,
+        resolved.comment ?? resolved.reason,
+      );
       const task = agentsStore
         .getSnapshot()
         .tasks.find((candidate) => candidate.id === resolved.taskId);

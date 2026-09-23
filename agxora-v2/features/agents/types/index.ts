@@ -83,6 +83,38 @@ export type TaskStatus =
   | "retrying"
   | "blocked";
 
+/** Business goal lifecycle. A goal is the outcome, not a tool call. */
+export type BusinessGoalStatus =
+  | "draft"
+  | "active"
+  | "completed"
+  | "failed"
+  | "cancelled";
+
+/**
+ * Plan lifecycle. `waiting_for_approval` matches Agent execution
+ * `WAITING_FOR_APPROVAL`. Step `blocked` remains the approval wait.
+ */
+export type PlanLifecycleStatus =
+  | "draft"
+  | "ready"
+  | "running"
+  | "waiting_for_approval"
+  | "completed"
+  | "failed"
+  | "cancelled";
+
+/**
+ * Verification is separate from a successful tool result.
+ * A mutating step can complete with `not_required` and still leave the goal active
+ * until a later step records `verified`.
+ */
+export type StepVerificationState =
+  | "not_required"
+  | "pending"
+  | "verified"
+  | "failed";
+
 export type AgentExecutionLifecycleStatus =
   | "IDLE"
   | "UNDERSTAND"
@@ -244,6 +276,18 @@ export interface PlanStep {
   readonly dependsOn: readonly string[];
   readonly status: TaskStatus;
   readonly toolId?: ToolId;
+  /** Registered capability id. Unknown ids must not execute. */
+  readonly capabilityId?: string;
+  /** Stable UI key. Copy lives in i18n, not in this field. */
+  readonly presentationKey?: string;
+  /** Capability policy. The registry is authoritative at execution time. */
+  readonly approvalRequired?: boolean;
+  readonly reason?: string;
+  readonly result?: unknown;
+  readonly error?: string;
+  readonly verification?: StepVerificationState;
+  /** Prevents a second mutation for the same step. Not a license to retry writes. */
+  readonly idempotencyKey?: string;
 }
 
 export interface AgentPlan {
@@ -253,6 +297,28 @@ export interface AgentPlan {
   readonly taskId?: string;
   readonly goal: string;
   readonly steps: readonly PlanStep[];
+  readonly createdAt: string;
+  readonly updatedAt: string;
+  readonly status?: PlanLifecycleStatus;
+  /** Set when this plan belongs to a Business Goal. */
+  readonly goalId?: string;
+}
+
+/**
+ * What the user wants. Independent of tool calls.
+ * Tenancy is organizationId from the signed-in workspace, never a client-supplied org.
+ */
+export interface BusinessGoal {
+  readonly id: string;
+  readonly organizationId: string;
+  readonly statement: string;
+  readonly status: BusinessGoalStatus;
+  readonly planId?: string;
+  readonly taskId?: string;
+  readonly executionId?: string;
+  readonly customerId?: string;
+  readonly summary?: string;
+  readonly error?: string;
   readonly createdAt: string;
   readonly updatedAt: string;
 }
