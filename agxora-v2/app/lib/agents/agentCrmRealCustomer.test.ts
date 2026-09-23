@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { agentsStore } from "@/features/agents/store";
 import { operationsService } from "@/features/agents/execution/service";
+import { agentOsService } from "@/features/agents/services";
 import { getToolDefinition } from "@/features/agents/tools";
 import {
   createMemoryCrmBridge,
@@ -12,7 +13,7 @@ import {
   syncGrowthProfileToCrm,
 } from "@/features/agents/crm";
 import { emptyCustomerDraft } from "@/features/agents/crm/adapter";
-import type { CrmCustomerDraft, CrmCustomerRecord } from "@/app/lib/crm/directory";
+import type { CrmCustomerDraft, CrmCustomerRecord, CrmNoteRecord } from "@/app/lib/crm/directory";
 import { growthService } from "@/features/agents/growth/service";
 import {
   agentCrmHonestyKind,
@@ -260,5 +261,254 @@ describe("Day 6 real CRM Agent loop", () => {
       "Authentication required",
     );
     expect(unauthorized.status).toBe(401);
+  });
+});
+
+describe("Day 8 first-customer CRM Agent execution", () => {
+  beforeEach(() => {
+    agentsStore.reset();
+    setCrmBridgeProvider(createMemoryCrmBridge());
+  });
+
+  afterEach(() => {
+    resetCrmBridgeProvider();
+  });
+
+  it("records a real CRM note on default sync without a Growth profile", async () => {
+    const provider = createMemoryCrmBridge();
+    setCrmBridgeProvider(provider);
+    const created = await provider.createCustomer(ORG_A, draft());
+
+    const result = await handleCrmTool(
+      ctx(ORG_A, {
+        action: "sync",
+        goal: "Record a CRM follow-up note",
+      }),
+    );
+
+    expect(result.ok).toBe(true);
+    expect(result.error).toBeUndefined();
+    const output = result.output as {
+      action: string;
+      crmAvailable: boolean;
+      crmSuccess: boolean;
+      customer: { id: string };
+      note: CrmNoteRecord;
+    };
+    expect(output.action).toBe("create_note");
+    expect(output.crmAvailable).toBe(true);
+    expect(output.crmSuccess).toBe(true);
+    expect(output.customer.id).toBe(created.id);
+    expect(output.note.customerId).toBe(created.id);
+    expect(output.note.author).toBe("CRM Assistant");
+    const notes = await provider.listNotes(created.id);
+    expect(notes).toHaveLength(1);
+    expect(notes[0]?.id).toBe(output.note.id);
+    expect(notes[0]?.body).toMatch(/CRM follow-up note/);
+    expect(agentsStore.getSnapshot().growthProfiles).toHaveLength(0);
+  });
+
+  it("does not mutate CRM before approval and mutates only after approval", async () => {
+    expect(getToolDefinition("crm")?.requiresApproval).toBe(true);
+    const provider = createMemoryCrmBridge();
+    setCrmBridgeProvider(provider);
+    const created = await provider.createCustomer(ORG_A, draft());
+    agentOsService.ensureWorkspace(ORG_A);
+    const runtime = agentOsService
+      .listRuntimes(ORG_A)
+      .find((item) => item.agentId === "crm_assistant");
+    expect(runtime).toBeTruthy();
+
+    const task = await agentOsService.enqueueTask({
+      organizationId: ORG_A,
+      agentInstanceId: runtime!.instanceId,
+      title: "Record a CRM note for Acme",
+      goal: "Record a CRM note for Acme",
+    });
+    expect(task.status).toBe("blocked");
+    expect(task.error).toBeUndefined();
+    expect(await provider.listNotes(created.id)).toHaveLength(0);
+
+    const approval = agentOsService
+      .listApprovals(ORG_A)
+      .find((item) => item.taskId === task.id);
+    expect(approval?.state).toBe("REQUIRES_APPROVAL");
+    expect(approval?.toolId).toBe("crm");
+
+    await agentOsService.resolveApproval({
+      approvalId: approval!.id,
+      state: "APPROVED",
+      decidedBy: "tester",
+    });
+
+    const completed = agentsStore
+      .getSnapshot()
+      .tasks.find((item) => item.id === task.id);
+    expect(completed?.status).toBe("completed");
+    expect(completed?.error).toBeUndefined();
+    const notes = await provider.listNotes(created.id);
+    expect(notes).toHaveLength(1);
+    expect(notes[0]?.author).toBe("CRM Assistant");
+    expect(notes[0]?.body).toMatch(/Record a CRM note for Acme/);
+    const tools = completed?.output as { tools?: readonly unknown[] } | undefined;
+    expect(JSON.stringify(tools)).toMatch(/"crmSuccess":true/);
+    expect(JSON.stringify(completed)).not.toMatch(/simulated":true/);
+  });
+
+  it("returns a real failure and does not mark the task completed when CRM is unavailable", async () => {
+    setCrmBridgeProvider(createUnavailableCrmBridge());
+    const unavailable = await handleCrmTool(
+      ctx(ORG_A, {
+        action: "sync",
+        goal: "Record a CRM note",
+      }),
+    );
+    expect(unavailable.ok).toBe(false);
+    expect((unavailable.output as { crmSuccess: boolean }).crmSuccess).toBe(
+      false,
+    );
+    expect(unavailable.error).toMatch(/unavailable/i);
+
+    const base = createMemoryCrmBridge();
+    const created = await base.createCustomer(ORG_A, draft());
+    setCrmBridgeProvider({
+      ...base,
+      async createNote() {
+        throw new Error("crm_note_write_failed");
+      },
+    });
+    agentOsService.ensureWorkspace(ORG_A);
+    const runtime = agentOsService
+      .listRuntimes(ORG_A)
+      .find((item) => item.agentId === "crm_assistant");
+
+    const task = await agentOsService.enqueueTask({
+      organizationId: ORG_A,
+      agentInstanceId: runtime!.instanceId,
+      title: "Record a CRM note",
+      goal: "Record a CRM note",
+    });
+    expect(task.status).toBe("blocked");
+    expect(await base.listNotes(created.id)).toHaveLength(0);
+
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      const current = agentsStore
+        .getSnapshot()
+        .tasks.find((item) => item.id === task.id);
+      if (current?.status !== "blocked") break;
+      const approval = agentOsService
+        .listApprovals(ORG_A)
+        .find(
+          (item) =>
+            item.taskId === task.id && item.state === "REQUIRES_APPROVAL",
+        );
+      if (!approval) break;
+      await agentOsService.resolveApproval({
+        approvalId: approval.id,
+        state: "APPROVED",
+        decidedBy: "tester",
+      });
+    }
+
+    const finished = agentsStore
+      .getSnapshot()
+      .tasks.find((item) => item.id === task.id);
+    expect(finished?.status).toBe("failed");
+    expect(finished?.error).toMatch(/crm_note_write_failed|unavailable|CRM/i);
+    expect(finished?.status).not.toBe("completed");
+    expect(await base.listNotes(created.id)).toHaveLength(0);
+    expect(JSON.stringify(finished)).not.toMatch(/"crmSuccess":true/);
+    expect(
+      agentCrmHonestyKind({
+        jobStatus: "FAILED",
+        resultSuccess: false,
+      }),
+    ).toBe("failed");
+  });
+
+  it("does not report success when no CRM customer can be resolved", async () => {
+    const result = await handleCrmTool(
+      ctx(ORG_A, { action: "sync", goal: "Record a CRM note" }),
+    );
+    expect(result.ok).toBe(false);
+    expect(result.error).toMatch(/CRM customer is required/i);
+    const output = result.output as { crmSuccess: boolean; issue: string };
+    expect(output.crmSuccess).toBe(false);
+    expect(output.issue).toBe("none");
+  });
+
+  it("hides a foreign customer and does not write a note", async () => {
+    const provider = createMemoryCrmBridge();
+    setCrmBridgeProvider(provider);
+    const foreign = await provider.createCustomer(
+      ORG_B,
+      draft({ email: "hidden@other.test" }),
+    );
+    const own = await provider.createCustomer(ORG_A, draft());
+
+    const result = await handleCrmTool(
+      ctx(ORG_A, {
+        action: "create_note",
+        customerId: foreign.id,
+        organizationId: ORG_B,
+        workspaceId: "ws_b",
+      }),
+    );
+    expect(result.ok).toBe(false);
+    expect(result.error).toBe("Customer not found");
+    const output = result.output as { crmSuccess: boolean };
+    expect(output.crmSuccess).toBe(false);
+    expect(await provider.listNotes(foreign.id)).toHaveLength(0);
+    expect(await provider.listNotes(own.id)).toHaveLength(0);
+    expect(JSON.stringify(result)).not.toMatch(/other\.test/i);
+  });
+
+  it("keeps database-backed CRM as the only real mutation path", () => {
+    const adapter = readFileSync(
+      path.join(process.cwd(), "features/agents/crm/adapter.ts"),
+      "utf8",
+    );
+    const handlers = readFileSync(
+      path.join(process.cwd(), "features/agents/crm/handlers.ts"),
+      "utf8",
+    );
+    expect(adapter).toContain("isCrmDatabaseMode()");
+    expect(adapter).toContain("createDirectoryCrmBridge");
+    expect(adapter).not.toContain("localStorage");
+    expect(handlers).toContain("getCrmBridgeProvider()");
+    expect(handlers).toContain("provider.createNote");
+    expect(handlers).toContain("provider.listNotes");
+    expect(handlers).not.toContain("localStorage");
+  });
+
+  it("still requires a Growth profile for Growth CRM sync and follow-up", async () => {
+    const syncWithoutProfile = await handleCrmTool(
+      ctx(ORG_A, { action: "create_follow_up" }),
+    );
+    expect(syncWithoutProfile.ok).toBe(false);
+    expect(syncWithoutProfile.error).toMatch(/Growth profile is required/i);
+
+    const provider = createMemoryCrmBridge();
+    setCrmBridgeProvider(provider);
+    const profile = growthService.saveProfile({
+      organizationId: ORG_A,
+      seedFromBusinessOs: false,
+      draft: { companyName: "Growth Co", services: ["crm"] },
+    });
+    const before = (await provider.listCustomers(ORG_A)).length;
+    const result = await handleCrmTool(
+      ctx(ORG_A, { action: "sync", profileId: profile.id }),
+    );
+    expect(result.ok).toBe(true);
+    const output = result.output as {
+      action: string;
+      crmSuccess: boolean;
+    };
+    expect(output.action).toBe("sync");
+    expect(output.crmSuccess).toBe(true);
+    const after = await provider.listCustomers(ORG_A);
+    expect(after.length).toBe(before + 1);
+    expect(after[0]?.companyName).toBe("Growth Co");
+    expect(after[0]?.owner).toBe("Growth Agent");
   });
 });

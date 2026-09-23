@@ -23,6 +23,67 @@ export function parseRealCustomerId(
   return trimmed;
 }
 
+/** Pull the first Prisma-shaped customer UUID out of a goal or step title. */
+export function extractRealCustomerIdFromText(
+  value: string | null | undefined,
+): string | null {
+  const matches = value?.match(
+    /\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b/gi,
+  );
+  if (!matches) return null;
+  for (const match of matches) {
+    const id = parseRealCustomerId(match);
+    if (id) return id;
+  }
+  return null;
+}
+
+export type FirstCustomerCrmCustomerResolveError =
+  | AgentCrmCustomerIdIssue
+  | "none"
+  | "ambiguous";
+
+/**
+ * Resolve the CRM customer a first-customer Agent mutation may touch.
+ * An explicit invalid/mock customerId never falls back to another record.
+ */
+export function resolveFirstCustomerCrmCustomerId(input: {
+  readonly requestedId?: string | null;
+  readonly goal?: string | null;
+  readonly customerIds: readonly string[];
+}):
+  | { readonly ok: true; readonly id: string }
+  | { readonly ok: false; readonly error: FirstCustomerCrmCustomerResolveError } {
+  const requested = input.requestedId?.trim() ?? "";
+  if (requested) {
+    const issue = agentCrmCustomerIdIssue(requested);
+    if (issue) return { ok: false, error: issue };
+    return { ok: true, id: requested };
+  }
+
+  const fromGoal = extractRealCustomerIdFromText(input.goal);
+  if (fromGoal) return { ok: true, id: fromGoal };
+
+  const realIds = input.customerIds
+    .map((id) => parseRealCustomerId(id))
+    .filter((id): id is string => Boolean(id));
+  if (realIds.length === 1) return { ok: true, id: realIds[0]! };
+  if (realIds.length === 0) return { ok: false, error: "none" };
+  return { ok: false, error: "ambiguous" };
+}
+
+export function firstCustomerCrmCustomerResolveErrorMessage(
+  error: FirstCustomerCrmCustomerResolveError,
+): string {
+  if (error === "none") {
+    return "A CRM customer is required before the Agent can record a note.";
+  }
+  if (error === "ambiguous") {
+    return "customerId is required when multiple CRM customers exist.";
+  }
+  return agentCrmCustomerIdErrorMessage(error);
+}
+
 export function isMockCustomerId(value: string | null | undefined): boolean {
   const trimmed = value?.trim() ?? "";
   if (!trimmed) return false;

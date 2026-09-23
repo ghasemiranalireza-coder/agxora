@@ -22,8 +22,10 @@ import {
   AGENT_CRM_CUSTOMER_READ_FIELDS,
   agentCrmCustomerIdErrorMessage,
   agentCrmCustomerIdIssue,
+  firstCustomerCrmCustomerResolveErrorMessage,
+  resolveFirstCustomerCrmCustomerId,
 } from "@/app/lib/workspace/firstCustomerAgentCrm";
-import { getCrmBridgeProvider } from "./adapter";
+import { emptyNoteDraft, getCrmBridgeProvider } from "./adapter";
 
 function readString(
   params: Readonly<Record<string, unknown>>,
@@ -73,6 +75,144 @@ function parseFollowUpKind(value: string | undefined): CrmFollowUpKind {
     return value;
   }
   return "general";
+}
+
+const FIRST_CUSTOMER_NOTE_AUTHOR = "CRM Assistant";
+const FIRST_CUSTOMER_NOTE_TITLE = "Agent CRM note";
+
+function isFirstCustomerNoteAction(action: string): boolean {
+  return action === "create_note" || action === "attach_customer_note";
+}
+
+function isDefaultCrmSyncAction(action: string): boolean {
+  return action === "sync" || action === "attach_note";
+}
+
+async function attachFirstCustomerCrmNote(
+  ctx: ToolInvocationContext,
+  started: number,
+  requestedCustomerId: string | undefined,
+): Promise<ToolInvocationResult> {
+  const provider = getCrmBridgeProvider();
+  if (!provider.available) {
+    return {
+      ok: false,
+      error: "CRM is unavailable for the first-customer Agent path.",
+      output: {
+        action: "create_note",
+        crmAvailable: false,
+        crmSuccess: false,
+      },
+      durationMs: Date.now() - started,
+    };
+  }
+
+  try {
+    const listed = await provider.listCustomers(ctx.organizationId);
+    const resolved = resolveFirstCustomerCrmCustomerId({
+      requestedId: requestedCustomerId,
+      goal:
+        readString(ctx.params, "goal") ??
+        readString(ctx.params, "step") ??
+        readString(ctx.params, "title"),
+      customerIds: listed.map((customer) => customer.id),
+    });
+    if (!resolved.ok) {
+      const invalidId =
+        resolved.error === "missing" ||
+        resolved.error === "mock" ||
+        resolved.error === "invalid";
+      return {
+        ok: false,
+        error: firstCustomerCrmCustomerResolveErrorMessage(resolved.error),
+        output: {
+          action: "create_note",
+          crmAvailable: true,
+          crmSuccess: false,
+          issue: resolved.error,
+          ...(invalidId ? { invalidCustomerId: true } : {}),
+        },
+        durationMs: Date.now() - started,
+      };
+    }
+
+    const customer = await provider.getCustomer(resolved.id);
+    if (!customer || customer.organizationId !== ctx.organizationId) {
+      return {
+        ok: false,
+        error: "Customer not found",
+        output: {
+          action: "create_note",
+          crmAvailable: true,
+          crmSuccess: false,
+        },
+        durationMs: Date.now() - started,
+      };
+    }
+
+    const goal =
+      readString(ctx.params, "goal") ??
+      readString(ctx.params, "step") ??
+      FIRST_CUSTOMER_NOTE_TITLE;
+    const note = await provider.createNote(
+      ctx.organizationId,
+      customer.id,
+      emptyNoteDraft({
+        title: readString(ctx.params, "title") ?? FIRST_CUSTOMER_NOTE_TITLE,
+        body:
+          readString(ctx.params, "body") ??
+          readString(ctx.params, "summary") ??
+          goal,
+        author: FIRST_CUSTOMER_NOTE_AUTHOR,
+      }),
+    );
+
+    const notes = await provider.listNotes(customer.id);
+    const persisted = notes.some((item) => item.id === note.id);
+    if (!persisted) {
+      return {
+        ok: false,
+        error: "CRM note was not persisted.",
+        output: {
+          action: "create_note",
+          customerId: customer.id,
+          crmAvailable: true,
+          crmSuccess: false,
+        },
+        durationMs: Date.now() - started,
+      };
+    }
+
+    return {
+      ok: true,
+      output: {
+        action: "create_note",
+        customer: publicCustomerFields(customer),
+        note: {
+          id: note.id,
+          customerId: note.customerId,
+          title: note.title,
+          body: note.body,
+          author: note.author,
+        },
+        crmAvailable: true,
+        crmSuccess: true,
+      },
+      durationMs: Date.now() - started,
+    };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "crm_bridge_error";
+    return {
+      ok: false,
+      error: message,
+      output: {
+        action: "create_note",
+        crmAvailable: false,
+        crmSuccess: false,
+      },
+      durationMs: Date.now() - started,
+    };
+  }
 }
 
 function invalidCustomerIdResult(
@@ -470,6 +610,12 @@ export async function handleCrmTool(
     ctx.organizationId,
     readString(ctx.params, "profileId"),
   );
+  if (
+    isFirstCustomerNoteAction(action) ||
+    (!profile && isDefaultCrmSyncAction(action))
+  ) {
+    return attachFirstCustomerCrmNote(ctx, started, requestedCustomerId);
+  }
   if (!profile) {
     return {
       ok: false,
