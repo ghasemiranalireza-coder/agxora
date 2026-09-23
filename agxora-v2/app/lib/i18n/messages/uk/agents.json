@@ -1002,5 +1002,67 @@
     "providerNotConfiguredDetail": "Media generation is not configured. AGXORA will not claim that an asset was generated until a real provider succeeds.",
     "noticeRegenerateQueued": "Regeneration requested. Approve in Operations if prompted.",
     "noticePublishQueued": "Publish requested. Approve in Operations if prompted. Adapters remain unavailable until configured."
+  },
+  "businessGoal": {
+    "title": "Business goal",
+    "subtitle": "Say what you want done. AGXORA builds a plan, asks before it changes CRM, then checks that the change is really saved.",
+    "fieldLabel": "Goal",
+    "placeholder": "Prepare a CRM follow-up for this customer.",
+    "submit": "Plan and start",
+    "thisCustomer": "this customer",
+    "remains": "{count} steps still open",
+    "approvalLabel": "Requires approval",
+    "approvalYes": "Yes",
+    "approvalNo": "No",
+    "wants": "AGXORA wants to add a follow-up note to {company}.",
+    "because": "The follow-up should be recorded on the customer. Nothing is saved until you approve.",
+    "change": "What will change: a note will be added to {company}.",
+    "goalStatus": {
+      "draft": "Draft",
+      "active": "In progress",
+      "completed": "Finished",
+      "failed": "Failed",
+      "cancelled": "Cancelled"
+    },
+    "stepStatus": {
+      "pending": "Not started",
+      "running": "In progress",
+      "waiting_for_approval": "Waiting for approval",
+      "succeeded": "Saved — confirmation still running",
+      "verified": "Verified",
+      "completed": "Done",
+      "failed": "Failed",
+      "cancelled": "Cancelled"
+    },
+    "steps": {
+      "load": {
+        "title": "Review {company}",
+        "reason": "AGXORA reads the customer record before it writes anything."
+      },
+      "prepare": {
+        "title": "Prepare the follow-up note",
+        "reason": "The note is drafted here. CRM is not changed yet."
+      },
+      "execute": {
+        "title": "Add a follow-up note to {company}",
+        "reason": "This is the only step that writes to CRM, and only after approval."
+      },
+      "verify": {
+        "title": "Confirm the note is saved",
+        "reason": "AGXORA reads the note back from CRM before it calls the goal finished."
+      }
+    },
+    "result": {
+      "verified": "CRM note created successfully for {company}.",
+      "waiting": "Waiting for approval. Nothing has been saved yet.",
+      "failed": "The follow-up did not finish.",
+      "cancelled": "The follow-up was cancelled. Nothing was saved.",
+      "working": "AGXORA is working through the plan."
+    },
+    "errors": {
+      "required": "Enter a business goal first.",
+      "unsupported": "This goal is not supported yet. Ask AGXORA to prepare a CRM follow-up.",
+      "noCrm": "The CRM assistant is not available in this workspace."
+    }
   }
 }

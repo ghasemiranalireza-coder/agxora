@@ -14,6 +14,7 @@ import { agentsStore } from "../store";
 import { isCustomerFacingAgentTool } from "../tools";
 import { agentOsService } from "../services";
 import { useAgentOperatingSystem, useProductionReadinessFromHealth } from "../hooks";
+import { BusinessGoalPanel } from "./BusinessGoalPanel";
 import { GrowthWorkspace } from "./GrowthWorkspace";
 import { CampaignWorkspace } from "./CampaignWorkspace";
 import { OperationsWorkspace } from "./OperationsWorkspace";
@@ -523,6 +524,7 @@ export function AgentOperatingSystem(): JSX.Element {
 
       {tab === "dashboard" ? (
         <>
+          <BusinessGoalPanel />
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             <Stat label={t("agents.dashboard.agents")} value={String(aos.metrics.totalAgents)} />
             <Stat label={t("agents.dashboard.active")} value={String(aos.metrics.activeAgents)} />
