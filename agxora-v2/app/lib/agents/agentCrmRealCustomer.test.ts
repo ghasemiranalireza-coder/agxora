@@ -357,6 +357,26 @@ describe("Day 8 first-customer CRM Agent execution", () => {
 
   it("returns a real failure and does not mark the task completed when CRM is unavailable", async () => {
     setCrmBridgeProvider(createUnavailableCrmBridge());
+    const unavailable = await handleCrmTool(
+      ctx(ORG_A, {
+        action: "sync",
+        goal: "Record a CRM note",
+      }),
+    );
+    expect(unavailable.ok).toBe(false);
+    expect((unavailable.output as { crmSuccess: boolean }).crmSuccess).toBe(
+      false,
+    );
+    expect(unavailable.error).toMatch(/unavailable/i);
+
+    const base = createMemoryCrmBridge();
+    const created = await base.createCustomer(ORG_A, draft());
+    setCrmBridgeProvider({
+      ...base,
+      async createNote() {
+        throw new Error("crm_note_write_failed");
+      },
+    });
     agentOsService.ensureWorkspace(ORG_A);
     const runtime = agentOsService
       .listRuntimes(ORG_A)
@@ -369,27 +389,39 @@ describe("Day 8 first-customer CRM Agent execution", () => {
       goal: "Record a CRM note",
     });
     expect(task.status).toBe("blocked");
+    expect(await base.listNotes(created.id)).toHaveLength(0);
 
-    const approval = agentOsService
-      .listApprovals(ORG_A)
-      .find((item) => item.taskId === task.id);
-    await agentOsService.resolveApproval({
-      approvalId: approval!.id,
-      state: "APPROVED",
-      decidedBy: "tester",
-    });
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      const current = agentsStore
+        .getSnapshot()
+        .tasks.find((item) => item.id === task.id);
+      if (current?.status !== "blocked") break;
+      const approval = agentOsService
+        .listApprovals(ORG_A)
+        .find(
+          (item) =>
+            item.taskId === task.id && item.state === "REQUIRES_APPROVAL",
+        );
+      if (!approval) break;
+      await agentOsService.resolveApproval({
+        approvalId: approval.id,
+        state: "APPROVED",
+        decidedBy: "tester",
+      });
+    }
 
     const finished = agentsStore
       .getSnapshot()
       .tasks.find((item) => item.id === task.id);
     expect(finished?.status).toBe("failed");
-    expect(finished?.error).toMatch(/unavailable|CRM/i);
+    expect(finished?.error).toMatch(/crm_note_write_failed|unavailable|CRM/i);
     expect(finished?.status).not.toBe("completed");
+    expect(await base.listNotes(created.id)).toHaveLength(0);
+    expect(JSON.stringify(finished)).not.toMatch(/"crmSuccess":true/);
     expect(
       agentCrmHonestyKind({
         jobStatus: "FAILED",
         resultSuccess: false,
-        crmAvailable: false,
       }),
     ).toBe("failed");
   });
