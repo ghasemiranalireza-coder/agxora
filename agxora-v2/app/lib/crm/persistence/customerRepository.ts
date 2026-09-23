@@ -7,6 +7,7 @@ import "server-only";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "../../db/prisma";
 import { PersistenceError } from "../../tenancy/errors";
+import { customerDeletePersistenceError } from "./customerDeleteConflict";
 import type { ValidatedCustomerPayload } from "../directory/validation";
 import { toCrmCustomerRecord, toDbStatus } from "./mappers";
 import type { CrmCustomerRecord } from "../directory/types";
@@ -121,7 +122,7 @@ export async function deleteCustomerRecord(
 
   try {
     await prisma.customer.delete({ where: { id: customerId } });
-  } catch {
-    throw new PersistenceError("persistence", "Failed to delete customer");
+  } catch (error) {
+    throw customerDeletePersistenceError(error);
   }
 }

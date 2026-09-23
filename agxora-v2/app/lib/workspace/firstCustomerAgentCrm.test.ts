@@ -10,9 +10,12 @@ import {
   agentCrmCustomerIdIssue,
   agentCrmHonestyKind,
   assertRealCustomerId,
+  extractRealCustomerIdFromText,
+  firstCustomerCrmCustomerResolveErrorMessage,
   isCrmCustomerIdInvalidError,
   isMockCustomerId,
   parseRealCustomerId,
+  resolveFirstCustomerCrmCustomerId,
 } from "./firstCustomerAgentCrm";
 import { FIRST_CUSTOMER_AGENT_TOOL_IDS, getToolDefinition } from "@/features/agents/tools";
 import {
@@ -58,6 +61,57 @@ describe("first-customer Agent CRM identity", () => {
         }),
       ),
     ).toBe(true);
+  });
+
+  it("resolves a first-customer CRM customer without inventing a Growth profile", () => {
+    const other = "3a2b1c0d-4e5f-4a91-8c2e-7d8f0b1a2c3d";
+    expect(extractRealCustomerIdFromText(`Record a note for ${REAL_ID}`)).toBe(
+      REAL_ID,
+    );
+    expect(
+      resolveFirstCustomerCrmCustomerId({
+        requestedId: REAL_ID,
+        goal: "sync",
+        customerIds: [REAL_ID, other],
+      }),
+    ).toEqual({ ok: true, id: REAL_ID });
+    expect(
+      resolveFirstCustomerCrmCustomerId({
+        requestedId: "cus_123",
+        goal: REAL_ID,
+        customerIds: [REAL_ID],
+      }),
+    ).toEqual({ ok: false, error: "mock" });
+    expect(
+      resolveFirstCustomerCrmCustomerId({
+        goal: `Follow up ${REAL_ID}`,
+        customerIds: [],
+      }),
+    ).toEqual({ ok: true, id: REAL_ID });
+    expect(
+      resolveFirstCustomerCrmCustomerId({
+        goal: "Record a CRM note",
+        customerIds: [REAL_ID],
+      }),
+    ).toEqual({ ok: true, id: REAL_ID });
+    expect(
+      resolveFirstCustomerCrmCustomerId({
+        goal: "Record a CRM note",
+        customerIds: [],
+      }),
+    ).toEqual({ ok: false, error: "none" });
+    expect(
+      resolveFirstCustomerCrmCustomerId({
+        goal: "Record a CRM note",
+        customerIds: [REAL_ID, other],
+      }),
+    ).toEqual({ ok: false, error: "ambiguous" });
+    expect(firstCustomerCrmCustomerResolveErrorMessage("none")).toMatch(
+      /CRM customer is required/i,
+    );
+    expect(firstCustomerCrmCustomerResolveErrorMessage("ambiguous")).toMatch(
+      /customerId is required/i,
+    );
   });
 
   it("rejects missing and malformed IDs without falling back", () => {
@@ -188,6 +242,9 @@ describe("first-customer Agent CRM identity", () => {
     expect(adapter).toContain("assertRealCustomerId");
     expect(adapter).not.toContain("agxora-customers-v1");
     expect(handlers).toContain('action === "get_customer"');
+    expect(handlers).toContain("attachFirstCustomerCrmNote");
+    expect(handlers).toContain("resolveFirstCustomerCrmCustomerId");
+    expect(handlers).not.toContain("agxora-customers-v1");
     expect(handlers).toContain("ctx.organizationId");
     expect(handlers).toContain('error: "Customer not found"');
     expect(workspace).toContain("agents.crmBridge.honesty");
