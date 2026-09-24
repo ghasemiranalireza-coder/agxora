@@ -446,6 +446,27 @@ export async function commitGovernedCrmNote(input: {
   }
 }
 
+export async function hasServerGrantedApproval(input: {
+  readonly organizationId: string;
+  readonly executionId: string;
+  readonly stepId: string;
+  readonly actorId: string;
+  readonly capabilityId: string;
+}): Promise<boolean> {
+  const row = await prisma.agentGovernedEvidence.findFirst({
+    where: {
+      organizationId: input.organizationId,
+      executionId: input.executionId,
+      stepId: input.stepId,
+      actorId: input.actorId,
+      capabilityId: input.capabilityId,
+      action: "approval.granted",
+      status: "APPROVED",
+    },
+  });
+  return Boolean(row);
+}
+
 export async function appendGovernedEvidenceDb(input: {
   readonly organizationId: string;
   readonly executionId: string;

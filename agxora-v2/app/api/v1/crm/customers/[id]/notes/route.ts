@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
-import { commitGovernedCrmNote } from "@/app/lib/agents/governedExecutionDb";
+import { commitGovernedCrmNote, hasServerGrantedApproval } from "@/app/lib/agents/governedExecutionDb";
+import { getCustomerForActor } from "@/app/lib/crm/persistence";
 import { getAgentOsStateForActor } from "@/app/lib/agents/persistence";
 import { validateNoteDraft } from "@/app/lib/crm/directory/validation";
 import { requireCurrentActor } from "@/app/lib/tenancy";
+import { assertCan } from "@/app/lib/tenancy/authorize";
 import { authorizeGovernedMutation } from "@/features/agents/evidence/governedAuthorization";
 import {
   createNoteForActor,
@@ -85,6 +87,27 @@ export async function POST(
     if (!gate.ok) {
       return NextResponse.json({ ok: false, code: "forbidden", message: gate.message }, { status: gate.status });
     }
+    const approved = await hasServerGrantedApproval({
+      organizationId: actor.organizationId,
+      executionId: gate.context.executionId,
+      stepId: gate.context.stepId,
+      actorId: actor.userId,
+      capabilityId: gate.context.capabilityId,
+    });
+    if (!approved) {
+      return NextResponse.json(
+        { ok: false, code: "forbidden", message: "This governed step is not approved." },
+        { status: 403 },
+      );
+    }
+    const customer = await getCustomerForActor(actor, customerId);
+    if (customer.organizationId !== actor.organizationId || customer.id !== customerId) {
+      return NextResponse.json({ ok: false, code: "not_found", message: "Customer not found" }, { status: 404 });
+    }
+    assertCan(actor, "customer.create", {
+      organizationId: actor.organizationId,
+      workspaceId: actor.workspaceId,
+    });
     const draft = validateNoteDraft(body.draft);
     if (!draft.ok) {
       return NextResponse.json({ ok: false, code: "validation", message: "Note validation failed" }, { status: 400 });

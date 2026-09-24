@@ -1251,6 +1251,28 @@ export const agentOsService = {
     }
 
     if (input.state === "APPROVED") {
+      if (typeof window !== "undefined") {
+        const plan = agentsStore.getSnapshot().plans.find((item) => item.id === resolved.planId);
+        const step = plan?.steps.find((item) => item.id === resolved.stepId);
+        if (step?.idempotencyKey && step.capabilityId) {
+          const response = await fetch("/api/v1/agents/governed-approval", {
+            method: "POST",
+            credentials: "include",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+              executionId: resolved.executionId,
+              stepId: resolved.stepId,
+              capabilityId: step.capabilityId,
+              idempotencyKey: step.idempotencyKey,
+              planId: resolved.planId,
+              workerId: execution?.workerId,
+            }),
+          });
+          if (!response.ok) {
+            throw new Error("Governed approval was not recorded.");
+          }
+        }
+      }
       const plan = agentsStore.getSnapshot().plans.find((item) => item.id === resolved.planId);
       if (plan) agentsStore.upsertPlan(stampApprovedCommunication(plan, resolved.stepId));
       await this.resumeExecution(resolved.executionId);

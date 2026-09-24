@@ -10,6 +10,7 @@ import {
   beginGovernedEmailAttempt,
   completeGovernedEmailAttempt,
   failGovernedEmailAttempt,
+  hasServerGrantedApproval,
 } from "@/app/lib/agents/governedExecutionDb";
 import { getAgentOsStateForActor } from "@/app/lib/agents/persistence";
 import { emailReplayDecision } from "@/features/agents/evidence/governedExecution";
@@ -103,6 +104,19 @@ export async function POST(request: Request): Promise<NextResponse> {
       return NextResponse.json(
         { ok: false, code: "forbidden", message: gate.message, delivery: "not_configured" },
         { status: gate.status },
+      );
+    }
+    const approved = await hasServerGrantedApproval({
+      organizationId: actor.organizationId,
+      executionId: gate.context.executionId,
+      stepId: gate.context.stepId,
+      actorId: actor.userId,
+      capabilityId: gate.context.capabilityId,
+    });
+    if (!approved) {
+      return NextResponse.json(
+        { ok: false, code: "forbidden", message: "This governed step is not approved.", delivery: "not_configured" },
+        { status: 403 },
       );
     }
     void body.approvalGranted;
