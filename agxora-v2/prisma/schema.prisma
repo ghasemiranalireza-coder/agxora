@@ -1154,8 +1154,10 @@ model FinanceDocumentSettings {
 /// Phase 18 — one protected Agent OS mutation per organization and idempotency key.
 enum AgentGovernedExecutionStatus {
   RESERVED
+  EXECUTING
   COMPLETED
   FAILED
+  AMBIGUOUS
 }
 
 model AgentGovernedExecution {
@@ -1175,6 +1177,8 @@ model AgentGovernedExecution {
   verificationStatus String                        @default("pending")
   /// Note id or queued delivery only. No message body, tokens, or credentials.
   outcome            Json                          @default("{}")
+  /// When the current provider attempt started. Used only to detect an abandoned email attempt.
+  attemptStartedAt   DateTime?
   createdAt          DateTime                      @default(now())
   updatedAt          DateTime                      @updatedAt
 

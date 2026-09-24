@@ -5,12 +5,15 @@
 
 import { NextResponse } from "next/server";
 import {
-  claimGovernedExecutionDb,
-  completeGovernedExecutionDb,
-  failGovernedExecutionDb,
+  ambiguousGovernedEmailAttempt,
   appendGovernedEvidenceDb,
+  beginGovernedEmailAttempt,
+  completeGovernedEmailAttempt,
+  failGovernedEmailAttempt,
 } from "@/app/lib/agents/governedExecutionDb";
+import { getAgentOsStateForActor } from "@/app/lib/agents/persistence";
 import { emailReplayDecision } from "@/features/agents/evidence/governedExecution";
+import { authorizeGovernedMutation } from "@/features/agents/evidence/governedAuthorization";
 import { deliverEmail } from "@/app/lib/email";
 import { getAppOrigin } from "@/app/lib/email/config";
 import { getCustomerForActor } from "@/app/lib/crm/persistence";
@@ -29,13 +32,18 @@ export async function POST(request: Request): Promise<NextResponse> {
       subject?: string;
       text?: string;
       idempotencyKey?: string;
+      executionId?: string;
+      stepId?: string;
       to?: string;
+      approvalGranted?: unknown;
     };
     const customerId = body.customerId?.trim() ?? "";
     const subject = body.subject?.trim() ?? "";
     const text = body.text?.trim() ?? "";
     const idempotencyKey = body.idempotencyKey?.trim() ?? "";
-    if (!customerId || !subject || !text || !idempotencyKey) {
+    const executionId = body.executionId?.trim() ?? "";
+    const stepId = body.stepId?.trim() ?? "";
+    if (!customerId || !subject || !text || !idempotencyKey || !executionId || !stepId) {
       return NextResponse.json(
         { ok: false, code: "validation", message: "Missing email fields" },
         { status: 400 },
@@ -81,14 +89,33 @@ export async function POST(request: Request): Promise<NextResponse> {
       );
     }
 
-    const claim = await claimGovernedExecutionDb({
+    const state = await getAgentOsStateForActor(actor);
+    const gate = authorizeGovernedMutation({
+      organizationId: actor.organizationId,
+      actorId: actor.userId,
+      capabilityId: "COMMUNICATION_SEND_EMAIL",
+      idempotencyKey,
+      executionId,
+      stepId,
+      state,
+    });
+    if (!gate.ok) {
+      return NextResponse.json(
+        { ok: false, code: "forbidden", message: gate.message, delivery: "not_configured" },
+        { status: gate.status },
+      );
+    }
+    void body.approvalGranted;
+    const claim = await beginGovernedEmailAttempt({
       organizationId: actor.organizationId,
       idempotencyKey,
-      executionId: idempotencyKey,
-      capabilityId: "COMMUNICATION_SEND_EMAIL",
+      executionId: gate.context.executionId,
+      businessGoalId: gate.context.businessGoalId,
+      planId: gate.context.planId,
+      stepId: gate.context.stepId,
+      capabilityId: gate.context.capabilityId,
+      workerId: gate.context.workerId,
       actorId: actor.userId,
-      approvalRequired: true,
-      approvalGranted: false,
     });
     if (claim.kind === "replay") {
       const decision = emailReplayDecision({
@@ -117,7 +144,18 @@ export async function POST(request: Request): Promise<NextResponse> {
         replayed: true,
       });
     }
-    if (claim.kind === "in_progress") {
+    if (claim.kind === "ambiguous") {
+      return NextResponse.json(
+        {
+          ok: false,
+          code: "ambiguous",
+          message: "Email delivery is ambiguous. The message was not sent again.",
+          delivery: "not_configured",
+        },
+        { status: 409 },
+      );
+    }
+    if (claim.kind === "in_progress" || claim.kind === "mismatch") {
       return NextResponse.json(
         { ok: false, code: "conflict", message: "This email execution is already in progress.", delivery: "not_configured" },
         { status: 409 },
@@ -138,18 +176,29 @@ export async function POST(request: Request): Promise<NextResponse> {
       delivery = sent.delivery;
       error = sent.error;
     } catch (sendError) {
-      await failGovernedExecutionDb({
+      await ambiguousGovernedEmailAttempt({
         organizationId: actor.organizationId,
         idempotencyKey,
-        mutated: false,
+      });
+      await appendGovernedEvidenceDb({
+        organizationId: actor.organizationId,
+        executionId: gate.context.executionId,
+        businessGoalId: gate.context.businessGoalId,
+        planId: gate.context.planId,
+        stepId: gate.context.stepId,
+        capabilityId: gate.context.capabilityId,
+        workerId: gate.context.workerId,
+        actorId: actor.userId,
+        action: "execution.result",
+        status: "ambiguous",
+        metadata: { idempotencyKey },
       });
       throw sendError;
     }
     if (delivery !== "queued") {
-      await failGovernedExecutionDb({
+      await failGovernedEmailAttempt({
         organizationId: actor.organizationId,
         idempotencyKey,
-        mutated: false,
       });
       return NextResponse.json(
         {
@@ -160,25 +209,38 @@ export async function POST(request: Request): Promise<NextResponse> {
         { status: 502 },
       );
     }
-    await completeGovernedExecutionDb({
+    const recorded = await completeGovernedEmailAttempt({
       organizationId: actor.organizationId,
       idempotencyKey,
-      verificationStatus: "pending",
       outcome: {
         delivery: "queued",
         recipient,
         customerId: customer.id,
-        mutated: true,
       },
     });
+    if (!recorded) {
+      return NextResponse.json(
+        {
+          ok: false,
+          code: "ambiguous",
+          message: "Email delivery is ambiguous. The message was not sent again.",
+          delivery: "not_configured",
+        },
+        { status: 409 },
+      );
+    }
     await appendGovernedEvidenceDb({
       organizationId: actor.organizationId,
-      executionId: idempotencyKey,
-      capabilityId: "COMMUNICATION_SEND_EMAIL",
+      executionId: gate.context.executionId,
+      businessGoalId: gate.context.businessGoalId,
+      planId: gate.context.planId,
+      stepId: gate.context.stepId,
+      capabilityId: gate.context.capabilityId,
+      workerId: gate.context.workerId,
       actorId: actor.userId,
       action: "execution.result",
       status: "queued",
-      metadata: { customerId: customer.id },
+      metadata: { idempotencyKey, customerId: customer.id, approval: "APPROVED" },
     });
     return NextResponse.json({
       ok: true,

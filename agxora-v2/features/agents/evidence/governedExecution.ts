@@ -140,6 +140,24 @@ export function recordGovernedEvidence(input: GovernedEvidenceInput): GovernedEv
   return appendGovernedEvidence(input);
 }
 
+export const EMAIL_ATTEMPT_STALE_MS = 120_000;
+
+export function emailAttemptDecision(input: {
+  readonly status: "RESERVED" | "EXECUTING" | "COMPLETED" | "FAILED" | "AMBIGUOUS";
+  readonly mutated: boolean;
+  readonly attemptStartedAt: string;
+  readonly now: string;
+  readonly staleMs?: number;
+}): "replay" | "reopen" | "in_progress" | "ambiguous" {
+  if (input.status === "COMPLETED" || (input.status === "FAILED" && input.mutated)) return "replay";
+  if (input.status === "AMBIGUOUS") return "ambiguous";
+  if (input.status === "FAILED") return "reopen";
+  const staleMs = input.staleMs ?? EMAIL_ATTEMPT_STALE_MS;
+  const age = Date.parse(input.now) - Date.parse(input.attemptStartedAt);
+  if (Number.isFinite(age) && age > staleMs) return "ambiguous";
+  return "in_progress";
+}
+
 export function emailReplayDecision(input: {
   readonly outcome: Readonly<Record<string, unknown>>;
   readonly customerId: string;

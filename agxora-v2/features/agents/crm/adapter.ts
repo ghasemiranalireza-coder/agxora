@@ -127,8 +127,12 @@ export function createDirectoryCrmBridge(): CrmBridgeProvider {
         organizationId,
       );
     },
-    createNote(organizationId, customerId, draft, execution) {
+    async createNote(organizationId, customerId, draft, execution) {
       assertRealCustomerId(customerId);
+      if (execution?.idempotencyKey) {
+        const { agentsStore } = await import("../store");
+        await agentsStore.flushPersistence();
+      }
       return crmDirectoryService.createNoteFromDraft(
         draft,
         customerId,

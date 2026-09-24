@@ -17,6 +17,8 @@ import { agentOsService } from "@/features/agents/services";
 import { agentsStore } from "@/features/agents/store";
 import { startBusinessGoal } from "@/features/agents/orchestration/goalService";
 import { unsupportedCommunicationChannel } from "@/features/agents/orchestration/goalPlan";
+import { authorizeGovernedMutation } from "@/features/agents/evidence/governedAuthorization";
+import { emailAttemptDecision } from "@/features/agents/evidence/governedExecution";
 
 const ORG = "org_phase18_a";
 const OTHER = "org_phase18_b";
@@ -202,6 +204,104 @@ describe("Phase 18 durable governed execution", () => {
     })).toEqual({ noteId: "note_1", customerId: "cust_a" });
   });
 
+  it("rejects an unapproved or cross-tenant governed mutation and a missing key", () => {
+    const state = {
+      approvals: [{ organizationId: ORG, executionId: "aexec_1", stepId: "step_execute", state: "REQUIRES_APPROVAL" }],
+      executions: [{ id: "aexec_1", organizationId: ORG, planId: "plan_1", workerId: "worker_1", actorId: "user_1" }],
+      plans: [{
+        id: "plan_1",
+        organizationId: ORG,
+        goalId: "goal_1",
+        steps: [{ id: "step_execute", capabilityId: "CRM_CREATE_NOTE", idempotencyKey: "goal_1:execute" }],
+      }],
+      businessGoals: [{ id: "goal_1", organizationId: ORG, workerId: "worker_1", actorId: "user_1" }],
+      workers: [{ id: "worker_1", organizationId: ORG, status: "ACTIVE", allowedCapabilities: ["CRM_CREATE_NOTE"] }],
+    };
+    expect(authorizeGovernedMutation({
+      organizationId: ORG,
+      actorId: "user_1",
+      capabilityId: "CRM_CREATE_NOTE",
+      idempotencyKey: "",
+      executionId: "aexec_1",
+      stepId: "step_execute",
+      state,
+    }).ok).toBe(false);
+    expect(authorizeGovernedMutation({
+      organizationId: ORG,
+      actorId: "user_1",
+      capabilityId: "CRM_CREATE_NOTE",
+      idempotencyKey: "goal_1:execute",
+      executionId: "aexec_1",
+      stepId: "step_execute",
+      state,
+    }).ok).toBe(false);
+    const approved = {
+      ...state,
+      approvals: [{ organizationId: ORG, executionId: "aexec_1", stepId: "step_execute", state: "APPROVED" }],
+    };
+    const allowed = authorizeGovernedMutation({
+      organizationId: ORG,
+      actorId: "user_1",
+      capabilityId: "CRM_CREATE_NOTE",
+      idempotencyKey: "goal_1:execute",
+      executionId: "aexec_1",
+      stepId: "step_execute",
+      state: approved,
+    });
+    expect(allowed.ok).toBe(true);
+    expect(authorizeGovernedMutation({
+      organizationId: OTHER,
+      actorId: "user_1",
+      capabilityId: "CRM_CREATE_NOTE",
+      idempotencyKey: "goal_1:execute",
+      executionId: "aexec_1",
+      stepId: "step_execute",
+      state: approved,
+    }).ok).toBe(false);
+    expect(authorizeGovernedMutation({
+      organizationId: ORG,
+      actorId: "user_1",
+      capabilityId: "FINANCE_CREATE_INVOICE",
+      idempotencyKey: "goal_1:execute",
+      executionId: "aexec_1",
+      stepId: "step_execute",
+      state: approved,
+    }).ok).toBe(false);
+  });
+
+  it("does not resend a stale or ambiguous email attempt", () => {
+    expect(emailAttemptDecision({
+      status: "EXECUTING",
+      mutated: false,
+      attemptStartedAt: "2026-09-24T00:00:00.000Z",
+      now: "2026-09-24T00:00:05.000Z",
+    })).toBe("in_progress");
+    expect(emailAttemptDecision({
+      status: "EXECUTING",
+      mutated: false,
+      attemptStartedAt: "2026-09-24T00:00:00.000Z",
+      now: "2026-09-24T00:03:00.000Z",
+    })).toBe("ambiguous");
+    expect(emailAttemptDecision({
+      status: "AMBIGUOUS",
+      mutated: false,
+      attemptStartedAt: "2026-09-24T00:00:00.000Z",
+      now: "2026-09-24T00:10:00.000Z",
+    })).toBe("ambiguous");
+    expect(emailAttemptDecision({
+      status: "COMPLETED",
+      mutated: true,
+      attemptStartedAt: "2026-09-24T00:00:00.000Z",
+      now: "2026-09-24T00:10:00.000Z",
+    })).toBe("replay");
+    expect(emailAttemptDecision({
+      status: "FAILED",
+      mutated: false,
+      attemptStartedAt: "2026-09-24T00:00:00.000Z",
+      now: "2026-09-24T00:10:00.000Z",
+    })).toBe("reopen");
+  });
+
   it("enforces the database uniqueness constraint in the migration", () => {
     const sql = readFileSync(
       join(process.cwd(), "prisma/migrations/20260924190000_phase18_governed_execution/migration.sql"),
@@ -209,6 +309,13 @@ describe("Phase 18 durable governed execution", () => {
     );
     expect(sql).toContain('CREATE UNIQUE INDEX "agent_governed_executions_organizationId_idempotencyKey_key"');
     expect(sql).toContain("agent_governed_evidence");
+    const recovery = readFileSync(
+      join(process.cwd(), "prisma/migrations/20260924200000_phase18_execution_recovery/migration.sql"),
+      "utf8",
+    );
+    expect(recovery).toContain("EXECUTING");
+    expect(recovery).toContain("AMBIGUOUS");
+    expect(recovery).not.toContain("DROP TABLE");
     expect(sql).not.toContain("DROP TABLE");
     expect(sql).not.toContain("DELETE FROM");
   });

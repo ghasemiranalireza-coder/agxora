@@ -1,12 +1,9 @@
 import { NextResponse } from "next/server";
-import {
-  claimGovernedExecutionDb,
-  completeGovernedExecutionDb,
-  failGovernedExecutionDb,
-  appendGovernedEvidenceDb,
-} from "@/app/lib/agents/governedExecutionDb";
-import { noteReplayDecision } from "@/features/agents/evidence/governedExecution";
+import { commitGovernedCrmNote } from "@/app/lib/agents/governedExecutionDb";
+import { getAgentOsStateForActor } from "@/app/lib/agents/persistence";
+import { validateNoteDraft } from "@/app/lib/crm/directory/validation";
 import { requireCurrentActor } from "@/app/lib/tenancy";
+import { authorizeGovernedMutation } from "@/features/agents/evidence/governedAuthorization";
 import {
   createNoteForActor,
   listNotesForActor,
@@ -51,6 +48,9 @@ export async function POST(
     const body = (await request.json()) as {
       draft?: CrmNoteDraft;
       idempotencyKey?: string;
+      executionId?: string;
+      stepId?: string;
+      approvalGranted?: unknown;
     };
     if (!body?.draft || typeof body.draft !== "object") {
       return NextResponse.json(
@@ -59,68 +59,81 @@ export async function POST(
       );
     }
     const idempotencyKey = body.idempotencyKey?.trim() ?? "";
-    if (idempotencyKey) {
-      const claim = await claimGovernedExecutionDb({
-        organizationId: actor.organizationId,
-        idempotencyKey,
-        executionId: idempotencyKey,
-        capabilityId: "CRM_CREATE_NOTE",
-        actorId: actor.userId,
-        approvalRequired: true,
-        approvalGranted: false,
-      });
-      if (claim.kind === "replay") {
-        const decision = noteReplayDecision({ outcome: claim.outcome, customerId });
-        if (decision === "mismatch" || decision === "missing") {
-          return NextResponse.json(
-            { ok: false, code: "conflict", message: "This CRM note execution does not match the customer." },
-            { status: 409 },
-          );
-        }
-        return NextResponse.json({
-          ok: true,
-          note: { id: decision.noteId, customerId: decision.customerId },
-          replayed: true,
-        });
-      }
-      if (claim.kind === "in_progress") {
-        return NextResponse.json(
-          { ok: false, code: "conflict", message: "This CRM note execution is already in progress." },
-          { status: 409 },
-        );
-      }
+    const executionId = body.executionId?.trim() ?? "";
+    const stepId = body.stepId?.trim() ?? "";
+    const governed = Boolean(idempotencyKey || executionId || stepId || body.approvalGranted != null);
+    if (!governed) {
+      const note = await createNoteForActor(actor, customerId, body.draft);
+      return NextResponse.json({ ok: true, note }, { status: 201 });
     }
-    let note: Awaited<ReturnType<typeof createNoteForActor>>;
-    try {
-      note = await createNoteForActor(actor, customerId, body.draft);
-    } catch (createError) {
-      if (idempotencyKey) {
-        await failGovernedExecutionDb({
-          organizationId: actor.organizationId,
-          idempotencyKey,
-          mutated: false,
-        });
-      }
-      throw createError;
+    if (!idempotencyKey || !executionId || !stepId) {
+      return NextResponse.json(
+        { ok: false, code: "validation", message: "A governed CRM note requires an idempotency key, execution, and step." },
+        { status: 422 },
+      );
     }
-    if (idempotencyKey) {
-      await completeGovernedExecutionDb({
-        organizationId: actor.organizationId,
-        idempotencyKey,
-        verificationStatus: "pending",
-        outcome: { noteId: note.id, customerId: note.customerId, mutated: true },
-      });
-      await appendGovernedEvidenceDb({
-        organizationId: actor.organizationId,
-        executionId: idempotencyKey,
-        capabilityId: "CRM_CREATE_NOTE",
-        actorId: actor.userId,
-        action: "execution.result",
-        status: "completed",
-        metadata: { customerId: note.customerId, noteId: note.id },
-      });
+    const state = await getAgentOsStateForActor(actor);
+    const gate = authorizeGovernedMutation({
+      organizationId: actor.organizationId,
+      actorId: actor.userId,
+      capabilityId: "CRM_CREATE_NOTE",
+      idempotencyKey,
+      executionId,
+      stepId,
+      state,
+    });
+    if (!gate.ok) {
+      return NextResponse.json({ ok: false, code: "forbidden", message: gate.message }, { status: gate.status });
     }
-    return NextResponse.json({ ok: true, note }, { status: 201 });
+    const draft = validateNoteDraft(body.draft);
+    if (!draft.ok) {
+      return NextResponse.json({ ok: false, code: "validation", message: "Note validation failed" }, { status: 400 });
+    }
+    const committed = await commitGovernedCrmNote({
+      organizationId: actor.organizationId,
+      workspaceId: actor.workspaceId,
+      customerId,
+      idempotencyKey,
+      executionId: gate.context.executionId,
+      businessGoalId: gate.context.businessGoalId,
+      planId: gate.context.planId,
+      stepId: gate.context.stepId,
+      capabilityId: gate.context.capabilityId,
+      workerId: gate.context.workerId,
+      actorId: actor.userId,
+      title: draft.value.title,
+      body: draft.value.body,
+      author: draft.value.author,
+    });
+    if (committed.kind === "mismatch") {
+      return NextResponse.json(
+        { ok: false, code: "conflict", message: "This CRM note execution does not match the customer." },
+        { status: 409 },
+      );
+    }
+    if (committed.kind === "in_progress") {
+      return NextResponse.json(
+        { ok: false, code: "conflict", message: "This CRM note execution is already in progress." },
+        { status: 409 },
+      );
+    }
+    if (committed.kind !== "created" && committed.kind !== "replay") {
+      return NextResponse.json(
+        { ok: false, code: "conflict", message: "This CRM note execution is already in progress." },
+        { status: 409 },
+      );
+    }
+    return NextResponse.json({
+      ok: true,
+      replayed: committed.kind === "replay",
+      note: {
+        id: committed.noteId,
+        customerId: committed.customerId,
+        title: draft.value.title,
+        body: draft.value.body,
+        author: draft.value.author,
+      },
+    }, { status: committed.kind === "replay" ? 200 : 201 });
   } catch (error) {
     return jsonError(error);
   }
