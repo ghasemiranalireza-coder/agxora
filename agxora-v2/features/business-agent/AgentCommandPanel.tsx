@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * Legacy AgentRun command surface. Business goals do not use this panel
+ * or /api/v1/agent-runs. Supported goals run through BusinessGoalPanel.
+ */
+
 import { useCallback, useEffect, useState, type JSX } from "react";
 import { AGCommandInput } from "@/app/components/ag/AGCommandInput";
 import { AGStatus } from "@/app/components/ag/AGStatus";

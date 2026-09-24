@@ -1,5 +1,7 @@
 /**
  * Start a business goal through the existing Agent OS task runner.
+ * This path does not call /api/v1/agent-runs or the legacy AgentRun stack.
+ * Client organization, workspace, tenant, actor, and user ids are not authoritative.
  */
 
 import { agentCrmCustomerIdErrorMessage, agentCrmCustomerIdIssue } from "@/app/lib/workspace/firstCustomerAgentCrm";
@@ -14,6 +16,7 @@ import {
   isCrmFollowUpGoal,
   isCustomerReplyGoal,
 } from "./goalPlan";
+import { resolveBusinessGoalPlannerContext } from "./plannerContext";
 
 function nowIso(): string {
   return new Date().toISOString();
@@ -28,6 +31,7 @@ function createId(prefix: string): string {
 
 export async function startBusinessGoal(input: {
   readonly organizationId: string;
+  readonly clientOrganizationId?: string | null;
   readonly agentInstanceId: string;
   readonly statement: string;
   readonly customerId?: string | null;
@@ -64,18 +68,32 @@ export async function startBusinessGoal(input: {
   }
 
   const now = nowIso();
+  const plannerContext = await resolveBusinessGoalPlannerContext({
+    organizationId: input.organizationId,
+    statement,
+    customerId,
+    clientOrganizationId: input.clientOrganizationId ?? undefined,
+  });
   const goal: BusinessGoal = {
     id: createId("goal"),
     organizationId: input.organizationId,
     statement,
     status: "active",
-    customerId,
+    customerId: plannerContext.customerId ?? customerId,
     createdAt: now,
     updatedAt: now,
   };
   const plan = emailGoal
-    ? buildCustomerReplyPlan({ goal, agentInstanceId: runtime.instanceId })
-    : buildCrmFollowUpPlan({ goal, agentInstanceId: runtime.instanceId });
+    ? buildCustomerReplyPlan({
+        goal,
+        agentInstanceId: runtime.instanceId,
+        plannerContext,
+      })
+    : buildCrmFollowUpPlan({
+        goal,
+        agentInstanceId: runtime.instanceId,
+        plannerContext,
+      });
   const stored: BusinessGoal = { ...goal, planId: plan.id };
   agentsStore.upsertBusinessGoal(stored);
 
