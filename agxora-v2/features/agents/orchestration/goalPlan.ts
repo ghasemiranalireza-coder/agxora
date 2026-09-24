@@ -4,6 +4,7 @@
  */
 
 import { getCapability, type CapabilityContract } from "../capabilities/registry";
+import { plannerContextText } from "./plannerContext";
 import { createMemoryRecord } from "../memory";
 import {
   businessGoalMemoryKey,
@@ -87,6 +88,7 @@ function stepShell(
 export function buildCrmFollowUpPlan(input: {
   readonly goal: BusinessGoal;
   readonly agentInstanceId: string;
+  readonly plannerContext?: AgentPlan["plannerContext"];
 }): AgentPlan {
   const loadId = `${input.goal.id}:load`;
   const prepareId = `${input.goal.id}:prepare`;
@@ -98,6 +100,7 @@ export function buildCrmFollowUpPlan(input: {
     agentInstanceId: input.agentInstanceId,
     goalId: input.goal.id,
     goal: input.goal.statement,
+    plannerContext: input.plannerContext,
     status: "ready",
     createdAt: now,
     updatedAt: now,
@@ -134,6 +137,7 @@ export function buildCrmFollowUpPlan(input: {
 export function buildCustomerReplyPlan(input: {
   readonly goal: BusinessGoal;
   readonly agentInstanceId: string;
+  readonly plannerContext?: AgentPlan["plannerContext"];
 }): AgentPlan {
   const loadId = `${input.goal.id}:customer`;
   const prepareId = `${input.goal.id}:draft`;
@@ -145,6 +149,7 @@ export function buildCustomerReplyPlan(input: {
     agentInstanceId: input.agentInstanceId,
     goalId: input.goal.id,
     goal: input.goal.statement,
+    plannerContext: input.plannerContext,
     status: "ready",
     createdAt: now,
     updatedAt: now,
@@ -266,6 +271,7 @@ export function capabilityExecutionContext(input: {
     (step) => step.capabilityId === "CRM_CREATE_NOTE",
   );
   const noteId = noteIdFromOutput(execute?.result);
+  const contextText = plannerContextText(input.plan.plannerContext);
   return {
     ...safe,
     step: input.step.title,
@@ -287,6 +293,7 @@ export function capabilityExecutionContext(input: {
     ...(input.step.idempotencyKey
       ? { idempotencyKey: input.step.idempotencyKey }
       : {}),
+    ...(contextText ? { plannerContextText: contextText } : {}),
   };
 }
 

@@ -302,6 +302,8 @@ export interface AgentPlan {
   readonly status?: PlanLifecycleStatus;
   /** Set when this plan belongs to a Business Goal. */
   readonly goalId?: string;
+  /** Read-only facts used to prepare this plan. Not a license to mutate. */
+  readonly plannerContext?: import("../orchestration/plannerContext").BusinessGoalPlannerContext;
 }
 
 /**

@@ -96,7 +96,11 @@ async function resolveCustomer(ctx: ToolInvocationContext) {
   return { ok: true as const, customer };
 }
 
-function draftFor(customer: { id: string; companyName: string; email: string }, goal: string) {
+function draftFor(
+  customer: { id: string; companyName: string; email: string },
+  goal: string,
+  contextText?: string,
+) {
   const company = customer.companyName.trim() || "this customer";
   return {
     to: customer.email.trim(),
@@ -108,6 +112,7 @@ function draftFor(customer: { id: string; companyName: string; email: string }, 
       "",
       "This message was prepared by AGXORA and is sent only after approval.",
     ].join("\n"),
+    ...(contextText ? { context: contextText } : {}),
     customerId: customer.id,
     companyName: company,
   };
@@ -166,7 +171,7 @@ export async function handleCommunicationTool(
         readOnly: true,
         mutated: false,
         sent: false,
-        draft: draftFor(customer, goal),
+        draft: draftFor(customer, goal, readString(ctx.params, "plannerContextText")),
         customer: {
           id: customer.id,
           companyName: customer.companyName,

@@ -381,6 +381,7 @@ async function handleCrmOrchestrationAction(
       readString(ctx.params, "goal") ??
       readString(ctx.params, "step") ??
       "";
+    const contextText = readString(ctx.params, "plannerContextText");
     return {
       ok: true,
       output: {
@@ -395,6 +396,7 @@ async function handleCrmOrchestrationAction(
           customerId: customer.id,
           companyName: customer.companyName,
           author: FIRST_CUSTOMER_NOTE_AUTHOR,
+          ...(contextText ? { context: contextText } : {}),
         },
         customer: publicCustomerFields(customer),
       },

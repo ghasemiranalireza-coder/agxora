@@ -145,6 +145,20 @@ export function BusinessGoalPanel(): JSX.Element {
           <p className="text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
             {goal.statement}
           </p>
+          {plan.plannerContext ? (
+            <ul className="space-y-1" data-testid="business-goal-context">
+              {plan.plannerContext.facts.map((fact) => (
+                <li
+                  key={`${fact.provenance}:${fact.key}`}
+                  className="text-xs"
+                  data-provenance={fact.provenance}
+                  style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+                >
+                  {fact.provenance}: {fact.text}
+                </li>
+              ))}
+            </ul>
+          ) : null}
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }} data-plan-status={plan.status ?? "ready"}>
             {t(`agents.businessGoal.goalStatus.${goal.status}`)}
             {" · "}
