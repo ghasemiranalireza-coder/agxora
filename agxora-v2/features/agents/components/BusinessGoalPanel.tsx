@@ -174,6 +174,7 @@ export function BusinessGoalPanel(): JSX.Element {
                   style={{ borderColor: "var(--agx-border, rgba(255,255,255,0.08))" }}
                   data-step={step.presentationKey ?? step.id}
                   data-step-status={label}
+                  data-depends-on={step.dependsOn.join(",")}
                 >
                   <p className="text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
                     {index + 1}.{" "}
@@ -195,6 +196,13 @@ export function BusinessGoalPanel(): JSX.Element {
                     {" · "}
                     {t(`agents.businessGoal.stepStatus.${label}`)}
                   </p>
+                  {label === "waiting_for_approval" ? (
+                    <p className="text-xs" data-waiting-reason="approval" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                      {step.capabilityId === "COMMUNICATION_SEND_EMAIL"
+                        ? "Waiting for approval before sending email."
+                        : "Waiting for approval before the protected change."}
+                    </p>
+                  ) : null}
                   {step.error ? (
                     <p className="text-xs" style={{ color: "var(--agx-danger, #f87171)" }}>
                       {showMessage(t, step.error)}
