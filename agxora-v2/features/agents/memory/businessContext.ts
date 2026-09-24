@@ -35,3 +35,52 @@ export interface BusinessGoalMemoryValue {
   readonly verified: boolean;
   readonly recordedAt: string;
 }
+
+export type BusinessMemoryType =
+  | "CUSTOMER_FACT"
+  | "CUSTOMER_PREFERENCE"
+  | "BUSINESS_FACT"
+  | "BUSINESS_RULE"
+  | "CUSTOMER_INTERACTION_SUMMARY"
+  | "GOAL_OUTCOME"
+  | "OPERATIONAL_FACT";
+
+export type BusinessMemoryStatus = "UNVERIFIED" | "VERIFIED" | "STALE" | "REJECTED";
+
+export type BusinessMemoryProvenance =
+  | "CRM"
+  | "USER_INPUT"
+  | "VERIFIED_EXECUTION"
+  | "BUSINESS_GOAL"
+  | "SYSTEM"
+  | "IMPORTED_DATA";
+
+export type BusinessMemorySubject = "organization" | "customer" | "goal";
+
+export interface BusinessMemoryRevision {
+  readonly content: string;
+  readonly status: BusinessMemoryStatus;
+  readonly provenance: BusinessMemoryProvenance;
+  readonly recordedAt: string;
+}
+
+/** Stored as the value of an existing business-scoped memory record. */
+export interface BusinessMemoryValue {
+  readonly kind: "business_memory";
+  readonly subjectType: BusinessMemorySubject;
+  readonly subjectId?: string;
+  readonly memoryType: BusinessMemoryType;
+  readonly content: string;
+  readonly status: BusinessMemoryStatus;
+  readonly provenance: BusinessMemoryProvenance;
+  readonly sourceReference?: string;
+  readonly verifiedAt?: string;
+  readonly conflict: boolean;
+  readonly history: readonly BusinessMemoryRevision[];
+  readonly updatedAt: string;
+}
+
+export function isBusinessMemoryValue(value: unknown): value is BusinessMemoryValue {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  return (value as BusinessMemoryValue).kind === "business_memory";
+}
