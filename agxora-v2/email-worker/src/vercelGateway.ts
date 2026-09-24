@@ -1,11 +1,11 @@
 /**
  * Vercel has no route for the standalone Node listener in src/server.ts.
- * This function is the production entry for POST /send and GET /health.
+ * This module is bundled to api/gateway.js so production does not import .ts at runtime.
  * The path is set here because a rewrite would otherwise hide /send.
  */
 
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { handleEmailWorkerRequest } from "../src/handler.ts";
+import { handleEmailWorkerRequest } from "./handler.ts";
 
 export const config = {
   api: {
