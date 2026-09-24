@@ -5721,6 +5721,22 @@
         "verify": {
           "title": "Confirm the note is saved",
           "reason": "AGXORA reads the note back from CRM before it calls the goal finished."
+        },
+        "customer": {
+          "title": "Review {company}",
+          "reason": "AGXORA reads the customer record before it writes an email."
+        },
+        "draft": {
+          "title": "Prepare the email",
+          "reason": "The recipient, subject, and body are drafted here. No email is sent."
+        },
+        "send": {
+          "title": "Send the email to {company}",
+          "reason": "This is the only step that sends email, and only after approval."
+        },
+        "confirm": {
+          "title": "Confirm the provider accepted the email",
+          "reason": "AGXORA checks provider acceptance before it calls the goal finished. Queued is not inbox delivery."
         }
       },
       "result": {
@@ -5728,12 +5744,22 @@
         "waiting": "Waiting for approval. Nothing has been saved yet.",
         "failed": "The follow-up did not finish.",
         "cancelled": "The follow-up was cancelled. Nothing was saved.",
-        "working": "AGXORA is working through the plan."
+        "working": "AGXORA is working through the plan.",
+        "emailQueued": "Email queued for {recipient}. This means the provider accepted it, not that it reached the inbox.",
+        "emailWaiting": "Waiting for approval. No email has been sent."
       },
       "errors": {
         "required": "Enter a business goal first.",
         "unsupported": "This goal is not supported yet. Ask AGXORA to prepare a CRM follow-up.",
-        "noCrm": "The CRM assistant is not available in this workspace."
+        "noCrm": "The CRM assistant is not available in this workspace.",
+        "noEmail": "Email is not available for this assistant."
+      },
+      "email": {
+        "wants": "AGXORA wants to email {company}.",
+        "because": "Nothing is sent until you approve.",
+        "change": "What will change: one email will be queued to {company}.",
+        "to": "To",
+        "subject": "Subject"
       }
     }
   },

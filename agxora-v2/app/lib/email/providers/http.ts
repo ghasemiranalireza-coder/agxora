@@ -43,6 +43,9 @@ export function createHttpEmailProvider(config: EmailConfig): EmailProvider {
             text: message.text,
             kind: message.kind,
             actionUrl: message.actionUrl,
+            ...(message.idempotencyKey
+              ? { idempotencyKey: message.idempotencyKey }
+              : {}),
           }),
         });
 

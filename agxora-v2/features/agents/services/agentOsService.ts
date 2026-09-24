@@ -29,7 +29,7 @@ import {
   capabilityExecutionContext,
   failOrchestrationStep,
   isOrchestrationPlan,
-  noteIdFromOutput,
+  recordedMutation,
   orchestrationPlanGate,
   outputVerified,
   resolveStepCapability,
@@ -624,7 +624,7 @@ export const agentOsService = {
             }
           }
 
-          if (capability?.mutating && noteIdFromOutput(step.result)) {
+          if (capability?.mutating && recordedMutation(step.result)) {
             stepPlan = applyCapabilityStepSuccess(
               stepPlan,
               step.id,
@@ -674,11 +674,19 @@ export const agentOsService = {
           });
           agentsStore.bumpToolInvocations();
           if (!result.ok) throw new Error(result.error ?? "Tool failed");
-          if (capability?.mutating && !noteIdFromOutput(result.output)) {
-            throw new Error("CRM note was not created.");
+          if (capability?.mutating && !recordedMutation(result.output)) {
+            throw new Error(
+              capability.id.startsWith("COMMUNICATION_")
+                ? "Email was not accepted by the provider."
+                : "CRM note was not created.",
+            );
           }
           if (capability?.verifies && !outputVerified(result.output)) {
-            throw new Error("CRM note was not verified.");
+            throw new Error(
+              capability.id.startsWith("COMMUNICATION_")
+                ? "Email acceptance was not verified."
+                : "CRM note was not verified.",
+            );
           }
           stepPlan = capability
             ? applyCapabilityStepSuccess(stepPlan, step.id, result.output, capability)

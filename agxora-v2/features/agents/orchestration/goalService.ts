@@ -8,7 +8,12 @@ import { agentOsService } from "../services/agentOsService";
 import { assertWorkspaceIsolation } from "../security";
 import { agentsStore } from "../store";
 import type { BusinessGoal } from "../types";
-import { buildCrmFollowUpPlan, isCrmFollowUpGoal } from "./goalPlan";
+import {
+  buildCrmFollowUpPlan,
+  buildCustomerReplyPlan,
+  isCrmFollowUpGoal,
+  isCustomerReplyGoal,
+} from "./goalPlan";
 
 function nowIso(): string {
   return new Date().toISOString();
@@ -31,7 +36,8 @@ export async function startBusinessGoal(input: {
   if (!statement) {
     throw new Error("agents.businessGoal.errors.required");
   }
-  if (!isCrmFollowUpGoal(statement)) {
+  const emailGoal = isCustomerReplyGoal(statement);
+  if (!emailGoal && !isCrmFollowUpGoal(statement)) {
     throw new Error("agents.businessGoal.errors.unsupported");
   }
 
@@ -53,6 +59,9 @@ export async function startBusinessGoal(input: {
   if (!definition?.tools.includes("crm")) {
     throw new Error("agents.businessGoal.errors.noCrm");
   }
+  if (emailGoal && !definition.tools.includes("email")) {
+    throw new Error("agents.businessGoal.errors.noEmail");
+  }
 
   const now = nowIso();
   const goal: BusinessGoal = {
@@ -64,10 +73,9 @@ export async function startBusinessGoal(input: {
     createdAt: now,
     updatedAt: now,
   };
-  const plan = buildCrmFollowUpPlan({
-    goal,
-    agentInstanceId: runtime.instanceId,
-  });
+  const plan = emailGoal
+    ? buildCustomerReplyPlan({ goal, agentInstanceId: runtime.instanceId })
+    : buildCrmFollowUpPlan({ goal, agentInstanceId: runtime.instanceId });
   const stored: BusinessGoal = { ...goal, planId: plan.id };
   agentsStore.upsertBusinessGoal(stored);
 

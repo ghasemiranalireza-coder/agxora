@@ -30,6 +30,8 @@ export interface BusinessGoalMemoryValue {
   readonly statement: string;
   readonly customerId?: string;
   readonly noteId?: string;
+  readonly recipient?: string;
+  readonly delivery?: "queued";
   readonly verified: boolean;
   readonly recordedAt: string;
 }
