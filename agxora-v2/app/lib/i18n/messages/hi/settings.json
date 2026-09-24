@@ -283,7 +283,8 @@
     "title": "बिलिंग",
     "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
     "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
-    "openFinance": "Open Finance invoices"
+    "openFinance": "Open Finance invoices",
+    "unavailable": "AGXORA subscription billing is not available. This page cannot take payment or show a plan, invoice, or checkout."
   },
   "api": {
     "label": "एपीआई और डेवलपर्स",
@@ -291,7 +292,7 @@
     "title": "एपीआई और डेवलपर्स",
     "panelDescription": "कुंजियाँ, वेबहुक, टोकन और सैंडबॉक्स एक्सेस।",
     "openPortal": "डेवलपर पोर्टल खोलें",
-    "notice": "एकीकरण केंद्र में कुंजियाँ उत्पन्न करें, घुमाएँ और निरस्त करें। गेटवे, वेबहुक टेस्टर और एपीआई एक्सप्लोरर वहां उपलब्ध हैं।",
+    "notice": "API keys, webhooks, and sandbox access are not available.",
     "webhooks": "वेबहुक",
     "sandbox": "सैंडबॉक्स",
     "sandboxEnabled": "सक्रिय",
@@ -302,7 +303,8 @@
       "key": "चाबी",
       "scope": "दायरा",
       "lastUsed": "अंतिम समय प्रयोग हुआ"
-    }
+    },
+    "unavailable": "No live API keys or webhook endpoints are issued from this workspace."
   },
   "audit": {
     "label": "ऑडिट लॉग",
@@ -319,7 +321,8 @@
       "activity": "हाल की गतिविधि",
       "security": "सुरक्षा घटनाएँ",
       "system": "सिस्टम परिवर्तन"
-    }
+    },
+    "unavailable": "This screen does not show a live audit log. Sample audit rows are not your organization history."
   },
   "advanced": {
     "label": "विकसित",

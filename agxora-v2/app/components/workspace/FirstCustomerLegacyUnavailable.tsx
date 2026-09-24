@@ -9,9 +9,13 @@ import { FIRST_CUSTOMER_DASHBOARD_HREF } from "../../lib/workspace/firstCustomer
 export function FirstCustomerLegacyUnavailable({
   titleKey,
   descriptionKey,
+  actionHref = FIRST_CUSTOMER_DASHBOARD_HREF,
+  actionLabelKey = "dashboard.legacy.openDashboard",
 }: {
   readonly titleKey: string;
   readonly descriptionKey: string;
+  readonly actionHref?: string;
+  readonly actionLabelKey?: string;
 }): JSX.Element {
   const { t } = useLocale();
   return (
@@ -19,8 +23,8 @@ export function FirstCustomerLegacyUnavailable({
       title={t(titleKey)}
       description={t(descriptionKey)}
       footer={
-        <Link href={FIRST_CUSTOMER_DASHBOARD_HREF} style={{ textDecoration: "none" }}>
-          <Button variant="primary">{t("dashboard.legacy.openDashboard")}</Button>
+        <Link href={actionHref} style={{ textDecoration: "none" }}>
+          <Button variant="primary">{t(actionLabelKey)}</Button>
         </Link>
       }
     />

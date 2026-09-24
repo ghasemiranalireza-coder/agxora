@@ -23,6 +23,11 @@ export const HIDDEN_PRIMARY_NAV_HREFS = [
   "/dashboard/team",
   "/dashboard/email",
   "/dashboard/ai",
+  "/dashboard/social",
+  "/dashboard/integrations",
+  "/dashboard/memory",
+  "/dashboard/identity",
+  "/dashboard/profile",
 ] as const;
 
 export type PrimaryNavItem = {

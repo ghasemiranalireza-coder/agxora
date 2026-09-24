@@ -283,7 +283,8 @@
     "title": "計費",
     "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
     "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
-    "openFinance": "Open Finance invoices"
+    "openFinance": "Open Finance invoices",
+    "unavailable": "AGXORA subscription billing is not available. This page cannot take payment or show a plan, invoice, or checkout."
   },
   "api": {
     "label": "API 和開發人員",
@@ -291,7 +292,7 @@
     "title": "API 和開發人員",
     "panelDescription": "密鑰、網路鉤子、令牌和沙箱存取。",
     "openPortal": "打開開發者入口網站",
-    "notice": "在整合中心產生、輪換和撤銷密鑰。那裡提供了網關、webhook 測試器和 API 瀏覽器。",
+    "notice": "API keys, webhooks, and sandbox access are not available.",
     "webhooks": "網路鉤子",
     "sandbox": "沙盒",
     "sandboxEnabled": "啟用",
@@ -302,7 +303,8 @@
       "key": "鑰匙",
       "scope": "範圍",
       "lastUsed": "上次使用"
-    }
+    },
+    "unavailable": "No live API keys or webhook endpoints are issued from this workspace."
   },
   "audit": {
     "label": "審核日誌",
@@ -319,7 +321,8 @@
       "activity": "近期动态",
       "security": "安全事件",
       "system": "系統變更"
-    }
+    },
+    "unavailable": "This screen does not show a live audit log. Sample audit rows are not your organization history."
   },
   "advanced": {
     "label": "先進的",

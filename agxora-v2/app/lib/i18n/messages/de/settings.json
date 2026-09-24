@@ -283,7 +283,8 @@
     "title": "Abrechnung",
     "panelDescription": "AGXORA-Workspace-Tarif und Abonnement. Kundenrechnungen werden in Finanzen erstellt.",
     "notFinanceNotice": "Das ist AGXORA-Kontoabrechnung, keine Kunden-Finanzrechnungen. Erstellen und senden Sie Kundenrechnungen in Finanzen.",
-    "openFinance": "Finanzrechnungen öffnen"
+    "openFinance": "Finanzrechnungen öffnen",
+    "unavailable": "AGXORA subscription billing is not available. This page cannot take payment or show a plan, invoice, or checkout."
   },
   "api": {
     "label": "API & Entwickler",
@@ -291,7 +292,7 @@
     "title": "API & Entwickler",
     "panelDescription": "Schlüssel, Webhooks, Token und Sandbox-Zugang.",
     "openPortal": "Portal für Entwickler",
-    "notice": "Generieren, Drehen und Widerrufen von Schlüsseln im Integrationscenter. Dort stehen Gateway, Webhook-Tester und API-Explorer zur Verfügung.",
+    "notice": "API keys, webhooks, and sandbox access are not available.",
     "webhooks": "Webhooks",
     "sandbox": "Sandbox",
     "sandboxEnabled": "Aktiviert",
@@ -302,7 +303,8 @@
       "key": "Passfeder",
       "scope": "Reichweite",
       "lastUsed": "Zuletzt verwendet"
-    }
+    },
+    "unavailable": "No live API keys or webhook endpoints are issued from this workspace."
   },
   "audit": {
     "label": "Audit-Protokolle",
@@ -319,7 +321,8 @@
       "activity": "Letzte Aktivität",
       "security": "Sicherheitsereignisse",
       "system": "Die Veränderungen des Systems"
-    }
+    },
+    "unavailable": "This screen does not show a live audit log. Sample audit rows are not your organization history."
   },
   "advanced": {
     "label": "Erweitert",

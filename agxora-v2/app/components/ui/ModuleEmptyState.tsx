@@ -33,13 +33,13 @@ export function ModuleEmptyState({
     kind === "crm"
       ? "/dashboard/crm"
       : kind === "projects"
-        ? "/dashboard/projects"
+        ? "/dashboard"
         : kind === "analytics"
-          ? "/dashboard/analytics"
+          ? "/dashboard"
           : kind === "documents"
-            ? "/dashboard/documents"
+            ? "/dashboard/crm"
             : kind === "billing"
-              ? "/dashboard/billing"
+              ? "/dashboard/finance"
               : "/dashboard/agents";
 
   if (onAction) {

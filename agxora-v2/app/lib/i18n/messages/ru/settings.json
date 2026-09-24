@@ -283,7 +283,8 @@
     "title": "Биллинг",
     "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
     "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
-    "openFinance": "Open Finance invoices"
+    "openFinance": "Open Finance invoices",
+    "unavailable": "AGXORA subscription billing is not available. This page cannot take payment or show a plan, invoice, or checkout."
   },
   "api": {
     "label": "API и разработчики",
@@ -291,7 +292,7 @@
     "title": "API и разработчики",
     "panelDescription": "Ключи, вебхуки, токены и доступ к песочнице.",
     "openPortal": "Открыть портал для разработчиков",
-    "notice": "Создавайте, меняйте и отзывайте ключи в Центре интеграции. Там доступны шлюз, тестер веб-перехватчиков и проводник API.",
+    "notice": "API keys, webhooks, and sandbox access are not available.",
     "webhooks": "Вебхуки",
     "sandbox": "Песочница",
     "sandboxEnabled": "Включено",
@@ -302,7 +303,8 @@
       "key": "Ключ",
       "scope": "Объем",
       "lastUsed": "Последнее использование"
-    }
+    },
+    "unavailable": "No live API keys or webhook endpoints are issued from this workspace."
   },
   "audit": {
     "label": "Журналы аудита",
@@ -319,7 +321,8 @@
       "activity": "Недавняя активность",
       "security": "События безопасности",
       "system": "Системные изменения"
-    }
+    },
+    "unavailable": "This screen does not show a live audit log. Sample audit rows are not your organization history."
   },
   "advanced": {
     "label": "Передовой",

@@ -1,13 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState, type JSX } from "react";
+import { useCallback, useEffect, useState, type JSX } from "react";
 import { useAISettings } from "../../lib/ai";
 import type { AIProviderId } from "../../lib/ai";
 import {
   ACCENT_SWATCHES,
-  API_KEYS,
-  AUDIT_LOGS,
   DEFAULT_APPEARANCE_PREFS,
   DEFAULT_AUTOMATION_PREFS,
   DEFAULT_DOCUMENTS_PREFS,
@@ -19,9 +17,7 @@ import {
   type SettingsSectionId,
 } from "../../lib/settings";
 import { useTheme, type ThemeMode } from "../../lib/theme";
-import { Badge, Button, DataTable, EmptyState } from "../ui";
-import type { DataTableColumn } from "../ui";
-import { AccountBillingSection } from "../../../features/saas";
+import { Button, EmptyState } from "../ui";
 import { useAuth } from "../../lib/auth";
 import { isServerAuthMode } from "../../lib/auth/mode";
 import { controlPlaneClient } from "../../lib/control-plane/client";
@@ -718,6 +714,7 @@ function BillingPanel(): JSX.Element {
       description={t("settings.billing.panelDescription")}
     >
       <SettingsNotice>{t("settings.billing.notFinanceNotice")}</SettingsNotice>
+      <SettingsNotice>{t("settings.billing.unavailable")}</SettingsNotice>
       <div className="mb-4">
         <Link href="/dashboard/finance">
           <Button size="sm" variant="secondary">
@@ -725,7 +722,6 @@ function BillingPanel(): JSX.Element {
           </Button>
         </Link>
       </div>
-      <AccountBillingSection />
       <SettingsNotice>
         {t("billing.billingQuestions")}{" "}
         <Link
@@ -755,81 +751,31 @@ function BillingPanel(): JSX.Element {
 
 function ApiPanel(): JSX.Element {
   const t = useT();
-  const columns = useMemo<DataTableColumn<(typeof API_KEYS)[number]>[]>(
-    () => [
-      { key: "name", header: t("settings.api.columns.name"), render: (r) => r.name },
-      {
-        key: "prefix",
-        header: t("settings.api.columns.key"),
-        render: (r) => <span className="font-mono text-xs">{r.prefix}</span>,
-      },
-      { key: "scope", header: t("settings.api.columns.scope"), render: (r) => r.scope },
-      { key: "lastUsed", header: t("settings.api.columns.lastUsed"), render: (r) => r.lastUsed.slice(0, 10) },
-    ],
-    [t],
-  );
 
   return (
     <SettingsPanel
       title={t("settings.api.title")}
       description={t("settings.api.panelDescription")}
-      actions={
-        <Link href="/dashboard/integrations">
-          <Button size="sm" variant="primary">
-            {t("settings.api.openPortal")}
-          </Button>
-        </Link>
-      }
     >
-      <SettingsNotice>{t("settings.api.notice")}</SettingsNotice>
-      <DataTable columns={columns} rows={API_KEYS} rowKey={(r) => r.id} minWidth={640} />
-      <SettingsGrid>
-        <SettingsField label={t("settings.api.webhooks")}>
-          <SettingsInput defaultValue="https://hooks.agxora.io/v1/events" readOnly />
-        </SettingsField>
-        <SettingsField label={t("settings.api.sandbox")}>
-          <SettingsSelect defaultValue="enabled">
-            <option value="enabled">{t("settings.api.sandboxEnabled")}</option>
-            <option value="disabled">{t("settings.api.sandboxDisabled")}</option>
-          </SettingsSelect>
-        </SettingsField>
-      </SettingsGrid>
-      <SettingsNotice>{t("settings.api.tokensNotice")}</SettingsNotice>
+      <SettingsNotice>{t("settings.api.unavailable")}</SettingsNotice>
+      <EmptyState
+        title={t("settings.api.title")}
+        description={t("settings.api.notice")}
+      />
     </SettingsPanel>
   );
 }
 
 function AuditPanel(): JSX.Element {
   const t = useT();
-  const columns = useMemo<DataTableColumn<(typeof AUDIT_LOGS)[number]>[]>(
-    () => [
-      { key: "at", header: t("settings.audit.columns.when"), render: (r) => r.at.replace("T", " ").slice(0, 16) },
-      { key: "actor", header: t("settings.audit.columns.actor"), render: (r) => r.actor },
-      {
-        key: "category",
-        header: t("settings.audit.columns.category"),
-        render: (r) => (
-          <Badge
-            tone={
-              r.category === "security" ? "critical" : r.category === "system" ? "warning" : "accent"
-            }
-          >
-            {r.category === "activity"
-              ? t("settings.audit.categories.activity")
-              : r.category === "security"
-                ? t("settings.audit.categories.security")
-                : t("settings.audit.categories.system")}
-          </Badge>
-        ),
-      },
-      { key: "summary", header: t("settings.audit.columns.summary"), render: (r) => r.summary },
-    ],
-    [t],
-  );
 
   return (
     <SettingsPanel title={t("settings.audit.title")} description={t("settings.audit.panelDescription")}>
-      <DataTable columns={columns} rows={AUDIT_LOGS} rowKey={(r) => r.id} minWidth={720} />
+      <SettingsNotice>{t("settings.audit.unavailable")}</SettingsNotice>
+      <EmptyState
+        title={t("settings.audit.title")}
+        description={t("settings.audit.unavailable")}
+      />
     </SettingsPanel>
   );
 }

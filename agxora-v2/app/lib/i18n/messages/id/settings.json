@@ -283,7 +283,8 @@
     "title": "Penagihan",
     "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
     "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
-    "openFinance": "Open Finance invoices"
+    "openFinance": "Open Finance invoices",
+    "unavailable": "AGXORA subscription billing is not available. This page cannot take payment or show a plan, invoice, or checkout."
   },
   "api": {
     "label": "API & Pengembang",
@@ -291,7 +292,7 @@
     "title": "API & Pengembang",
     "panelDescription": "Kunci, webhook, token, dan akses kotak pasir.",
     "openPortal": "Buka portal pengembang",
-    "notice": "Hasilkan, putar, dan cabut kunci di Pusat Integrasi. Gateway, penguji webhook, dan penjelajah API tersedia di sana.",
+    "notice": "API keys, webhooks, and sandbox access are not available.",
     "webhooks": "Webhook",
     "sandbox": "Bak pasir",
     "sandboxEnabled": "Diaktifkan",
@@ -302,7 +303,8 @@
       "key": "Kunci",
       "scope": "Cakupan",
       "lastUsed": "Terakhir digunakan"
-    }
+    },
+    "unavailable": "No live API keys or webhook endpoints are issued from this workspace."
   },
   "audit": {
     "label": "Log Audit",
@@ -319,7 +321,8 @@
       "activity": "Aktivitas Terkini",
       "security": "Peristiwa Keamanan",
       "system": "Perubahan Sistem"
-    }
+    },
+    "unavailable": "This screen does not show a live audit log. Sample audit rows are not your organization history."
   },
   "advanced": {
     "label": "Canggih",

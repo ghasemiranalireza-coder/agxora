@@ -283,6 +283,7 @@
     "title": "Billing",
     "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
     "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+    "unavailable": "AGXORA subscription billing is not available. This page cannot take payment or show a plan, invoice, or checkout.",
     "openFinance": "Open Finance invoices"
   },
   "api": {
@@ -291,7 +292,8 @@
     "title": "API & Developers",
     "panelDescription": "Keys, webhooks, tokens, and sandbox access.",
     "openPortal": "Open developer portal",
-    "notice": "Generate, rotate, and revoke keys in the Integration Center. Gateway, webhook tester, and API explorer are available there.",
+    "notice": "API keys, webhooks, and sandbox access are not available.",
+    "unavailable": "No live API keys or webhook endpoints are issued from this workspace.",
     "webhooks": "Webhooks",
     "sandbox": "Sandbox",
     "sandboxEnabled": "Enabled",
@@ -309,6 +311,7 @@
     "description": "Activity, security, and system changes",
     "title": "Audit Logs",
     "panelDescription": "Recent activity, security events, and system changes.",
+    "unavailable": "This screen does not show a live audit log. Sample audit rows are not your organization history.",
     "columns": {
       "when": "When",
       "actor": "Actor",

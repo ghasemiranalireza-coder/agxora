@@ -1,20 +1,13 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
+import { FirstCustomerLegacyUnavailable } from "../../components/workspace/FirstCustomerLegacyUnavailable";
 
-const Page = dynamic(
-  () =>
-    import("../../../features/intelligence").then(
-      (mod) => mod.EnterpriseIntelligenceCenter,
-    ),
-  {
-    ssr: false,
-    loading: createRouteLoading("dashboard.routeLoading.analytics"),
-  },
-);
-
-export default function RoutePage(): JSX.Element {
-  return <Page />;
+export default function AnalyticsPage(): JSX.Element {
+  return (
+    <FirstCustomerLegacyUnavailable
+      titleKey="dashboard.legacy.analytics.title"
+      descriptionKey="dashboard.legacy.analytics.description"
+    />
+  );
 }
