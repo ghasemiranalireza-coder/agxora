@@ -302,6 +302,8 @@ export interface AgentPlan {
   readonly status?: PlanLifecycleStatus;
   /** Set when this plan belongs to a Business Goal. */
   readonly goalId?: string;
+  /** Earlier plan kept intact when a failure is revised. */
+  readonly previousPlanId?: string;
   /** Read-only facts used to prepare this plan. Not a license to mutate. */
   readonly plannerContext?: import("../orchestration/plannerContext").BusinessGoalPlannerContext;
 }
@@ -314,6 +316,8 @@ export interface BusinessGoal {
   readonly id: string;
   readonly organizationId: string;
   readonly statement: string;
+  readonly goalType?: "crm_follow_up" | "customer_reply" | "follow_up_and_record";
+  readonly requestedOutcome?: string;
   readonly status: BusinessGoalStatus;
   readonly planId?: string;
   readonly taskId?: string;

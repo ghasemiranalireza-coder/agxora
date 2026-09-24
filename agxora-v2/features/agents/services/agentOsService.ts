@@ -488,7 +488,9 @@ export const agentOsService = {
       });
 
       for (const step of activePlan.steps) {
-        if (step.status === "completed" || step.status === "cancelled") continue;
+        if (step.status === "completed" || step.status === "cancelled" || step.status === "failed") {
+          continue;
+        }
         if (!step.dependsOn.every((dependency) =>
           activePlan.steps.some(
             (candidate) =>

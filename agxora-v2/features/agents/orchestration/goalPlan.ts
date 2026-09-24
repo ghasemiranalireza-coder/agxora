@@ -183,6 +183,41 @@ export function buildCustomerReplyPlan(input: {
   };
 }
 
+/** Email acceptance must be verified before the CRM note is prepared. */
+export function buildFollowUpAndRecordPlan(input: {
+  readonly goal: BusinessGoal;
+  readonly agentInstanceId: string;
+  readonly plannerContext?: AgentPlan["plannerContext"];
+}): AgentPlan {
+  const loadId = `${input.goal.id}:customer`;
+  const draftId = `${input.goal.id}:draft`;
+  const sendId = `${input.goal.id}:send`;
+  const confirmId = `${input.goal.id}:confirm`;
+  const prepareId = `${input.goal.id}:prepare`;
+  const executeId = `${input.goal.id}:execute`;
+  const now = nowIso();
+  return {
+    id: createId("plan"),
+    organizationId: input.goal.organizationId,
+    agentInstanceId: input.agentInstanceId,
+    goalId: input.goal.id,
+    goal: input.goal.statement,
+    plannerContext: input.plannerContext,
+    status: "ready",
+    createdAt: now,
+    updatedAt: now,
+    steps: [
+      stepShell(input.goal.id, "customer", "Review the customer", "COMMUNICATION_LOAD_CUSTOMER", [], false),
+      stepShell(input.goal.id, "draft", "Prepare the email", "COMMUNICATION_PREPARE_EMAIL", [loadId], false),
+      stepShell(input.goal.id, "send", "Send the email", "COMMUNICATION_SEND_EMAIL", [draftId], true),
+      stepShell(input.goal.id, "confirm", "Confirm the provider accepted the email", "COMMUNICATION_VERIFY_EMAIL", [sendId], false),
+      stepShell(input.goal.id, "prepare", "Prepare the follow-up note", "CRM_PREPARE_NOTE", [confirmId], false),
+      stepShell(input.goal.id, "execute", "Add the follow-up note", "CRM_CREATE_NOTE", [prepareId], true),
+      stepShell(input.goal.id, "verify", "Confirm the note is saved", "CRM_VERIFY_NOTE", [executeId], false),
+    ],
+  };
+}
+
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) return null;
   return value as Record<string, unknown>;
