@@ -10,6 +10,7 @@ import {
   businessGoalMemoryKey,
   type BusinessGoalMemoryValue,
 } from "../memory/businessContext";
+import { auditLog } from "@/app/lib/backend/audit/logger";
 import { createBusinessMemory } from "../memory/businessMemory";
 import { updatePlanStep } from "../planning";
 import { agentsStore } from "../store";
@@ -467,6 +468,16 @@ export function syncOrchestration(
       provenance: "VERIFIED_EXECUTION",
       sourceReference: completed.planId,
     });
+    if (typeof task.input.workerId === "string" && task.input.workerId) {
+      auditLog({
+        action: "worker.execution_completed",
+        resource: "workforce_worker",
+        resourceId: task.input.workerId,
+        organizationId: task.organizationId,
+        actorUserId: typeof task.input.actorId === "string" ? task.input.actorId : undefined,
+        metadata: { goalId: completed.id, planId: completed.planId ?? "", executionId: task.executionId ?? "" },
+      });
+    }
     return nextPlan;
   }
 

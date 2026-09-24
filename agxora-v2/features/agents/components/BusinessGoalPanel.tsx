@@ -46,6 +46,7 @@ export function BusinessGoalPanel(): JSX.Element {
   const t = useT();
   const aos = useAgentOperatingSystem();
   const [statement, setStatement] = useState("");
+  const [workerId, setWorkerId] = useState("");
   const [busy, setBusy] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
   const goal: BusinessGoal | undefined = aos.businessGoals[0];
@@ -84,6 +85,8 @@ export function BusinessGoalPanel(): JSX.Element {
         organizationId: aos.organizationId,
         agentInstanceId: runtime.instanceId,
         statement,
+        workerId: workerId || undefined,
+        actorId: aos.userId ?? undefined,
       });
       setFormError(null);
       setStatement("");
@@ -131,6 +134,25 @@ export function BusinessGoalPanel(): JSX.Element {
             data-testid="business-goal-input"
           />
         </FormField>
+        {(aos.workers ?? []).length > 0 ? (
+          <label className="block space-y-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            Worker
+            <select
+              className="block w-full rounded-md border bg-transparent px-2 py-2 text-sm"
+              style={{ borderColor: "var(--agx-border, rgba(255,255,255,0.08))", color: "var(--agx-text, #f8fafc)" }}
+              value={workerId}
+              data-testid="business-goal-worker"
+              onChange={(event) => setWorkerId(event.target.value)}
+            >
+              <option value="">No worker</option>
+              {(aos.workers ?? []).map((worker) => (
+                <option key={worker.id} value={worker.id}>
+                  {worker.name} ({worker.status})
+                </option>
+              ))}
+            </select>
+          </label>
+        ) : null}
         <Button type="submit" size="sm" disabled={busy || statement.trim().length === 0}>
           {t("agents.businessGoal.submit")}
         </Button>
@@ -145,6 +167,11 @@ export function BusinessGoalPanel(): JSX.Element {
           <p className="text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
             {goal.statement}
           </p>
+          {goal.workerId ? (
+            <p className="text-xs" data-testid="business-goal-worker-id" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+              Worker: {(aos.workers ?? []).find((worker) => worker.id === goal.workerId)?.name ?? goal.workerId}
+            </p>
+          ) : null}
           {plan.plannerContext ? (
             <ul className="space-y-1" data-testid="business-goal-context">
               {plan.plannerContext.facts.map((fact) => (

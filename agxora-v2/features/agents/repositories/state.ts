@@ -28,6 +28,7 @@ import type {
   AgentRuntime,
   AgentTask,
   BusinessGoal,
+  WorkforceWorker,
   KnowledgeDocument,
   MemoryRecord,
   ReasoningTrace,
@@ -74,6 +75,8 @@ export interface AgentsPersistedState {
    * Same org-scoped Agent OS document. Not a second store.
    */
   readonly businessGoals?: BusinessGoal[];
+  /** Phase 15 — workforce identities. Optional on older payloads. */
+  readonly workers?: WorkforceWorker[];
 }
 
 export type LegacyAgentsPersistedState = Partial<AgentsPersistedState> & {
@@ -128,6 +131,7 @@ export function emptyAgentsState(): AgentsPersistedState {
     crmFollowUps: [],
     creativeProjects: [],
     businessGoals: [],
+    workers: [],
   };
 }
 
@@ -171,6 +175,7 @@ export function normalizeState(
     crmFollowUps: asArray(state.crmFollowUps),
     creativeProjects: asArray(state.creativeProjects),
     businessGoals: asArray(state.businessGoals),
+    workers: asArray(state.workers),
   };
 }
 
@@ -227,6 +232,7 @@ export function filterStateForOrganization(
     crmFollowUps: byOrg(normalized.crmFollowUps, organizationId),
     creativeProjects: byOrg(normalized.creativeProjects, organizationId),
     businessGoals: byOrg(normalized.businessGoals, organizationId),
+    workers: byOrg(normalized.workers, organizationId),
   };
 }
 
@@ -262,6 +268,7 @@ export function stateContainsForeignOrganization(
     state.crmFollowUps,
     state.creativeProjects,
     state.businessGoals ?? [],
+    state.workers ?? [],
   ];
   return arrays.some((items) =>
     items.some(

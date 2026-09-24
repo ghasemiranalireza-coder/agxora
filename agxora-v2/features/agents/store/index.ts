@@ -19,6 +19,7 @@ import type {
   AgentRuntime,
   AgentTask,
   BusinessGoal,
+  WorkforceWorker,
   KnowledgeDocument,
   MemoryRecord,
   ReasoningTrace,
@@ -384,6 +385,17 @@ export const agentsStore = {
     if (idx >= 0) businessGoals[idx] = goal;
     else businessGoals.unshift(goal);
     state = { ...state, businessGoals: businessGoals.slice(0, 100) };
+    persist();
+    emit();
+  },
+
+  upsertWorker(worker: WorkforceWorker): void {
+    const current = state.workers ?? [];
+    const idx = current.findIndex((item) => item.id === worker.id);
+    const workers = [...current];
+    if (idx >= 0) workers[idx] = worker;
+    else workers.unshift(worker);
+    state = { ...state, workers: workers.slice(0, 50) };
     persist();
     emit();
   },

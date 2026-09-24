@@ -30,6 +30,30 @@ export type AgentLifecycleStatus =
 
 export type AgentHealthStatus = "healthy" | "degraded" | "down" | "unknown";
 
+export type WorkerRole =
+  | "CUSTOMER_COMMUNICATION"
+  | "SALES"
+  | "MARKETING"
+  | "FINANCE"
+  | "OPERATIONS"
+  | "EXECUTIVE";
+
+export type WorkerStatus = "DRAFT" | "ACTIVE" | "PAUSED" | "DISABLED";
+
+/** Organization workforce identity. Allowed capabilities come from the role template. */
+export interface WorkforceWorker {
+  readonly id: string;
+  readonly organizationId: string;
+  readonly key: string;
+  readonly name: string;
+  readonly role: WorkerRole;
+  readonly description: string;
+  readonly status: WorkerStatus;
+  readonly allowedCapabilities: readonly string[];
+  readonly createdAt: string;
+  readonly updatedAt: string;
+}
+
 export type ToolId =
   | "crm"
   | "projects"
@@ -323,6 +347,10 @@ export interface BusinessGoal {
   readonly taskId?: string;
   readonly executionId?: string;
   readonly customerId?: string;
+  /** Server-validated worker in the same organization. Optional for existing goals. */
+  readonly workerId?: string;
+  /** Human who started the goal. Distinct from workerId. */
+  readonly actorId?: string;
   readonly summary?: string;
   readonly error?: string;
   readonly createdAt: string;
@@ -375,6 +403,8 @@ export interface AgentExecution {
   readonly taskId: string;
   readonly planId?: string;
   readonly goal: string;
+  readonly workerId?: string;
+  readonly actorId?: string;
   readonly lifecycle: AgentExecutionLifecycleStatus;
   readonly currentStepId?: string;
   readonly result?: unknown;
