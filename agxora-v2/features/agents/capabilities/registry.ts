@@ -25,7 +25,7 @@ export interface CapabilityContract {
   readonly mutating: boolean;
   readonly approvalRequired: boolean;
   /** Describes the permission the existing CRM/session path enforces. */
-  readonly permission: "crm.read" | "crm.write";
+  readonly permission: "crm.read" | "crm.write" | "email.send";
   readonly verifies: boolean;
   readonly inputSchema: ToolInputSchema;
 }
@@ -108,6 +108,60 @@ export const CAPABILITIES: readonly CapabilityContract[] = [
       },
       ["step", "goal", "customerId", "noteId"],
     ),
+  },
+  {
+    id: "COMMUNICATION_LOAD_CUSTOMER",
+    name: "Load customer for email",
+    description: "Read the customer and contact email. Does not send.",
+    toolId: "email",
+    action: "load_customer_context",
+    mutating: false,
+    approvalRequired: false,
+    permission: "crm.read",
+    verifies: false,
+    inputSchema: objectSchema(sharedProperties),
+  },
+  {
+    id: "COMMUNICATION_PREPARE_EMAIL",
+    name: "Prepare customer email",
+    description: "Draft recipient, subject, and body. Does not send.",
+    toolId: "email",
+    action: "prepare_customer_email",
+    mutating: false,
+    approvalRequired: false,
+    permission: "crm.read",
+    verifies: false,
+    inputSchema: objectSchema(sharedProperties),
+  },
+  {
+    id: "COMMUNICATION_SEND_EMAIL",
+    name: "Send customer email",
+    description: "Send the approved draft through the server email path.",
+    toolId: "email",
+    action: "send_customer_email",
+    mutating: true,
+    approvalRequired: true,
+    permission: "email.send",
+    verifies: false,
+    inputSchema: objectSchema({
+      ...sharedProperties,
+      to: { type: "string", description: "Recipient copied from the customer record." },
+      subject: { type: "string", description: "Email subject." },
+      body: { type: "string", description: "Email body." },
+      idempotencyKey: { type: "string", description: "Prevents a second send of this step." },
+    }),
+  },
+  {
+    id: "COMMUNICATION_VERIFY_EMAIL",
+    name: "Verify email acceptance",
+    description: "Confirm the provider accepted the message. Does not claim inbox delivery.",
+    toolId: "email",
+    action: "verify_customer_email",
+    mutating: false,
+    approvalRequired: false,
+    permission: "crm.read",
+    verifies: true,
+    inputSchema: objectSchema(sharedProperties),
   },
 ];
 

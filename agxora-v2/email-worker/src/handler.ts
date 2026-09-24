@@ -14,6 +14,7 @@ export const EMAIL_KINDS = [
   "password_reset",
   "email_verification",
   "ownership_transfer",
+  "customer_message",
 ] as const;
 
 export type EmailKind = (typeof EMAIL_KINDS)[number];
@@ -25,6 +26,7 @@ export type WorkerPayload = {
   readonly text: string;
   readonly kind: string;
   readonly actionUrl: string;
+  readonly idempotencyKey?: string;
 };
 
 export type WorkerLogEvent = {
@@ -134,6 +136,14 @@ function validatePayload(
     return { ok: false, error: "invalid_action_url" };
   }
 
+  const idempotencyKey =
+    typeof record.idempotencyKey === "string" && record.idempotencyKey.trim()
+      ? record.idempotencyKey.trim()
+      : undefined;
+  if (record.idempotencyKey != null && !idempotencyKey) {
+    return { ok: false, error: "invalid_fields" };
+  }
+
   return {
     ok: true,
     payload: {
@@ -143,6 +153,7 @@ function validatePayload(
       text: String(record.text),
       kind,
       actionUrl,
+      ...(idempotencyKey ? { idempotencyKey } : {}),
     },
   };
 }
@@ -214,6 +225,7 @@ export async function handleEmailWorkerRequest(
         to: validated.payload.to,
         subject: validated.payload.subject,
         text: validated.payload.text,
+        idempotencyKey: validated.payload.idempotencyKey,
       },
       { fetch: runtime.fetch },
     );

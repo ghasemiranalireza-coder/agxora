@@ -85,6 +85,27 @@ describe("AGXORA email worker", () => {
     await expect(bad.json()).resolves.toEqual({ ok: false, error: "invalid_email" });
   });
 
+  it("accepts a customer message and forwards the idempotency key", async () => {
+    let idempotency: string | null = null;
+    const fetchImpl: typeof fetch = async (_input, init) => {
+      idempotency = new Headers(init?.headers).get("idempotency-key");
+      return new Response(JSON.stringify({ id: "msg_customer" }), { status: 200 });
+    };
+    const response = await postSend(
+      payload({
+        kind: "customer_message",
+        subject: "Reply to AGXORA E2E TEST",
+        text: "Prepared reply",
+        idempotencyKey: "goal_1:send",
+        actionUrl: "https://agxora.de/dashboard",
+      }),
+      { fetchImpl },
+    );
+    expect(response.status).toBe(200);
+    await expect(response.json()).resolves.toEqual({ ok: true, id: "msg_customer" });
+    expect(idempotency).toBe("goal_1:send");
+  });
+
   it("rejects disallowed From and unknown kinds", async () => {
     const from = await postSend({ ...payload(), from: "other@agxora.de" });
     expect(from.status).toBe(400);

@@ -15,6 +15,7 @@ import {
   handleCampaignReadinessTool,
   handleGrowthInsightsTool,
 } from "../campaigns/handlers";
+import { handleCommunicationTool } from "../communication/handlers";
 import { handleCrmTool } from "../crm/handlers";
 import {
   handleSocialPublishTool,
@@ -524,6 +525,7 @@ registerToolHandler("campaign_readiness", handleCampaignReadinessTool);
 registerToolHandler("growth_insights", handleGrowthInsightsTool);
 registerToolHandler("campaign_execute", handleCampaignExecuteTool);
 registerToolHandler("crm", handleCrmTool);
+registerToolHandler("email", handleCommunicationTool);
 registerToolHandler("finance", handleFinanceTool);
 registerToolHandler("creative", handleCreativeTool);
 registerToolHandler("creative_generate", handleCreativeGenerateTool);

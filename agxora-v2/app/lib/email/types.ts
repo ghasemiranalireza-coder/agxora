@@ -8,7 +8,8 @@ export type EmailKind =
   | "invitation"
   | "password_reset"
   | "email_verification"
-  | "ownership_transfer";
+  | "ownership_transfer"
+  | "customer_message";
 
 export type EmailMessage = {
   readonly kind: EmailKind;
@@ -17,6 +18,8 @@ export type EmailMessage = {
   readonly text: string;
   /** Absolute URL including one-time token — never log this value. */
   readonly actionUrl: string;
+  /** Same key on retry. The worker forwards it to the provider. */
+  readonly idempotencyKey?: string;
 };
 
 export type EmailSendResult =

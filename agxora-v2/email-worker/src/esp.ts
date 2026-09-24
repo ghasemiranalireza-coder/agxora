@@ -10,6 +10,7 @@ export type EspSendInput = {
   readonly to: string;
   readonly subject: string;
   readonly text: string;
+  readonly idempotencyKey?: string;
 };
 
 export type EspSendResult =
@@ -57,6 +58,9 @@ async function sendViaResend(
       authorization: `Bearer ${apiKey}`,
       "content-type": "application/json",
       accept: "application/json",
+      ...(input.idempotencyKey
+        ? { "idempotency-key": input.idempotencyKey }
+        : {}),
     },
     body: JSON.stringify({
       from: input.from,

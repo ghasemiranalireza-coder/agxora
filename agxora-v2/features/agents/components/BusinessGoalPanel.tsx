@@ -9,7 +9,9 @@ import { agentOsService } from "../services";
 import type { AgentPlan, BusinessGoal, PlanStep } from "../types";
 
 function companyName(plan: AgentPlan | undefined, fallback: string): string {
-  const load = plan?.steps.find((step) => step.presentationKey === "load");
+  const load = plan?.steps.find(
+    (step) => step.presentationKey === "load" || step.presentationKey === "customer",
+  );
   const result = load?.result;
   if (result && typeof result === "object" && result !== null && "customer" in result) {
     const customer = (result as { customer?: { companyName?: string } }).customer;
@@ -51,6 +53,14 @@ export function BusinessGoalPanel(): JSX.Element {
     ? aos.plans.find((item) => item.id === goal.planId)
     : undefined;
   const company = companyName(plan, t("agents.businessGoal.thisCustomer"));
+  const emailPlan = Boolean(
+    plan?.steps.some((step) => step.capabilityId === "COMMUNICATION_SEND_EMAIL"),
+  );
+  const draftStep = plan?.steps.find((step) => step.capabilityId === "COMMUNICATION_PREPARE_EMAIL");
+  const draftRecord =
+    draftStep?.result && typeof draftStep.result === "object" && draftStep.result !== null
+      ? (draftStep.result as { draft?: { to?: string; subject?: string; body?: string } }).draft
+      : undefined;
   const approval = goal
     ? aos.approvals.find(
         (item) => item.taskId === goal.taskId && item.state === "REQUIRES_APPROVAL",
@@ -183,13 +193,32 @@ export function BusinessGoalPanel(): JSX.Element {
           {approval ? (
             <div className="space-y-2 rounded-md border px-3 py-3" data-testid="business-goal-approval">
               <p className="text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                {t("agents.businessGoal.wants", { company })}
+                {emailPlan
+                  ? t("agents.businessGoal.email.wants", { company })
+                  : t("agents.businessGoal.wants", { company })}
+              </p>
+              {emailPlan && draftRecord ? (
+                <div className="space-y-1 text-xs" data-testid="business-goal-email-draft">
+                  <p style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    {t("agents.businessGoal.email.to")}: {draftRecord.to}
+                  </p>
+                  <p style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    {t("agents.businessGoal.email.subject")}: {draftRecord.subject}
+                  </p>
+                  <p style={{ color: "var(--agx-text, #f8fafc)", whiteSpace: "pre-wrap" }}>
+                    {draftRecord.body}
+                  </p>
+                </div>
+              ) : null}
+              <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                {emailPlan
+                  ? t("agents.businessGoal.email.because")
+                  : t("agents.businessGoal.because", { company })}
               </p>
               <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                {t("agents.businessGoal.because", { company })}
-              </p>
-              <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                {t("agents.businessGoal.change", { company })}
+                {emailPlan
+                  ? t("agents.businessGoal.email.change", { company })
+                  : t("agents.businessGoal.change", { company })}
               </p>
               <div className="flex flex-wrap gap-2">
                 <Button size="sm" variant="secondary" disabled={busy} onClick={() => void decide("APPROVED")}>
@@ -222,14 +251,22 @@ export function BusinessGoalPanel(): JSX.Element {
             }}
           >
             {goal.status === "completed"
-              ? t("agents.businessGoal.result.verified", { company })
+              ? emailPlan
+                ? t("agents.businessGoal.result.emailQueued", {
+                    recipient: draftRecord?.to ?? company,
+                  })
+                : t("agents.businessGoal.result.verified", { company })
               : goal.status === "failed"
                 ? showMessage(t, goal.error) ?? t("agents.businessGoal.result.failed")
                 : goal.status === "cancelled"
                   ? t("agents.businessGoal.result.cancelled")
-                  : approval
-                    ? t("agents.businessGoal.result.waiting")
-                    : t("agents.businessGoal.result.working")}
+                    : approval
+                      ? t(
+                          emailPlan
+                            ? "agents.businessGoal.result.emailWaiting"
+                            : "agents.businessGoal.result.waiting",
+                        )
+                      : t("agents.businessGoal.result.working")}
           </p>
         </div>
       ) : null}
