@@ -4,6 +4,11 @@
  */
 
 import { auditLog } from "@/app/lib/backend/audit/logger";
+import {
+  authorizeCapabilityExecution,
+  formatCapabilityFailure,
+  simulatedExecutionFailure,
+} from "../capabilities/registry";
 import { DEFAULT_AGENTS, getAgentDefinition } from "../catalog";
 import {
   createApproval,
@@ -58,6 +63,12 @@ function createId(prefix: string): string {
     return `${prefix}_${crypto.randomUUID()}`;
   }
   return `${prefix}_${Date.now().toString(36)}`;
+}
+
+function isUntrustedToolOutput(output: unknown): boolean {
+  if (!output || typeof output !== "object" || Array.isArray(output)) return false;
+  const record = output as { simulated?: unknown; blocked?: unknown };
+  return record.simulated === true || record.blocked === true;
 }
 
 function nowIso(): string {
@@ -493,7 +504,34 @@ export const agentOsService = {
           currentStepId: step.id,
           updatedAt: nowIso(),
         });
-        if (step.capabilityId && !capability) {
+        if (isOrchestrationPlan(activePlan)) {
+          const decision = authorizeCapabilityExecution({
+            capabilityId: step.capabilityId,
+            organizationId: task.organizationId,
+          });
+          if (!decision.ok) {
+            if (decision.failure.availability === "UNKNOWN") {
+              throw new Error(
+                `Unsupported capability: ${step.capabilityId ?? decision.failure.capabilityId}`,
+              );
+            }
+            throw new Error(formatCapabilityFailure(decision.failure));
+          }
+          if (
+            decision.capability.execution.idempotencyRequired &&
+            !step.idempotencyKey
+          ) {
+            throw new Error(
+              formatCapabilityFailure({
+                code: "capabilityUnavailable",
+                capabilityId: decision.capability.id,
+                availability: "LIVE",
+                reason: "Idempotency key is required.",
+                retryable: false,
+              }),
+            );
+          }
+        } else if (step.capabilityId && !capability) {
           throw new Error(`Unsupported capability: ${step.capabilityId}`);
         }
         if (capability?.mutating && !capability.approvalRequired) {
@@ -674,6 +712,9 @@ export const agentOsService = {
           });
           agentsStore.bumpToolInvocations();
           if (!result.ok) throw new Error(result.error ?? "Tool failed");
+          if (isOrchestrationPlan(activePlan) && isUntrustedToolOutput(result.output)) {
+            throw new Error(formatCapabilityFailure(simulatedExecutionFailure(stepToolId)));
+          }
           if (capability?.mutating && !recordedMutation(result.output)) {
             throw new Error(
               capability.id.startsWith("COMMUNICATION_")
