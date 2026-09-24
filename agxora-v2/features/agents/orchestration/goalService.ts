@@ -10,7 +10,7 @@ import { agentOsService } from "../services/agentOsService";
 import { assertWorkspaceIsolation } from "../security";
 import { agentsStore } from "../store";
 import type { BusinessGoal } from "../types";
-import { isCustomerReplyGoal } from "./goalPlan";
+import { isCustomerReplyGoal, unsupportedCommunicationChannel } from "./goalPlan";
 import { normalizeBusinessGoalIntent, planAuthorizedBusinessGoal } from "./goalPlanner";
 import { auditLog } from "@/app/lib/backend/audit/logger";
 import { assertPlanCapabilities, assertWorkerCanStart } from "../workforce/workers";
@@ -39,6 +39,10 @@ export async function startBusinessGoal(input: {
   const statement = input.statement.trim();
   if (!statement) {
     throw new Error("agents.businessGoal.errors.required");
+  }
+  const unsupported = unsupportedCommunicationChannel(statement);
+  if (unsupported) {
+    throw new Error(`capabilityUnavailable: unsupported channel ${unsupported}`);
   }
   const intent = normalizeBusinessGoalIntent(statement);
   if (!intent) {

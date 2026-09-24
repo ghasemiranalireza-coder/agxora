@@ -249,8 +249,9 @@ export function BusinessGoalPanel(): JSX.Element {
               {emailPlan && draftRecord ? (
                 <div className="space-y-1 text-xs" data-testid="business-goal-email-draft">
                   <p style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                    {t("agents.businessGoal.email.to")}: {draftRecord.to}
+                    Recipient: {draftRecord.to}
                   </p>
+                  <p style={{ color: "var(--agx-text-muted, #94a3b8)" }}>Channel: email</p>
                   <p style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                     {t("agents.businessGoal.email.subject")}: {draftRecord.subject}
                   </p>
@@ -301,9 +302,7 @@ export function BusinessGoalPanel(): JSX.Element {
           >
             {goal.status === "completed"
               ? emailPlan
-                ? t("agents.businessGoal.result.emailQueued", {
-                    recipient: draftRecord?.to ?? company,
-                  })
+                ? `Communication queued successfully for ${draftRecord?.to ?? company}. Inbox delivery was not verified.`
                 : t("agents.businessGoal.result.verified", { company })
               : goal.status === "failed"
                 ? showMessage(t, goal.error) ?? t("agents.businessGoal.result.failed")
