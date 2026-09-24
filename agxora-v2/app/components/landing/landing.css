@@ -15,8 +15,8 @@
   --p31-motion-micro: 160ms;
   --p31-motion-standard: 220ms;
   --p31-motion-large: 320ms;
-  --p31-display: var(--font-landing-display), "Syne", sans-serif;
-  --p31-body: var(--font-landing-body), "Sora", sans-serif;
+  --p31-display: system-ui, "Segoe UI", sans-serif;
+  --p31-body: system-ui, "Segoe UI", sans-serif;
   min-height: 100vh;
   color: var(--p31-ink);
   background: var(--p31-bg);

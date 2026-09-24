@@ -8,6 +8,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-geist-sans: system-ui, "Segoe UI", sans-serif;
+  --font-geist-mono: ui-monospace, "Cascadia Mono", "SFMono-Regular", monospace;
+  --font-agx-arabic: Tahoma, "Segoe UI", sans-serif;
+  --font-agx-cjk-sc: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans SC", system-ui, sans-serif;
+  --font-agx-cjk-tc: "PingFang TC", "Hiragino Sans TC", "Microsoft JhengHei", "Source Han Sans TC", system-ui, sans-serif;
+  --font-agx-cjk-jp: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", Meiryo, system-ui, sans-serif;
+  --font-agx-cjk-kr: "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", system-ui, sans-serif;
 }
 
 .agx-mobile-nav-toggle,
