@@ -3,9 +3,34 @@
   "loading": "Loading dashboard…",
   "legacy": {
     "openDashboard": "Back to dashboard",
+    "openCrm": "Open CRM",
     "projects": {
       "title": "Projects module unavailable",
       "description": "The first-customer workspace does not use the legacy Projects module."
+    },
+    "analytics": {
+      "title": "Analytics unavailable",
+      "description": "AGXORA does not show revenue, MRR, or forecast numbers until they come from your own records."
+    },
+    "automation": {
+      "title": "Automation unavailable",
+      "description": "Simulated automations are not a production workflow. Nothing on this page runs a real automation."
+    },
+    "creator": {
+      "title": "Creator unavailable",
+      "description": "There is no governed creator or campaign workforce in this workspace."
+    },
+    "social": {
+      "title": "Social channels unavailable",
+      "description": "WhatsApp, Instagram, Facebook, Messenger, and SMS are not live customer channels."
+    },
+    "integrations": {
+      "title": "Integrations unavailable",
+      "description": "Placeholder connectors are not connected accounts. No integration is live from this page."
+    },
+    "documents": {
+      "title": "Documents hub unavailable",
+      "description": "Customer files that exist today are stored on the CRM customer record, not in a separate documents product."
     }
   },
   "hero": {

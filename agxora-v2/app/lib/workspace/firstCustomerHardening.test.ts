@@ -78,7 +78,11 @@ describe("first-customer Day 7 hardening", () => {
     );
     expect(settings).not.toContain('href="/dashboard/billing"');
     expect(settings).not.toContain('href="/dashboard/ai"');
-    expect(settings).toContain("AccountBillingSection");
+    expect(settings).not.toContain("AccountBillingSection");
+    expect(settings).toContain("settings.billing.unavailable");
+    expect(settings).not.toContain("API_KEYS");
+    expect(settings).not.toContain("AUDIT_LOGS");
+    expect(settings).not.toContain('href="/dashboard/integrations"');
     expect(settings).toContain("/dashboard/finance");
     expect(settings).toContain("/dashboard/settings/finance");
     expect(settings).toContain("settings.billing.notFinanceNotice");
@@ -110,6 +114,9 @@ describe("first-customer Day 7 hardening", () => {
     );
     expect(FIRST_CUSTOMER_LEGACY_REDIRECTS["/dashboard/email"]).toBe(
       "/dashboard/settings#team",
+    );
+    expect(FIRST_CUSTOMER_LEGACY_REDIRECTS["/dashboard/memory"]).toBe(
+      "/dashboard/agents",
     );
   });
 

@@ -283,7 +283,8 @@
     "title": "請求する",
     "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
     "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
-    "openFinance": "Open Finance invoices"
+    "openFinance": "Open Finance invoices",
+    "unavailable": "AGXORA subscription billing is not available. This page cannot take payment or show a plan, invoice, or checkout."
   },
   "api": {
     "label": "APIと開発者",
@@ -291,7 +292,7 @@
     "title": "APIと開発者",
     "panelDescription": "キー、Webhook、トークン、サンドボックスへのアクセス。",
     "openPortal": "開発者ポータルを開く",
-    "notice": "統合センターでキーを生成、回転、取り消します。ゲートウェイ、Webhook テスター、API エクスプローラーがそこで利用可能です。",
+    "notice": "API keys, webhooks, and sandbox access are not available.",
     "webhooks": "Webhook",
     "sandbox": "サンドボックス",
     "sandboxEnabled": "有効",
@@ -302,7 +303,8 @@
       "key": "鍵",
       "scope": "範囲",
       "lastUsed": "最後に使用した"
-    }
+    },
+    "unavailable": "No live API keys or webhook endpoints are issued from this workspace."
   },
   "audit": {
     "label": "監査ログ",
@@ -319,7 +321,8 @@
       "activity": "最近の活動",
       "security": "セキュリティイベント",
       "system": "システム変更"
-    }
+    },
+    "unavailable": "This screen does not show a live audit log. Sample audit rows are not your organization history."
   },
   "advanced": {
     "label": "高度な",

@@ -283,7 +283,8 @@
     "title": "Facturation",
     "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
     "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
-    "openFinance": "Open Finance invoices"
+    "openFinance": "Open Finance invoices",
+    "unavailable": "AGXORA subscription billing is not available. This page cannot take payment or show a plan, invoice, or checkout."
   },
   "api": {
     "label": "API et développeurs",
@@ -291,7 +292,7 @@
     "title": "API et développeurs",
     "panelDescription": "Clés, webhooks, jetons et accès au bac à sable.",
     "openPortal": "Ouvrir le portail des développeurs",
-    "notice": "Générer, faire pivoter et révoquer des clés dans le Centre d'intégration. La passerelle, le testeur de webhook et l'explorateur d'API y sont disponibles.",
+    "notice": "API keys, webhooks, and sandbox access are not available.",
     "webhooks": "Webhook",
     "sandbox": "Bac à sable",
     "sandboxEnabled": "Activée",
@@ -302,7 +303,8 @@
       "key": "Légende",
       "scope": "Champ d’application",
       "lastUsed": "Dernière utilisation"
-    }
+    },
+    "unavailable": "No live API keys or webhook endpoints are issued from this workspace."
   },
   "audit": {
     "label": "Journaux d’audit",
@@ -319,7 +321,8 @@
       "activity": "Activité récente",
       "security": "Tout Événement de sécurité",
       "system": "Modifications du système"
-    }
+    },
+    "unavailable": "This screen does not show a live audit log. Sample audit rows are not your organization history."
   },
   "advanced": {
     "label": "Avancé",

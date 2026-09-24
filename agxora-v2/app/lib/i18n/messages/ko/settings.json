@@ -283,7 +283,8 @@
     "title": "청구",
     "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
     "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
-    "openFinance": "Open Finance invoices"
+    "openFinance": "Open Finance invoices",
+    "unavailable": "AGXORA subscription billing is not available. This page cannot take payment or show a plan, invoice, or checkout."
   },
   "api": {
     "label": "API 및 개발자",
@@ -291,7 +292,7 @@
     "title": "API 및 개발자",
     "panelDescription": "키, 웹훅, 토큰 및 샌드박스 액세스.",
     "openPortal": "개발자 포털 열기",
-    "notice": "통합 센터에서 키를 생성, 순환, 취소합니다. 게이트웨이, 웹훅 테스터 및 API 탐색기를 사용할 수 있습니다.",
+    "notice": "API keys, webhooks, and sandbox access are not available.",
     "webhooks": "웹훅",
     "sandbox": "모래 상자",
     "sandboxEnabled": "활성화됨",
@@ -302,7 +303,8 @@
       "key": "열쇠",
       "scope": "범위",
       "lastUsed": "마지막으로 사용됨"
-    }
+    },
+    "unavailable": "No live API keys or webhook endpoints are issued from this workspace."
   },
   "audit": {
     "label": "감사 로그",
@@ -319,7 +321,8 @@
       "activity": "최근 활동",
       "security": "보안 이벤트",
       "system": "시스템 변경"
-    }
+    },
+    "unavailable": "This screen does not show a live audit log. Sample audit rows are not your organization history."
   },
   "advanced": {
     "label": "고급의",

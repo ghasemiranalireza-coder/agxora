@@ -1,18 +1,13 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
+import { FirstCustomerLegacyRedirect } from "../../components/workspace/FirstCustomerLegacyRedirect";
+import { firstCustomerLegacyRedirect } from "../../lib/workspace/firstCustomerHardening";
 
-const Page = dynamic(
-  () =>
-    import("../../../features/auth").then((mod) => mod.IamIdentityWorkspace),
-  {
-    ssr: false,
-    loading: createRouteLoading("dashboard.routeLoading.identity"),
-  },
-);
-
-export default function RoutePage(): JSX.Element {
-  return <Page />;
+export default function IdentityPage(): JSX.Element {
+  return (
+    <FirstCustomerLegacyRedirect
+      href={firstCustomerLegacyRedirect("/dashboard/identity")}
+    />
+  );
 }

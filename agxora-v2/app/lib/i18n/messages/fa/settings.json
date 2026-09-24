@@ -283,7 +283,8 @@
     "title": "صورتحساب",
     "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
     "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
-    "openFinance": "Open Finance invoices"
+    "openFinance": "Open Finance invoices",
+    "unavailable": "AGXORA subscription billing is not available. This page cannot take payment or show a plan, invoice, or checkout."
   },
   "api": {
     "label": "API و توسعه‌دهندگان",
@@ -291,7 +292,7 @@
     "title": "API و توسعه‌دهندگان",
     "panelDescription": "کلیدها، وب‌هوک‌ها، توکن‌ها و دسترسی سندباکس.",
     "openPortal": "پورتال توسعه‌دهنده را باز کنید",
-    "notice": "کلیدها را در مرکز ادغام ایجاد، چرخش و لغو کنید. دروازه، تستر وب‌هوک و کاوشگر API در آنجا موجود است.",
+    "notice": "API keys, webhooks, and sandbox access are not available.",
     "webhooks": "صفحات وب",
     "sandbox": "محیط آزمایشی (SandBox)",
     "sandboxEnabled": "فعال",
@@ -302,7 +303,8 @@
       "key": "کلید",
       "scope": "محدوده",
       "lastUsed": "Last used"
-    }
+    },
+    "unavailable": "No live API keys or webhook endpoints are issued from this workspace."
   },
   "audit": {
     "label": "گزارش‌های ممیزی",
@@ -319,7 +321,8 @@
       "activity": "فعالیت اخیر",
       "security": "رویدادهای امنیتی",
       "system": "تغییرات سیستم"
-    }
+    },
+    "unavailable": "This screen does not show a live audit log. Sample audit rows are not your organization history."
   },
   "advanced": {
     "label": "پیشرفته",

@@ -90,6 +90,9 @@ export const FIRST_CUSTOMER_LEGACY_REDIRECTS = {
   "/dashboard/ai": "/dashboard/agents",
   "/dashboard/email": "/dashboard/settings#team",
   "/dashboard/billing": "/dashboard/settings#billing",
+  "/dashboard/memory": "/dashboard/agents",
+  "/dashboard/identity": "/dashboard/settings",
+  "/dashboard/profile": "/dashboard/settings",
 } as const;
 
 export type FirstCustomerLegacyRedirectHref =

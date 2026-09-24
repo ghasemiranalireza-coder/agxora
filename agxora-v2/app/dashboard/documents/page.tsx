@@ -1,17 +1,16 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
+import { FirstCustomerLegacyUnavailable } from "../../components/workspace/FirstCustomerLegacyUnavailable";
+import { FIRST_CUSTOMER_CUSTOMER_HREF } from "../../lib/workspace/firstCustomerSurface";
 
-const Page = dynamic(
-  () => import("../../components/documents").then((mod) => mod.DocumentsHubPage),
-  {
-    ssr: false,
-    loading: createRouteLoading("dashboard.routeLoading.documents"),
-  },
-);
-
-export default function RoutePage(): JSX.Element {
-  return <Page />;
+export default function DocumentsPage(): JSX.Element {
+  return (
+    <FirstCustomerLegacyUnavailable
+      titleKey="dashboard.legacy.documents.title"
+      descriptionKey="dashboard.legacy.documents.description"
+      actionHref={FIRST_CUSTOMER_CUSTOMER_HREF}
+      actionLabelKey="dashboard.legacy.openCrm"
+    />
+  );
 }

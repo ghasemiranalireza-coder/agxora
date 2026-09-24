@@ -608,6 +608,7 @@
       "title": "Penagihan",
       "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
       "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "unavailable": "AGXORA subscription billing is not available. This page cannot take payment or show a plan, invoice, or checkout.",
       "openFinance": "Open Finance invoices"
     },
     "api": {
@@ -616,7 +617,8 @@
       "title": "API & Pengembang",
       "panelDescription": "Kunci, webhook, token, dan akses kotak pasir.",
       "openPortal": "Buka portal pengembang",
-      "notice": "Hasilkan, putar, dan cabut kunci di Pusat Integrasi. Gateway, penguji webhook, dan penjelajah API tersedia di sana.",
+      "notice": "API keys, webhooks, and sandbox access are not available.",
+      "unavailable": "No live API keys or webhook endpoints are issued from this workspace.",
       "webhooks": "Webhook",
       "sandbox": "Bak pasir",
       "sandboxEnabled": "Diaktifkan",
@@ -634,6 +636,7 @@
       "description": "Perubahan aktivitas, keamanan, dan sistem",
       "title": "Log Audit",
       "panelDescription": "Aktivitas terkini, peristiwa keamanan, dan perubahan sistem.",
+      "unavailable": "This screen does not show a live audit log. Sample audit rows are not your organization history.",
       "columns": {
         "when": "Kapan",
         "actor": "Aktor",
@@ -828,9 +831,34 @@
     "loading": "Memuat dasbor…",
     "legacy": {
       "openDashboard": "Back to dashboard",
+      "openCrm": "Open CRM",
       "projects": {
         "title": "Projects module unavailable",
         "description": "The first-customer workspace does not use the legacy Projects module."
+      },
+      "analytics": {
+        "title": "Analytics unavailable",
+        "description": "AGXORA does not show revenue, MRR, or forecast numbers until they come from your own records."
+      },
+      "automation": {
+        "title": "Automation unavailable",
+        "description": "Simulated automations are not a production workflow. Nothing on this page runs a real automation."
+      },
+      "creator": {
+        "title": "Creator unavailable",
+        "description": "There is no governed creator or campaign workforce in this workspace."
+      },
+      "social": {
+        "title": "Social channels unavailable",
+        "description": "WhatsApp, Instagram, Facebook, Messenger, and SMS are not live customer channels."
+      },
+      "integrations": {
+        "title": "Integrations unavailable",
+        "description": "Placeholder connectors are not connected accounts. No integration is live from this page."
+      },
+      "documents": {
+        "title": "Documents hub unavailable",
+        "description": "Customer files that exist today are stored on the CRM customer record, not in a separate documents product."
       }
     },
     "hero": {
@@ -5688,6 +5716,13 @@
       "wants": "AGXORA wants to add a follow-up note to {company}.",
       "because": "The follow-up should be recorded on the customer. Nothing is saved until you approve.",
       "change": "What will change: a note will be added to {company}.",
+      "email": {
+        "wants": "AGXORA wants to email {company}.",
+        "because": "Nothing is sent until you approve.",
+        "change": "What will change: one email will be queued to {company}.",
+        "to": "To",
+        "subject": "Subject"
+      },
       "goalStatus": {
         "draft": "Draft",
         "active": "In progress",
@@ -5741,25 +5776,18 @@
       },
       "result": {
         "verified": "CRM note created successfully for {company}.",
+        "emailQueued": "Email queued for {recipient}. This means the provider accepted it, not that it reached the inbox.",
+        "emailWaiting": "Waiting for approval. No email has been sent.",
         "waiting": "Waiting for approval. Nothing has been saved yet.",
         "failed": "The follow-up did not finish.",
         "cancelled": "The follow-up was cancelled. Nothing was saved.",
-        "working": "AGXORA is working through the plan.",
-        "emailQueued": "Email queued for {recipient}. This means the provider accepted it, not that it reached the inbox.",
-        "emailWaiting": "Waiting for approval. No email has been sent."
+        "working": "AGXORA is working through the plan."
       },
       "errors": {
         "required": "Enter a business goal first.",
         "unsupported": "This goal is not supported yet. Ask AGXORA to prepare a CRM follow-up.",
         "noCrm": "The CRM assistant is not available in this workspace.",
         "noEmail": "Email is not available for this assistant."
-      },
-      "email": {
-        "wants": "AGXORA wants to email {company}.",
-        "because": "Nothing is sent until you approve.",
-        "change": "What will change: one email will be queued to {company}.",
-        "to": "To",
-        "subject": "Subject"
       }
     }
   },
