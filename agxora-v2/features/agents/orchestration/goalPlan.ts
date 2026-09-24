@@ -41,12 +41,30 @@ function createId(prefix: string): string {
   return `${prefix}_${Date.now().toString(36)}`;
 }
 
+const UNSUPPORTED_CHANNEL = /whatsapp|instagram|facebook messenger|messenger|sms\b/i;
+
+export function unsupportedCommunicationChannel(statement: string): string | null {
+  const match = statement.match(UNSUPPORTED_CHANNEL);
+  return match ? match[0] : null;
+}
+
 export function isCrmFollowUpGoal(statement: string): boolean {
   return /follow[\s-]?up/i.test(statement) || /prepare a crm/i.test(statement);
 }
 
 export function isCustomerReplyGoal(statement: string): boolean {
-  return /reply to/i.test(statement) || /prepare a response/i.test(statement);
+  return (
+    /reply to/i.test(statement) ||
+    /prepare a response/i.test(statement) ||
+    /contact this customer/i.test(statement) ||
+    /prepare a (follow-up |follow up )?message/i.test(statement) ||
+    /send the approved follow-up/i.test(statement) ||
+    /email this customer/i.test(statement)
+  );
+}
+
+export function isRecordOutcomeGoal(statement: string): boolean {
+  return /record (the )?(result|interaction|what happened|it)/i.test(statement);
 }
 
 export function isOrchestrationPlan(
@@ -276,6 +294,26 @@ function draftFromPlan(plan: AgentPlan): {
   };
 }
 
+function approvedDraft(plan: AgentPlan): { to?: string; subject?: string; body?: string } {
+  const send = plan.steps.find((step) => step.capabilityId === "COMMUNICATION_SEND_EMAIL");
+  const approved = asRecord(asRecord(send?.result)?.approvedDraft);
+  return {
+    to: typeof approved?.to === "string" ? approved.to : undefined,
+    subject: typeof approved?.subject === "string" ? approved.subject : undefined,
+    body: typeof approved?.body === "string" ? approved.body : undefined,
+  };
+}
+
+export function stampApprovedCommunication(plan: AgentPlan, stepId: string): AgentPlan {
+  const draft = draftFromPlan(plan);
+  if (!draft.to || !draft.subject || !draft.body) return plan;
+  const step = plan.steps.find((item) => item.id === stepId);
+  if (step?.capabilityId !== "COMMUNICATION_SEND_EMAIL") return plan;
+  return updatePlanStep(plan, stepId, {
+    result: { approvedDraft: { to: draft.to, subject: draft.subject, body: draft.body } },
+  });
+}
+
 function emailReceiptFromPlan(plan: AgentPlan): {
   delivery?: string;
   recipient?: string;
@@ -320,6 +358,9 @@ export function capabilityExecutionContext(input: {
     ...(draft.body ? { body: draft.body } : {}),
     ...(draft.to ? { to: draft.to } : {}),
     ...(draft.subject ? { subject: draft.subject } : {}),
+    ...(approvedDraft(input.plan).body ? { approvedBody: approvedDraft(input.plan).body } : {}),
+    ...(approvedDraft(input.plan).subject ? { approvedSubject: approvedDraft(input.plan).subject } : {}),
+    ...(approvedDraft(input.plan).to ? { approvedTo: approvedDraft(input.plan).to } : {}),
     ...(noteId ? { noteId } : {}),
     ...(emailReceiptFromPlan(input.plan).delivery
       ? { delivery: emailReceiptFromPlan(input.plan).delivery }
@@ -468,6 +509,19 @@ export function syncOrchestration(
       provenance: "VERIFIED_EXECUTION",
       sourceReference: completed.planId,
     });
+    if (email.delivery === "queued" && email.recipient && completed.customerId) {
+      createBusinessMemory({
+        organizationId: task.organizationId,
+        actorId: typeof task.input.actorId === "string" ? task.input.actorId : task.agentInstanceId,
+        subjectType: "customer",
+        subjectId: completed.customerId,
+        memoryType: "CUSTOMER_INTERACTION_SUMMARY",
+        content: `The customer follow-up was queued successfully for ${email.recipient}. Inbox delivery was not verified.`,
+        status: "VERIFIED",
+        provenance: "VERIFIED_EXECUTION",
+        sourceReference: task.executionId ?? completed.planId,
+      });
+    }
     if (typeof task.input.workerId === "string" && task.input.workerId) {
       auditLog({
         action: "worker.execution_completed",

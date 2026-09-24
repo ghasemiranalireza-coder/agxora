@@ -39,6 +39,7 @@ import {
   outputVerified,
   resolveStepCapability,
   syncOrchestration,
+  stampApprovedCommunication,
 } from "../orchestration/goalPlan";
 import { assertWorkerCanStart, assertWorkerCapability } from "../workforce/workers";
 import { buildReasoningTrace } from "../reasoning";
@@ -1072,6 +1073,8 @@ export const agentOsService = {
     }
 
     if (input.state === "APPROVED") {
+      const plan = agentsStore.getSnapshot().plans.find((item) => item.id === resolved.planId);
+      if (plan) agentsStore.upsertPlan(stampApprovedCommunication(plan, resolved.stepId));
       await this.resumeExecution(resolved.executionId);
     } else {
       cancelBusinessGoalApproval(

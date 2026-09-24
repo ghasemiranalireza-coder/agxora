@@ -99,6 +99,7 @@ async function resolveCustomer(ctx: ToolInvocationContext) {
 function draftFor(
   customer: { id: string; companyName: string; email: string },
   goal: string,
+  params: Readonly<Record<string, unknown>>,
   contextText?: string,
 ) {
   const company = customer.companyName.trim() || "this customer";
@@ -112,7 +113,11 @@ function draftFor(
       "",
       "This message was prepared by AGXORA and is sent only after approval.",
     ].join("\n"),
-    ...(contextText ? { context: contextText } : {}),
+    channel: "email",
+    capabilityId: "COMMUNICATION_PREPARE_EMAIL",
+    approvalRequired: true,
+    reason: contextText || "Prepared from the business goal and verified customer context.",
+    ...(readString(params, "workerId") ? { workerId: readString(params, "workerId") } : {}),
     customerId: customer.id,
     companyName: company,
   };
@@ -171,7 +176,7 @@ export async function handleCommunicationTool(
         readOnly: true,
         mutated: false,
         sent: false,
-        draft: draftFor(customer, goal, readString(ctx.params, "plannerContextText")),
+        draft: draftFor(customer, goal, ctx.params, readString(ctx.params, "plannerContextText")),
         customer: {
           id: customer.id,
           companyName: customer.companyName,
@@ -200,6 +205,21 @@ export async function handleCommunicationTool(
       return {
         ok: false,
         error: "Recipient does not match the customer email.",
+        output: { action, mutated: false, sent: false },
+        durationMs: Date.now() - started,
+      };
+    }
+    const approvedBody = readString(ctx.params, "approvedBody");
+    const approvedSubject = readString(ctx.params, "approvedSubject");
+    const approvedTo = readString(ctx.params, "approvedTo");
+    if (
+      (approvedBody && approvedBody !== text) ||
+      (approvedSubject && approvedSubject !== subject) ||
+      (approvedTo && approvedTo.toLowerCase() !== email.toLowerCase())
+    ) {
+      return {
+        ok: false,
+        error: "The prepared message changed after approval. Approve the new draft before sending.",
         output: { action, mutated: false, sent: false },
         durationMs: Date.now() - started,
       };

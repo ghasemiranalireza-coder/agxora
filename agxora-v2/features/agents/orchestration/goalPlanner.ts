@@ -13,6 +13,8 @@ import {
   buildFollowUpAndRecordPlan,
   isCrmFollowUpGoal,
   isCustomerReplyGoal,
+  isRecordOutcomeGoal,
+  unsupportedCommunicationChannel,
 } from "./goalPlan";
 
 export type BusinessGoalType = "crm_follow_up" | "customer_reply" | "follow_up_and_record";
@@ -52,10 +54,11 @@ export function normalizeBusinessGoalIntent(
   statement: string,
 ): NormalizedBusinessGoal | null {
   const objective = statement.trim();
-  if (!objective) return null;
+  if (!objective || unsupportedCommunicationChannel(objective)) return null;
   const reply = isCustomerReplyGoal(objective);
-  const followUp = isCrmFollowUpGoal(objective) || /record the result/i.test(objective);
-  if (reply && followUp) {
+  const followUp = isCrmFollowUpGoal(objective);
+  const record = isRecordOutcomeGoal(objective);
+  if (record && (reply || (followUp && !/prepare a crm/i.test(objective)))) {
     return {
       goalType: "follow_up_and_record",
       objective,

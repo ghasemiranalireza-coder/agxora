@@ -49,6 +49,19 @@ export async function POST(request: Request): Promise<NextResponse> {
       );
     }
     const recipient = customer.email.trim();
+    const requestedTo = body.to?.trim() ?? "";
+    if (requestedTo && requestedTo.toLowerCase() !== recipient.toLowerCase()) {
+      return NextResponse.json(
+        { ok: false, code: "validation", message: "Recipient does not match the customer email.", delivery: "not_configured" },
+        { status: 422 },
+      );
+    }
+    if (process.env.NODE_ENV === "production" && /@(e2e\.test|example\.com|example\.org|test\.com)$/i.test(recipient)) {
+      return NextResponse.json(
+        { ok: false, code: "validation", message: "A production recipient is required.", delivery: "not_configured" },
+        { status: 422 },
+      );
+    }
     if (!EMAIL_RE.test(recipient)) {
       return NextResponse.json(
         {
