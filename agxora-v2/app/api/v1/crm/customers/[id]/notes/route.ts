@@ -3,7 +3,9 @@ import {
   claimGovernedExecutionDb,
   completeGovernedExecutionDb,
   failGovernedExecutionDb,
+  appendGovernedEvidenceDb,
 } from "@/app/lib/agents/governedExecutionDb";
+import { noteReplayDecision } from "@/features/agents/evidence/governedExecution";
 import { requireCurrentActor } from "@/app/lib/tenancy";
 import {
   createNoteForActor,
@@ -49,11 +51,6 @@ export async function POST(
     const body = (await request.json()) as {
       draft?: CrmNoteDraft;
       idempotencyKey?: string;
-      executionId?: string;
-      businessGoalId?: string;
-      planId?: string;
-      stepId?: string;
-      workerId?: string;
     };
     if (!body?.draft || typeof body.draft !== "object") {
       return NextResponse.json(
@@ -66,29 +63,23 @@ export async function POST(
       const claim = await claimGovernedExecutionDb({
         organizationId: actor.organizationId,
         idempotencyKey,
-        executionId: body.executionId?.trim() || idempotencyKey,
-        businessGoalId: body.businessGoalId?.trim() || undefined,
-        planId: body.planId?.trim() || undefined,
-        stepId: body.stepId?.trim() || undefined,
+        executionId: idempotencyKey,
         capabilityId: "CRM_CREATE_NOTE",
-        workerId: body.workerId?.trim() || undefined,
         actorId: actor.userId,
         approvalRequired: true,
-        approvalGranted: true,
+        approvalGranted: false,
       });
       if (claim.kind === "replay") {
-        const noteId = typeof claim.outcome.noteId === "string" ? claim.outcome.noteId : "";
-        const replayCustomerId =
-          typeof claim.outcome.customerId === "string" ? claim.outcome.customerId : customerId;
-        if (!noteId) {
+        const decision = noteReplayDecision({ outcome: claim.outcome, customerId });
+        if (decision === "mismatch" || decision === "missing") {
           return NextResponse.json(
-            { ok: false, code: "conflict", message: "This CRM note execution has no stored note." },
+            { ok: false, code: "conflict", message: "This CRM note execution does not match the customer." },
             { status: 409 },
           );
         }
         return NextResponse.json({
           ok: true,
-          note: { id: noteId, customerId: replayCustomerId },
+          note: { id: decision.noteId, customerId: decision.customerId },
           replayed: true,
         });
       }
@@ -117,7 +108,16 @@ export async function POST(
         organizationId: actor.organizationId,
         idempotencyKey,
         verificationStatus: "pending",
-        outcome: { noteId: note.id, customerId: note.customerId },
+        outcome: { noteId: note.id, customerId: note.customerId, mutated: true },
+      });
+      await appendGovernedEvidenceDb({
+        organizationId: actor.organizationId,
+        executionId: idempotencyKey,
+        capabilityId: "CRM_CREATE_NOTE",
+        actorId: actor.userId,
+        action: "execution.result",
+        status: "completed",
+        metadata: { customerId: note.customerId, noteId: note.id },
       });
     }
     return NextResponse.json({ ok: true, note }, { status: 201 });

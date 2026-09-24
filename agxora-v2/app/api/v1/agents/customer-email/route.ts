@@ -8,7 +8,9 @@ import {
   claimGovernedExecutionDb,
   completeGovernedExecutionDb,
   failGovernedExecutionDb,
+  appendGovernedEvidenceDb,
 } from "@/app/lib/agents/governedExecutionDb";
+import { emailReplayDecision } from "@/features/agents/evidence/governedExecution";
 import { deliverEmail } from "@/app/lib/email";
 import { getAppOrigin } from "@/app/lib/email/config";
 import { getCustomerForActor } from "@/app/lib/crm/persistence";
@@ -86,12 +88,22 @@ export async function POST(request: Request): Promise<NextResponse> {
       capabilityId: "COMMUNICATION_SEND_EMAIL",
       actorId: actor.userId,
       approvalRequired: true,
-      approvalGranted: true,
+      approvalGranted: false,
     });
     if (claim.kind === "replay") {
-      if (claim.outcome.delivery !== "queued") {
+      const decision = emailReplayDecision({
+        outcome: claim.outcome,
+        customerId: customer.id,
+        recipient,
+      });
+      if (decision !== "replay") {
         return NextResponse.json(
-          { ok: false, code: "conflict", message: "This email execution did not queue.", delivery: "not_configured" },
+          {
+            ok: false,
+            code: "conflict",
+            message: "This email execution does not match the customer.",
+            delivery: "not_configured",
+          },
           { status: 409 },
         );
       }
@@ -158,6 +170,15 @@ export async function POST(request: Request): Promise<NextResponse> {
         customerId: customer.id,
         mutated: true,
       },
+    });
+    await appendGovernedEvidenceDb({
+      organizationId: actor.organizationId,
+      executionId: idempotencyKey,
+      capabilityId: "COMMUNICATION_SEND_EMAIL",
+      actorId: actor.userId,
+      action: "execution.result",
+      status: "queued",
+      metadata: { customerId: customer.id },
     });
     return NextResponse.json({
       ok: true,

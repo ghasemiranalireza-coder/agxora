@@ -7,8 +7,10 @@ import { emptyCustomerDraft } from "@/features/agents/crm/adapter";
 import {
   claimGovernedExecution,
   completeGovernedExecution,
+  emailReplayDecision,
   failGovernedExecution,
   listGovernedEvidence,
+  noteReplayDecision,
   resetGovernedExecutionMemory,
 } from "@/features/agents/evidence/governedExecution";
 import { agentOsService } from "@/features/agents/services";
@@ -177,6 +179,27 @@ describe("Phase 18 durable governed execution", () => {
     });
     const value = memory?.value as { sourceReference?: string };
     expect(value.sourceReference).toBe(goal.taskId ? agentsStore.getSnapshot().tasks.find((task) => task.id === goal.taskId)?.executionId : undefined);
+  });
+
+  it("rejects an email or note replay for a different customer", () => {
+    expect(emailReplayDecision({
+      outcome: { delivery: "queued", recipient: "a@customer.test", customerId: "cust_a", mutated: true },
+      customerId: "cust_b",
+      recipient: "b@customer.test",
+    })).toBe("mismatch");
+    expect(emailReplayDecision({
+      outcome: { delivery: "queued", recipient: "a@customer.test", customerId: "cust_a", mutated: true },
+      customerId: "cust_a",
+      recipient: "a@customer.test",
+    })).toBe("replay");
+    expect(noteReplayDecision({
+      outcome: { noteId: "note_1", customerId: "cust_a", mutated: true },
+      customerId: "cust_b",
+    })).toBe("mismatch");
+    expect(noteReplayDecision({
+      outcome: { noteId: "note_1", customerId: "cust_a", mutated: true },
+      customerId: "cust_a",
+    })).toEqual({ noteId: "note_1", customerId: "cust_a" });
   });
 
   it("enforces the database uniqueness constraint in the migration", () => {

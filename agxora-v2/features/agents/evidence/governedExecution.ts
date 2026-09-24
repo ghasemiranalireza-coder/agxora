@@ -137,24 +137,35 @@ export function appendGovernedEvidence(input: GovernedEvidenceInput): GovernedEv
 }
 
 export function recordGovernedEvidence(input: GovernedEvidenceInput): GovernedEvidenceRecord {
-  const record = appendGovernedEvidence(input);
-  if (typeof window === "undefined") return record;
-  void fetch("/api/v1/agents/governed-evidence", {
-    method: "POST",
-    credentials: "include",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({
-      executionId: input.executionId,
-      businessGoalId: input.businessGoalId,
-      planId: input.planId,
-      stepId: input.stepId,
-      capabilityId: input.capabilityId,
-      workerId: input.workerId,
-      action: input.action,
-      status: input.status,
-    }),
-  }).catch(() => undefined);
-  return record;
+  return appendGovernedEvidence(input);
+}
+
+export function emailReplayDecision(input: {
+  readonly outcome: Readonly<Record<string, unknown>>;
+  readonly customerId: string;
+  readonly recipient: string;
+}): "replay" | "mismatch" | "not_queued" {
+  if (input.outcome.delivery !== "queued") return "not_queued";
+  const storedCustomer = typeof input.outcome.customerId === "string" ? input.outcome.customerId : "";
+  const storedRecipient = typeof input.outcome.recipient === "string" ? input.outcome.recipient : "";
+  if (
+    storedCustomer !== input.customerId ||
+    storedRecipient.toLowerCase() !== input.recipient.toLowerCase()
+  ) {
+    return "mismatch";
+  }
+  return "replay";
+}
+
+export function noteReplayDecision(input: {
+  readonly outcome: Readonly<Record<string, unknown>>;
+  readonly customerId: string;
+}): { readonly noteId: string; readonly customerId: string } | "mismatch" | "missing" {
+  const noteId = typeof input.outcome.noteId === "string" ? input.outcome.noteId : "";
+  const storedCustomer = typeof input.outcome.customerId === "string" ? input.outcome.customerId : "";
+  if (!noteId || !storedCustomer) return "missing";
+  if (storedCustomer !== input.customerId) return "mismatch";
+  return { noteId, customerId: storedCustomer };
 }
 
 export function listGovernedEvidence(organizationId: string, executionId?: string): readonly GovernedEvidenceRecord[] {
