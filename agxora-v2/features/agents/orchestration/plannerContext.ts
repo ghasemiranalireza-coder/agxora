@@ -5,7 +5,8 @@
 
 import { getCrmBridgeProvider } from "../crm/adapter";
 import { agentsStore } from "../store";
-import type { BusinessGoalMemoryValue } from "../memory/businessContext";
+import { isBusinessMemoryValue, type BusinessGoalMemoryValue } from "../memory/businessContext";
+import { authoritativeBusinessMemory } from "../memory/businessMemory";
 import { resolveFirstCustomerCrmCustomerId } from "@/app/lib/workspace/firstCustomerAgentCrm";
 
 export type PlannerContextProvenance =
@@ -178,12 +179,25 @@ export async function resolveBusinessGoalPlannerContext(input: {
     }
   }
 
+  const authoritative = authoritativeBusinessMemory({
+    organizationId: input.organizationId,
+    customerId,
+  });
+  for (const record of authoritative) {
+    if (!isBusinessMemoryValue(record.value)) continue;
+    facts.push({
+      provenance: "BUSINESS_MEMORY",
+      key: `memory:${record.id}`,
+      text: `${record.value.status} ${record.value.memoryType} (${record.value.provenance}): ${record.value.content}`,
+    });
+  }
+
   return {
     resolvedAt,
     organizationId: input.organizationId,
     customerId,
     available,
     facts,
-    memoryIds: memories.map((record) => record.id),
+    memoryIds: [...memories.map((record) => record.id), ...authoritative.map((record) => record.id)],
   };
 }

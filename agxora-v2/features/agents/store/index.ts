@@ -339,6 +339,16 @@ export const agentsStore = {
     emit();
   },
 
+  upsertMemory(record: MemoryRecord): void {
+    const idx = state.memories.findIndex((item) => item.id === record.id);
+    const memories = [...state.memories];
+    if (idx >= 0) memories[idx] = record;
+    else memories.unshift(record);
+    state = { ...state, memories: memories.slice(0, 400) };
+    persist();
+    emit();
+  },
+
   setKnowledge(docs: KnowledgeDocument[]): void {
     state = { ...state, knowledge: docs };
     persist();

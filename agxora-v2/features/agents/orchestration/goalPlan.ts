@@ -10,6 +10,7 @@ import {
   businessGoalMemoryKey,
   type BusinessGoalMemoryValue,
 } from "../memory/businessContext";
+import { createBusinessMemory } from "../memory/businessMemory";
 import { updatePlanStep } from "../planning";
 import { agentsStore } from "../store";
 import type {
@@ -453,6 +454,19 @@ export function syncOrchestration(
         value: memory,
       }),
     );
+    createBusinessMemory({
+      organizationId: task.organizationId,
+      actorId: task.agentInstanceId,
+      subjectType: completed.customerId ? "customer" : "organization",
+      subjectId: completed.customerId,
+      memoryType: "GOAL_OUTCOME",
+      content: completed.customerId
+        ? `Verified goal ${completed.id} completed for customer ${completed.customerId}.`
+        : `Verified goal ${completed.id} completed.`,
+      status: "VERIFIED",
+      provenance: "VERIFIED_EXECUTION",
+      sourceReference: completed.planId,
+    });
     return nextPlan;
   }
 
