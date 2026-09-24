@@ -76,9 +76,12 @@
   color-scheme: light;
 }
 
-/* Unified form / select / textarea control surface */
+/* Unified form / select / textarea control surface.
+   Single-line controls share one 40px box. Text is centered in that box. */
 .agx-ui-control {
+  box-sizing: border-box;
   width: 100%;
+  height: var(--agx-ds-control-h);
   min-height: var(--agx-ds-control-h);
   border-radius: var(--agx-ds-radius-md);
   border: 1px solid var(--agx-ds-border);
@@ -86,8 +89,10 @@
   color: var(--agx-ds-text);
   padding: 0 var(--agx-ds-space-4);
   font-size: 13px;
-  line-height: 1.4;
+  font-weight: 450;
+  line-height: calc(var(--agx-ds-control-h) - 2px);
   font-family: var(--agx-ds-font-ui);
+  vertical-align: middle;
   transition:
     border-color var(--agx-ds-duration) var(--agx-ds-ease),
     box-shadow var(--agx-ds-duration) var(--agx-ds-ease),
@@ -114,9 +119,26 @@
 }
 
 textarea.agx-ui-control {
+  height: auto;
   min-height: 96px;
   padding: var(--agx-ds-space-3) var(--agx-ds-space-4);
+  line-height: 1.45;
   resize: vertical;
+}
+
+input.agx-ui-control[type="number"],
+input.agx-ui-control[type="search"],
+input.agx-ui-control[type="date"],
+input.agx-ui-control[type="time"],
+input.agx-ui-control[type="datetime-local"] {
+  font-variant-numeric: tabular-nums;
+}
+
+input.agx-ui-control[type="search"]::-webkit-search-decoration,
+input.agx-ui-control[type="search"]::-webkit-search-cancel-button,
+input.agx-ui-control[type="search"]::-webkit-search-results-button {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 select.agx-ui-control {
@@ -166,7 +188,9 @@ select.agx-ui-control option {
 
 /* Legacy alias — Chat / Onboarding use the same control surface */
 .agx-input {
+  box-sizing: border-box;
   width: 100%;
+  height: var(--agx-ds-control-h);
   min-height: var(--agx-ds-control-h);
   border-radius: var(--agx-ds-radius-md);
   border: 1px solid var(--agx-ds-border);
@@ -174,7 +198,8 @@ select.agx-ui-control option {
   color: var(--agx-ds-text);
   padding: 0 var(--agx-ds-space-4);
   font-size: 13px;
-  line-height: 1.4;
+  font-weight: 450;
+  line-height: calc(var(--agx-ds-control-h) - 2px);
   font-family: var(--agx-ds-font-ui);
   outline: none;
   transition:
@@ -194,8 +219,10 @@ select.agx-ui-control option {
 
 /* Compact control (filters / toolbars) */
 .agx-ui-control--sm {
+  height: var(--agx-ds-control-h-sm);
   min-height: var(--agx-ds-control-h-sm);
   font-size: 12px;
+  line-height: calc(var(--agx-ds-control-h-sm) - 2px);
   padding: 0 var(--agx-ds-space-3);
 }
 
@@ -1004,17 +1031,37 @@ select.agx-ui-control option {
 }
 
 .agx-voice-field .agx-ui-control {
-  padding-inline-end: 48px;
+  padding-inline-end: 44px;
 }
 
 .agx-voice-field textarea.agx-ui-control {
   padding-bottom: 40px;
 }
 
+/* Single-line voice controls keep the mic centered inside the border. */
 .agx-voice-field .agx-voice {
   position: absolute;
-  inset-inline-end: 6px;
-  bottom: 6px;
+  inset-inline-end: 4px;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.agx-voice-field:has(textarea) .agx-voice {
+  top: auto;
+  bottom: 8px;
+  transform: none;
+}
+
+.agx-voice-field:has(.agx-ui-control--sm) .agx-voice__btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+}
+
+.agx-voice-field:has(.agx-ui-control--sm) .agx-ui-control {
+  padding-inline-end: 34px;
 }
 
 .agx-voice__btn {
@@ -1023,6 +1070,8 @@ select.agx-ui-control option {
   justify-content: center;
   width: 32px;
   height: 32px;
+  padding: 0;
+  flex: 0 0 32px;
   border-radius: 10px;
   border: 1px solid var(--agx-ds-border, rgba(255, 255, 255, 0.12));
   background: color-mix(in srgb, var(--agx-ds-surface, rgba(255, 255, 255, 0.04)) 88%, transparent);
