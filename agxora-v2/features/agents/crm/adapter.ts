@@ -18,6 +18,15 @@ import {
 import { isCrmDatabaseMode } from "@/app/lib/crm/persistence/mode";
 import { assertRealCustomerId } from "@/app/lib/workspace/firstCustomerAgentCrm";
 
+export interface CrmNoteExecutionRef {
+  readonly idempotencyKey?: string;
+  readonly executionId?: string;
+  readonly businessGoalId?: string;
+  readonly planId?: string;
+  readonly stepId?: string;
+  readonly workerId?: string;
+}
+
 export interface CrmBridgeProvider {
   readonly available: boolean;
   listCustomers(organizationId: string): Promise<readonly CrmCustomerRecord[]>;
@@ -41,6 +50,7 @@ export interface CrmBridgeProvider {
     organizationId: string,
     customerId: string,
     draft: CrmNoteDraft,
+    execution?: CrmNoteExecutionRef,
   ): Promise<CrmNoteRecord>;
   listNotes(customerId: string): Promise<readonly CrmNoteRecord[]>;
 }
@@ -117,12 +127,13 @@ export function createDirectoryCrmBridge(): CrmBridgeProvider {
         organizationId,
       );
     },
-    createNote(organizationId, customerId, draft) {
+    createNote(organizationId, customerId, draft, execution) {
       assertRealCustomerId(customerId);
       return crmDirectoryService.createNoteFromDraft(
         draft,
         customerId,
         organizationId,
+        execution,
       );
     },
     listNotes(customerId) {

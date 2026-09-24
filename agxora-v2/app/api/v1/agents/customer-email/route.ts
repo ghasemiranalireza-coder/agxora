@@ -4,6 +4,11 @@
  */
 
 import { NextResponse } from "next/server";
+import {
+  claimGovernedExecutionDb,
+  completeGovernedExecutionDb,
+  failGovernedExecutionDb,
+} from "@/app/lib/agents/governedExecutionDb";
 import { deliverEmail } from "@/app/lib/email";
 import { getAppOrigin } from "@/app/lib/email/config";
 import { getCustomerForActor } from "@/app/lib/crm/persistence";
@@ -74,15 +79,66 @@ export async function POST(request: Request): Promise<NextResponse> {
       );
     }
 
-    const { delivery, error } = await deliverEmail({
-      kind: "customer_message",
-      to: recipient,
-      subject,
-      text,
-      actionUrl: `${getAppOrigin()}/dashboard`,
+    const claim = await claimGovernedExecutionDb({
+      organizationId: actor.organizationId,
       idempotencyKey,
+      executionId: idempotencyKey,
+      capabilityId: "COMMUNICATION_SEND_EMAIL",
+      actorId: actor.userId,
+      approvalRequired: true,
+      approvalGranted: true,
     });
+    if (claim.kind === "replay") {
+      if (claim.outcome.delivery !== "queued") {
+        return NextResponse.json(
+          { ok: false, code: "conflict", message: "This email execution did not queue.", delivery: "not_configured" },
+          { status: 409 },
+        );
+      }
+      return NextResponse.json({
+        ok: true,
+        delivery: "queued",
+        recipient,
+        customerId: customer.id,
+        organizationId: actor.organizationId,
+        workspaceId: actor.workspaceId,
+        replayed: true,
+      });
+    }
+    if (claim.kind === "in_progress") {
+      return NextResponse.json(
+        { ok: false, code: "conflict", message: "This email execution is already in progress.", delivery: "not_configured" },
+        { status: 409 },
+      );
+    }
+
+    let delivery: "queued" | "not_configured";
+    let error: string | undefined;
+    try {
+      const sent = await deliverEmail({
+        kind: "customer_message",
+        to: recipient,
+        subject,
+        text,
+        actionUrl: `${getAppOrigin()}/dashboard`,
+        idempotencyKey,
+      });
+      delivery = sent.delivery;
+      error = sent.error;
+    } catch (sendError) {
+      await failGovernedExecutionDb({
+        organizationId: actor.organizationId,
+        idempotencyKey,
+        mutated: false,
+      });
+      throw sendError;
+    }
     if (delivery !== "queued") {
+      await failGovernedExecutionDb({
+        organizationId: actor.organizationId,
+        idempotencyKey,
+        mutated: false,
+      });
       return NextResponse.json(
         {
           ok: false,
@@ -92,6 +148,17 @@ export async function POST(request: Request): Promise<NextResponse> {
         { status: 502 },
       );
     }
+    await completeGovernedExecutionDb({
+      organizationId: actor.organizationId,
+      idempotencyKey,
+      verificationStatus: "pending",
+      outcome: {
+        delivery: "queued",
+        recipient,
+        customerId: customer.id,
+        mutated: true,
+      },
+    });
     return NextResponse.json({
       ok: true,
       delivery: "queued",

@@ -165,6 +165,14 @@ async function attachFirstCustomerCrmNote(
           goal,
         author: FIRST_CUSTOMER_NOTE_AUTHOR,
       }),
+      {
+        idempotencyKey: readString(ctx.params, "idempotencyKey"),
+        executionId: readString(ctx.params, "executionId"),
+        businessGoalId: readString(ctx.params, "businessGoalId"),
+        planId: readString(ctx.params, "planId"),
+        stepId: readString(ctx.params, "stepId"),
+        workerId: readString(ctx.params, "workerId"),
+      },
     );
 
     const notes = await provider.listNotes(customer.id);

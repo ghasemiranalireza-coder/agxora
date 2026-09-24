@@ -13,6 +13,7 @@ import type { BusinessGoal } from "../types";
 import { isCustomerReplyGoal, unsupportedCommunicationChannel } from "./goalPlan";
 import { normalizeBusinessGoalIntent, planAuthorizedBusinessGoal } from "./goalPlanner";
 import { auditLog } from "@/app/lib/backend/audit/logger";
+import { recordGovernedEvidence } from "../evidence/governedExecution";
 import { assertPlanCapabilities, assertWorkerCanStart } from "../workforce/workers";
 import { resolveBusinessGoalPlannerContext } from "./plannerContext";
 
@@ -114,6 +115,26 @@ export async function startBusinessGoal(input: {
   }
   const stored: BusinessGoal = { ...goal, planId: plan.id };
   agentsStore.upsertBusinessGoal(stored);
+  recordGovernedEvidence({
+    organizationId: input.organizationId,
+    executionId: stored.id,
+    businessGoalId: stored.id,
+    planId: plan.id,
+    workerId: worker?.id,
+    actorId,
+    action: "goal.created",
+    status: "active",
+  });
+  recordGovernedEvidence({
+    organizationId: input.organizationId,
+    executionId: stored.id,
+    businessGoalId: stored.id,
+    planId: plan.id,
+    workerId: worker?.id,
+    actorId,
+    action: "plan.created",
+    status: "active",
+  });
 
   const task = await agentOsService.enqueueTask({
     organizationId: input.organizationId,
