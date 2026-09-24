@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { workerPathForMethod } from "../api/gateway";
+import { workerPathForMethod } from "./vercelGateway";
 import { handleEmailWorkerRequest } from "./handler";
 
 const TOKEN = "worker-test-token";
