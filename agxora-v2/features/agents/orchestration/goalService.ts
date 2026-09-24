@@ -12,6 +12,8 @@ import { agentsStore } from "../store";
 import type { BusinessGoal } from "../types";
 import { isCustomerReplyGoal } from "./goalPlan";
 import { normalizeBusinessGoalIntent, planAuthorizedBusinessGoal } from "./goalPlanner";
+import { auditLog } from "@/app/lib/backend/audit/logger";
+import { assertPlanCapabilities, assertWorkerCanStart } from "../workforce/workers";
 import { resolveBusinessGoalPlannerContext } from "./plannerContext";
 
 function nowIso(): string {
@@ -31,6 +33,8 @@ export async function startBusinessGoal(input: {
   readonly agentInstanceId: string;
   readonly statement: string;
   readonly customerId?: string | null;
+  readonly workerId?: string | null;
+  readonly actorId?: string | null;
 }): Promise<BusinessGoal> {
   const statement = input.statement.trim();
   if (!statement) {
@@ -65,11 +69,15 @@ export async function startBusinessGoal(input: {
   }
 
   const now = nowIso();
+  const workerId = input.workerId?.trim() || undefined;
+  const actorId = input.actorId?.trim() || undefined;
+  const worker = workerId ? assertWorkerCanStart(input.organizationId, workerId) : undefined;
   const plannerContext = await resolveBusinessGoalPlannerContext({
     organizationId: input.organizationId,
     statement,
     customerId,
     clientOrganizationId: input.clientOrganizationId ?? undefined,
+    worker,
   });
   const goal: BusinessGoal = {
     id: createId("goal"),
@@ -79,6 +87,8 @@ export async function startBusinessGoal(input: {
     requestedOutcome: intent.requestedOutcome,
     status: "active",
     customerId: plannerContext.customerId ?? customerId,
+    workerId: worker?.id,
+    actorId,
     createdAt: now,
     updatedAt: now,
   };
@@ -87,6 +97,17 @@ export async function startBusinessGoal(input: {
     agentInstanceId: runtime.instanceId,
     plannerContext,
   });
+  if (worker) {
+    assertPlanCapabilities(worker, plan.steps.map((step) => step.capabilityId));
+    auditLog({
+      action: "worker.goal_assigned",
+      resource: "workforce_worker",
+      resourceId: worker.id,
+      organizationId: input.organizationId,
+      actorUserId: actorId,
+      metadata: { goalId: goal.id, planId: plan.id, role: worker.role },
+    });
+  }
   const stored: BusinessGoal = { ...goal, planId: plan.id };
   agentsStore.upsertBusinessGoal(stored);
 
@@ -100,6 +121,8 @@ export async function startBusinessGoal(input: {
     payload: {
       businessGoalId: stored.id,
       ...(customerId ? { customerId } : {}),
+      ...(worker ? { workerId: worker.id } : {}),
+      ...(actorId ? { actorId } : {}),
     },
   });
 

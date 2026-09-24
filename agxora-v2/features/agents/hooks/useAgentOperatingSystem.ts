@@ -91,6 +91,11 @@ export function useAgentOperatingSystem() {
     [organizationId, snapshot],
   );
 
+  const workers = useMemo(
+    () => (snapshot.workers ?? []).filter((worker) => worker.organizationId === organizationId),
+    [snapshot.workers, organizationId],
+  );
+
   const businessGoals = useMemo(
     () =>
       (snapshot.businessGoals ?? []).filter(
@@ -145,6 +150,7 @@ export function useAgentOperatingSystem() {
     creativeProjects,
     plans,
     businessGoals,
+    workers,
     traces,
     messages,
     tools: listCustomerFacingAgentTools(),

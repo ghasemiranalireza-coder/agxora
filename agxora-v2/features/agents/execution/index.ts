@@ -29,6 +29,8 @@ export function createExecution(input: {
   readonly taskId: string;
   readonly goal: string;
   readonly lifecycle?: AgentExecutionLifecycleStatus;
+  readonly workerId?: string;
+  readonly actorId?: string;
 }): AgentExecution {
   const now = nowIso();
   return {
@@ -37,6 +39,8 @@ export function createExecution(input: {
     agentInstanceId: input.agentInstanceId,
     taskId: input.taskId,
     goal: input.goal,
+    workerId: input.workerId,
+    actorId: input.actorId,
     lifecycle: input.lifecycle ?? "IDLE",
     startedAt: now,
     updatedAt: now,

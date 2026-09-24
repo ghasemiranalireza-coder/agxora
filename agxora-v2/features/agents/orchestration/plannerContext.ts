@@ -7,6 +7,8 @@ import { getCrmBridgeProvider } from "../crm/adapter";
 import { agentsStore } from "../store";
 import { isBusinessMemoryValue, type BusinessGoalMemoryValue } from "../memory/businessContext";
 import { authoritativeBusinessMemory } from "../memory/businessMemory";
+import { workerRoleContext } from "../workforce/workers";
+import type { WorkforceWorker } from "../types";
 import { resolveFirstCustomerCrmCustomerId } from "@/app/lib/workspace/firstCustomerAgentCrm";
 
 export type PlannerContextProvenance =
@@ -14,6 +16,7 @@ export type PlannerContextProvenance =
   | "BUSINESS_MEMORY"
   | "GOAL"
   | "SYSTEM"
+  | "WORKER"
   | "UNAVAILABLE";
 
 export interface PlannerContextFact {
@@ -93,6 +96,7 @@ export async function resolveBusinessGoalPlannerContext(input: {
   readonly statement: string;
   readonly customerId?: string;
   readonly clientOrganizationId?: string;
+  readonly worker?: WorkforceWorker;
 }): Promise<BusinessGoalPlannerContext> {
   void input.clientOrganizationId;
   const resolvedAt = new Date().toISOString();
@@ -177,6 +181,20 @@ export async function resolveBusinessGoalPlannerContext(input: {
     if (isVerifiedMemory(latest.value)) {
       facts.push(memoryFact(latest.value));
     }
+  }
+
+  if (input.worker && input.worker.organizationId === input.organizationId) {
+    const role = workerRoleContext(input.worker.role);
+    facts.push({
+      provenance: "WORKER",
+      key: "worker",
+      text: `Worker: ${input.worker.name}. Role: ${role.title}. Status: ${input.worker.status}.`,
+    });
+    facts.push({
+      provenance: "WORKER",
+      key: "worker_constraints",
+      text: role.constraints,
+    });
   }
 
   const authoritative = authoritativeBusinessMemory({

@@ -40,6 +40,7 @@ import {
   resolveStepCapability,
   syncOrchestration,
 } from "../orchestration/goalPlan";
+import { assertWorkerCanStart, assertWorkerCapability } from "../workforce/workers";
 import { buildReasoningTrace } from "../reasoning";
 import { assertToolAllowed, assertWorkspaceIsolation } from "../security";
 import { agentsStore } from "../store";
@@ -146,11 +147,15 @@ function nextExecution(
   if (current && !isTerminalLifecycle(current.lifecycle)) {
     return current;
   }
+  const workerId = typeof task.input.workerId === "string" ? task.input.workerId : undefined;
+  const actorId = typeof task.input.actorId === "string" ? task.input.actorId : undefined;
   const created = createExecution({
     organizationId: task.organizationId,
     agentInstanceId: task.agentInstanceId,
     taskId: task.id,
     goal,
+    workerId,
+    actorId,
   });
   agentsStore.upsertExecution(created);
   const nextTask: AgentTask = {
@@ -507,6 +512,43 @@ export const agentOsService = {
           updatedAt: nowIso(),
         });
         if (isOrchestrationPlan(activePlan)) {
+          const workerId = typeof task.input.workerId === "string" ? task.input.workerId : "";
+          if (workerId) {
+            try {
+              const worker = assertWorkerCanStart(task.organizationId, workerId);
+              assertWorkerCapability(worker, step.capabilityId);
+              auditLog({
+                action: "worker.execution_started",
+                resource: "workforce_worker",
+                resourceId: worker.id,
+                organizationId: task.organizationId,
+                actorUserId: typeof task.input.actorId === "string" ? task.input.actorId : undefined,
+                metadata: {
+                  goalId: typeof task.input.businessGoalId === "string" ? task.input.businessGoalId : "",
+                  planId: activePlan.id,
+                  stepId: step.id,
+                  capabilityId: step.capabilityId ?? "",
+                  executionId: execution.id,
+                },
+              });
+            } catch (error) {
+              auditLog({
+                action: "worker.execution_blocked",
+                resource: "workforce_worker",
+                resourceId: workerId,
+                organizationId: task.organizationId,
+                actorUserId: typeof task.input.actorId === "string" ? task.input.actorId : undefined,
+                metadata: {
+                  goalId: typeof task.input.businessGoalId === "string" ? task.input.businessGoalId : "",
+                  planId: activePlan.id,
+                  stepId: step.id,
+                  capabilityId: step.capabilityId ?? "",
+                  executionId: execution.id,
+                },
+              });
+              throw error;
+            }
+          }
           const decision = authorizeCapabilityExecution({
             capabilityId: step.capabilityId,
             organizationId: task.organizationId,
