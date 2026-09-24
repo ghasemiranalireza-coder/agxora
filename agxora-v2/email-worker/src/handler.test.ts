@@ -1,4 +1,6 @@
+import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { workerPathForMethod } from "../api/gateway";
 import { handleEmailWorkerRequest } from "./handler";
 
 const TOKEN = "worker-test-token";
@@ -57,6 +59,16 @@ afterEach(() => {
 });
 
 describe("AGXORA email worker", () => {
+  it("exposes POST /send and GET /health on the Vercel project", () => {
+    const config = JSON.parse(readFileSync(new URL("../vercel.json", import.meta.url), "utf8")) as {
+      rewrites: { source: string; destination: string }[];
+    };
+    expect(config.rewrites.map((item) => item.source)).toEqual(["/send", "/health", "/"]);
+    expect(new Set(config.rewrites.map((item) => item.destination))).toEqual(new Set(["/api/gateway"]));
+    expect(workerPathForMethod("POST")).toBe("/send");
+    expect(workerPathForMethod("GET")).toBe("/health");
+  });
+
   it("rejects missing bearer token", async () => {
     const response = await postSend(payload(), { token: null });
     expect(response.status).toBe(401);
