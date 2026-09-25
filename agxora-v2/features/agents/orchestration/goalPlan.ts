@@ -11,6 +11,7 @@ import {
   type BusinessGoalMemoryValue,
 } from "../memory/businessContext";
 import { auditLog } from "@/app/lib/backend/audit/logger";
+import { recordGovernedEvidence } from "../evidence/governedExecution";
 import { createBusinessMemory } from "../memory/businessMemory";
 import { updatePlanStep } from "../planning";
 import { agentsStore } from "../store";
@@ -332,6 +333,7 @@ export function capabilityExecutionContext(input: {
   readonly taskInput: Readonly<Record<string, unknown>>;
   readonly plan: AgentPlan;
   readonly capability: CapabilityContract;
+  readonly executionId?: string;
 }): Record<string, unknown> {
   const safe: Record<string, unknown> = {};
   for (const [key, value] of Object.entries(input.taskInput)) {
@@ -371,6 +373,9 @@ export function capabilityExecutionContext(input: {
     ...(input.step.idempotencyKey
       ? { idempotencyKey: input.step.idempotencyKey }
       : {}),
+    ...(input.executionId ? { executionId: input.executionId } : {}),
+    planId: input.plan.id,
+    stepId: input.step.id,
     ...(contextText ? { plannerContextText: contextText } : {}),
   };
 }
@@ -475,6 +480,16 @@ export function syncOrchestration(
       summary: "verified",
     };
     agentsStore.upsertBusinessGoal(completed);
+    recordGovernedEvidence({
+      organizationId: task.organizationId,
+      executionId: task.executionId ?? completed.id,
+      businessGoalId: completed.id,
+      planId: nextPlan.id,
+      workerId: typeof task.input.workerId === "string" ? task.input.workerId : undefined,
+      actorId: typeof task.input.actorId === "string" ? task.input.actorId : undefined,
+      action: "goal.completed",
+      status: "verified",
+    });
     const memory: BusinessGoalMemoryValue = {
       kind: "business_goal_outcome",
       goalId: completed.id,
@@ -507,7 +522,7 @@ export function syncOrchestration(
         : `Verified goal ${completed.id} completed.`,
       status: "VERIFIED",
       provenance: "VERIFIED_EXECUTION",
-      sourceReference: completed.planId,
+      sourceReference: task.executionId ?? completed.planId,
     });
     if (email.delivery === "queued" && email.recipient && completed.customerId) {
       createBusinessMemory({

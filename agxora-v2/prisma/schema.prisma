@@ -103,6 +103,8 @@ model Organization {
   campaigns                 Campaign[]
   campaignItems             CampaignItem[]
   externalActionAudits      ExternalActionAudit[]
+  agentGovernedExecutions   AgentGovernedExecution[]
+  agentGovernedEvidence     AgentGovernedEvidence[]
 
   @@index([ownerId])
   @@map("organizations")
@@ -1147,4 +1149,69 @@ model FinanceDocumentSettings {
   @@index([organizationId])
   @@index([logoId])
   @@map("finance_document_settings")
+}
+
+/// Phase 18 — one protected Agent OS mutation per organization and idempotency key.
+enum AgentGovernedExecutionStatus {
+  RESERVED
+  EXECUTING
+  COMPLETED
+  FAILED
+  AMBIGUOUS
+}
+
+model AgentGovernedExecution {
+  id                 String                        @id @default(uuid()) @db.Uuid
+  organizationId     String                        @db.Uuid
+  idempotencyKey     String
+  executionId        String
+  businessGoalId     String?
+  planId             String?
+  stepId             String?
+  capabilityId       String
+  workerId           String?
+  actorId            String
+  status             AgentGovernedExecutionStatus  @default(RESERVED)
+  approvalRequired   Boolean                       @default(true)
+  approvalGranted    Boolean                       @default(false)
+  verificationStatus String                        @default("pending")
+  /// Note id or queued delivery only. No message body, tokens, or credentials.
+  outcome            Json                          @default("{}")
+  /// When the current provider attempt started. Used only to detect an abandoned email attempt.
+  attemptStartedAt   DateTime?
+  createdAt          DateTime                      @default(now())
+  updatedAt          DateTime                      @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, idempotencyKey])
+  @@index([organizationId, createdAt])
+  @@index([executionId])
+  @@index([businessGoalId])
+  @@index([workerId])
+  @@map("agent_governed_executions")
+}
+
+/// Append-only governed lifecycle evidence. Rows are not updated.
+model AgentGovernedEvidence {
+  id             String   @id @default(uuid()) @db.Uuid
+  organizationId String   @db.Uuid
+  executionId    String
+  businessGoalId String?
+  planId         String?
+  stepId         String?
+  capabilityId   String?
+  workerId       String?
+  actorId        String?
+  action         String
+  status         String
+  metadata       Json     @default("{}")
+  createdAt      DateTime @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, createdAt])
+  @@index([executionId])
+  @@index([businessGoalId])
+  @@map("agent_governed_evidence")
 }

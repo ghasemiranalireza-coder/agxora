@@ -189,12 +189,28 @@ export async function remoteListNotes(
 export async function remoteCreateNote(
   customerId: CrmCustomerId,
   draft: CrmNoteDraft,
+  execution?: {
+    readonly idempotencyKey?: string;
+    readonly executionId?: string;
+    readonly businessGoalId?: string;
+    readonly planId?: string;
+    readonly stepId?: string;
+    readonly workerId?: string;
+  },
 ): Promise<CrmNoteRecord> {
   const data = await crmFetch<{ note: CrmNoteRecord }>(
     `/api/v1/crm/customers/${encodeURIComponent(customerId)}/notes`,
     {
       method: "POST",
-      body: JSON.stringify({ draft }),
+      body: JSON.stringify({
+        draft,
+        ...(execution?.idempotencyKey ? { idempotencyKey: execution.idempotencyKey } : {}),
+        ...(execution?.executionId ? { executionId: execution.executionId } : {}),
+        ...(execution?.businessGoalId ? { businessGoalId: execution.businessGoalId } : {}),
+        ...(execution?.planId ? { planId: execution.planId } : {}),
+        ...(execution?.stepId ? { stepId: execution.stepId } : {}),
+        ...(execution?.workerId ? { workerId: execution.workerId } : {}),
+      }),
     },
   );
   return data.note;

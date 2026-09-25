@@ -311,12 +311,20 @@ export class CrmDirectoryService {
     draft: CrmNoteDraft,
     customerId: CrmCustomerId,
     organizationId: string,
+    execution?: {
+      readonly idempotencyKey?: string;
+      readonly executionId?: string;
+      readonly businessGoalId?: string;
+      readonly planId?: string;
+      readonly stepId?: string;
+      readonly workerId?: string;
+    },
   ) {
     const result = validateNoteDraft(draft);
     if (!result.ok) throw new CrmNoteValidationError(result.errors);
     if (isCrmDatabaseMode()) {
       // organizationId from the browser is ignored — server derives tenancy.
-      return remoteCreateNote(customerId, draft);
+      return remoteCreateNote(customerId, draft, execution);
     }
     this.assertLocalPersistenceAllowed();
     return this.repo.createNote({

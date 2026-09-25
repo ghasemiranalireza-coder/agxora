@@ -44,6 +44,12 @@ import {
 import { assertWorkerCanStart, assertWorkerCapability } from "../workforce/workers";
 import { buildReasoningTrace } from "../reasoning";
 import { assertToolAllowed, assertWorkspaceIsolation } from "../security";
+import {
+  claimGovernedExecution,
+  completeGovernedExecution,
+  failGovernedExecution,
+  recordGovernedEvidence,
+} from "../evidence/governedExecution";
 import { agentsStore } from "../store";
 import { getToolDefinition, invokeTool } from "../tools";
 import type {
@@ -75,6 +81,29 @@ function isUntrustedToolOutput(output: unknown): boolean {
 
 function nowIso(): string {
   return new Date().toISOString();
+}
+
+function sanitizeToolOutput(output: Readonly<Record<string, unknown>>): Record<string, unknown> {
+  const note =
+    output.note && typeof output.note === "object" && !Array.isArray(output.note)
+      ? (output.note as Record<string, unknown>)
+      : undefined;
+  return {
+    ...(typeof output.action === "string" ? { action: output.action } : {}),
+    ...(output.sent === true ? { sent: true } : {}),
+    ...(output.delivery === "queued" ? { delivery: "queued" } : {}),
+    ...(typeof output.recipient === "string" ? { recipient: output.recipient } : {}),
+    ...(typeof output.customerId === "string" ? { customerId: output.customerId } : {}),
+    ...(output.verified === true ? { verified: true } : {}),
+    ...(note && typeof note.id === "string"
+      ? {
+          note: {
+            id: note.id,
+            ...(typeof note.customerId === "string" ? { customerId: note.customerId } : {}),
+          },
+        }
+      : {}),
+  };
 }
 
 function majorAudit(
@@ -167,6 +196,15 @@ function nextExecution(
   majorAudit("agent.execution.created", created, {
     taskId: task.id,
     goal,
+  });
+  recordGovernedEvidence({
+    organizationId: created.organizationId,
+    executionId: created.id,
+    businessGoalId: typeof task.input.businessGoalId === "string" ? task.input.businessGoalId : undefined,
+    workerId: created.workerId,
+    actorId: created.actorId,
+    action: "execution.started",
+    status: "started",
   });
   return created;
 }
@@ -659,6 +697,20 @@ export const agentOsService = {
                 stepId: step.id,
                 toolId: stepToolId,
               });
+              if (!existingApproval && isOrchestrationPlan(activePlan)) {
+                recordGovernedEvidence({
+                  organizationId: task.organizationId,
+                  executionId: execution.id,
+                  businessGoalId: typeof task.input.businessGoalId === "string" ? task.input.businessGoalId : undefined,
+                  planId: activePlan.id,
+                  stepId: step.id,
+                  capabilityId: step.capabilityId,
+                  workerId: typeof task.input.workerId === "string" ? task.input.workerId : undefined,
+                  actorId: typeof task.input.actorId === "string" ? task.input.actorId : undefined,
+                  action: "approval.requested",
+                  status: "REQUIRES_APPROVAL",
+                });
+              }
               if (isOrchestrationPlan(activePlan)) {
                 activePlan = syncOrchestration(
                   task,
@@ -727,6 +779,31 @@ export const agentOsService = {
           }
 
           const startedAt = Date.now();
+          const idempotencyKey = step.idempotencyKey;
+          let replayOutput: unknown;
+          if (
+            isOrchestrationPlan(activePlan) &&
+            capability?.mutating &&
+            idempotencyKey
+          ) {
+            const claim = await claimGovernedExecution({
+              organizationId: task.organizationId,
+              idempotencyKey,
+              executionId: execution.id,
+              businessGoalId: typeof task.input.businessGoalId === "string" ? task.input.businessGoalId : undefined,
+              planId: activePlan.id,
+              stepId: step.id,
+              capabilityId: capability.id,
+              workerId: typeof task.input.workerId === "string" ? task.input.workerId : undefined,
+              actorId: typeof task.input.actorId === "string" ? task.input.actorId : task.agentInstanceId,
+              approvalRequired: true,
+              approvalGranted: requiresApproval
+                ? existingApproval?.state === "APPROVED"
+                : false,
+            });
+            if (claim.kind === "in_progress") return task;
+            if (claim.kind === "replay") replayOutput = claim.outcome.toolOutput;
+          }
           recordEvent(
             createStepExecution({
               organizationId: task.organizationId,
@@ -741,7 +818,11 @@ export const agentOsService = {
               input: { step: step.title, goal },
             }),
           );
-          const result = await invokeTool(stepToolId, {
+          let result: { ok: boolean; output?: unknown; error?: string };
+          try {
+            result = replayOutput
+              ? { ok: true, output: replayOutput }
+              : await invokeTool(stepToolId, {
             organizationId: task.organizationId,
             agentInstanceId: task.agentInstanceId,
             taskId: task.id,
@@ -752,15 +833,42 @@ export const agentOsService = {
                   taskInput: task.input,
                   plan: activePlan,
                   capability,
+                  executionId: execution.id,
                 })
               : { step: step.title, goal, ...task.input },
-          });
+            });
+          } catch (toolError) {
+            if (isOrchestrationPlan(activePlan) && capability?.mutating && idempotencyKey && !replayOutput) {
+              await failGovernedExecution({
+                organizationId: task.organizationId,
+                idempotencyKey,
+                mutated: false,
+              });
+            }
+            throw toolError;
+          }
           agentsStore.bumpToolInvocations();
-          if (!result.ok) throw new Error(result.error ?? "Tool failed");
+          if (!result.ok) {
+            if (isOrchestrationPlan(activePlan) && capability?.mutating && idempotencyKey && !replayOutput) {
+              await failGovernedExecution({
+                organizationId: task.organizationId,
+                idempotencyKey,
+                mutated: false,
+              });
+            }
+            throw new Error(result.error ?? "Tool failed");
+          }
           if (isOrchestrationPlan(activePlan) && isUntrustedToolOutput(result.output)) {
             throw new Error(formatCapabilityFailure(simulatedExecutionFailure(stepToolId)));
           }
           if (capability?.mutating && !recordedMutation(result.output)) {
+            if (isOrchestrationPlan(activePlan) && idempotencyKey && !replayOutput) {
+              await failGovernedExecution({
+                organizationId: task.organizationId,
+                idempotencyKey,
+                mutated: false,
+              });
+            }
             throw new Error(
               capability.id.startsWith("COMMUNICATION_")
                 ? "Email was not accepted by the provider."
@@ -773,6 +881,62 @@ export const agentOsService = {
                 ? "Email acceptance was not verified."
                 : "CRM note was not verified.",
             );
+          }
+          if (isOrchestrationPlan(activePlan) && capability && idempotencyKey && capability.mutating) {
+            const output = result.output;
+            const toolOutput =
+              output && typeof output === "object" && !Array.isArray(output)
+                ? sanitizeToolOutput(output as Record<string, unknown>)
+                : {};
+            await completeGovernedExecution({
+              organizationId: task.organizationId,
+              idempotencyKey,
+              verificationStatus: capability.verifies && outputVerified(output) ? "verified" : "pending",
+              outcome: { toolOutput },
+            });
+            recordGovernedEvidence({
+              organizationId: task.organizationId,
+              executionId: execution.id,
+              businessGoalId: typeof task.input.businessGoalId === "string" ? task.input.businessGoalId : undefined,
+              planId: activePlan.id,
+              stepId: step.id,
+              capabilityId: capability.id,
+              workerId: typeof task.input.workerId === "string" ? task.input.workerId : undefined,
+              actorId: typeof task.input.actorId === "string" ? task.input.actorId : undefined,
+              action: "execution.result",
+              status: "completed",
+            });
+          }
+          if (isOrchestrationPlan(activePlan) && capability?.verifies && outputVerified(result.output)) {
+            recordGovernedEvidence({
+              organizationId: task.organizationId,
+              executionId: execution.id,
+              businessGoalId: typeof task.input.businessGoalId === "string" ? task.input.businessGoalId : undefined,
+              planId: activePlan.id,
+              stepId: step.id,
+              capabilityId: capability.id,
+              workerId: typeof task.input.workerId === "string" ? task.input.workerId : undefined,
+              actorId: typeof task.input.actorId === "string" ? task.input.actorId : undefined,
+              action: "verification.result",
+              status: "verified",
+            });
+          }
+          if (
+            isOrchestrationPlan(activePlan) &&
+            (capability?.id === "CRM_PREPARE_NOTE" || capability?.id === "COMMUNICATION_PREPARE_EMAIL")
+          ) {
+            recordGovernedEvidence({
+              organizationId: task.organizationId,
+              executionId: execution.id,
+              businessGoalId: typeof task.input.businessGoalId === "string" ? task.input.businessGoalId : undefined,
+              planId: activePlan.id,
+              stepId: step.id,
+              capabilityId: capability.id,
+              workerId: typeof task.input.workerId === "string" ? task.input.workerId : undefined,
+              actorId: typeof task.input.actorId === "string" ? task.input.actorId : undefined,
+              action: "step.prepared",
+              status: "prepared",
+            });
           }
           stepPlan = capability
             ? applyCapabilityStepSuccess(stepPlan, step.id, result.output, capability)
@@ -1047,6 +1211,20 @@ export const agentOsService = {
           stepId: resolved.stepId,
         },
       );
+      if (input.state === "APPROVED") {
+        const task = agentsStore.getSnapshot().tasks.find((item) => item.id === resolved.taskId);
+        recordGovernedEvidence({
+          organizationId: resolved.organizationId,
+          executionId: execution.id,
+          businessGoalId: typeof task?.input.businessGoalId === "string" ? task.input.businessGoalId : undefined,
+          planId: resolved.planId,
+          stepId: resolved.stepId,
+          workerId: typeof task?.input.workerId === "string" ? task.input.workerId : undefined,
+          actorId: input.decidedBy ?? (typeof task?.input.actorId === "string" ? task.input.actorId : undefined),
+          action: "approval.granted",
+          status: "APPROVED",
+        });
+      }
       recordEvent(
         createStepExecution({
           organizationId: resolved.organizationId,
@@ -1073,6 +1251,28 @@ export const agentOsService = {
     }
 
     if (input.state === "APPROVED") {
+      if (typeof window !== "undefined") {
+        const plan = agentsStore.getSnapshot().plans.find((item) => item.id === resolved.planId);
+        const step = plan?.steps.find((item) => item.id === resolved.stepId);
+        if (step?.idempotencyKey && step.capabilityId) {
+          const response = await fetch("/api/v1/agents/governed-approval", {
+            method: "POST",
+            credentials: "include",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+              executionId: resolved.executionId,
+              stepId: resolved.stepId,
+              capabilityId: step.capabilityId,
+              idempotencyKey: step.idempotencyKey,
+              planId: resolved.planId,
+              workerId: execution?.workerId,
+            }),
+          });
+          if (!response.ok) {
+            throw new Error("Governed approval was not recorded.");
+          }
+        }
+      }
       const plan = agentsStore.getSnapshot().plans.find((item) => item.id === resolved.planId);
       if (plan) agentsStore.upsertPlan(stampApprovedCommunication(plan, resolved.stepId));
       await this.resumeExecution(resolved.executionId);

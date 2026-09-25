@@ -18,6 +18,8 @@ export type CustomerEmailSendInput = {
   readonly subject: string;
   readonly text: string;
   readonly idempotencyKey: string;
+  readonly executionId: string;
+  readonly stepId: string;
 };
 
 export type CustomerEmailSendResult = {
@@ -38,7 +40,14 @@ async function httpSender(
     method: "POST",
     credentials: "include",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify(input),
+    body: JSON.stringify({
+      customerId: input.customerId,
+      subject: input.subject,
+      text: input.text,
+      idempotencyKey: input.idempotencyKey,
+      executionId: input.executionId,
+      stepId: input.stepId,
+    }),
   });
   const payload = (await response.json().catch(() => null)) as {
     delivery?: string;
@@ -232,11 +241,15 @@ export async function handleCommunicationTool(
         durationMs: Date.now() - started,
       };
     }
+    const { agentsStore } = await import("../store");
+    await agentsStore.flushPersistence();
     const sent = await sender({
       customerId: customer.id,
       subject,
       text,
       idempotencyKey,
+      executionId: readString(ctx.params, "executionId") ?? "",
+      stepId: readString(ctx.params, "stepId") ?? "",
     });
     if (!sent.ok || sent.delivery !== "queued" || sent.recipient?.toLowerCase() !== email.toLowerCase()) {
       return {
@@ -279,6 +292,17 @@ export async function handleCommunicationTool(
         output: { action, verified: false, mutated: false, delivery: delivery ?? "not_configured" },
         durationMs: Date.now() - started,
       };
+    }
+    if (typeof window !== "undefined") {
+      const idempotencyKey = readString(ctx.params, "idempotencyKey");
+      if (idempotencyKey) {
+        await fetch("/api/v1/agents/governed-verification", {
+          method: "POST",
+          credentials: "include",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ idempotencyKey, customerId: customer.id }),
+        }).catch(() => undefined);
+      }
     }
     return {
       ok: true,
