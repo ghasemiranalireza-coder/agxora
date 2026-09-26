@@ -422,5 +422,12 @@ describe("commercial billing", () => {
       openCheckoutAgeMs: 1_000,
       now: NOW,
     }).action).toBe("reject");
+    expect(decideCheckoutStart({
+      requestedPlan: "agxora_professional",
+      requestedInterval: "month",
+      subscription: subscription(),
+      openCheckoutAgeMs: 1_000,
+      now: NOW,
+    }).action).toBe("plan_change");
   });
 });

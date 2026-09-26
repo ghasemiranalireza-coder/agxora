@@ -96,7 +96,7 @@ export async function createStripeCheckoutSession(input: {
       "subscription_data[metadata][planCode]": input.planCode,
       "subscription_data[metadata][interval]": input.interval,
     },
-    `agxora-checkout-${input.organizationId}-${input.planCode}-${input.interval}`,
+    `agxora-checkout-${input.organizationId}-${input.planCode}-${input.interval}-${crypto.randomUUID()}`,
   );
   if (!created.id || !created.url) {
     throw new PersistenceError("persistence", "The payment provider did not return a checkout session.");

@@ -67,14 +67,14 @@ export function decideCheckoutStart(input: {
   | { readonly action: "create" }
   | { readonly action: "plan_change" }
   | { readonly action: "reject"; readonly status: number; readonly message: string } {
-  if (input.openCheckoutAgeMs != null && input.openCheckoutAgeMs < 30 * 60 * 1000) {
-    return { action: "reject", status: 409, message: "A checkout is already open for this organization." };
-  }
   if (input.subscription && hasPaidAccess(input.subscription, input.now)) {
     if (input.subscription.planCode === input.requestedPlan && input.subscription.interval === input.requestedInterval) {
       return { action: "reject", status: 409, message: "This organization already has that subscription." };
     }
     return { action: "plan_change" };
+  }
+  if (input.openCheckoutAgeMs != null && input.openCheckoutAgeMs < 30 * 60 * 1000) {
+    return { action: "reject", status: 409, message: "A checkout is already open for this organization." };
   }
   return { action: "create" };
 }
