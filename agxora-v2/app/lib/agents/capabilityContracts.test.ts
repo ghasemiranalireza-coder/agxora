@@ -67,8 +67,14 @@ describe("Phase 12 capability contracts", () => {
       expect(finance.failure.availability).toBe("BLOCKED");
       expect(finance.failure.retryable).toBe(false);
     }
-    const unknown = authorizeCapabilityExecution({
+    const future = authorizeCapabilityExecution({
       capabilityId: "SOCIAL_PUBLISH",
+      organizationId: "org_a",
+    });
+    expect(future.ok).toBe(false);
+    if (!future.ok) expect(future.failure.availability).toBe("FUTURE");
+    const unknown = authorizeCapabilityExecution({
+      capabilityId: "NOT_A_CAPABILITY",
       organizationId: "org_a",
     });
     expect(unknown.ok).toBe(false);

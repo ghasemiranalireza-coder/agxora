@@ -79,13 +79,20 @@ describe("first-customer Day 7 hardening", () => {
     expect(settings).not.toContain('href="/dashboard/billing"');
     expect(settings).not.toContain('href="/dashboard/ai"');
     expect(settings).not.toContain("AccountBillingSection");
-    expect(settings).toContain("settings.billing.unavailable");
+    expect(settings).toContain("BillingSettingsPanel");
+    const billingPanel = readFileSync(
+      path.join(ROOT, "app/components/settings/BillingSettingsPanel.tsx"),
+      "utf8",
+    );
+    expect(billingPanel).toContain("settings.billing.unavailable");
+    expect(billingPanel).toContain("settings.billing.notFinanceNotice");
+    expect(billingPanel).not.toContain("CustomerBillingPortal");
     expect(settings).not.toContain("API_KEYS");
     expect(settings).not.toContain("AUDIT_LOGS");
     expect(settings).not.toContain('href="/dashboard/integrations"');
-    expect(settings).toContain("/dashboard/finance");
+    expect(billingPanel).toContain("/dashboard/finance");
     expect(settings).toContain("/dashboard/settings/finance");
-    expect(settings).toContain("settings.billing.notFinanceNotice");
+    expect(billingPanel).toContain("settings.billing.notFinanceNotice");
     expect(settings).toContain("settings.integrations.emptyTitle");
     expect(settings).not.toContain("SETTINGS_INTEGRATIONS");
     const billing = readFileSync(

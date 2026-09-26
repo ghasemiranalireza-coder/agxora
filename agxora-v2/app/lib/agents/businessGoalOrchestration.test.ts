@@ -305,7 +305,7 @@ describe("Day 9 business goal orchestration", () => {
     );
   });
 
-  it("refuses an unregistered capability before any CRM write", async () => {
+  it("refuses a future marketing capability before any CRM write", async () => {
     const provider = createMemoryCrmBridge();
     let creates = 0;
     setCrmBridgeProvider({
@@ -347,7 +347,7 @@ describe("Day 9 business goal orchestration", () => {
       payload: { businessGoalId: goal.id },
     });
     expect(task.status).toBe("failed");
-    expect(task.error).toMatch(/Unsupported capability/);
+    expect(task.error).toMatch(/capabilityUnavailable: SOCIAL_PUBLISH FUTURE/);
     expect(creates).toBe(0);
   });
 

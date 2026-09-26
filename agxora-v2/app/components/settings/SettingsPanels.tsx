@@ -43,6 +43,7 @@ import {
   TeamControlPanel,
   WorkspaceControlPanel,
 } from "./control-plane/ControlPlanePanels";
+import { BillingSettingsPanel } from "./BillingSettingsPanel";
 import { SecurityPanel } from "./SecurityPanel";
 
 function SaveRow({
@@ -709,46 +710,7 @@ function IntegrationsPanel(): JSX.Element {
 }
 
 function BillingPanel(): JSX.Element {
-  const { t } = useLocale();
-  return (
-    <SettingsPanel
-      title={t("settings.billing.title")}
-      description={t("settings.billing.panelDescription")}
-    >
-      <SettingsNotice>{t("settings.billing.notFinanceNotice")}</SettingsNotice>
-      <SettingsNotice>{t("settings.billing.unavailable")}</SettingsNotice>
-      <div className="mb-4">
-        <Link href="/dashboard/finance">
-          <Button size="sm" variant="secondary">
-            {t("settings.billing.openFinance")}
-          </Button>
-        </Link>
-      </div>
-      <SettingsNotice>
-        {t("billing.billingQuestions")}{" "}
-        <Link
-          href="/contact"
-          className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
-        >
-          {t("common.contact")}
-        </Link>
-        {" · "}
-        <Link
-          href="/pricing"
-          className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
-        >
-          {t("pricing.navPricing")}
-        </Link>
-        {" · "}
-        <Link
-          href="/terms"
-          className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
-        >
-          {t("common.terms")}
-        </Link>
-      </SettingsNotice>
-    </SettingsPanel>
-  );
+  return <BillingSettingsPanel />;
 }
 
 function ApiPanel(): JSX.Element {

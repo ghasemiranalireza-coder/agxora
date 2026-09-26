@@ -2,6 +2,7 @@
  * Load one organization's export. The organization id comes from the server actor.
  */
 
+import { loadExportableSubscription } from "@/app/lib/billing/service";
 import { prisma } from "@/app/lib/db/prisma";
 import type { Actor } from "@/app/lib/tenancy";
 import { assembleOrganizationExport } from "./buildExport";
@@ -13,7 +14,7 @@ function iso(value: Date): string {
 
 export async function loadOrganizationExport(actor: Actor, generatedAt = new Date().toISOString()) {
   const organizationId = actor.organizationId;
-  const [organization, memberships, customers, contacts, notes, activities, documents, invoices, deliveryNotes, financeSettings, agentOs, executions, evidence] =
+  const [organization, memberships, customers, contacts, notes, activities, documents, invoices, deliveryNotes, financeSettings, agentOs, executions, evidence, commercialSubscription] =
     await Promise.all([
       prisma.organization.findUnique({ where: { id: organizationId }, select: { id: true, name: true } }),
       prisma.membership.findMany({
@@ -70,6 +71,7 @@ export async function loadOrganizationExport(actor: Actor, generatedAt = new Dat
       prisma.agentOsState.findUnique({ where: { organizationId }, select: { payload: true } }),
       prisma.agentGovernedExecution.findMany({ where: { organizationId }, orderBy: { createdAt: "asc" } }),
       prisma.agentGovernedEvidence.findMany({ where: { organizationId }, orderBy: { createdAt: "asc" }, take: 500 }),
+      loadExportableSubscription(organizationId),
     ]);
 
   if (!organization) {
@@ -115,5 +117,6 @@ export async function loadOrganizationExport(actor: Actor, generatedAt = new Dat
     governedEvidence: evidence.map((row) =>
       projectGovernedEvidence(row, executionById.get(row.executionId) ?? null) as unknown as Record<string, unknown>,
     ),
+    commercialSubscription,
   });
 }

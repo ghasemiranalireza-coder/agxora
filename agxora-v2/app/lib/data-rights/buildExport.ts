@@ -30,6 +30,7 @@ export interface OrganizationExport {
   readonly memories: readonly Record<string, unknown>[];
   readonly governedExecutions: readonly Record<string, unknown>[];
   readonly governedEvidence: readonly Record<string, unknown>[];
+  readonly commercialSubscription: Record<string, unknown> | null;
 }
 
 function jsonSafe(value: unknown): unknown {
@@ -64,6 +65,7 @@ export function assembleOrganizationExport(input: {
     readonly updatedAt: string;
   }[];
   readonly governedEvidence: readonly Record<string, unknown>[];
+  readonly commercialSubscription?: Record<string, unknown> | null;
 }): OrganizationExport {
   const agent = projectAgentOsExport(input.agentOsPayload, input.organization.id);
   const executions = input.governedExecutions.map((row) => {
@@ -104,5 +106,8 @@ export function assembleOrganizationExport(input: {
     memories: agent.memories,
     governedExecutions: executions,
     governedEvidence: input.governedEvidence.map((row) => jsonSafe(row) as Record<string, unknown>),
+    commercialSubscription: input.commercialSubscription
+      ? (jsonSafe(input.commercialSubscription) as Record<string, unknown>)
+      : null,
   };
 }

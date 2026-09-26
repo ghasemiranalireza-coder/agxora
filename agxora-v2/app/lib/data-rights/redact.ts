@@ -5,7 +5,7 @@
  */
 
 const BLOCKED_KEY =
-  /^(password|passwordhash|token|accesstoken|refreshtoken|secret|apikey|api_key|authorization|cookie|credential|credentials|clientsecret|encryptionkey|html)$/i;
+  /^(password|passwordhash|token|accesstoken|refreshtoken|secret|apikey|authorization|cookie|credential|credentials|clientsecret|encryptionkey|html|cvc|cvv|pan|cardnumber|cardpan|webhooksecret|stripesecret|stripewebhooksecret|paymentmethod|paymentcredentials)$/i;
 
 export function isBlockedExportKey(key: string): boolean {
   return BLOCKED_KEY.test(key.replace(/[_-]/g, ""));
