@@ -1097,5 +1097,16 @@
     "subtitle": "Spezialisierte Worker nutzen dieselben Ziele, Freigaben und Prüfungen.",
     "addCommunication": "Customer-Communication-Worker hinzufügen",
     "createFailed": "Der Worker konnte nicht erstellt werden."
+  },
+  "recovery": {
+    "reserved": "This step is reserved. Nothing has been changed yet. Wait, or contact support if it stays here.",
+    "executing": "This step is still running. Do not start another copy of the same action.",
+    "ambiguous": "Der Zustellstatus ist unbekannt. Senden Sie nicht erneut, bis diese Ausführung geprüft wurde.",
+    "failed": "Dieser Schritt ist fehlgeschlagen. Wenn sich nichts geändert hat, können Sie es erneut versuchen. Wenn eine Änderung möglich ist, kontaktieren Sie den Support.",
+    "completed": "This step completed. The recorded result was kept.",
+    "approvalRequired": "Eine Freigabe ist erforderlich, bevor sich etwas ändert.",
+    "verificationPending": "The action finished, and verification is still pending.",
+    "verified": "The action finished and was verified.",
+    "replayed": "Diese Anfrage hat die bestehende Ausführung wiederverwendet. Es wurde keine zweite Änderung vorgenommen."
   }
 }

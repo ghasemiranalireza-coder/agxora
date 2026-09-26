@@ -790,6 +790,20 @@
       "panelDescription": "Company letterhead, logo, brand colors, and templates for delivery notes and invoices.",
       "body": "Open the document designer to choose Lieferschein and Rechnung templates and preview your company branding. Already issued documents keep their original appearance.",
       "open": "Open document designer"
+    },
+    "dataRights": {
+      "supportTitle": "Need help?",
+      "supportBody": "Contact support and include your organization ID and execution ID so the operation can be identified. This is an email contact, not a ticket queue.",
+      "organizationId": "Organization ID",
+      "executionId": "Execution ID",
+      "executionHint": "Add ?executionId= to this page when you have one.",
+      "unavailable": "Sign in to load it.",
+      "retentionTitle": "What can be deleted",
+      "deletable": "CRM contacts, notes, and document metadata can be deleted. A customer can be deleted when no invoice or delivery note is attached.",
+      "retained": "Invoices, delivery notes, governed executions, and governed evidence are retained.",
+      "financeBlock": "If a customer has financial documents, deletion is refused and those documents stay.",
+      "backupUnknown": "This screen does not confirm that a database backup exists.",
+      "export": "Download organization export"
     }
   },
   "errors": {
@@ -5824,6 +5838,17 @@
       "subtitle": "Specialized workers use the same governed goals, approvals, and verification.",
       "addCommunication": "Add Customer Communication Worker",
       "createFailed": "Worker could not be created."
+    },
+    "recovery": {
+      "reserved": "This step is reserved. Nothing has been changed yet. Wait, or contact support if it stays here.",
+      "executing": "This step is still running. Do not start another copy of the same action.",
+      "ambiguous": "Delivery status is unknown. Do not send again until this execution has been reviewed.",
+      "failed": "This step failed. If nothing changed, you can try again. If a change may have happened, contact support.",
+      "completed": "This step completed. The recorded result was kept.",
+      "approvalRequired": "Approval is required before anything changes.",
+      "verificationPending": "The action finished, and verification is still pending.",
+      "verified": "The action finished and was verified.",
+      "replayed": "This request reused the existing execution. No second change was made."
     }
   },
   "integrations": {
@@ -6554,11 +6579,11 @@
       "purposes": "3. उद्देश्य और कानूनी आधार",
       "purposesBody": "हम सेवा (अनुबंध) प्रदान करने, प्लेटफ़ॉर्म सुरक्षित करने (वैध हित), कानूनी दायित्वों को पूरा करने और - जहां आवश्यक हो - आपकी सहमति से (उदाहरण के लिए वैकल्पिक विश्लेषण या मार्केटिंग) डेटा संसाधित करते हैं।",
       "retention": "4. प्रतिधारण",
-      "retentionBody": "हम व्यक्तिगत डेटा को केवल तभी तक बनाए रखते हैं जब तक उपरोक्त उद्देश्यों के लिए आवश्यक हो, जिसमें बिलिंग और सुरक्षा रिकॉर्ड के लिए वैधानिक प्रतिधारण शामिल है, फिर इसे हटा दें या अज्ञात कर दें।",
+      "retentionBody": "CRM contacts, notes, and document metadata can be deleted in the product. Invoices, delivery notes, governed executions, and evidence are retained. This policy describes product behavior, not a separate legal retention schedule.",
       "sharing": "5. साझा करना",
       "sharingBody": "हम उचित अनुबंधों के तहत सत्यापित प्रोसेसर (होस्टिंग, ईमेल, भुगतान) का उपयोग करते हैं। हम व्यक्तिगत डेटा नहीं बेचते हैं.",
       "yourRights": "6. आपके अधिकार",
-      "yourRightsBodyBefore": "आपके स्थान के आधार पर, आप पहुंच, सुधार, विलोपन, प्रतिबंध, पोर्टेबिलिटी या आपत्ति का अनुरोध कर सकते हैं। संपर्क",
+      "yourRightsBodyBefore": "Signed-in organizations can download an export of their business data from Settings. CRM contacts, notes, and document metadata can be deleted. Invoices, delivery notes, executions, and evidence are retained. For other requests, contact",
       "yourRightsBodyAfter": "आप पर्यवेक्षी प्राधिकारी के पास भी शिकायत दर्ज करा सकते हैं।",
       "cookies": "7. कुकीज़",
       "cookiesBodyBefore": "हमारा देखें",

@@ -465,5 +465,19 @@
     "panelDescription": "سربرگ شرکت، لوگو، رنگ برند و قالب‌های حواله تحویل و فاکتور.",
     "body": "طراح سند را باز کنید تا قالب حواله تحویل و فاکتور را انتخاب کنید و برند شرکت را پیش‌نمایش دهید. اسناد صادرشده ظاهر قبلی را حفظ می‌کنند.",
     "open": "باز کردن طراح سند"
+  },
+  "dataRights": {
+    "supportTitle": "Need help?",
+    "supportBody": "Contact support and include your organization ID and execution ID so the operation can be identified. This is an email contact, not a ticket queue.",
+    "organizationId": "Organization ID",
+    "executionId": "Execution ID",
+    "executionHint": "Add ?executionId= to this page when you have one.",
+    "unavailable": "Sign in to load it.",
+    "retentionTitle": "What can be deleted",
+    "deletable": "CRM contacts, notes, and document metadata can be deleted. A customer can be deleted when no invoice or delivery note is attached.",
+    "retained": "Invoices, delivery notes, governed executions, and governed evidence are retained.",
+    "financeBlock": "If a customer has financial documents, deletion is refused and those documents stay.",
+    "backupUnknown": "This screen does not confirm that a database backup exists.",
+    "export": "Download organization export"
   }
 }
