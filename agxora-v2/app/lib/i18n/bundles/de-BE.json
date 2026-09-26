@@ -1277,6 +1277,34 @@
       "comingSoon": "Demnächst",
       "attention": "Aufmerksamkeit",
       "cta": "Integrationen öffnen"
+    },
+    "activation": {
+      "title": "Ersteinrichtung",
+      "subtitle": "Erledigen Sie den nächsten Schritt. AGXORA zählt ihn erst, wenn die Datensätze vorhanden sind.",
+      "successTitle": "Ihr Workspace ist aktiviert",
+      "successBody": "Die CRM-Nachverfolgungsnotiz ist gespeichert und verifiziert. Das Ergebnis bleibt nach dem erneuten Anmelden erhalten.",
+      "addCustomer": "Fügen Sie Ihren ersten Kunden hinzu",
+      "activateWorker": "Customer-Communication-Worker aktivieren",
+      "recordFollowUp": "CRM-Nachverfolgung erfassen",
+      "approve": "Aktion freigeben",
+      "openAgents": "Verifiziertes Ergebnis öffnen",
+      "selectCustomer": "Kunde",
+      "customerLabel": "Kunde",
+      "noteLabel": "CRM-Notiz",
+      "executionLabel": "Ausführung",
+      "verifiedLabel": "Verifizierung",
+      "verifiedValue": "Verifiziert",
+      "loadFailed": "Der Aktivierungsstatus konnte nicht geladen werden.",
+      "workerFailed": "Der Customer-Communication-Worker konnte nicht aktiviert werden.",
+      "goalFailed": "Die CRM-Nachverfolgung konnte nicht gestartet werden.",
+      "steps": {
+        "organization": "Organisation bereit",
+        "customer": "Fügen Sie Ihren ersten Kunden hinzu",
+        "worker": "Customer-Communication-Worker aktivieren",
+        "goal": "Erste CRM-Nachverfolgung erfassen",
+        "approval": "Aktion freigeben",
+        "verification": "Ergebnis prüfen"
+      }
     }
   },
   "auth": {
@@ -1498,7 +1526,7 @@
       },
       "empty": {
         "ready": {
-          "title": "Ihr CRM ist fertig",
+          "title": "Fügen Sie Ihren ersten Kunden hinzu",
           "description": "Erstellen Sie den ersten Kundendatensatz, um Verzeichnis, Profile und Aktivitäten freizuschalten.",
           "action": "Kunde erstellen"
         },
@@ -5834,7 +5862,14 @@
         "unsupported": "This goal is not supported yet. Ask AGXORA to prepare a CRM follow-up.",
         "noCrm": "The CRM assistant is not available in this workspace.",
         "noEmail": "Email is not available for this assistant."
-      }
+      },
+      "noWorker": "Kein Worker"
+    },
+    "workforce": {
+      "title": "KI-Workforce",
+      "subtitle": "Spezialisierte Worker nutzen dieselben Ziele, Freigaben und Prüfungen.",
+      "addCommunication": "Customer-Communication-Worker hinzufügen",
+      "createFailed": "Der Worker konnte nicht erstellt werden."
     }
   },
   "integrations": {

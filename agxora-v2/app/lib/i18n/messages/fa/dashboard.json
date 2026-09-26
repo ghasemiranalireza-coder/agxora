@@ -449,5 +449,33 @@
       "title": "Documents hub unavailable",
       "description": "Customer files that exist today are stored on the CRM customer record, not in a separate documents product."
     }
+  },
+  "activation": {
+    "title": "First customer setup",
+    "subtitle": "Complete the next step. AGXORA does not count this as done until the records exist.",
+    "successTitle": "Your workspace is activated",
+    "successBody": "The CRM follow-up note is stored and verified. You can leave and come back to the same result.",
+    "addCustomer": "Add your first customer",
+    "activateWorker": "Activate Customer Communication Worker",
+    "recordFollowUp": "Record a CRM follow-up",
+    "approve": "Approve the action",
+    "openAgents": "Open the verified result",
+    "selectCustomer": "Customer",
+    "customerLabel": "Customer",
+    "noteLabel": "CRM note",
+    "executionLabel": "Execution",
+    "verifiedLabel": "Verification",
+    "verifiedValue": "Verified",
+    "loadFailed": "Activation status could not be loaded.",
+    "workerFailed": "The Customer Communication Worker could not be activated.",
+    "goalFailed": "The CRM follow-up could not be started.",
+    "steps": {
+      "organization": "Organization ready",
+      "customer": "Add your first customer",
+      "worker": "Activate Customer Communication Worker",
+      "goal": "Record your first CRM follow-up",
+      "approval": "Approve the action",
+      "verification": "Verify the result"
+    }
   }
 }
