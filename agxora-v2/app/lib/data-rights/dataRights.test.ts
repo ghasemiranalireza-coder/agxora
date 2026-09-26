@@ -175,5 +175,8 @@ describe("customer delete conflict", () => {
     expect(conflict.message).toBe(CUSTOMER_FINANCE_DELETE_CONFLICT_MESSAGE);
     expect(conflict.message).not.toContain("P2003");
     expect(customerDeletePersistenceError(new Error("db")).message).toBe("Failed to delete customer");
+    const wrapped = customerDeletePersistenceError(new Error("Foreign key constraint failed on the field"));
+    expect(wrapped.code).toBe("conflict");
+    expect(wrapped.message).not.toContain("Foreign key");
   });
 });
