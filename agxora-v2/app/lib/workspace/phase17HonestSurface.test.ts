@@ -74,8 +74,14 @@ describe("phase 17 honest product surface", () => {
     );
 
     const settings = page("app/components/settings/SettingsPanels.tsx");
-    expect(settings).toContain("settings.billing.unavailable");
+    const billingPanel = page("app/components/settings/BillingSettingsPanel.tsx");
+    expect(settings).toContain("BillingSettingsPanel");
+    expect(billingPanel).toContain("settings.billing.unavailable");
+    expect(billingPanel).toContain("/api/v1/billing/subscription");
     expect(settings).not.toContain("AccountBillingSection");
+    expect(settings).not.toContain("CustomerBillingPortal");
+    expect(billingPanel).not.toContain("CustomerBillingPortal");
+    expect(billingPanel).not.toContain("4242");
     expect(settings).not.toContain("status: \"mock\"");
   });
 

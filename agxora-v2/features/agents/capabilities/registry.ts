@@ -22,7 +22,7 @@ export interface CapabilityContract {
   readonly id: string;
   readonly name: string;
   readonly description: string;
-  readonly domain: "crm" | "communication" | "finance";
+  readonly domain: "crm" | "communication" | "finance" | "marketing";
   readonly toolId: ToolId;
   /** Action understood by the existing tool handler. */
   readonly action: string;
@@ -31,7 +31,7 @@ export interface CapabilityContract {
   readonly approvalRequired: boolean;
   readonly approval: { readonly required: boolean };
   /** Describes the permission the existing session path enforces. */
-  readonly permission: "crm.read" | "crm.write" | "email.send" | "finance.blocked";
+  readonly permission: "crm.read" | "crm.write" | "email.send" | "finance.blocked" | "marketing.unavailable";
   readonly security: { readonly tenantScoped: boolean };
   readonly execution: { readonly idempotencyRequired: boolean };
   readonly verifies: boolean;
@@ -262,6 +262,7 @@ export const CAPABILITIES: readonly CapabilityContract[] = [
     evidenceType: "not_available",
     inputSchema: objectSchema(sharedProperties, ["step", "goal"]),
   }),
+  ...futureMarketingCapabilities(),
 ];
 
 for (const capability of CAPABILITIES) {
@@ -279,6 +280,44 @@ for (const capability of CAPABILITIES) {
   if (capability.mutating !== (capability.mode === "WRITE")) {
     throw new Error(`Capability ${capability.id} mode does not match mutation`);
   }
+}
+
+function futureMarketingCapabilities(): CapabilityContract[] {
+  const future: ReadonlyArray<{
+    readonly id: string;
+    readonly name: string;
+    readonly toolId: ToolId;
+    readonly mutating: boolean;
+  }> = [
+    { id: "MARKETING_WORKFORCE", name: "Marketing workforce", toolId: "campaign_plan", mutating: true },
+    { id: "MARKETING_CAMPAIGN", name: "Marketing campaign", toolId: "campaign_execute", mutating: true },
+    { id: "MARKETING_CONTENT_PLAN", name: "Marketing content plan", toolId: "campaign_plan", mutating: true },
+    { id: "MARKETING_IMAGE_CREATION", name: "Marketing image creation", toolId: "creative_generate", mutating: true },
+    { id: "MARKETING_VIDEO_CREATION", name: "Marketing video creation", toolId: "creative", mutating: true },
+    { id: "MARKETING_AD_CREATIVE", name: "Marketing ad creative", toolId: "creative", mutating: true },
+    { id: "SOCIAL_CONTENT", name: "Social content", toolId: "social", mutating: true },
+    { id: "SOCIAL_PUBLISH", name: "Social publish", toolId: "social_publish", mutating: true },
+    { id: "MARKETING_AUTOMATION", name: "Marketing automation", toolId: "campaign_execute", mutating: true },
+    { id: "MARKETING_MEASUREMENT", name: "Marketing measurement", toolId: "growth_insights", mutating: false },
+    { id: "MARKETING_OPTIMIZATION", name: "Marketing optimization", toolId: "growth_insights", mutating: true },
+  ];
+  return future.map((item) =>
+    defineCapability({
+      id: item.id,
+      name: item.name,
+      description: "Future marketing capability. Not available for production execution.",
+      domain: "marketing",
+      toolId: item.toolId,
+      action: "unavailable",
+      mutating: item.mutating,
+      approvalRequired: item.mutating,
+      permission: "marketing.unavailable",
+      verifies: item.mutating,
+      availability: "FUTURE",
+      evidenceType: "not_available",
+      inputSchema: objectSchema(sharedProperties, ["step", "goal"]),
+    }),
+  );
 }
 
 const byId = new Map(CAPABILITIES.map((capability) => [capability.id, capability]));

@@ -5,6 +5,7 @@
 
 import "server-only";
 
+import { assertSeatAvailable, commercialBillingSchemaReady } from "@/app/lib/billing/enforce";
 import { Prisma, type MembershipRole } from "@prisma/client";
 import { prisma } from "@/app/lib/db/prisma";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
@@ -684,6 +685,7 @@ export async function acceptInvitation(
     );
   }
 
+  const billingReady = await commercialBillingSchemaReady();
   const result = await prisma.$transaction(async (tx) => {
     const locked = await tx.invitation.findUnique({ where: { id: invitation.id } });
     if (!locked || locked.acceptedAt || locked.revokedAt) {
@@ -703,6 +705,13 @@ export async function acceptInvitation(
     });
     if (existing && existing.status === "ACTIVE") {
       throw new PersistenceError("conflict", "User is already a member of this workspace");
+    }
+
+    if (billingReady) {
+      await assertSeatAvailable(tx, {
+        organizationId: invitation.organizationId,
+        userId: actor.userId,
+      });
     }
 
     if (existing) {

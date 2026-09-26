@@ -4,6 +4,7 @@
 
 import "server-only";
 
+import { assertWorkforceActivationAllowed } from "@/app/lib/billing/enforce";
 import { prisma } from "@/app/lib/db/prisma";
 import {
   getAgentOsStateForActor,
@@ -123,6 +124,7 @@ export async function loadActivationStatus(actor: Actor): Promise<ActivationStat
 export async function activateCommunicationWorkerForActor(
   actor: Actor,
 ): Promise<WorkforceWorker> {
+  await assertWorkforceActivationAllowed(actor.organizationId);
   const state = await getAgentOsStateForActor(actor);
   const workers = state.workers ?? [];
   const existing = workers.find((worker) =>

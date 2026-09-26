@@ -3,27 +3,18 @@
 import Link from "next/link";
 import { useState, type JSX } from "react";
 import {
-  formatPlanPrice,
-  listMarketingPlans,
-  yearlySavingsPercent,
-} from "../../../features/saas";
-import type { BillingInterval, CommercialPlanId } from "../../../features/saas";
-import { LanguageSwitcher, formatCurrency, formatNumber, useLocale } from "../../lib/i18n";
+  COMMERCIAL_PLANS,
+  VAT_NOTICE,
+  formatNetEur,
+  priceCents,
+  type BillingInterval,
+} from "@/app/lib/billing/catalog";
+import { LanguageSwitcher, useLocale } from "../../lib/i18n";
 import "./pricing.css";
 
 export function PricingPageView(): JSX.Element {
-  const { t, tList, locale } = useLocale();
-  const [interval, setInterval] = useState<BillingInterval>("monthly");
-  const plans = listMarketingPlans();
-
-  const planName = (id: CommercialPlanId): string =>
-    t(`pricing.plans.${id}.name`);
-  const planDescription = (id: CommercialPlanId): string =>
-    t(`pricing.plans.${id}.description`);
-  const planFeatures = (id: CommercialPlanId): string[] =>
-    tList(`pricing.plans.${id}.features`);
-  const planCta = (id: CommercialPlanId): string =>
-    id === "enterprise" ? t("pricing.contactSales") : t("pricing.startFree");
+  const { t } = useLocale();
+  const [interval, setInterval] = useState<BillingInterval>("month");
 
   return (
     <div className="p35-pricing">
@@ -40,7 +31,7 @@ export function PricingPageView(): JSX.Element {
           <Link href="/login">{t("pricing.navSignIn")}</Link>
           <LanguageSwitcher id="pricing-language" />
           <Link href="/register" className="p35-pricing__nav-cta">
-            {t("pricing.startFree")}
+            {t("pricing.choosePlan")}
           </Link>
         </nav>
       </header>
@@ -49,55 +40,39 @@ export function PricingPageView(): JSX.Element {
         <div className="p35-pricing__intro">
           <p className="p35-pricing__eyebrow">{t("pricing.eyebrow")}</p>
           <h1 className="p35-pricing__title">{t("pricing.title")}</h1>
-          <p className="p35-pricing__lead">{t("pricing.lead")}</p>
+          <p className="p35-pricing__lead">{t("pricing.paidLead")}</p>
+          <p className="p35-pricing__vat">{VAT_NOTICE}</p>
 
-          <div
-            className="p35-pricing__toggle"
-            role="group"
-            aria-label={t("pricing.billingInterval")}
-          >
+          <div className="p35-pricing__toggle" role="group" aria-label={t("pricing.billingInterval")}>
             <button
               type="button"
-              className={interval === "monthly" ? "is-active" : undefined}
-              aria-pressed={interval === "monthly"}
-              onClick={() => setInterval("monthly")}
+              className={interval === "month" ? "is-active" : undefined}
+              aria-pressed={interval === "month"}
+              onClick={() => setInterval("month")}
             >
               {t("pricing.monthly")}
             </button>
             <button
               type="button"
-              className={interval === "yearly" ? "is-active" : undefined}
-              aria-pressed={interval === "yearly"}
-              onClick={() => setInterval("yearly")}
+              className={interval === "year" ? "is-active" : undefined}
+              aria-pressed={interval === "year"}
+              onClick={() => setInterval("year")}
             >
               {t("pricing.yearly")}
-              <span className="p35-pricing__save">{t("pricing.savePercent")}</span>
             </button>
           </div>
         </div>
 
         <div className="p35-pricing__grid">
-          {plans.map((plan) => {
-            const price = formatPlanPrice(plan, interval, locale);
-            const savings = yearlySavingsPercent(plan);
-            const name = planName(plan.id);
-            const ctaLabel = planCta(plan.id);
-            const features = planFeatures(plan.id);
-            const amountLabel =
-              plan.priceMonthlyUsd == null ? t("pricing.contactSales") : price.label;
-            const suffixLabel =
-              plan.priceMonthlyUsd == null
-                ? ""
-                : interval === "yearly"
-                  ? t("pricing.perMonthYearly")
-                  : t("pricing.perMonth");
-
+          {COMMERCIAL_PLANS.map((plan) => {
+            const amount = formatNetEur(priceCents(plan, interval));
+            const suffix = interval === "year" ? t("pricing.perYear") : t("pricing.perMonth");
             return (
               <Link
-                key={plan.id}
-                href={plan.cta.href}
+                key={plan.code}
+                href="/register"
                 className={`p35-plan${plan.recommended ? " is-recommended" : ""}`}
-                aria-label={t("pricing.planAria", { name, cta: ctaLabel })}
+                aria-label={`${plan.name} — ${t("pricing.choosePlan")}`}
               >
                 {plan.recommended ? (
                   <p className="p35-plan__badge">{t("pricing.mostPopular")}</p>
@@ -106,33 +81,19 @@ export function PricingPageView(): JSX.Element {
                     &nbsp;
                   </p>
                 )}
-                <h2 className="p35-plan__name">{name}</h2>
-                <p className="p35-plan__desc">{planDescription(plan.id)}</p>
+                <h2 className="p35-plan__name">{plan.name}</h2>
+                <p className="p35-plan__desc">{plan.description}</p>
                 <p className="p35-plan__price">
-                  <span className="p35-plan__amount">{amountLabel}</span>
-                  <span className="p35-plan__suffix">{suffixLabel}</span>
+                  <span className="p35-plan__amount">{amount}</span>
+                  <span className="p35-plan__suffix">{suffix}</span>
                 </p>
-                {interval === "yearly" && savings != null && plan.priceYearlyUsd != null ? (
-                  <p className="p35-plan__yearly-hint">
-                    {t("pricing.yearlyHint", {
-                      amount: formatCurrency(Number(plan.priceYearlyUsd), locale, "EUR", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      }),
-                      percent: formatNumber(savings, locale, { maximumFractionDigits: 0 }),
-                    })}
-                  </p>
-                ) : (
-                  <p className="p35-plan__yearly-hint p35-plan__yearly-hint--spacer">
-                    &nbsp;
-                  </p>
-                )}
+                <p className="p35-plan__yearly-hint">{VAT_NOTICE}</p>
                 <ul className="p35-plan__features">
-                  {(features.length > 0 ? features : plan.features).map((feature) => (
+                  {plan.features.map((feature) => (
                     <li key={feature}>{feature}</li>
                   ))}
                 </ul>
-                <span className="p35-plan__cta">{ctaLabel}</span>
+                <span className="p35-plan__cta">{t("pricing.choosePlan")}</span>
               </Link>
             );
           })}
@@ -140,7 +101,7 @@ export function PricingPageView(): JSX.Element {
 
         <div className="p35-pricing__actions" aria-label={t("pricing.commercialActions")}>
           <Link href="/register" className="p35-pricing__action p35-pricing__action--primary">
-            {t("pricing.startFree")}
+            {t("pricing.choosePlan")}
           </Link>
           <Link href="/demo" className="p35-pricing__action">
             {t("pricing.bookDemo")}

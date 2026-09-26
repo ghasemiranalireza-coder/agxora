@@ -105,6 +105,9 @@ model Organization {
   externalActionAudits      ExternalActionAudit[]
   agentGovernedExecutions   AgentGovernedExecution[]
   agentGovernedEvidence     AgentGovernedEvidence[]
+  commercialSubscription    CommercialSubscription?
+  commercialCheckouts       CommercialCheckout[]
+  commercialBillingEvents   CommercialBillingEvent[]
 
   @@index([ownerId])
   @@map("organizations")
@@ -1214,4 +1217,98 @@ model AgentGovernedEvidence {
   @@index([executionId])
   @@index([businessGoalId])
   @@map("agent_governed_evidence")
+}
+
+/// Phase 21 — AGXORA SaaS subscription. Separate from customer Finance invoices.
+enum CommercialSubscriptionStatus {
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  EXPIRED
+}
+
+enum CommercialBillingInterval {
+  month
+  year
+}
+
+enum CommercialCheckoutStatus {
+  OPEN
+  COMPLETED
+  EXPIRED
+}
+
+enum CommercialBillingEventStatus {
+  PROCESSED
+  IGNORED
+  FAILED
+}
+
+/// One commercial subscription row per organization. No card data.
+model CommercialSubscription {
+  id                     String                         @id @default(uuid()) @db.Uuid
+  organizationId         String                         @unique @db.Uuid
+  planCode               String
+  status                 CommercialSubscriptionStatus
+  currency               String                         @default("EUR")
+  interval               CommercialBillingInterval
+  currentPeriodStart     DateTime
+  currentPeriodEnd       DateTime
+  cancelAtPeriodEnd      Boolean                        @default(false)
+  provider               String                         @default("stripe")
+  providerCustomerId     String
+  providerSubscriptionId String
+  /// Stripe event.created of the last applied provider event. Older events are ignored.
+  providerEventCreatedAt DateTime
+  createdAt              DateTime                       @default(now())
+  updatedAt              DateTime                       @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerCustomerId])
+  @@unique([provider, providerSubscriptionId])
+  @@index([status])
+  @@map("commercial_subscriptions")
+}
+
+/// In-flight Stripe Checkout session. Not proof of payment.
+model CommercialCheckout {
+  id                 String                   @id @default(uuid()) @db.Uuid
+  organizationId     String                   @db.Uuid
+  planCode           String
+  interval           CommercialBillingInterval
+  provider           String                   @default("stripe")
+  providerSessionId  String                   @unique
+  providerCustomerId String
+  status             CommercialCheckoutStatus @default(OPEN)
+  createdAt          DateTime                 @default(now())
+  updatedAt          DateTime                 @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, status])
+  @@index([providerCustomerId])
+  @@map("commercial_checkouts")
+}
+
+/// Idempotent provider event log. Payload is a safe reference, never a secret or raw card.
+model CommercialBillingEvent {
+  id              String                       @id @default(uuid()) @db.Uuid
+  provider        String
+  providerEventId String
+  organizationId  String?                      @db.Uuid
+  eventType       String
+  eventCreatedAt  DateTime
+  processedAt     DateTime?
+  status          CommercialBillingEventStatus
+  safePayload     Json                         @default("{}")
+  createdAt       DateTime                     @default(now())
+  updatedAt       DateTime                     @updatedAt
+
+  organization Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+
+  @@unique([provider, providerEventId])
+  @@index([organizationId, createdAt])
+  @@index([eventType])
+  @@map("commercial_billing_events")
 }

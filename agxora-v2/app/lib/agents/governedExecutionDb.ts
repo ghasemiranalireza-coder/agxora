@@ -6,6 +6,7 @@
 import "server-only";
 
 import { Prisma } from "@prisma/client";
+import { assertGovernedExecutionAllowed, commercialBillingSchemaReady } from "@/app/lib/billing/enforce";
 import { prisma } from "@/app/lib/db/prisma";
 import { emailAttemptDecision } from "@/features/agents/evidence/governedExecution";
 
@@ -165,8 +166,17 @@ export async function beginGovernedEmailAttempt(input: {
   readonly now?: Date;
 }): Promise<EmailAttempt> {
   const now = input.now ?? new Date();
+  const billingReady = await commercialBillingSchemaReady();
   try {
-    await prisma.agentGovernedExecution.create({
+    await prisma.$transaction(async (tx) => {
+      if (billingReady) {
+        await assertGovernedExecutionAllowed(tx, {
+          organizationId: input.organizationId,
+          capabilityId: input.capabilityId,
+          now,
+        });
+      }
+      await tx.agentGovernedExecution.create({
       data: {
         organizationId: input.organizationId,
         idempotencyKey: input.idempotencyKey,
@@ -182,6 +192,7 @@ export async function beginGovernedEmailAttempt(input: {
         status: "EXECUTING",
         attemptStartedAt: now,
       },
+      });
     });
     return { kind: "send" };
   } catch (error) {
@@ -208,18 +219,27 @@ export async function beginGovernedEmailAttempt(input: {
     });
     if (decision === "replay") return { kind: "replay", outcome };
     if (decision === "reopen") {
-      const reopened = await prisma.agentGovernedExecution.updateMany({
-        where: { id: existing.id, status: "FAILED" },
-        data: {
-          status: "EXECUTING",
-          attemptStartedAt: now,
-          verificationStatus: "pending",
-          outcome: {},
-          actorId: input.actorId,
-          workerId: input.workerId,
-          executionId: input.executionId,
-          capabilityId: input.capabilityId,
-        },
+      const reopened = await prisma.$transaction(async (tx) => {
+        if (billingReady) {
+          await assertGovernedExecutionAllowed(tx, {
+            organizationId: input.organizationId,
+            capabilityId: input.capabilityId,
+            now,
+          });
+        }
+        return tx.agentGovernedExecution.updateMany({
+          where: { id: existing.id, status: "FAILED" },
+          data: {
+            status: "EXECUTING",
+            attemptStartedAt: now,
+            verificationStatus: "pending",
+            outcome: {},
+            actorId: input.actorId,
+            workerId: input.workerId,
+            executionId: input.executionId,
+            capabilityId: input.capabilityId,
+          },
+        });
       });
       return reopened.count === 1 ? { kind: "send" } : { kind: "in_progress" };
     }
@@ -322,6 +342,7 @@ export async function commitGovernedCrmNote(input: {
   | { readonly kind: "created" | "replay"; readonly noteId: string; readonly customerId: string }
   | { readonly kind: "mismatch" | "in_progress" }
 > {
+  const billingReady = await commercialBillingSchemaReady();
   try {
     return await prisma.$transaction(async (tx) => {
       const existing = await tx.agentGovernedExecution.findUnique({
@@ -343,12 +364,24 @@ export async function commitGovernedCrmNote(input: {
         return { kind: "in_progress" };
       }
       if (existing) {
+        if (existing.status === "FAILED" && billingReady) {
+          await assertGovernedExecutionAllowed(tx, {
+            organizationId: input.organizationId,
+            capabilityId: input.capabilityId,
+          });
+        }
         const claimed = await tx.agentGovernedExecution.updateMany({
           where: { id: existing.id, status: existing.status },
           data: { status: "EXECUTING", actorId: input.actorId, workerId: input.workerId },
         });
         if (claimed.count !== 1) return { kind: "in_progress" };
       } else {
+        if (billingReady) {
+          await assertGovernedExecutionAllowed(tx, {
+            organizationId: input.organizationId,
+            capabilityId: input.capabilityId,
+          });
+        }
         await tx.agentGovernedExecution.create({
           data: {
             organizationId: input.organizationId,
