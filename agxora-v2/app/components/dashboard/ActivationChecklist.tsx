@@ -84,7 +84,29 @@ export function ActivationChecklist(): JSX.Element | null {
     };
   }, [t]);
 
-  if (!status) return null;
+  if (!status) {
+    if (!error) return null;
+    return (
+      <section
+        className="agx-glass-panel agx-dash-panel"
+        aria-label={t("dashboard.activation.title")}
+        data-testid="activation-checklist"
+        style={{
+          padding: "24px",
+          borderRadius: "24px",
+          background: tokens.panelBg,
+          border: `1px solid ${tokens.panelBorder}`,
+          boxShadow: tokens.panelShadow,
+          display: "grid",
+          gap: "16px",
+        }}
+      >
+        <p role="alert" style={{ margin: 0, color: "var(--agx-danger, #f87171)", fontSize: "13px" }}>
+          {error}
+        </p>
+      </section>
+    );
+  }
 
   const activateWorker = async () => {
     setBusy(true);
