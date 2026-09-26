@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { DataRightsSupportPanel } from "./DataRightsSupportPanel";
 import { useCallback, useEffect, useState, type JSX } from "react";
 import { useAISettings } from "../../lib/ai";
 import type { AIProviderId } from "../../lib/ai";
@@ -218,6 +219,7 @@ function ProfilePanel(): JSX.Element {
       ) : null}
       <SettingsNotice>{t("settings.profile.appearanceNote")}</SettingsNotice>
       <SettingsNotice>{t("settings.profile.localPrefsNotice")}</SettingsNotice>
+      <DataRightsSupportPanel />
       <SettingsNotice>
         {t("settings.profile.supportLinks")}:{" "}
         <Link href="/contact" className="underline-offset-2 hover:underline">

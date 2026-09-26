@@ -790,6 +790,20 @@
       "panelDescription": "Company letterhead, logo, brand colors, and templates for delivery notes and invoices.",
       "body": "Open the document designer to choose Lieferschein and Rechnung templates and preview your company branding. Already issued documents keep their original appearance.",
       "open": "Open document designer"
+    },
+    "dataRights": {
+      "supportTitle": "Need help?",
+      "supportBody": "Contact support and include your organization ID and execution ID so the operation can be identified. This is an email contact, not a ticket queue.",
+      "organizationId": "Organization ID",
+      "executionId": "Execution ID",
+      "executionHint": "Add ?executionId= to this page when you have one.",
+      "unavailable": "Sign in to load it.",
+      "retentionTitle": "What can be deleted",
+      "deletable": "CRM contacts, notes, and document metadata can be deleted. A customer can be deleted when no invoice or delivery note is attached.",
+      "retained": "Invoices, delivery notes, governed executions, and governed evidence are retained.",
+      "financeBlock": "If a customer has financial documents, deletion is refused and those documents stay.",
+      "backupUnknown": "This screen does not confirm that a database backup exists.",
+      "export": "Download organization export"
     }
   },
   "errors": {
@@ -5824,6 +5838,17 @@
       "subtitle": "Specialized workers use the same governed goals, approvals, and verification.",
       "addCommunication": "Add Customer Communication Worker",
       "createFailed": "Worker could not be created."
+    },
+    "recovery": {
+      "reserved": "This step is reserved. Nothing has been changed yet. Wait, or contact support if it stays here.",
+      "executing": "This step is still running. Do not start another copy of the same action.",
+      "ambiguous": "Delivery status is unknown. Do not send again until this execution has been reviewed.",
+      "failed": "This step failed. If nothing changed, you can try again. If a change may have happened, contact support.",
+      "completed": "This step completed. The recorded result was kept.",
+      "approvalRequired": "Approval is required before anything changes.",
+      "verificationPending": "The action finished, and verification is still pending.",
+      "verified": "The action finished and was verified.",
+      "replayed": "This request reused the existing execution. No second change was made."
     }
   },
   "integrations": {
@@ -6554,11 +6579,11 @@
       "purposes": "3. Finalità e basi giuridiche",
       "purposesBody": "Elaboriamo i dati per fornire il servizio (contratto), proteggere la piattaforma (interesse legittimo), adempiere agli obblighi legali e, ove richiesto, con il tuo consenso (ad esempio analisi facoltative o marketing).",
       "retention": "4. Conservazione",
-      "retentionBody": "Conserviamo i dati personali solo per il tempo necessario agli scopi di cui sopra, inclusa la conservazione legale per la fatturazione e i registri di sicurezza, quindi li cancelliamo o li rendiamo anonimi.",
+      "retentionBody": "CRM contacts, notes, and document metadata can be deleted in the product. Invoices, delivery notes, governed executions, and evidence are retained. This policy describes product behavior, not a separate legal retention schedule.",
       "sharing": "5. Condivisione",
       "sharingBody": "Utilizziamo processori controllati (hosting, e-mail, pagamenti) con contratti appropriati. Non vendiamo dati personali.",
       "yourRights": "6. I tuoi diritti",
-      "yourRightsBodyBefore": "A seconda della tua posizione, puoi richiedere l'accesso, la correzione, la cancellazione, la restrizione, la portabilità o l'opposizione. Contatto",
+      "yourRightsBodyBefore": "Signed-in organizations can download an export of their business data from Settings. CRM contacts, notes, and document metadata can be deleted. Invoices, delivery notes, executions, and evidence are retained. For other requests, contact",
       "yourRightsBodyAfter": "Puoi anche proporre reclamo ad un'autorità di controllo.",
       "cookies": "7. Cookie",
       "cookiesBodyBefore": "Vedi il nostro",

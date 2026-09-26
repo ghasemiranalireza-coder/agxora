@@ -465,5 +465,19 @@
     "panelDescription": "Firmenbriefpapier, Logo, Markenfarben und Vorlagen für Lieferscheine und Rechnungen.",
     "body": "Öffnen Sie den Dokumentendesigner, um Lieferschein- und Rechnungsvorlagen zu wählen und Ihr Briefpapier zu prüfen. Bereits ausgestellte Belege behalten ihr ursprüngliches Erscheinungsbild.",
     "open": "Dokumentendesigner öffnen"
+  },
+  "dataRights": {
+    "supportTitle": "Hilfe benötigt?",
+    "supportBody": "Kontaktieren Sie den Support und nennen Sie Ihre Organisations-ID und die Ausführungs-ID. Das ist eine E-Mail-Adresse, keine Ticket-Warteschlange.",
+    "organizationId": "Organization ID",
+    "executionId": "Execution ID",
+    "executionHint": "Add ?executionId= to this page when you have one.",
+    "unavailable": "Sign in to load it.",
+    "retentionTitle": "Was gelöscht werden kann",
+    "deletable": "CRM-Kontakte, Notizen und Dokumentmetadaten können gelöscht werden. Ein Kunde kann gelöscht werden, wenn keine Rechnung oder kein Lieferschein zugeordnet ist.",
+    "retained": "Rechnungen, Lieferscheine, Ausführungen und Nachweise bleiben erhalten.",
+    "financeBlock": "Wenn Finanzdokumente zum Kunden gehören, wird die Löschung abgelehnt und diese Dokumente bleiben.",
+    "backupUnknown": "Dieser Bildschirm bestätigt nicht, dass eine Datenbanksicherung existiert.",
+    "export": "Organisations-Export herunterladen"
   }
 }

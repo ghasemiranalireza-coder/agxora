@@ -790,6 +790,20 @@
       "panelDescription": "Company letterhead, logo, brand colors, and templates for delivery notes and invoices.",
       "body": "Open the document designer to choose Lieferschein and Rechnung templates and preview your company branding. Already issued documents keep their original appearance.",
       "open": "Open document designer"
+    },
+    "dataRights": {
+      "supportTitle": "Need help?",
+      "supportBody": "Contact support and include your organization ID and execution ID so the operation can be identified. This is an email contact, not a ticket queue.",
+      "organizationId": "Organization ID",
+      "executionId": "Execution ID",
+      "executionHint": "Add ?executionId= to this page when you have one.",
+      "unavailable": "Sign in to load it.",
+      "retentionTitle": "What can be deleted",
+      "deletable": "CRM contacts, notes, and document metadata can be deleted. A customer can be deleted when no invoice or delivery note is attached.",
+      "retained": "Invoices, delivery notes, governed executions, and governed evidence are retained.",
+      "financeBlock": "If a customer has financial documents, deletion is refused and those documents stay.",
+      "backupUnknown": "This screen does not confirm that a database backup exists.",
+      "export": "Download organization export"
     }
   },
   "errors": {
@@ -5824,6 +5838,17 @@
       "subtitle": "Specialized workers use the same governed goals, approvals, and verification.",
       "addCommunication": "Add Customer Communication Worker",
       "createFailed": "Worker could not be created."
+    },
+    "recovery": {
+      "reserved": "This step is reserved. Nothing has been changed yet. Wait, or contact support if it stays here.",
+      "executing": "This step is still running. Do not start another copy of the same action.",
+      "ambiguous": "Delivery status is unknown. Do not send again until this execution has been reviewed.",
+      "failed": "This step failed. If nothing changed, you can try again. If a change may have happened, contact support.",
+      "completed": "This step completed. The recorded result was kept.",
+      "approvalRequired": "Approval is required before anything changes.",
+      "verificationPending": "The action finished, and verification is still pending.",
+      "verified": "The action finished and was verified.",
+      "replayed": "This request reused the existing execution. No second change was made."
     }
   },
   "integrations": {
@@ -6554,11 +6579,11 @@
       "purposes": "3. Finalités et bases juridiques",
       "purposesBody": "Nous traitons les données pour fournir le service (contrat), sécuriser la plateforme (intérêt légitime), respecter les obligations légales et, le cas échéant, avec votre consentement (par exemple, analyse ou marketing facultatif).",
       "retention": "4. Conservation",
-      "retentionBody": "Nous conservons les données personnelles uniquement aussi longtemps que nécessaire aux fins ci-dessus, y compris la conservation légale pour la facturation et les enregistrements de sécurité, puis nous les supprimons ou les anonymisons.",
+      "retentionBody": "CRM contacts, notes, and document metadata can be deleted in the product. Invoices, delivery notes, governed executions, and evidence are retained. This policy describes product behavior, not a separate legal retention schedule.",
       "sharing": "5. Partage",
       "sharingBody": "Nous utilisons des processeurs approuvés (hébergement, courrier électronique, paiements) dans le cadre de contrats appropriés. Nous ne vendons pas de données personnelles.",
       "yourRights": "6. Vos droits",
-      "yourRightsBodyBefore": "En fonction de votre emplacement, vous pouvez demander l'accès, la correction, la suppression, la restriction, la portabilité ou l'opposition. Contact",
+      "yourRightsBodyBefore": "Signed-in organizations can download an export of their business data from Settings. CRM contacts, notes, and document metadata can be deleted. Invoices, delivery notes, executions, and evidence are retained. For other requests, contact",
       "yourRightsBodyAfter": "Vous pouvez également déposer une plainte auprès d'une autorité de contrôle.",
       "cookies": "7. Cookies",
       "cookiesBodyBefore": "Voir notre",

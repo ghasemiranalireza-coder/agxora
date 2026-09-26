@@ -790,6 +790,20 @@
       "panelDescription": "Firmenbriefpapier, Logo, Markenfarben und Vorlagen für Lieferscheine und Rechnungen.",
       "body": "Öffnen Sie den Dokumentendesigner, um Lieferschein- und Rechnungsvorlagen zu wählen und Ihr Briefpapier zu prüfen. Bereits ausgestellte Belege behalten ihr ursprüngliches Erscheinungsbild.",
       "open": "Dokumentendesigner öffnen"
+    },
+    "dataRights": {
+      "supportTitle": "Hilfe benötigt?",
+      "supportBody": "Kontaktieren Sie den Support und nennen Sie Ihre Organisations-ID und die Ausführungs-ID. Das ist eine E-Mail-Adresse, keine Ticket-Warteschlange.",
+      "organizationId": "Organization ID",
+      "executionId": "Execution ID",
+      "executionHint": "Add ?executionId= to this page when you have one.",
+      "unavailable": "Sign in to load it.",
+      "retentionTitle": "Was gelöscht werden kann",
+      "deletable": "CRM-Kontakte, Notizen und Dokumentmetadaten können gelöscht werden. Ein Kunde kann gelöscht werden, wenn keine Rechnung oder kein Lieferschein zugeordnet ist.",
+      "retained": "Rechnungen, Lieferscheine, Ausführungen und Nachweise bleiben erhalten.",
+      "financeBlock": "Wenn Finanzdokumente zum Kunden gehören, wird die Löschung abgelehnt und diese Dokumente bleiben.",
+      "backupUnknown": "Dieser Bildschirm bestätigt nicht, dass eine Datenbanksicherung existiert.",
+      "export": "Organisations-Export herunterladen"
     }
   },
   "errors": {
@@ -5870,6 +5884,17 @@
       "subtitle": "Spezialisierte Worker nutzen dieselben Ziele, Freigaben und Prüfungen.",
       "addCommunication": "Customer-Communication-Worker hinzufügen",
       "createFailed": "Der Worker konnte nicht erstellt werden."
+    },
+    "recovery": {
+      "reserved": "This step is reserved. Nothing has been changed yet. Wait, or contact support if it stays here.",
+      "executing": "This step is still running. Do not start another copy of the same action.",
+      "ambiguous": "Der Zustellstatus ist unbekannt. Senden Sie nicht erneut, bis diese Ausführung geprüft wurde.",
+      "failed": "Dieser Schritt ist fehlgeschlagen. Wenn sich nichts geändert hat, können Sie es erneut versuchen. Wenn eine Änderung möglich ist, kontaktieren Sie den Support.",
+      "completed": "This step completed. The recorded result was kept.",
+      "approvalRequired": "Eine Freigabe ist erforderlich, bevor sich etwas ändert.",
+      "verificationPending": "The action finished, and verification is still pending.",
+      "verified": "The action finished and was verified.",
+      "replayed": "Diese Anfrage hat die bestehende Ausführung wiederverwendet. Es wurde keine zweite Änderung vorgenommen."
     }
   },
   "integrations": {
@@ -6610,11 +6635,11 @@
       "purposes": "Verwendungszwecke und Rechtsgrundlagen",
       "purposesBody": "Wir verarbeiten Daten zur Erbringung der Dienstleistung (Vertrag), zur Sicherung der Plattform (berechtigtes Interesse), zur Erfüllung gesetzlicher Verpflichtungen und - sofern erforderlich - mit Ihrer Einwilligung (z. B. optionale Analysen oder Marketing).",
       "retention": "4 - Speicherung",
-      "retentionBody": "Wir bewahren personenbezogene Daten nur so lange auf, wie es für die oben genannten Zwecke erforderlich ist, einschließlich der gesetzlichen Aufbewahrung für Abrechnungs- und Sicherheitsunterlagen, und löschen oder anonymisieren sie dann.",
+      "retentionBody": "CRM-Kontakte, Notizen und Dokumentmetadaten können im Produkt gelöscht werden. Rechnungen, Lieferscheine, Ausführungen und Nachweise bleiben erhalten. Das beschreibt das Produktverhalten und keinen gesonderten gesetzlichen Aufbewahrungsplan.",
       "sharing": "5. Teilen",
       "sharingBody": "Wir setzen geprüfte Auftragsverarbeiter (Hosting, E-Mail, Zahlungen) im Rahmen entsprechender Verträge ein. Wir verkaufen keine personenbezogenen Daten.",
       "yourRights": "6. Ihre Rechte",
-      "yourRightsBodyBefore": "Abhängig von Ihrem Standort können Sie Zugriff, Korrektur, Löschung, Einschränkung, Übertragbarkeit oder Widerspruch verlangen. Kontakt",
+      "yourRightsBodyBefore": "Angemeldete Organisationen können ihre Geschäftsdaten in den Einstellungen exportieren. CRM-Kontakte, Notizen und Dokumentmetadaten können gelöscht werden. Rechnungen, Lieferscheine, Ausführungen und Nachweise bleiben erhalten. Für andere Anfragen kontaktieren Sie",
       "yourRightsBodyAfter": "Außerdem hast Du das Recht auf Beschwerde bei einer Aufsichtsbehörde.",
       "cookies": "7. Cookies",
       "cookiesBodyBefore": "S. den",

@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent, type JSX } from "react";
 import { Button, Card, FormField, FormTextArea } from "@/app/components/ui";
+import { describeRecovery } from "@/app/lib/data-rights/recovery";
 import { localizeThrownError, useT } from "@/app/lib/i18n";
 import { useAgentOperatingSystem } from "../hooks";
 import { startBusinessGoal } from "../orchestration/goalService";
@@ -18,6 +19,27 @@ function companyName(plan: AgentPlan | undefined, fallback: string): string {
     if (customer?.companyName) return customer.companyName;
   }
   return fallback;
+}
+
+function stepRecovery(step: PlanStep) {
+  const result = step.result && typeof step.result === "object" ? (step.result as Record<string, unknown>) : {};
+  const status =
+    step.status === "running"
+      ? "EXECUTING"
+      : step.status === "failed"
+        ? "FAILED"
+        : step.status === "completed"
+          ? "COMPLETED"
+          : "RESERVED";
+  return describeRecovery({
+    status,
+    approvalRequired: step.approvalRequired === true && step.status === "blocked",
+    approvalGranted: step.status !== "blocked",
+    verificationStatus: step.verification ?? null,
+    ambiguous: result.ambiguous === true || result.delivery === "ambiguous",
+    replayed: result.replayed === true,
+    mutated: typeof result.mutated === "boolean" ? result.mutated : null,
+  });
 }
 
 function stepLabel(step: PlanStep): string {
@@ -194,6 +216,7 @@ export function BusinessGoalPanel(): JSX.Element {
           <ol className="space-y-2">
             {plan.steps.map((step, index) => {
               const label = stepLabel(step);
+              const recovery = stepRecovery(step);
               return (
                 <li
                   key={step.id}
@@ -201,6 +224,7 @@ export function BusinessGoalPanel(): JSX.Element {
                   style={{ borderColor: "var(--agx-border, rgba(255,255,255,0.08))" }}
                   data-step={step.presentationKey ?? step.id}
                   data-step-status={label}
+                  data-recovery={recovery.code}
                   data-depends-on={step.dependsOn.join(",")}
                 >
                   <p className="text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
@@ -213,6 +237,9 @@ export function BusinessGoalPanel(): JSX.Element {
                     {step.presentationKey
                       ? t(`agents.businessGoal.steps.${step.presentationKey}.reason`, { company })
                       : null}
+                  </p>
+                  <p className="text-xs" data-recovery-message={recovery.code} style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    {t(recovery.messageKey)}
                   </p>
                   <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                     {t("agents.businessGoal.approvalLabel")}

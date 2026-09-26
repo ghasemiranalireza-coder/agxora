@@ -6,7 +6,7 @@
 import { PersistenceError } from "../../tenancy/errors";
 
 export const CUSTOMER_FINANCE_DELETE_CONFLICT_MESSAGE =
-  "Customer cannot be deleted while Finance documents still reference it.";
+  "This customer cannot currently be deleted because financial documents are associated with the customer.";
 
 export function isFinanceReferenceDeleteConflict(error: unknown): boolean {
   if (!error || typeof error !== "object") return false;

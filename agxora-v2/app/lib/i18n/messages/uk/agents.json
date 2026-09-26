@@ -1097,5 +1097,16 @@
     "subtitle": "Specialized workers use the same governed goals, approvals, and verification.",
     "addCommunication": "Add Customer Communication Worker",
     "createFailed": "Worker could not be created."
+  },
+  "recovery": {
+    "reserved": "This step is reserved. Nothing has been changed yet. Wait, or contact support if it stays here.",
+    "executing": "This step is still running. Do not start another copy of the same action.",
+    "ambiguous": "Delivery status is unknown. Do not send again until this execution has been reviewed.",
+    "failed": "This step failed. If nothing changed, you can try again. If a change may have happened, contact support.",
+    "completed": "This step completed. The recorded result was kept.",
+    "approvalRequired": "Approval is required before anything changes.",
+    "verificationPending": "The action finished, and verification is still pending.",
+    "verified": "The action finished and was verified.",
+    "replayed": "This request reused the existing execution. No second change was made."
   }
 }

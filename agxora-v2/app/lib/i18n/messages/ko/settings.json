@@ -465,5 +465,19 @@
     "panelDescription": "Company letterhead, logo, brand colors, and templates for delivery notes and invoices.",
     "body": "Open the document designer to choose Lieferschein and Rechnung templates and preview your company branding. Already issued documents keep their original appearance.",
     "open": "Open document designer"
+  },
+  "dataRights": {
+    "supportTitle": "Need help?",
+    "supportBody": "Contact support and include your organization ID and execution ID so the operation can be identified. This is an email contact, not a ticket queue.",
+    "organizationId": "Organization ID",
+    "executionId": "Execution ID",
+    "executionHint": "Add ?executionId= to this page when you have one.",
+    "unavailable": "Sign in to load it.",
+    "retentionTitle": "What can be deleted",
+    "deletable": "CRM contacts, notes, and document metadata can be deleted. A customer can be deleted when no invoice or delivery note is attached.",
+    "retained": "Invoices, delivery notes, governed executions, and governed evidence are retained.",
+    "financeBlock": "If a customer has financial documents, deletion is refused and those documents stay.",
+    "backupUnknown": "This screen does not confirm that a database backup exists.",
+    "export": "Download organization export"
   }
 }
