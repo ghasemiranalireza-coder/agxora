@@ -449,5 +449,33 @@
       "title": "Documents hub unavailable",
       "description": "Customer files that exist today are stored on the CRM customer record, not in a separate documents product."
     }
+  },
+  "activation": {
+    "title": "Ersteinrichtung",
+    "subtitle": "Erledigen Sie den nächsten Schritt. AGXORA zählt ihn erst, wenn die Datensätze vorhanden sind.",
+    "successTitle": "Ihr Workspace ist aktiviert",
+    "successBody": "Die CRM-Nachverfolgungsnotiz ist gespeichert und verifiziert. Das Ergebnis bleibt nach dem erneuten Anmelden erhalten.",
+    "addCustomer": "Fügen Sie Ihren ersten Kunden hinzu",
+    "activateWorker": "Customer-Communication-Worker aktivieren",
+    "recordFollowUp": "CRM-Nachverfolgung erfassen",
+    "approve": "Aktion freigeben",
+    "openAgents": "Verifiziertes Ergebnis öffnen",
+    "selectCustomer": "Kunde",
+    "customerLabel": "Kunde",
+    "noteLabel": "CRM-Notiz",
+    "executionLabel": "Ausführung",
+    "verifiedLabel": "Verifizierung",
+    "verifiedValue": "Verifiziert",
+    "loadFailed": "Der Aktivierungsstatus konnte nicht geladen werden.",
+    "workerFailed": "Der Customer-Communication-Worker konnte nicht aktiviert werden.",
+    "goalFailed": "Die CRM-Nachverfolgung konnte nicht gestartet werden.",
+    "steps": {
+      "organization": "Organisation bereit",
+      "customer": "Fügen Sie Ihren ersten Kunden hinzu",
+      "worker": "Customer-Communication-Worker aktivieren",
+      "goal": "Erste CRM-Nachverfolgung erfassen",
+      "approval": "Aktion freigeben",
+      "verification": "Ergebnis prüfen"
+    }
   }
 }

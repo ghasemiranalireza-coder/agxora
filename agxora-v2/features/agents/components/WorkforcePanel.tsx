@@ -2,7 +2,10 @@
 
 import { useState, type JSX } from "react";
 import { Button, Card } from "@/app/components/ui";
+import { useT } from "@/app/lib/i18n";
 import { useAgentOperatingSystem } from "../hooks";
+import { isAgentOsServerMode } from "@/app/lib/agents/persistence/mode";
+import { agentsStore } from "../store";
 import { capabilitySummary, createWorker, updateWorker } from "../workforce/workers";
 import type { WorkerStatus } from "../types";
 
@@ -16,6 +19,7 @@ const ROLE_LABEL: Record<string, string> = {
 };
 
 export function WorkforcePanel(): JSX.Element {
+  const t = useT();
   const aos = useAgentOperatingSystem();
   const [error, setError] = useState<string | null>(null);
   const workers = aos.workers ?? [];
@@ -24,6 +28,28 @@ export function WorkforcePanel(): JSX.Element {
   const addCommunication = () => {
     if (!aos.organizationId) return;
     setError(null);
+    if (isAgentOsServerMode()) {
+      void (async () => {
+        try {
+          const response = await fetch("/api/v1/agents/workforce/communication", {
+            method: "POST",
+            credentials: "include",
+            headers: { "content-type": "application/json" },
+            body: "{}",
+          });
+          if (!response.ok) throw new Error("agents.workforce.createFailed");
+          await agentsStore.flushPersistence();
+          await agentsStore.hydrateAsync({
+            force: true,
+            forceOrgSwitch: true,
+            organizationId: aos.organizationId,
+          });
+        } catch {
+          setError(t("agents.workforce.createFailed"));
+        }
+      })();
+      return;
+    }
     try {
       createWorker({
         organizationId: aos.organizationId,
@@ -32,8 +58,8 @@ export function WorkforcePanel(): JSX.Element {
         name: "Customer Communication Worker",
         status: "ACTIVE",
       });
-    } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Worker could not be created.");
+    } catch {
+      setError(t("agents.workforce.createFailed"));
     }
   };
 
@@ -51,15 +77,15 @@ export function WorkforcePanel(): JSX.Element {
     <Card className="space-y-3" padding="20px" hover={false}>
       <div className="space-y-1">
         <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          AI Workforce
+          {t("agents.workforce.title")}
         </h2>
         <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Specialized workers use the same governed goals, approvals, and verification.
+          {t("agents.workforce.subtitle")}
         </p>
       </div>
       {workers.length === 0 ? (
         <Button size="sm" variant="secondary" onClick={addCommunication} data-testid="workforce-add-communication">
-          Add Customer Communication Worker
+          {t("agents.workforce.addCommunication")}
         </Button>
       ) : null}
       <ul className="space-y-3" data-testid="workforce-list">

@@ -144,7 +144,7 @@ export function BusinessGoalPanel(): JSX.Element {
               data-testid="business-goal-worker"
               onChange={(event) => setWorkerId(event.target.value)}
             >
-              <option value="">No worker</option>
+              <option value="">{t("agents.businessGoal.noWorker")}</option>
               {(aos.workers ?? []).map((worker) => (
                 <option key={worker.id} value={worker.id}>
                   {worker.name} ({worker.status})

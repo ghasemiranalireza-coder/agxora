@@ -212,7 +212,7 @@ describe("Phase 55 CRM follow-up due date & reschedule", () => {
       action: "RESCHEDULE_FOLLOW_UP",
       followUpId: followUp.id,
       campaignId: campaign.id,
-      dueAt: "2026-09-20",
+      dueAt: "2027-03-20",
     });
     await approvePending();
     const job = operationsService.get(organizationId, result.execution.jobId!);
@@ -220,7 +220,7 @@ describe("Phase 55 CRM follow-up due date & reschedule", () => {
     expect(job?.result?.message).toBe("rescheduled");
     const updated = growthService.getCrmFollowUp(organizationId, followUp.id)!;
     expect(updated.status).toBe("pending");
-    expect(updated.dueAt).toBe("2026-09-20T00:00:00.000Z");
+    expect(updated.dueAt).toBe("2027-03-20T00:00:00.000Z");
     expect(updated.outcome).toBe("rescheduled");
 
     const queue = await growthService.getLeadActionQueue(organizationId);
