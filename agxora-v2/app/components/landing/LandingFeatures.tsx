@@ -5,6 +5,11 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "../../lib/i18n";
 import { LANDING_STORY } from "./content";
 import { LANDING_ENTER, LANDING_FADE, hydrateSafeMotion } from "./motion";
+import { BusinessIntelligenceVisual } from "./visuals/BusinessIntelligenceVisual";
+import { FragmentedWorkVisual } from "./visuals/FragmentedWorkVisual";
+import { GovernedExecutionLoop } from "./visuals/GovernedExecutionLoop";
+import { MarketingAutomationVisual } from "./visuals/MarketingAutomationVisual";
+import { OperatingSurfaceVisual } from "./visuals/OperatingSurfaceVisual";
 
 /** Product story bands — one idea per section, not a feature dump. */
 export function LandingFeatures(): JSX.Element {
@@ -46,17 +51,20 @@ export function LandingFeatures(): JSX.Element {
               </motion.div>
 
               <motion.div
-                className={`p31-band__visual p31-band__visual--${feature.visual}`}
+                className={`p31-band__visual p31-band__visual--story p31-band__visual--${feature.visual}`}
                 {...hydrateSafeMotion(reduceMotion, LANDING_ENTER)}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
-                aria-hidden="true"
               >
-                <div className="p31-band__panel">
-                  <span />
-                  <span />
-                  <span />
-                </div>
+                {feature.id === "fragmented" ? <FragmentedWorkVisual /> : null}
+                {feature.id === "connect" ? <OperatingSurfaceVisual /> : null}
+                {feature.id === "understand" ? <BusinessIntelligenceVisual /> : null}
+                {feature.id === "execute" ? (
+                  <>
+                    <GovernedExecutionLoop />
+                    <MarketingAutomationVisual />
+                  </>
+                ) : null}
               </motion.div>
             </div>
           </article>
