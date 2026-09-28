@@ -59,6 +59,7 @@ export function PricingPageView(): JSX.Element {
               onClick={() => setInterval("year")}
             >
               {t("pricing.yearly")}
+              <span className="p35-pricing__save">{t("pricing.savePercent")}</span>
             </button>
           </div>
         </div>
@@ -87,7 +88,10 @@ export function PricingPageView(): JSX.Element {
                   <span className="p35-plan__amount">{amount}</span>
                   <span className="p35-plan__suffix">{suffix}</span>
                 </p>
-                <p className="p35-plan__yearly-hint">{VAT_NOTICE}</p>
+                <p className="p35-plan__yearly-hint">
+                  {interval === "year" ? t("pricing.savePercent") : "\u00a0"}
+                </p>
+                <p className="p35-plan__vat">{VAT_NOTICE}</p>
                 <ul className="p35-plan__features">
                   {plan.features.map((feature) => (
                     <li key={feature}>{feature}</li>
