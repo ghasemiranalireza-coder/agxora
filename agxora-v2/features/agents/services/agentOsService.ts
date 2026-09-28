@@ -40,6 +40,7 @@ import {
   resolveStepCapability,
   syncOrchestration,
   stampApprovedCommunication,
+  stampApprovedMarketingPlan,
 } from "../orchestration/goalPlan";
 import { assertWorkerCanStart, assertWorkerCapability } from "../workforce/workers";
 import { buildReasoningTrace } from "../reasoning";
@@ -95,6 +96,9 @@ function sanitizeToolOutput(output: Readonly<Record<string, unknown>>): Record<s
     ...(typeof output.recipient === "string" ? { recipient: output.recipient } : {}),
     ...(typeof output.customerId === "string" ? { customerId: output.customerId } : {}),
     ...(output.verified === true ? { verified: true } : {}),
+    ...(output.stored === true ? { stored: true } : {}),
+    ...(typeof output.planRecordId === "string" ? { planRecordId: output.planRecordId } : {}),
+    ...(output.plan && typeof output.plan === "object" ? { plan: output.plan } : {}),
     ...(note && typeof note.id === "string"
       ? {
           note: {
@@ -872,14 +876,18 @@ export const agentOsService = {
             throw new Error(
               capability.id.startsWith("COMMUNICATION_")
                 ? "Email was not accepted by the provider."
-                : "CRM note was not created.",
+                : capability.id.startsWith("MARKETING_")
+                  ? "Marketing plan was not stored."
+                  : "CRM note was not created.",
             );
           }
           if (capability?.verifies && !outputVerified(result.output)) {
             throw new Error(
               capability.id.startsWith("COMMUNICATION_")
                 ? "Email acceptance was not verified."
-                : "CRM note was not verified.",
+                : capability.id.startsWith("MARKETING_")
+                  ? "Marketing plan was not read back."
+                  : "CRM note was not verified.",
             );
           }
           if (isOrchestrationPlan(activePlan) && capability && idempotencyKey && capability.mutating) {
@@ -1274,7 +1282,9 @@ export const agentOsService = {
         }
       }
       const plan = agentsStore.getSnapshot().plans.find((item) => item.id === resolved.planId);
-      if (plan) agentsStore.upsertPlan(stampApprovedCommunication(plan, resolved.stepId));
+      if (plan) {
+        agentsStore.upsertPlan(stampApprovedMarketingPlan(stampApprovedCommunication(plan, resolved.stepId), resolved.stepId));
+      }
       await this.resumeExecution(resolved.executionId);
     } else {
       cancelBusinessGoalApproval(

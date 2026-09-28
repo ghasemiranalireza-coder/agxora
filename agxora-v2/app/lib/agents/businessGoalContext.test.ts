@@ -181,6 +181,13 @@ describe("Phase 11 business goal context", () => {
         agentInstanceId: found.instanceId,
         statement: "Plan my Instagram for the next 30 days.",
       }),
+    ).rejects.toThrow(/Marketing Worker/);
+    await expect(
+      startBusinessGoal({
+        organizationId: ORG_A,
+        agentInstanceId: found.instanceId,
+        statement: "Send a WhatsApp message to this customer.",
+      }),
     ).rejects.toThrow(/unsupported/);
     const finance = await handleFinanceTool({
       organizationId: ORG_A,

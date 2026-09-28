@@ -7,23 +7,26 @@
 import { authorizeCapabilityExecution, listCapabilities } from "../capabilities/registry";
 import { agentsStore } from "../store";
 import type { AgentPlan, BusinessGoal } from "../types";
+import { asksToPublishOrAdvertise, isMarketingPlanGoal } from "../marketing/intent";
 import {
   buildCrmFollowUpPlan,
   buildCustomerReplyPlan,
   buildFollowUpAndRecordPlan,
+  buildMarketingPlan,
   isCrmFollowUpGoal,
   isCustomerReplyGoal,
   isRecordOutcomeGoal,
   unsupportedCommunicationChannel,
 } from "./goalPlan";
 
-export type BusinessGoalType = "crm_follow_up" | "customer_reply" | "follow_up_and_record";
+export type BusinessGoalType = "crm_follow_up" | "customer_reply" | "follow_up_and_record" | "marketing_plan";
 
 export interface NormalizedBusinessGoal {
   readonly goalType: BusinessGoalType;
   readonly objective: string;
   readonly requestedOutcome: string;
   readonly capabilityIds: readonly string[];
+  readonly narrowedFromPublish?: boolean;
 }
 
 const PLAN_CAPABILITIES: Record<BusinessGoalType, readonly string[]> = {
@@ -48,13 +51,32 @@ const PLAN_CAPABILITIES: Record<BusinessGoalType, readonly string[]> = {
     "CRM_CREATE_NOTE",
     "CRM_VERIFY_NOTE",
   ],
+  marketing_plan: [
+    "MARKETING_LOAD_BUSINESS_CONTEXT",
+    "MARKETING_PREPARE_PLAN",
+    "MARKETING_RECORD_PLAN",
+    "MARKETING_VERIFY_PLAN",
+  ],
 };
 
 export function normalizeBusinessGoalIntent(
   statement: string,
 ): NormalizedBusinessGoal | null {
   const objective = statement.trim();
-  if (!objective || unsupportedCommunicationChannel(objective)) return null;
+  if (!objective) return null;
+  if (isMarketingPlanGoal(objective)) {
+    const narrowed = asksToPublishOrAdvertise(objective);
+    return {
+      goalType: "marketing_plan",
+      objective,
+      requestedOutcome: narrowed
+        ? "Prepare a 7-day marketing plan. Publishing and advertising are not available."
+        : "Approved 7-day marketing plan stored and read back. Nothing is published.",
+      capabilityIds: PLAN_CAPABILITIES.marketing_plan,
+      narrowedFromPublish: narrowed,
+    };
+  }
+  if (unsupportedCommunicationChannel(objective)) return null;
   const reply = isCustomerReplyGoal(objective);
   const followUp = isCrmFollowUpGoal(objective);
   const record = isRecordOutcomeGoal(objective);
@@ -120,11 +142,13 @@ export function planAuthorizedBusinessGoal(input: {
     organizationId: input.goal.organizationId,
   });
   const built =
-    intent.goalType === "follow_up_and_record"
-      ? buildFollowUpAndRecordPlan(input)
-      : intent.goalType === "customer_reply"
-        ? buildCustomerReplyPlan(input)
-        : buildCrmFollowUpPlan(input);
+    intent.goalType === "marketing_plan"
+      ? buildMarketingPlan(input)
+      : intent.goalType === "follow_up_and_record"
+        ? buildFollowUpAndRecordPlan(input)
+        : intent.goalType === "customer_reply"
+          ? buildCustomerReplyPlan(input)
+          : buildCrmFollowUpPlan(input);
   for (const step of built.steps) {
     if (!step.capabilityId || !listCapabilities().some((item) => item.id === step.capabilityId)) {
       throw new Error(`Unsupported capability: ${step.capabilityId ?? "unknown"}`);

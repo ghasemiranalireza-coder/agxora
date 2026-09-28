@@ -78,7 +78,8 @@ export type ToolId =
   | "campaign_execute"
   | "creative"
   | "creative_generate"
-  | "creative_publish";
+  | "creative_publish"
+  | "marketing";
 
 export type MemoryScope =
   | "working"
@@ -340,7 +341,9 @@ export interface BusinessGoal {
   readonly id: string;
   readonly organizationId: string;
   readonly statement: string;
-  readonly goalType?: "crm_follow_up" | "customer_reply" | "follow_up_and_record";
+  readonly goalType?: "crm_follow_up" | "customer_reply" | "follow_up_and_record" | "marketing_plan";
+  readonly marketingOffer?: string;
+  readonly marketingNarrowed?: boolean;
   readonly requestedOutcome?: string;
   readonly status: BusinessGoalStatus;
   readonly planId?: string;

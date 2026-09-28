@@ -1066,6 +1066,22 @@
       "confirm": {
         "title": "Confirm the provider accepted the email",
         "reason": "AGXORA checks provider acceptance before it calls the goal finished. Queued is not inbox delivery."
+      },
+      "context": {
+        "title": "Review the business",
+        "reason": "AGXORA reads the signed-in business and verified memory before it drafts anything."
+      },
+      "prepare_plan": {
+        "title": "Prepare the 7-day marketing plan",
+        "reason": "This is a draft. Nothing is stored until you approve it."
+      },
+      "record_plan": {
+        "title": "Store the approved marketing plan",
+        "reason": "This is the only step that stores the plan, and only after approval."
+      },
+      "verify_plan": {
+        "title": "Confirm the marketing plan is saved",
+        "reason": "AGXORA reads the stored plan back. This does not measure reach or results."
       }
     },
     "result": {
@@ -1090,13 +1106,34 @@
       "to": "To",
       "subject": "Subject"
     },
-    "noWorker": "No worker"
+    "noWorker": "No worker",
+    "marketing": {
+      "needWorker": "Add the Marketing Worker before starting a marketing plan.",
+      "needOffer": "Add the offer this plan should use. AGXORA will not invent one.",
+      "offerLabel": "Offer",
+      "offerPlaceholder": "Weekday lunch menu",
+      "notPublished": "Nothing has been published.",
+      "noMetrics": "No reach or performance data exists yet.",
+      "narrowed": "Publishing and advertising are not available. AGXORA will prepare the plan only.",
+      "proposal": "Draft proposal",
+      "audience": "Audience",
+      "audienceEmpty": "Not specified from the available facts.",
+      "offer": "Offer",
+      "channel": "Channel intent",
+      "day": "Day {day}",
+      "cta": "Call to action",
+      "wants": "AGXORA wants to store this 7-day marketing plan.",
+      "because": "Nothing is stored until you approve. Publishing stays unavailable.",
+      "change": "What will change: one approved plan will be saved for this business.",
+      "stored": "AGXORA prepared and stored the approved 7-day marketing plan."
+    }
   },
   "workforce": {
     "title": "AI Workforce",
     "subtitle": "Specialized workers use the same governed goals, approvals, and verification.",
     "addCommunication": "Add Customer Communication Worker",
-    "createFailed": "Worker could not be created."
+    "createFailed": "Worker could not be created.",
+    "addMarketing": "Add Marketing Worker"
   },
   "recovery": {
     "reserved": "This step is reserved. Nothing has been changed yet. Wait, or contact support if it stays here.",

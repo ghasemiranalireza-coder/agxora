@@ -28,6 +28,13 @@ const COMMUNICATION_CAPABILITIES = [
   "COMMUNICATION_VERIFY_EMAIL",
 ] as const;
 
+const MARKETING_CAPABILITIES = [
+  "MARKETING_LOAD_BUSINESS_CONTEXT",
+  "MARKETING_PREPARE_PLAN",
+  "MARKETING_RECORD_PLAN",
+  "MARKETING_VERIFY_PLAN",
+] as const;
+
 const ROLE_CONTEXT: Record<WorkerRole, { readonly title: string; readonly responsibilities: string; readonly constraints: string }> = {
   CUSTOMER_COMMUNICATION: {
     title: "Customer communication and follow-up",
@@ -41,8 +48,8 @@ const ROLE_CONTEXT: Record<WorkerRole, { readonly title: string; readonly respon
   },
   MARKETING: {
     title: "Marketing",
-    responsibilities: "Role definition only. No marketing execution is implemented.",
-    constraints: "Cannot execute protected work.",
+    responsibilities: "Prepare a seven-day marketing plan from business context, request approval, store the approved plan, and verify it was saved.",
+    constraints: "Cannot publish, send messages, create invoices, modify CRM, bypass approval, or treat a draft as a measured result.",
   },
   FINANCE: {
     title: "Finance",
@@ -82,7 +89,12 @@ export function workerRoleContext(role: WorkerRole) {
 
 /** Live capabilities for a role. Client lists are ignored. Finance stays excluded. */
 export function capabilitiesForRole(role: WorkerRole): readonly string[] {
-  const requested = role === "CUSTOMER_COMMUNICATION" ? COMMUNICATION_CAPABILITIES : [];
+  const requested =
+    role === "CUSTOMER_COMMUNICATION"
+      ? COMMUNICATION_CAPABILITIES
+      : role === "MARKETING"
+        ? MARKETING_CAPABILITIES
+        : [];
   return requested.filter((id) => {
     const capability = getCapability(id);
     return capability?.availability.status === "LIVE";
@@ -115,7 +127,7 @@ export function createWorker(input: {
   const organizationId = requireTenant(input.organizationId);
   const role = input.role;
   if (!isWorkerRole(role)) throw new Error("Unsupported worker role.");
-  const status = input.status ?? (role === "CUSTOMER_COMMUNICATION" ? "ACTIVE" : "DRAFT");
+  const status = input.status ?? (role === "CUSTOMER_COMMUNICATION" || role === "MARKETING" ? "ACTIVE" : "DRAFT");
   const now = nowIso();
   const context = workerRoleContext(role);
   const worker: WorkforceWorker = {
