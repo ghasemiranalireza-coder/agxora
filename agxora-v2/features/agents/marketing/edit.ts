@@ -41,15 +41,15 @@ export function editMarketingDraft(input: {
     if (index !== input.itemIndex) return item;
     return {
       ...item,
-      theme: input.theme?.trim() || item.theme,
-      draftCopy: input.draftCopy?.trim() || item.draftCopy,
-      callToAction: input.callToAction?.trim() || item.callToAction,
+      theme: input.theme !== undefined ? input.theme : item.theme,
+      draftCopy: input.draftCopy !== undefined ? input.draftCopy : item.draftCopy,
+      callToAction: input.callToAction !== undefined ? input.callToAction : item.callToAction,
     };
   });
   const next: MarketingPlanDocument = {
     ...current,
-    strategy: input.strategy?.trim() || current.strategy,
-    audience: input.audience !== undefined ? input.audience.trim() : current.audience,
+    strategy: input.strategy !== undefined ? input.strategy : current.strategy,
+    audience: input.audience !== undefined ? input.audience : current.audience,
     contentItems: items,
     status: "draft",
   };
