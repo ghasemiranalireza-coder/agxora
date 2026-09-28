@@ -7,6 +7,8 @@
 export const VAT_NOTICE = "zzgl. gesetzlicher MwSt.";
 export const COMMERCIAL_CURRENCY = "EUR" as const;
 export const COMMERCIAL_PROVIDER = "stripe" as const;
+/** Annual checkout is 20% off twelve monthly payments, rounded to the nearest cent. */
+export const ANNUAL_DISCOUNT_PERCENT = 20;
 
 export const PLAN_CODES = ["agxora_base", "agxora_business", "agxora_professional"] as const;
 export type PlanCode = (typeof PLAN_CODES)[number];
@@ -91,6 +93,14 @@ const BUSINESS_CAPABILITIES = [
   ...FUTURE_MARKETING_CAPABILITIES,
 ] as const satisfies readonly CommercialCapabilityId[];
 
+/**
+ * Net annual amount: 20% off twelve monthly payments.
+ * 19,99 € × 12 × 0,8 rounds to 191,90 €. 79,00 € and 149,00 € land on exact cents.
+ */
+export function yearlyCentsFromMonthly(monthlyCents: number): number {
+  return Math.round((monthlyCents * 12 * (100 - ANNUAL_DISCOUNT_PERCENT)) / 100);
+}
+
 export interface CommercialPlanDefinition {
   readonly code: PlanCode;
   readonly name: string;
@@ -113,7 +123,7 @@ export const COMMERCIAL_PLANS: readonly CommercialPlanDefinition[] = [
     description: "CRM, human finance, export, support, and recovery.",
     currency: "EUR",
     monthlyCents: 1999,
-    yearlyCents: 19990,
+    yearlyCents: yearlyCentsFromMonthly(1999),
     seats: 2,
     governedExecutionsPerMonth: 0,
     capabilities: BASE_CAPABILITIES,
@@ -132,7 +142,7 @@ export const COMMERCIAL_PLANS: readonly CommercialPlanDefinition[] = [
     description: "Base, plus the live Customer Communication Workforce.",
     currency: "EUR",
     monthlyCents: 7900,
-    yearlyCents: 79000,
+    yearlyCents: yearlyCentsFromMonthly(7900),
     seats: 5,
     governedExecutionsPerMonth: 300,
     capabilities: BUSINESS_CAPABILITIES,
@@ -152,7 +162,7 @@ export const COMMERCIAL_PLANS: readonly CommercialPlanDefinition[] = [
     description: "The Business capabilities with a higher seat and execution allowance.",
     currency: "EUR",
     monthlyCents: 14900,
-    yearlyCents: 149000,
+    yearlyCents: yearlyCentsFromMonthly(14900),
     seats: 15,
     governedExecutionsPerMonth: 1500,
     capabilities: BUSINESS_CAPABILITIES,
@@ -185,11 +195,15 @@ export function priceCents(plan: CommercialPlanDefinition, interval: BillingInte
   return interval === "year" ? plan.yearlyCents : plan.monthlyCents;
 }
 
-/** Net amount label. Whole euros drop the decimal portion. */
+/** Net EUR label in German commercial format, always with cents: 19,99 € */
 export function formatNetEur(cents: number): string {
-  const raw = (cents / 100).toFixed(2);
-  const amount = raw.endsWith(".00") ? raw.slice(0, -3) : raw;
-  return `${amount} EUR`;
+  const formatted = new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(cents / 100);
+  return formatted.replace(/[\u00a0\u202f]/g, " ");
 }
 
 export function planAllows(planCode: PlanCode, capabilityId: CommercialCapabilityId): boolean {

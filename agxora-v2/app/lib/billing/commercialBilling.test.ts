@@ -7,6 +7,8 @@ import {
   FUTURE_MARKETING_CAPABILITIES,
   VAT_NOTICE,
   formatNetEur,
+  yearlyCentsFromMonthly,
+  ANNUAL_DISCOUNT_PERCENT,
   getCommercialPlan,
   planAllows,
   priceCents,
@@ -117,12 +119,24 @@ describe("commercial billing", () => {
       "agxora_business",
       "agxora_professional",
     ]);
-    expect(formatNetEur(priceCents(getCommercialPlan("agxora_base"), "month"))).toBe("19.99 EUR");
-    expect(formatNetEur(priceCents(getCommercialPlan("agxora_base"), "year"))).toBe("199.90 EUR");
-    expect(formatNetEur(priceCents(getCommercialPlan("agxora_business"), "month"))).toBe("79 EUR");
-    expect(formatNetEur(priceCents(getCommercialPlan("agxora_business"), "year"))).toBe("790 EUR");
-    expect(formatNetEur(priceCents(getCommercialPlan("agxora_professional"), "month"))).toBe("149 EUR");
-    expect(formatNetEur(priceCents(getCommercialPlan("agxora_professional"), "year"))).toBe("1490 EUR");
+    expect(ANNUAL_DISCOUNT_PERCENT).toBe(20);
+    expect(getCommercialPlan("agxora_base").monthlyCents).toBe(1999);
+    expect(getCommercialPlan("agxora_business").monthlyCents).toBe(7900);
+    expect(getCommercialPlan("agxora_professional").monthlyCents).toBe(14900);
+    expect(getCommercialPlan("agxora_base").yearlyCents).toBe(19190);
+    expect(getCommercialPlan("agxora_business").yearlyCents).toBe(75840);
+    expect(getCommercialPlan("agxora_professional").yearlyCents).toBe(143040);
+    for (const plan of COMMERCIAL_PLANS) {
+      expect(plan.yearlyCents).toBe(yearlyCentsFromMonthly(plan.monthlyCents));
+      expect(plan.yearlyCents).toBe(Math.round((plan.monthlyCents * 12 * 80) / 100));
+    }
+    expect(formatNetEur(priceCents(getCommercialPlan("agxora_base"), "month"))).toBe("19,99 €");
+    expect(formatNetEur(priceCents(getCommercialPlan("agxora_base"), "year"))).toBe("191,90 €");
+    expect(formatNetEur(priceCents(getCommercialPlan("agxora_business"), "month"))).toBe("79,00 €");
+    expect(formatNetEur(priceCents(getCommercialPlan("agxora_business"), "year"))).toBe("758,40 €");
+    expect(formatNetEur(priceCents(getCommercialPlan("agxora_professional"), "month"))).toBe("149,00 €");
+    expect(formatNetEur(priceCents(getCommercialPlan("agxora_professional"), "year"))).toBe("1.430,40 €");
+    expect(JSON.stringify(COMMERCIAL_PLANS)).not.toMatch(/19990|79000|149000/);
     expect(VAT_NOTICE).toBe("zzgl. gesetzlicher MwSt.");
     expect(JSON.stringify(COMMERCIAL_PLANS)).not.toMatch(/Usd|unlimited|Start Free/i);
   });

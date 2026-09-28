@@ -172,8 +172,8 @@
 
 .p35-pricing__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
   align-items: stretch;
 }
 
@@ -262,7 +262,7 @@
 
 .p35-plan__desc {
   margin: 0;
-  min-height: 42px;
+  min-height: 4.5em;
   font-size: 13px;
   line-height: 1.5;
   color: #94a3b8;
@@ -276,10 +276,12 @@
 }
 
 .p35-plan__amount {
-  font-size: 2.4rem;
+  font-size: clamp(1.65rem, 2.4vw, 2.15rem);
   font-weight: 700;
   letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
   color: #f8fafc;
+  white-space: nowrap;
 }
 
 .p35-plan__suffix {
@@ -287,11 +289,17 @@
   color: #94a3b8;
 }
 
-.p35-plan__yearly-hint {
+.p35-plan__yearly-hint,
+.p35-plan__vat {
   margin: 0;
   min-height: 18px;
   font-size: 12px;
   color: var(--agx-ds-text-muted, #a8b6c7);
+}
+
+.p35-plan__yearly-hint {
+  color: #c9a66b;
+  font-weight: 650;
 }
 
 .p35-plan__features {
