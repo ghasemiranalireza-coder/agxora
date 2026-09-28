@@ -31,7 +31,14 @@ export interface CapabilityContract {
   readonly approvalRequired: boolean;
   readonly approval: { readonly required: boolean };
   /** Describes the permission the existing session path enforces. */
-  readonly permission: "crm.read" | "crm.write" | "email.send" | "finance.blocked" | "marketing.unavailable";
+  readonly permission:
+    | "crm.read"
+    | "crm.write"
+    | "email.send"
+    | "finance.blocked"
+    | "marketing.read"
+    | "marketing.write"
+    | "marketing.unavailable";
   readonly security: { readonly tenantScoped: boolean };
   readonly execution: { readonly idempotencyRequired: boolean };
   readonly verifies: boolean;
@@ -260,6 +267,72 @@ export const CAPABILITIES: readonly CapabilityContract[] = [
     verifies: false,
     availability: "BLOCKED",
     evidenceType: "not_available",
+    inputSchema: objectSchema(sharedProperties, ["step", "goal"]),
+  }),
+  defineCapability({
+    id: "MARKETING_LOAD_BUSINESS_CONTEXT",
+    name: "Load marketing context",
+    description: "Read the signed-in organization's business context and verified memory. Does not write.",
+    domain: "marketing",
+    toolId: "marketing",
+    action: "load_business_context",
+    mutating: false,
+    approvalRequired: false,
+    permission: "marketing.read",
+    verifies: true,
+    availability: "LIVE",
+    evidenceType: "marketing_context_read",
+    inputSchema: objectSchema(sharedProperties, ["step", "goal"]),
+  }),
+  defineCapability({
+    id: "MARKETING_PREPARE_PLAN",
+    name: "Prepare marketing plan",
+    description: "Draft a seven-day marketing plan with a real model. Does not publish or store an approved plan.",
+    domain: "marketing",
+    toolId: "marketing",
+    action: "prepare_marketing_plan",
+    mutating: false,
+    approvalRequired: false,
+    permission: "marketing.read",
+    verifies: false,
+    availability: "LIVE",
+    evidenceType: "marketing_plan_draft",
+    inputSchema: objectSchema(sharedProperties, ["step", "goal"]),
+  }),
+  defineCapability({
+    id: "MARKETING_RECORD_PLAN",
+    name: "Record marketing plan",
+    description: "Store the approved seven-day marketing plan. Does not publish.",
+    domain: "marketing",
+    toolId: "marketing",
+    action: "record_marketing_plan",
+    mutating: true,
+    approvalRequired: true,
+    permission: "marketing.write",
+    verifies: false,
+    availability: "LIVE",
+    evidenceType: "persisted_plan_and_readback",
+    inputSchema: objectSchema(
+      {
+        ...sharedProperties,
+        idempotencyKey: { type: "string", description: "Prevents a second store of this plan." },
+      },
+      ["step", "goal"],
+    ),
+  }),
+  defineCapability({
+    id: "MARKETING_VERIFY_PLAN",
+    name: "Verify marketing plan",
+    description: "Read the stored plan back and confirm it matches the approved plan. Does not judge marketing performance.",
+    domain: "marketing",
+    toolId: "marketing",
+    action: "verify_marketing_plan",
+    mutating: false,
+    approvalRequired: false,
+    permission: "marketing.read",
+    verifies: true,
+    availability: "LIVE",
+    evidenceType: "marketing_plan_readback",
     inputSchema: objectSchema(sharedProperties, ["step", "goal"]),
   }),
   ...futureMarketingCapabilities(),

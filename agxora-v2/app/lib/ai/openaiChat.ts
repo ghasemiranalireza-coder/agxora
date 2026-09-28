@@ -437,3 +437,61 @@ export async function streamOpenAIChat(
     input.signal?.removeEventListener("abort", onParentAbort);
   }
 }
+
+/**
+ * Server-side JSON completion for a governed marketing draft.
+ * There is no simulated fallback. The key never leaves this module.
+ */
+export async function completeOpenAIStructured(input: {
+  readonly system: string;
+  readonly user: string;
+  readonly temperature?: number;
+  readonly maxTokens?: number;
+  readonly fetchImpl?: typeof fetch;
+  readonly timeoutMs?: number;
+}): Promise<{ readonly text: string; readonly model: string; readonly simulated: false }> {
+  const apiKey = requireApiKey();
+  const fetchImpl = input.fetchImpl ?? fetch;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), input.timeoutMs ?? DEFAULT_TIMEOUT_MS);
+  const model = getOpenAIChatModel();
+  try {
+    const response = await postChatCompletions({
+      apiKey,
+      baseUrl: getOpenAIChatBaseUrl(),
+      fetchImpl,
+      signal: controller.signal,
+      body: {
+        model,
+        temperature: input.temperature ?? 0.3,
+        max_tokens: input.maxTokens ?? 3000,
+        response_format: { type: "json_object" },
+        messages: [
+          { role: "system", content: input.system },
+          { role: "user", content: input.user },
+        ],
+      },
+    });
+    let payload: OpenAIChatCompletion | null = null;
+    try {
+      payload = (await response.json()) as OpenAIChatCompletion;
+    } catch {
+      payload = null;
+    }
+    if (!response.ok) {
+      throw mapHttpError(response.status, payload?.error?.message || `openai_http_${response.status}`);
+    }
+    const text = payload?.choices?.[0]?.message?.content?.trim() ?? "";
+    if (!text) {
+      throw new AIError({
+        code: "PROVIDER_UNAVAILABLE",
+        message: "OpenAI returned an empty marketing plan.",
+        providerId: "openai",
+        retryable: true,
+      });
+    }
+    return { text, model: payload?.model || model, simulated: false };
+  } finally {
+    clearTimeout(timer);
+  }
+}

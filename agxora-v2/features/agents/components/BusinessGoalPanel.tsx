@@ -1,10 +1,13 @@
 "use client";
 
 import { useState, type FormEvent, type JSX } from "react";
-import { Button, Card, FormField, FormTextArea } from "@/app/components/ui";
+import { Button, Card, FormField, FormInput, FormTextArea } from "@/app/components/ui";
 import { describeRecovery } from "@/app/lib/data-rights/recovery";
 import { localizeThrownError, useT } from "@/app/lib/i18n";
 import { useAgentOperatingSystem } from "../hooks";
+import { editMarketingDraft } from "../marketing/edit";
+import { asksToPublishOrAdvertise, isMarketingPlanGoal } from "../marketing/intent";
+import type { MarketingPlanDocument } from "../marketing/planSchema";
 import { startBusinessGoal } from "../orchestration/goalService";
 import { agentOsService } from "../services";
 import type { AgentPlan, BusinessGoal, PlanStep } from "../types";
@@ -68,6 +71,7 @@ export function BusinessGoalPanel(): JSX.Element {
   const t = useT();
   const aos = useAgentOperatingSystem();
   const [statement, setStatement] = useState("");
+  const [offer, setOffer] = useState("");
   const [workerId, setWorkerId] = useState("");
   const [busy, setBusy] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
@@ -84,6 +88,19 @@ export function BusinessGoalPanel(): JSX.Element {
     draftStep?.result && typeof draftStep.result === "object" && draftStep.result !== null
       ? (draftStep.result as { draft?: { to?: string; subject?: string; body?: string } }).draft
       : undefined;
+  const marketingGoal = goal?.goalType === "marketing_plan";
+  const prepareResult =
+    plan?.steps.find((step) => step.capabilityId === "MARKETING_PREPARE_PLAN")?.result;
+  const marketingDraft =
+    prepareResult && typeof prepareResult === "object" && prepareResult !== null && "plan" in prepareResult
+      ? ((prepareResult as { plan?: MarketingPlanDocument }).plan ?? undefined)
+      : undefined;
+  const contextFacts =
+    plan?.steps.find((step) => step.capabilityId === "MARKETING_LOAD_BUSINESS_CONTEXT")?.result;
+  const loadedFacts =
+    contextFacts && typeof contextFacts === "object" && contextFacts !== null && "facts" in contextFacts
+      ? ((contextFacts as { facts?: readonly { key: string; text: string }[] }).facts ?? [])
+      : [];
   const approval = goal
     ? aos.approvals.find(
         (item) => item.taskId === goal.taskId && item.state === "REQUIRES_APPROVAL",
@@ -101,14 +118,33 @@ export function BusinessGoalPanel(): JSX.Element {
       setFormError(t("agents.businessGoal.errors.noCrm"));
       return;
     }
+    const marketing = isMarketingPlanGoal(statement);
+    const selected = (aos.workers ?? []).find((worker) => worker.id === workerId);
+    const marketingWorker = (aos.workers ?? []).find(
+      (worker) => worker.role === "MARKETING" && worker.status === "ACTIVE",
+    );
+    const resolvedWorkerId = marketing
+      ? selected?.role === "MARKETING"
+        ? selected.id
+        : marketingWorker?.id
+      : workerId || undefined;
+    if (marketing && !resolvedWorkerId) {
+      setFormError(t("agents.businessGoal.marketing.needWorker"));
+      return;
+    }
+    if (marketing && offer.trim().length === 0) {
+      setFormError(t("agents.businessGoal.marketing.needOffer"));
+      return;
+    }
     setBusy(true);
     try {
       await startBusinessGoal({
         organizationId: aos.organizationId,
         agentInstanceId: runtime.instanceId,
         statement,
-        workerId: workerId || undefined,
+        workerId: resolvedWorkerId,
         actorId: aos.userId ?? undefined,
+        marketingOffer: marketing ? offer.trim() : undefined,
       });
       setFormError(null);
       setStatement("");
@@ -156,6 +192,16 @@ export function BusinessGoalPanel(): JSX.Element {
             data-testid="business-goal-input"
           />
         </FormField>
+        {isMarketingPlanGoal(statement) ? (
+          <FormField label={t("agents.businessGoal.marketing.offerLabel")}>
+            <FormInput
+              value={offer}
+              data-testid="marketing-offer-input"
+              placeholder={t("agents.businessGoal.marketing.offerPlaceholder")}
+              onChange={(event) => setOffer(event.target.value)}
+            />
+          </FormField>
+        ) : null}
         {(aos.workers ?? []).length > 0 ? (
           <label className="block space-y-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
             Worker
@@ -266,12 +312,81 @@ export function BusinessGoalPanel(): JSX.Element {
               );
             })}
           </ol>
+          {marketingGoal ? (
+            <div className="space-y-2" data-testid="marketing-plan-review">
+              <p className="text-xs" data-testid="marketing-not-published" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                {t("agents.businessGoal.marketing.notPublished")}
+              </p>
+              <p className="text-xs" data-testid="marketing-no-metrics" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                {t("agents.businessGoal.marketing.noMetrics")}
+              </p>
+              {goal?.marketingNarrowed || asksToPublishOrAdvertise(goal?.statement ?? "") ? (
+                <p className="text-xs" data-testid="marketing-narrowed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                  {t("agents.businessGoal.marketing.narrowed")}
+                </p>
+              ) : null}
+              {loadedFacts.length > 0 ? (
+                <ul className="space-y-1" data-testid="marketing-context-facts">
+                  {loadedFacts.map((fact) => (
+                    <li key={fact.key} className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                      {fact.text}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+              {marketingDraft ? (
+                <div className="space-y-2" data-testid="marketing-draft">
+                  <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    {t("agents.businessGoal.marketing.proposal")}
+                  </p>
+                  <p className="text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>{marketingDraft.strategy}</p>
+                  <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    {t("agents.businessGoal.marketing.audience")}: {marketingDraft.audience || t("agents.businessGoal.marketing.audienceEmpty")}
+                  </p>
+                  <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    {t("agents.businessGoal.marketing.offer")}: {marketingDraft.offer}
+                  </p>
+                  <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    {t("agents.businessGoal.marketing.channel")}: {marketingDraft.channelIntent}
+                  </p>
+                  <ol className="space-y-2">
+                    {marketingDraft.contentItems.map((item, index) => (
+                      <li key={item.day} className="space-y-1" data-testid="marketing-content-item">
+                        <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                          {t("agents.businessGoal.marketing.day", { day: item.day })} · {item.theme}
+                        </p>
+                        <FormTextArea
+                          rows={3}
+                          value={item.draftCopy}
+                          disabled={!approval}
+                          onChange={(event) => {
+                            if (!plan) return;
+                            editMarketingDraft({
+                              organizationId: aos.organizationId,
+                              planId: plan.id,
+                              itemIndex: index,
+                              draftCopy: event.target.value,
+                            });
+                          }}
+                        />
+                        <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                          {t("agents.businessGoal.marketing.cta")}: {item.callToAction}
+                        </p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
           {approval ? (
             <div className="space-y-2 rounded-md border px-3 py-3" data-testid="business-goal-approval">
               <p className="text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                {emailPlan
-                  ? t("agents.businessGoal.email.wants", { company })
-                  : t("agents.businessGoal.wants", { company })}
+                {marketingGoal
+                  ? t("agents.businessGoal.marketing.wants")
+                  : emailPlan
+                    ? t("agents.businessGoal.email.wants", { company })
+                    : t("agents.businessGoal.wants", { company })}
               </p>
               {emailPlan && draftRecord ? (
                 <div className="space-y-1 text-xs" data-testid="business-goal-email-draft">
@@ -288,14 +403,18 @@ export function BusinessGoalPanel(): JSX.Element {
                 </div>
               ) : null}
               <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                {emailPlan
-                  ? t("agents.businessGoal.email.because")
-                  : t("agents.businessGoal.because", { company })}
+                {marketingGoal
+                  ? t("agents.businessGoal.marketing.because")
+                  : emailPlan
+                    ? t("agents.businessGoal.email.because")
+                    : t("agents.businessGoal.because", { company })}
               </p>
               <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                {emailPlan
-                  ? t("agents.businessGoal.email.change", { company })
-                  : t("agents.businessGoal.change", { company })}
+                {marketingGoal
+                  ? t("agents.businessGoal.marketing.change")
+                  : emailPlan
+                    ? t("agents.businessGoal.email.change", { company })
+                    : t("agents.businessGoal.change", { company })}
               </p>
               <div className="flex flex-wrap gap-2">
                 <Button size="sm" variant="secondary" disabled={busy} onClick={() => void decide("APPROVED")}>
@@ -328,9 +447,11 @@ export function BusinessGoalPanel(): JSX.Element {
             }}
           >
             {goal.status === "completed"
-              ? emailPlan
-                ? `Communication queued successfully for ${draftRecord?.to ?? company}. Inbox delivery was not verified.`
-                : t("agents.businessGoal.result.verified", { company })
+              ? marketingGoal
+                ? t("agents.businessGoal.marketing.stored")
+                : emailPlan
+                  ? `Communication queued successfully for ${draftRecord?.to ?? company}. Inbox delivery was not verified.`
+                  : t("agents.businessGoal.result.verified", { company })
               : goal.status === "failed"
                 ? showMessage(t, goal.error) ?? t("agents.businessGoal.result.failed")
                 : goal.status === "cancelled"

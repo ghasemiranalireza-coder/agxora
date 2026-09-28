@@ -28,6 +28,7 @@ import {
 } from "../website/handlers";
 import { handleCreativeGenerateTool, handleCreativePublishTool, handleCreativeTool } from "../creative/handlers";
 import { handleFinanceTool } from "../finance/handlers";
+import { handleMarketingTool } from "../marketing/handlers";
 
 export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
   {
@@ -463,6 +464,24 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
       additionalProperties: true,
     },
   },
+  {
+    id: "marketing",
+    name: "Marketing Tool",
+    description: "Prepare and store an approved seven-day marketing plan. Does not publish.",
+    module: "marketing",
+    sensitive: true,
+    requiresApproval: false,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Business goal statement." },
+        action: { type: "string", description: "Marketing capability action." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
 ] as const;
 
 export const FIRST_CUSTOMER_AGENT_TOOL_IDS = ["crm", "finance"] as const;
@@ -530,3 +549,4 @@ registerToolHandler("finance", handleFinanceTool);
 registerToolHandler("creative", handleCreativeTool);
 registerToolHandler("creative_generate", handleCreativeGenerateTool);
 registerToolHandler("creative_publish", handleCreativePublishTool);
+registerToolHandler("marketing", handleMarketingTool);

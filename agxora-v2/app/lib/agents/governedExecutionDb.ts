@@ -529,3 +529,86 @@ export async function appendGovernedEvidenceDb(input: {
     },
   });
 }
+
+export async function beginGovernedMarketingRecord(input: {
+  readonly organizationId: string;
+  readonly idempotencyKey: string;
+  readonly executionId: string;
+  readonly businessGoalId?: string;
+  readonly planId?: string;
+  readonly stepId?: string;
+  readonly capabilityId: string;
+  readonly workerId?: string;
+  readonly actorId: string;
+  readonly planHash: string;
+  readonly plan: Readonly<Record<string, unknown>>;
+}): Promise<
+  | { readonly kind: "stored"; readonly planRecordId: string }
+  | { readonly kind: "replay"; readonly planRecordId: string; readonly plan: Readonly<Record<string, unknown>> }
+  | { readonly kind: "mismatch" }
+  | { readonly kind: "in_progress" }
+> {
+  const now = new Date();
+  const billingReady = await commercialBillingSchemaReady();
+  const outcome = {
+    stored: true,
+    mutated: true,
+    planHash: input.planHash,
+    plan: input.plan,
+  };
+  try {
+    const planRecordId = await prisma.$transaction(async (tx) => {
+      if (billingReady) {
+        await assertGovernedExecutionAllowed(tx, {
+          organizationId: input.organizationId,
+          capabilityId: input.capabilityId,
+          now,
+        });
+      }
+      const created = await tx.agentGovernedExecution.create({
+        data: {
+          organizationId: input.organizationId,
+          idempotencyKey: input.idempotencyKey,
+          executionId: input.executionId,
+          businessGoalId: input.businessGoalId,
+          planId: input.planId,
+          stepId: input.stepId,
+          capabilityId: input.capabilityId,
+          workerId: input.workerId,
+          actorId: input.actorId,
+          approvalRequired: true,
+          approvalGranted: true,
+          status: "COMPLETED",
+          verificationStatus: "pending",
+          outcome: outcome as Prisma.InputJsonValue,
+        },
+      });
+      await tx.agentGovernedExecution.update({
+        where: { id: created.id },
+        data: {
+          outcome: { ...outcome, planRecordId: created.id } as Prisma.InputJsonValue,
+        },
+      });
+      return created.id;
+    });
+    return { kind: "stored", planRecordId };
+  } catch (error) {
+    if (!isUniqueViolation(error)) throw error;
+    const existing = await prisma.agentGovernedExecution.findUnique({
+      where: {
+        organizationId_idempotencyKey: {
+          organizationId: input.organizationId,
+          idempotencyKey: input.idempotencyKey,
+        },
+      },
+    });
+    if (!existing || existing.organizationId !== input.organizationId) return { kind: "in_progress" };
+    const stored = outcomeRecord(existing.outcome);
+    if (existing.status === "COMPLETED" && stored.planHash === input.planHash && typeof stored.planRecordId === "string") {
+      const plan = outcomeRecord(stored.plan);
+      return { kind: "replay", planRecordId: stored.planRecordId, plan };
+    }
+    if (existing.status === "COMPLETED") return { kind: "mismatch" };
+    return { kind: "in_progress" };
+  }
+}

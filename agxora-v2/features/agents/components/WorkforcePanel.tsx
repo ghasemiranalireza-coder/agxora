@@ -63,6 +63,44 @@ export function WorkforcePanel(): JSX.Element {
     }
   };
 
+  const addMarketing = () => {
+    if (!aos.organizationId) return;
+    setError(null);
+    if (isAgentOsServerMode()) {
+      void (async () => {
+        try {
+          const response = await fetch("/api/v1/agents/workforce/marketing", {
+            method: "POST",
+            credentials: "include",
+            headers: { "content-type": "application/json" },
+            body: "{}",
+          });
+          if (!response.ok) throw new Error("agents.workforce.createFailed");
+          await agentsStore.flushPersistence();
+          await agentsStore.hydrateAsync({
+            force: true,
+            forceOrgSwitch: true,
+            organizationId: aos.organizationId,
+          });
+        } catch {
+          setError(t("agents.workforce.createFailed"));
+        }
+      })();
+      return;
+    }
+    try {
+      createWorker({
+        organizationId: aos.organizationId,
+        actorId: aos.userId ?? "signed-in-user",
+        role: "MARKETING",
+        name: "Marketing Worker",
+        status: "ACTIVE",
+      });
+    } catch {
+      setError(t("agents.workforce.createFailed"));
+    }
+  };
+
   const setStatus = (workerId: string, status: WorkerStatus) => {
     if (!aos.organizationId) return;
     updateWorker({
@@ -88,6 +126,11 @@ export function WorkforcePanel(): JSX.Element {
           {t("agents.workforce.addCommunication")}
         </Button>
       ) : null}
+      {workers.some((worker) => worker.role === "MARKETING") ? null : (
+        <Button size="sm" variant="secondary" onClick={addMarketing} data-testid="workforce-add-marketing">
+          {t("agents.workforce.addMarketing")}
+        </Button>
+      )}
       <ul className="space-y-3" data-testid="workforce-list">
         {workers.map((worker) => {
           const assigned = goals.filter((goal) => goal.workerId === worker.id);

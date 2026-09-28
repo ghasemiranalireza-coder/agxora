@@ -106,6 +106,55 @@ function stepShell(
   };
 }
 
+export function buildMarketingPlan(input: {
+  readonly goal: BusinessGoal;
+  readonly agentInstanceId: string;
+  readonly plannerContext?: AgentPlan["plannerContext"];
+}): AgentPlan {
+  const contextId = `${input.goal.id}:context`;
+  const prepareId = `${input.goal.id}:prepare_plan`;
+  const recordId = `${input.goal.id}:record_plan`;
+  const now = nowIso();
+  return {
+    id: createId("plan"),
+    organizationId: input.goal.organizationId,
+    agentInstanceId: input.agentInstanceId,
+    goalId: input.goal.id,
+    goal: input.goal.statement,
+    plannerContext: input.plannerContext,
+    status: "ready",
+    createdAt: now,
+    updatedAt: now,
+    steps: [
+      stepShell(input.goal.id, "context", "Review the business", "MARKETING_LOAD_BUSINESS_CONTEXT", [], false),
+      stepShell(
+        input.goal.id,
+        "prepare_plan",
+        "Prepare the 7-day marketing plan",
+        "MARKETING_PREPARE_PLAN",
+        [contextId],
+        false,
+      ),
+      stepShell(
+        input.goal.id,
+        "record_plan",
+        "Store the approved marketing plan",
+        "MARKETING_RECORD_PLAN",
+        [prepareId],
+        true,
+      ),
+      stepShell(
+        input.goal.id,
+        "verify_plan",
+        "Confirm the marketing plan is saved",
+        "MARKETING_VERIFY_PLAN",
+        [recordId],
+        false,
+      ),
+    ],
+  };
+}
+
 export function buildCrmFollowUpPlan(input: {
   readonly goal: BusinessGoal;
   readonly agentInstanceId: string;
@@ -256,7 +305,8 @@ export function outputVerified(output: unknown): boolean {
 export function recordedMutation(output: unknown): boolean {
   if (noteIdFromOutput(output)) return true;
   const record = asRecord(output);
-  return record?.sent === true && record.delivery === "queued";
+  if (record?.sent === true && record.delivery === "queued") return true;
+  return record?.stored === true && typeof record.planRecordId === "string" && record.planRecordId.length > 0;
 }
 
 function customerIdFromPlan(plan: AgentPlan): string | undefined {
@@ -315,6 +365,28 @@ export function stampApprovedCommunication(plan: AgentPlan, stepId: string): Age
   });
 }
 
+function marketingPlanFromPrepare(plan: AgentPlan): Record<string, unknown> | null {
+  const prepare = plan.steps.find((step) => step.capabilityId === "MARKETING_PREPARE_PLAN");
+  const result = asRecord(prepare?.result);
+  const approved = asRecord(asRecord(plan.steps.find((step) => step.capabilityId === "MARKETING_RECORD_PLAN")?.result)?.approvedPlan);
+  return approved ?? asRecord(result?.plan);
+}
+
+function planRecordIdFromPlan(plan: AgentPlan): string | undefined {
+  const record = asRecord(plan.steps.find((step) => step.capabilityId === "MARKETING_RECORD_PLAN")?.result);
+  return typeof record?.planRecordId === "string" && record.planRecordId.length > 0 ? record.planRecordId : undefined;
+}
+
+export function stampApprovedMarketingPlan(plan: AgentPlan, stepId: string): AgentPlan {
+  const draft = marketingPlanFromPrepare(plan);
+  if (!draft) return plan;
+  const step = plan.steps.find((item) => item.id === stepId);
+  if (step?.capabilityId !== "MARKETING_RECORD_PLAN") return plan;
+  return updatePlanStep(plan, stepId, {
+    result: { approvedPlan: draft },
+  });
+}
+
 function emailReceiptFromPlan(plan: AgentPlan): {
   delivery?: string;
   recipient?: string;
@@ -364,6 +436,8 @@ export function capabilityExecutionContext(input: {
     ...(approvedDraft(input.plan).subject ? { approvedSubject: approvedDraft(input.plan).subject } : {}),
     ...(approvedDraft(input.plan).to ? { approvedTo: approvedDraft(input.plan).to } : {}),
     ...(noteId ? { noteId } : {}),
+    ...(marketingPlanFromPrepare(input.plan) ? { marketingPlan: marketingPlanFromPrepare(input.plan) } : {}),
+    ...(planRecordIdFromPlan(input.plan) ? { planRecordId: planRecordIdFromPlan(input.plan) } : {}),
     ...(emailReceiptFromPlan(input.plan).delivery
       ? { delivery: emailReceiptFromPlan(input.plan).delivery }
       : {}),
@@ -511,15 +585,18 @@ export function syncOrchestration(
         value: memory,
       }),
     );
+    const marketingPlan = nextPlan.steps.some((step) => step.capabilityId === "MARKETING_VERIFY_PLAN");
     createBusinessMemory({
       organizationId: task.organizationId,
       actorId: task.agentInstanceId,
-      subjectType: completed.customerId ? "customer" : "organization",
-      subjectId: completed.customerId,
+      subjectType: completed.customerId && !marketingPlan ? "customer" : "organization",
+      subjectId: completed.customerId && !marketingPlan ? completed.customerId : undefined,
       memoryType: "GOAL_OUTCOME",
-      content: completed.customerId
-        ? `Verified goal ${completed.id} completed for customer ${completed.customerId}.`
-        : `Verified goal ${completed.id} completed.`,
+      content: marketingPlan
+        ? `Approved marketing plan for this organization and goal ${completed.id}.`
+        : completed.customerId
+          ? `Verified goal ${completed.id} completed for customer ${completed.customerId}.`
+          : `Verified goal ${completed.id} completed.`,
       status: "VERIFIED",
       provenance: "VERIFIED_EXECUTION",
       sourceReference: task.executionId ?? completed.planId,
@@ -613,6 +690,18 @@ export function cancelBusinessGoalApproval(
     .getSnapshot()
     .plans.find((item) => item.id === approval.planId);
   if (!plan?.goalId || plan.organizationId !== approval.organizationId) return;
+  if (plan.steps.some((step) => step.capabilityId === "MARKETING_RECORD_PLAN")) {
+    createBusinessMemory({
+      organizationId: approval.organizationId,
+      actorId: approval.agentInstanceId,
+      subjectType: "organization",
+      memoryType: "GOAL_OUTCOME",
+      content: `Rejected marketing plan for goal ${plan.goalId}.`,
+      status: "REJECTED",
+      provenance: "USER_INPUT",
+      sourceReference: plan.goalId,
+    });
+  }
   const cancelled = updatePlanStep(
     { ...plan, status: "cancelled", updatedAt: nowIso() },
     approval.stepId,

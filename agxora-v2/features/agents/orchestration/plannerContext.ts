@@ -97,6 +97,8 @@ export async function resolveBusinessGoalPlannerContext(input: {
   readonly customerId?: string;
   readonly clientOrganizationId?: string;
   readonly worker?: WorkforceWorker;
+  readonly marketingOffer?: string;
+  readonly narrowedFromPublish?: boolean;
 }): Promise<BusinessGoalPlannerContext> {
   void input.clientOrganizationId;
   const resolvedAt = new Date().toISOString();
@@ -112,6 +114,21 @@ export async function resolveBusinessGoalPlannerContext(input: {
       text: input.statement.trim(),
     },
   ];
+  const offer = input.marketingOffer?.trim() ?? "";
+  if (offer) {
+    facts.push({
+      provenance: "GOAL",
+      key: "offer",
+      text: `Offer supplied by the business: ${offer}.`,
+    });
+  }
+  if (input.narrowedFromPublish) {
+    facts.push({
+      provenance: "SYSTEM",
+      key: "publishing",
+      text: "Publishing and advertising are not available. This goal prepares a plan only.",
+    });
+  }
 
   const provider = getCrmBridgeProvider();
   let customerId: string | undefined;

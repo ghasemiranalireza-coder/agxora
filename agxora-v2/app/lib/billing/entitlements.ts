@@ -39,6 +39,10 @@ export const AGENT_CAPABILITY_ENTITLEMENT: Readonly<Record<string, CommercialCap
   COMMUNICATION_PREPARE_EMAIL: "GOVERNED_EMAIL",
   COMMUNICATION_SEND_EMAIL: "GOVERNED_EMAIL",
   COMMUNICATION_VERIFY_EMAIL: "GOVERNED_EMAIL",
+  MARKETING_LOAD_BUSINESS_CONTEXT: "MARKETING_WORKFORCE",
+  MARKETING_PREPARE_PLAN: "MARKETING_WORKFORCE",
+  MARKETING_RECORD_PLAN: "MARKETING_WORKFORCE",
+  MARKETING_VERIFY_PLAN: "MARKETING_WORKFORCE",
 };
 
 export function isCommercialCapabilityId(value: string): value is CommercialCapabilityId {
@@ -78,7 +82,9 @@ export function isCustomerCapabilityUsable(input: {
 }): boolean {
   if (input.registryStatus !== "LIVE") return false;
   if (input.access === "legacy") {
-    return !MARKETING.has(input.capabilityId);
+    const commercial = commercialIdFor(input.capabilityId);
+    if ((commercial && MARKETING.has(commercial)) || MARKETING.has(input.capabilityId)) return false;
+    return true;
   }
   if (input.access !== "paid" || !input.planCode) return false;
   const commercial = commercialIdFor(input.capabilityId);

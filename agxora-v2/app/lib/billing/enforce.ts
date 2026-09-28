@@ -142,6 +142,28 @@ export async function assertSeatAvailable(
   }
 }
 
+export async function assertMarketingWorkforceAllowed(organizationId: string, now = new Date()): Promise<void> {
+  let row: SubscriptionRow | null = null;
+  try {
+    row = await prisma.commercialSubscription.findUnique({ where: { organizationId } });
+  } catch (error) {
+    if (isMissingBillingSchema(error)) {
+      throw new PersistenceError("forbidden", "Marketing requires a Business or Professional subscription.");
+    }
+    throw error;
+  }
+  const subscription = row ? executionSubscription(row) : null;
+  const access = !subscription ? "legacy" : hasPaidAccess(subscription, now) ? "paid" : "unpaid";
+  const allowed = canUseCapability({
+    planCode: subscription?.planCode ?? null,
+    capabilityId: "MARKETING_RECORD_PLAN",
+    access,
+  });
+  if (!allowed) {
+    throw new PersistenceError("forbidden", "This plan does not include the Marketing Workforce.");
+  }
+}
+
 export async function assertWorkforceActivationAllowed(organizationId: string, now = new Date()): Promise<void> {
   let row: SubscriptionRow | null = null;
   try {

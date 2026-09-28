@@ -10,7 +10,7 @@ import { agentOsService } from "../services/agentOsService";
 import { assertWorkspaceIsolation } from "../security";
 import { agentsStore } from "../store";
 import type { BusinessGoal } from "../types";
-import { isCustomerReplyGoal, unsupportedCommunicationChannel } from "./goalPlan";
+import { unsupportedCommunicationChannel } from "./goalPlan";
 import { normalizeBusinessGoalIntent, planAuthorizedBusinessGoal } from "./goalPlanner";
 import { auditLog } from "@/app/lib/backend/audit/logger";
 import { recordGovernedEvidence } from "../evidence/governedExecution";
@@ -36,20 +36,22 @@ export async function startBusinessGoal(input: {
   readonly customerId?: string | null;
   readonly workerId?: string | null;
   readonly actorId?: string | null;
+  readonly marketingOffer?: string | null;
 }): Promise<BusinessGoal> {
   const statement = input.statement.trim();
   if (!statement) {
     throw new Error("agents.businessGoal.errors.required");
   }
-  const unsupported = unsupportedCommunicationChannel(statement);
-  if (unsupported) {
-    throw new Error(`capabilityUnavailable: unsupported channel ${unsupported}`);
-  }
   const intent = normalizeBusinessGoalIntent(statement);
   if (!intent) {
+    const unsupported = unsupportedCommunicationChannel(statement);
+    if (unsupported) {
+      throw new Error(`capabilityUnavailable: unsupported channel ${unsupported}`);
+    }
     throw new Error("agents.businessGoal.errors.unsupported");
   }
-  const emailGoal = isCustomerReplyGoal(statement);
+  const emailGoal = intent.goalType === "customer_reply" || intent.goalType === "follow_up_and_record";
+  const marketingGoal = intent.goalType === "marketing_plan";
 
   let customerId: string | undefined;
   const requested = input.customerId?.trim() ?? "";
@@ -72,17 +74,29 @@ export async function startBusinessGoal(input: {
   if (emailGoal && !definition.tools.includes("email")) {
     throw new Error("agents.businessGoal.errors.noEmail");
   }
-
-  const now = nowIso();
+  if (marketingGoal && !definition.tools.includes("marketing")) {
+    throw new Error("agents.businessGoal.errors.noMarketing");
+  }
   const workerId = input.workerId?.trim() || undefined;
   const actorId = input.actorId?.trim() || undefined;
   const worker = workerId ? assertWorkerCanStart(input.organizationId, workerId) : undefined;
+  if (marketingGoal && (!worker || worker.role !== "MARKETING")) {
+    throw new Error("A Marketing Worker is required.");
+  }
+  const marketingOffer = input.marketingOffer?.trim() ?? "";
+  if (marketingGoal && !marketingOffer) {
+    throw new Error("An offer is required before a marketing plan can be prepared.");
+  }
+
+  const now = nowIso();
   const plannerContext = await resolveBusinessGoalPlannerContext({
     organizationId: input.organizationId,
     statement,
     customerId,
     clientOrganizationId: input.clientOrganizationId ?? undefined,
     worker,
+    marketingOffer: marketingGoal ? marketingOffer : undefined,
+    narrowedFromPublish: intent.narrowedFromPublish === true,
   });
   const goal: BusinessGoal = {
     id: createId("goal"),
@@ -94,6 +108,8 @@ export async function startBusinessGoal(input: {
     customerId: plannerContext.customerId ?? customerId,
     workerId: worker?.id,
     actorId,
+    marketingOffer: marketingGoal ? marketingOffer : undefined,
+    marketingNarrowed: intent.narrowedFromPublish === true,
     createdAt: now,
     updatedAt: now,
   };
@@ -148,6 +164,7 @@ export async function startBusinessGoal(input: {
       ...(customerId ? { customerId } : {}),
       ...(worker ? { workerId: worker.id } : {}),
       ...(actorId ? { actorId } : {}),
+      ...(marketingGoal ? { marketingOffer, marketingNarrowed: intent.narrowedFromPublish === true } : {}),
     },
   });
 

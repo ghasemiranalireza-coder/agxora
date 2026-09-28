@@ -45,7 +45,7 @@ export const DEFAULT_AGENTS: readonly AgentDefinition[] = [
     capabilities: ["crm", "enrichment", "analysis"],
     goals: ["Keep customer data clean", "Surface account insights"],
     instructions: "Operate within CRM tool boundaries; never invent contacts.",
-    tools: ["crm", "search", "notification", "email"],
+    tools: ["crm", "search", "notification", "email", "marketing"],
     permissions: ["agents.execute", "tools.invoke", "knowledge.read"],
     knowledgeSources: ["crm", "documents", "policies"],
     marketplace: true,
