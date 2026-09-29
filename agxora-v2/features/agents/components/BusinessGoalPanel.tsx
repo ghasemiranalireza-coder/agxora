@@ -5,6 +5,7 @@ import { Button, Card, FormField, FormInput, FormTextArea } from "@/app/componen
 import { describeRecovery } from "@/app/lib/data-rights/recovery";
 import { localizeThrownError, useT } from "@/app/lib/i18n";
 import { useAgentOperatingSystem } from "../hooks";
+import { MarketingImageControls } from "./MarketingImageControls";
 import { editMarketingDraft } from "../marketing/edit";
 import { asksToPublishOrAdvertise, isMarketingPlanGoal } from "../marketing/intent";
 import type { MarketingPlanDocument } from "../marketing/planSchema";
@@ -94,6 +95,12 @@ export function BusinessGoalPanel(): JSX.Element {
   const marketingDraft =
     prepareResult && typeof prepareResult === "object" && prepareResult !== null && "plan" in prepareResult
       ? ((prepareResult as { plan?: MarketingPlanDocument }).plan ?? undefined)
+      : undefined;
+  const recordResult = plan?.steps.find((step) => step.capabilityId === "MARKETING_RECORD_PLAN")?.result;
+  const planRecordId =
+    recordResult && typeof recordResult === "object" && recordResult !== null && "planRecordId" in recordResult
+      && typeof (recordResult as { planRecordId?: unknown }).planRecordId === "string"
+      ? (recordResult as { planRecordId: string }).planRecordId
       : undefined;
   const contextFacts =
     plan?.steps.find((step) => step.capabilityId === "MARKETING_LOAD_BUSINESS_CONTEXT")?.result;
@@ -376,6 +383,14 @@ export function BusinessGoalPanel(): JSX.Element {
                     ))}
                   </ol>
                 </div>
+              ) : null}
+              {plan && goal && planRecordId && marketingDraft ? (
+                <MarketingImageControls
+                  goalId={goal.id}
+                  planId={plan.id}
+                  planRecordId={planRecordId}
+                  items={marketingDraft.contentItems.map((item) => ({ day: item.day, theme: item.theme }))}
+                />
               ) : null}
             </div>
           ) : null}

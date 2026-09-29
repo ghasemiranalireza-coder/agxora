@@ -12,6 +12,7 @@ const MARKETING_CAPABILITIES = [
   "MARKETING_PREPARE_PLAN",
   "MARKETING_RECORD_PLAN",
   "MARKETING_VERIFY_PLAN",
+  "MARKETING_CREATE_IMAGE",
 ] as const;
 
 export function activationMarketingCapabilities(): readonly string[] {
