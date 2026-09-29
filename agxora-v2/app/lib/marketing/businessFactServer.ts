@@ -1,16 +1,13 @@
 /**
  * Persist one customer-confirmed business fact through governed execution.
  * Organization, actor, provenance, and verification come from the server.
+ * Confirmation does not read or change subscription, checkout, or allowance state.
  */
 
 import "server-only";
 
 import { randomUUID } from "node:crypto";
 import { Prisma } from "@prisma/client";
-import { assertGovernedExecutionAllowed, commercialBillingSchemaReady } from "@/app/lib/billing/enforce";
-import { canUseCapability } from "@/app/lib/billing/entitlements";
-import { paidAccessFor, type ExecutionSubscription } from "@/app/lib/billing/executionPolicy";
-import { isPlanCode } from "@/app/lib/billing/catalog";
 import { prisma } from "@/app/lib/db/prisma";
 import { getAgentOsStateForActor, putAgentOsStateForActor } from "@/app/lib/agents/persistence";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
@@ -32,25 +29,6 @@ import {
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) return null;
   return value as Record<string, unknown>;
-}
-
-async function entitlement(organizationId: string): Promise<boolean> {
-  const row = await prisma.commercialSubscription.findUnique({ where: { organizationId } }).catch(() => null);
-  const subscription: ExecutionSubscription | null = row && isPlanCode(row.planCode)
-    ? {
-        organizationId: row.organizationId,
-        planCode: row.planCode,
-        status: row.status,
-        currentPeriodEnd: row.currentPeriodEnd,
-        cancelAtPeriodEnd: row.cancelAtPeriodEnd,
-      }
-    : null;
-  const access = paidAccessFor(subscription, new Date());
-  return canUseCapability({
-    planCode: access === "paid" ? subscription?.planCode ?? null : null,
-    capabilityId: BUSINESS_FACT_CAPABILITY,
-    access,
-  });
 }
 
 export async function listBusinessFactsForActor(actor: Actor, memoryId?: string) {
@@ -89,12 +67,10 @@ export async function confirmBusinessFactForActor(
   const worker = (state.workers ?? []).find((item) =>
     item.organizationId === actor.organizationId && item.role === "MARKETING" && item.status === "ACTIVE",
   );
-  if (!worker || !capabilitiesForRole("MARKETING").includes(BUSINESS_FACT_CAPABILITY)) {
-    return { ok: false as const, status: 403, error: "An active Marketing Worker is required." };
+  if (!capabilitiesForRole("MARKETING").includes(BUSINESS_FACT_CAPABILITY)) {
+    return { ok: false as const, status: 403, error: "Business fact confirmation is not available." };
   }
-  if (!(await entitlement(actor.organizationId))) {
-    return { ok: false as const, status: 403, error: "This plan cannot save verified business facts." };
-  }
+  const workerId = worker?.id ?? null;
   const factHash = businessFactHash(parsed.fact);
   const idempotencyKey = businessFactIdempotencyKey(actor.organizationId, factHash);
   const existing = await prisma.agentGovernedExecution.findUnique({
@@ -122,15 +98,8 @@ export async function confirmBusinessFactForActor(
     return { ok: false as const, status: 409, error: "This fact confirmation is already being saved." };
   }
   const executionId = randomUUID();
-  const billingReady = await commercialBillingSchemaReady();
   try {
     await prisma.$transaction(async (tx) => {
-      if (billingReady) {
-        await assertGovernedExecutionAllowed(tx, {
-          organizationId: actor.organizationId,
-          capabilityId: BUSINESS_FACT_CAPABILITY,
-        });
-      }
       if (existing?.status === "FAILED") {
         await tx.agentGovernedExecution.update({
           where: { id: existing.id },
@@ -138,7 +107,7 @@ export async function confirmBusinessFactForActor(
             status: "RESERVED",
             executionId,
             capabilityId: BUSINESS_FACT_CAPABILITY,
-            workerId: worker.id,
+            workerId,
             actorId: actor.userId,
             approvalRequired: true,
             approvalGranted: true,
@@ -154,7 +123,7 @@ export async function confirmBusinessFactForActor(
           idempotencyKey,
           executionId,
           capabilityId: BUSINESS_FACT_CAPABILITY,
-          workerId: worker.id,
+          workerId,
           actorId: actor.userId,
           approvalRequired: true,
           approvalGranted: true,
@@ -217,7 +186,7 @@ export async function confirmBusinessFactForActor(
         organizationId: actor.organizationId,
         executionId,
         capabilityId: BUSINESS_FACT_CAPABILITY,
-        workerId: worker.id,
+        workerId,
         actorId: actor.userId,
         action: "business_fact.confirmed",
         status: applied.authoritative ? "verified" : "withheld",
