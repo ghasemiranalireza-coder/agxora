@@ -140,11 +140,13 @@ describe("Phase 22 marketing plan", () => {
     expect(getCapability("SOCIAL_PUBLISH")?.availability.status).toBe("FUTURE");
     expect(getCapability("MARKETING_CAMPAIGN")?.availability.status).toBe("FUTURE");
     expect(authorizeCapabilityExecution({ capabilityId: "SOCIAL_PUBLISH", organizationId: ORG }).ok).toBe(false);
+    expect(getCapability("MARKETING_IMAGE_CREATION")?.availability.status).toBe("FUTURE");
     expect(capabilitiesForRole("MARKETING")).toEqual([
       "MARKETING_LOAD_BUSINESS_CONTEXT",
       "MARKETING_PREPARE_PLAN",
       "MARKETING_RECORD_PLAN",
       "MARKETING_VERIFY_PLAN",
+      "MARKETING_CREATE_IMAGE",
     ]);
     expect(canUseCapability({ planCode: "agxora_base", capabilityId: "MARKETING_RECORD_PLAN", access: "paid" })).toBe(false);
     expect(canUseCapability({ planCode: "agxora_business", capabilityId: "MARKETING_RECORD_PLAN", access: "paid" })).toBe(true);

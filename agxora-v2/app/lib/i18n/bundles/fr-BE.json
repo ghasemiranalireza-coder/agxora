@@ -5928,7 +5928,25 @@
         "wants": "AGXORA wants to store this 7-day marketing plan.",
         "because": "Nothing is stored until you approve. Publishing stays unavailable.",
         "change": "What will change: one approved plan will be saved for this business.",
-        "stored": "AGXORA prepared and stored the approved 7-day marketing plan."
+        "stored": "AGXORA prepared and stored the approved 7-day marketing plan.",
+        "image": {
+          "select": "Select one plan item.",
+          "generate": "Generate image",
+          "generateSpend": "Generate uses one governed execution.",
+          "approvalHuman": "Approval is your decision. A preview is not published.",
+          "preview": "This image is a draft preview. Nothing has been published.",
+          "previewFailed": "The preview could not be loaded.",
+          "noPerformance": "No performance data exists yet.",
+          "approve": "Approve image",
+          "reject": "Reject image",
+          "rejectNote": "Rejection does not publish anything.",
+          "regenerate": "Regenerate",
+          "regenerateNote": "Regenerate is a new generation and uses another governed execution.",
+          "failed": "The image was not created. Nothing was published.",
+          "ambiguous": "Storage did not finish. Do not generate again until this image is reviewed.",
+          "approved": "This image is the approved draft for this plan item. It has not been published.",
+          "rejected": "This image was rejected. It is not the approved image."
+        }
       },
       "result": {
         "verified": "CRM note created successfully for {company}.",

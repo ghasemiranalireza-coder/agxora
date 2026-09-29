@@ -76,6 +76,101 @@ function isUsableAssetUrl(url: string): boolean {
   return validateCreativeAssetUrl(url) === null;
 }
 
+export interface PreparedImageResult {
+  readonly ok: true;
+  readonly bytes: Uint8Array;
+  readonly mimeType: string;
+  readonly width: number;
+  readonly height: number;
+  readonly model: string;
+  readonly providerId: "openai";
+  readonly simulated: false;
+}
+
+export interface PreparedImageFailure {
+  readonly ok: false;
+  readonly reason: string;
+  readonly providerId: "openai";
+  readonly simulated: false;
+}
+
+/**
+ * Generate one image from a server-built prompt.
+ * Returns bytes. Does not persist a data URL or an API key.
+ */
+export async function generateOpenAIImageFromPrompt(input: {
+  readonly apiKey: string;
+  readonly model: string;
+  readonly baseUrl: string;
+  readonly prompt: string;
+  readonly size: "1024x1024" | "1024x1536" | "1536x1024";
+  readonly fetchImpl?: typeof fetch;
+  readonly timeoutMs?: number;
+}): Promise<PreparedImageResult | PreparedImageFailure> {
+  const fetchImpl = input.fetchImpl ?? fetch;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), input.timeoutMs ?? 120_000);
+  try {
+    const response = await fetchImpl(`${input.baseUrl}/images/generations`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${input.apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: input.model,
+        prompt: input.prompt,
+        n: 1,
+        size: input.size,
+        quality: "medium",
+        output_format: "jpeg",
+      }),
+      signal: controller.signal,
+    });
+    let payload: OpenAIImagesResponse | null = null;
+    try {
+      payload = (await response.json()) as OpenAIImagesResponse;
+    } catch {
+      payload = null;
+    }
+    if (!response.ok) {
+      const raw = payload?.error?.message || `openai_http_${response.status}`;
+      return { ok: false, providerId: "openai", simulated: false, reason: sanitizeProviderMessage(raw) || "openai_http_failure" };
+    }
+    const encoded = payload?.data?.[0]?.b64_json?.trim() ?? "";
+    if (!encoded) {
+      return { ok: false, providerId: "openai", simulated: false, reason: "provider_returned_no_assets" };
+    }
+    const bytes = Uint8Array.from(Buffer.from(encoded, "base64"));
+    if (bytes.byteLength === 0) {
+      return { ok: false, providerId: "openai", simulated: false, reason: "provider_returned_no_assets" };
+    }
+    const dimensions =
+      input.size === "1024x1536"
+        ? { width: 1024, height: 1536 }
+        : input.size === "1536x1024"
+          ? { width: 1536, height: 1024 }
+          : { width: 1024, height: 1024 };
+    return {
+      ok: true,
+      bytes,
+      mimeType: "image/jpeg",
+      width: dimensions.width,
+      height: dimensions.height,
+      model: input.model,
+      providerId: "openai",
+      simulated: false,
+    };
+  } catch (error) {
+    if (error instanceof Error && error.name === "AbortError") {
+      return { ok: false, providerId: "openai", simulated: false, reason: "openai_timeout" };
+    }
+    return { ok: false, providerId: "openai", simulated: false, reason: "openai_request_failed" };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 export function createOpenAICreativeImageProvider(
   options: OpenAIImagesProviderOptions,
 ): CreativeGenerationProvider {
