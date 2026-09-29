@@ -1,8 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import path from "node:path";
-import { canUseCapability } from "@/app/lib/billing/entitlements";
-import { decideGovernedExecution } from "@/app/lib/billing/executionPolicy";
 import { getCapability } from "@/features/agents/capabilities/registry";
 import { capabilitiesForRole } from "@/features/agents/workforce/workers";
 import { marketingFactsFromState } from "./prepare";
@@ -55,24 +53,12 @@ describe("verified business facts", () => {
     expect(capability?.verification.evidenceType).toBe("business_fact");
     expect(capabilitiesForRole("MARKETING")).toContain("MARKETING_RECORD_BUSINESS_FACT");
     expect(capabilitiesForRole("SALES")).not.toContain("MARKETING_RECORD_BUSINESS_FACT");
-    expect(canUseCapability({ planCode: "agxora_base", capabilityId: "MARKETING_RECORD_BUSINESS_FACT", access: "paid" })).toBe(false);
-    expect(canUseCapability({ planCode: "agxora_business", capabilityId: "MARKETING_RECORD_BUSINESS_FACT", access: "paid" })).toBe(true);
-    expect(canUseCapability({ planCode: "agxora_professional", capabilityId: "MARKETING_RECORD_BUSINESS_FACT", access: "paid" })).toBe(true);
-    expect(decideGovernedExecution({
-      organizationId: ORG,
-      subscription: {
-        organizationId: ORG,
-        planCode: "agxora_base",
-        status: "ACTIVE",
-        currentPeriodEnd: new Date("2026-10-29T00:00:00.000Z"),
-        cancelAtPeriodEnd: false,
-      },
-      capabilityId: "MARKETING_RECORD_BUSINESS_FACT",
-      registryStatus: "LIVE",
-      counted: 0,
-      now: new Date("2026-09-29T12:00:00.000Z"),
-      replaying: false,
-    }).allow).toBe(false);
+    const server = readFileSync(path.join(ROOT, "app/lib/marketing/businessFactServer.ts"), "utf8");
+    const entitlements = readFileSync(path.join(ROOT, "app/lib/billing/entitlements.ts"), "utf8");
+    expect(server).not.toContain("canUseCapability");
+    expect(server).not.toContain("assertGovernedExecutionAllowed");
+    expect(server).not.toContain("commercialSubscription");
+    expect(entitlements).not.toContain("MARKETING_RECORD_BUSINESS_FACT");
   });
 
   it("requires explicit confirmation and ignores forged verification", () => {
