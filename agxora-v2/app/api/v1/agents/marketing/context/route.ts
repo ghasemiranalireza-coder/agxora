@@ -37,6 +37,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       verified: true,
       organizationName: built.projection.organizationName,
       facts: built.projection.facts,
+      businessFacts: built.projection.businessFacts ?? [],
       contextRecordIds: built.projection.contextRecordIds,
       missingFacts: built.missingFacts,
       narrowedFromPublish: built.projection.narrowedFromPublish,

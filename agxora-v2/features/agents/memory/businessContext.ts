@@ -55,6 +55,28 @@ export type BusinessMemoryProvenance =
   | "SYSTEM"
   | "IMPORTED_DATA";
 
+export const BUSINESS_FACT_CATEGORIES = [
+  "BUSINESS_NAME",
+  "BUSINESS_DESCRIPTION",
+  "AUDIENCE",
+  "OFFER",
+  "SERVICE_AREA",
+  "OPENING_HOURS",
+  "BRAND_RULE",
+  "ALLOWED_CLAIM",
+  "PROHIBITED_CLAIM",
+] as const;
+
+export type BusinessFactCategory = (typeof BUSINESS_FACT_CATEGORIES)[number];
+
+/** Customer-confirmed structure. The statement is not rewritten by a model. */
+export interface BusinessFactDetails {
+  readonly category: BusinessFactCategory;
+  readonly statement: string;
+  readonly allowedForMarketing: boolean;
+  readonly source: "customer_confirmation";
+}
+
 export type BusinessMemorySubject = "organization" | "customer" | "goal";
 
 export interface BusinessMemoryRevision {
@@ -78,6 +100,8 @@ export interface BusinessMemoryValue {
   readonly conflict: boolean;
   readonly history: readonly BusinessMemoryRevision[];
   readonly updatedAt: string;
+  /** Present only for a customer-confirmed BUSINESS_FACT. */
+  readonly fact?: BusinessFactDetails;
 }
 
 export function isBusinessMemoryValue(value: unknown): value is BusinessMemoryValue {

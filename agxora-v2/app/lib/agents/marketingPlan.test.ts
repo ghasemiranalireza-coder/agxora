@@ -147,6 +147,7 @@ describe("Phase 22 marketing plan", () => {
       "MARKETING_RECORD_PLAN",
       "MARKETING_VERIFY_PLAN",
       "MARKETING_CREATE_IMAGE",
+      "MARKETING_RECORD_BUSINESS_FACT",
     ]);
     expect(canUseCapability({ planCode: "agxora_base", capabilityId: "MARKETING_RECORD_PLAN", access: "paid" })).toBe(false);
     expect(canUseCapability({ planCode: "agxora_business", capabilityId: "MARKETING_RECORD_PLAN", access: "paid" })).toBe(true);

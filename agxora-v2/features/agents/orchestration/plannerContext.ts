@@ -7,6 +7,7 @@ import { getCrmBridgeProvider } from "../crm/adapter";
 import { agentsStore } from "../store";
 import { isBusinessMemoryValue, type BusinessGoalMemoryValue } from "../memory/businessContext";
 import { authoritativeBusinessMemory } from "../memory/businessMemory";
+import { businessFactPlannerLine } from "@/app/lib/marketing/businessFact";
 import { workerRoleContext } from "../workforce/workers";
 import type { WorkforceWorker } from "../types";
 import { resolveFirstCustomerCrmCustomerId } from "@/app/lib/workspace/firstCustomerAgentCrm";
@@ -220,10 +221,11 @@ export async function resolveBusinessGoalPlannerContext(input: {
   });
   for (const record of authoritative) {
     if (!isBusinessMemoryValue(record.value)) continue;
+    const confirmed = businessFactPlannerLine(record);
     facts.push({
       provenance: "BUSINESS_MEMORY",
       key: `memory:${record.id}`,
-      text: `${record.value.status} ${record.value.memoryType} (${record.value.provenance}): ${record.value.content}`,
+      text: confirmed ?? `${record.value.status} ${record.value.memoryType} (${record.value.provenance}): ${record.value.content}`,
     });
   }
 
