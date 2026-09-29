@@ -21,6 +21,7 @@ import type {
 } from "@/features/agents/creative/types";
 import type { CreativeAssetRecord } from "./assetStore";
 import { authorizeCreativeGenerationFromState } from "./authorize";
+import { LEGACY_CREATIVE_GENERATE_CLOSED } from "./legacyGenerateGate";
 import { canRequestPaidGeneration } from "@/features/agents/creative/capabilities";
 import {
   hasDurablePrimaryAsset,
@@ -215,6 +216,14 @@ export async function generateCreativeImageForActor(
   actor: Actor,
   input: ServerCreativeGenerateInput,
 ): Promise<ServerCreativeGenerateSuccess> {
+  if (process.env.NODE_ENV === "production") {
+    throw new PersistenceError(
+      "forbidden",
+      LEGACY_CREATIVE_GENERATE_CLOSED.message,
+      { status: 410 },
+    );
+  }
+
   if (!input.creativeProjectId?.trim()) {
     throw new PersistenceError("validation", "creativeProjectId is required");
   }

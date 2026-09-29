@@ -10,10 +10,7 @@ import { NextResponse } from "next/server";
 import { requireCurrentActor } from "@/app/lib/tenancy";
 import { jsonError } from "@/app/lib/crm/persistence/http";
 import { rateLimitResponse } from "@/app/lib/security/rate-limit";
-import {
-  generateCreativeImageForActor,
-  type ServerCreativeGenerateInput,
-} from "@/app/lib/creative/generate";
+import { LEGACY_CREATIVE_GENERATE_CLOSED } from "@/app/lib/creative/legacyGenerateGate";
 
 export const runtime = "nodejs";
 
@@ -28,29 +25,11 @@ export async function POST(request: Request): Promise<NextResponse> {
     });
     if (limited) return limited;
 
-    const body = (await request.json()) as ServerCreativeGenerateInput;
-    const result = await generateCreativeImageForActor(actor, body);
-
-    // Never include API keys or raw provider secrets in the response.
-    return NextResponse.json({
-      ok: true,
-      organizationId: result.organizationId,
-      creativeProjectId: result.creativeProjectId,
-      providerId: result.providerId,
-      approvalId: result.approvalId,
-      executionJobId: result.executionJobId,
-      result: {
-        available: result.result.available,
-        generated: result.result.generated,
-        status: result.result.status,
-        reason: result.result.reason,
-        providerId: result.result.providerId,
-        // Persist-safe assets only in result.assets; preview separate.
-        assets: result.productionResult.assets,
-      },
-      productionResult: result.productionResult,
-      previewAssets: result.previewAssets ?? [],
-    });
+    // Authenticated customers can still reach this URL. The creative tab is
+    // not on the first-customer path, and this route does not enforce
+    // MARKETING_CREATE_IMAGE, entitlement, or governed allowance. Refuse
+    // before any provider, storage, or execution work.
+    return NextResponse.json(LEGACY_CREATIVE_GENERATE_CLOSED, { status: 410 });
   } catch (error) {
     return jsonError(error);
   }
