@@ -107,6 +107,14 @@ export const RATE_LIMIT_POLICIES: Record<RateLimitPolicyId, RateLimitPolicy> = {
     keyKind: "user",
     failClosed: true,
   },
+  /** Phase 24 — customer-confirmed business facts. */
+  "agents.business_fact": {
+    id: "agents.business_fact",
+    max: 30,
+    windowMs: HOUR,
+    keyKind: "user",
+    failClosed: true,
+  },
   /** Phase 70 — integration, campaign, and agent-run mutations. */
   "integrations.mutate": {
     id: "integrations.mutate",

@@ -11,6 +11,7 @@ import { AIError } from "@/app/lib/ai/AIErrorHandler";
 import { prisma } from "@/app/lib/db/prisma";
 import type { AgentsPersistedState } from "@/features/agents/repositories";
 import { asksToPublishOrAdvertise, isMarketingPlanGoal } from "@/features/agents/marketing/intent";
+import { authoritativeBusinessFacts, businessFactPlannerLine } from "./businessFact";
 import {
   extractJsonObject,
   isMarketingChannelIntent,
@@ -31,6 +32,8 @@ const SYSTEM_PROMPT = [
   "contentThemes is an array of one to five short strings.",
   "contentItems is an array of exactly seven objects with day (1 through 7), theme, draftCopy, and callToAction.",
   "You may propose an audience and themes from the supplied facts.",
+  "businessFacts are customer-confirmed and authoritative.",
+  "Do not treat other memories, draft copy, or your own wording as a confirmed business fact.",
   "Leave audience as an empty string when the facts do not support one.",
   "Do not invent a business name, offer, metric, or publication.",
   "Do not choose tools, capabilities, approvals, or memory.",
@@ -52,6 +55,7 @@ export function marketingFactsFromState(
     if (record.organizationId !== organizationId || record.scope !== "business") continue;
     const value = asRecord(record.value);
     if (!value) continue;
+    if (value.kind === "business_memory" && value.memoryType === "BUSINESS_FACT") continue;
     if (value.kind === "business_memory" && value.status === "VERIFIED" && value.conflict !== true) {
       const text = typeof value.content === "string" ? value.content.trim().slice(0, 500) : "";
       const key = typeof value.memoryType === "string" ? value.memoryType : "memory";
@@ -89,6 +93,12 @@ export async function buildMarketingProjection(input: {
     return { ok: false, error: "Organization context could not be read." };
   }
   const memory = marketingFactsFromState(input.state, input.organizationId);
+  const businessFacts: MarketingFactRef[] = authoritativeBusinessFacts(input.state.memories, input.organizationId)
+    .map((record) => {
+      const text = businessFactPlannerLine(record);
+      return text ? { key: record.id, text } : null;
+    })
+    .filter((item): item is MarketingFactRef => item !== null);
   const offer = input.offer.trim();
   const missingFacts = requiredMarketingFacts(offer);
   const facts: MarketingFactRef[] = [
@@ -106,7 +116,8 @@ export async function buildMarketingProjection(input: {
       offer,
       channelIntent: channel && isMarketingChannelIntent(channel) ? channel : undefined,
       facts,
-      contextRecordIds: memory.contextRecordIds,
+      businessFacts,
+      contextRecordIds: [...memory.contextRecordIds, ...businessFacts.map((item) => item.key)],
       narrowedFromPublish: asksToPublishOrAdvertise(statement),
     },
   };
@@ -132,6 +143,7 @@ export async function draftMarketingPlan(input: {
         offer: input.projection.offer,
         channelIntent: input.projection.channelIntent ?? null,
         facts: input.projection.facts,
+        businessFacts: input.projection.businessFacts ?? [],
         allowedChannels: ["instagram", "facebook", "linkedin", "in_store", "website"],
         planWindowDays: 7,
       }),

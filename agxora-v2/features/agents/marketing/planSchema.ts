@@ -80,6 +80,8 @@ export interface MarketingProjection {
   readonly audienceNote?: string;
   readonly channelIntent?: MarketingChannelIntent;
   readonly facts: readonly MarketingFactRef[];
+  /** Customer-confirmed facts only. Model copy is not included. */
+  readonly businessFacts?: readonly MarketingFactRef[];
   readonly contextRecordIds: readonly string[];
   readonly narrowedFromPublish: boolean;
 }

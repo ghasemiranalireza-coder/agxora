@@ -34,6 +34,7 @@ const MARKETING_CAPABILITIES = [
   "MARKETING_RECORD_PLAN",
   "MARKETING_VERIFY_PLAN",
   "MARKETING_CREATE_IMAGE",
+  "MARKETING_RECORD_BUSINESS_FACT",
 ] as const;
 
 const ROLE_CONTEXT: Record<WorkerRole, { readonly title: string; readonly responsibilities: string; readonly constraints: string }> = {
@@ -49,7 +50,7 @@ const ROLE_CONTEXT: Record<WorkerRole, { readonly title: string; readonly respon
   },
   MARKETING: {
     title: "Marketing",
-    responsibilities: "Prepare a seven-day marketing plan from business context, request approval, store the approved plan, verify it was saved, and create an image only after an explicit Generate action.",
+    responsibilities: "Prepare a seven-day marketing plan from business context, request approval, store the approved plan, verify it was saved, create an image only after an explicit Generate action, and store a business fact only after the customer confirms it.",
     constraints: "Cannot publish, send messages, create invoices, modify CRM, bypass approval, invent results, or treat a draft image as a measured result.",
   },
   FINANCE: {
