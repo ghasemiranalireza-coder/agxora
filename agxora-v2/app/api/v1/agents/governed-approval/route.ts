@@ -6,6 +6,8 @@
 import { NextResponse } from "next/server";
 import { appendGovernedEvidenceDb } from "@/app/lib/agents/governedExecutionDb";
 import { prisma } from "@/app/lib/db/prisma";
+import { CLAIM_GATE_RECHECK_MESSAGE } from "@/app/lib/marketing/claimGate";
+import { requirePassingClaimGate } from "@/app/lib/marketing/claimGateServer";
 import { jsonError } from "@/app/lib/crm/persistence/http";
 import { requireCurrentActor } from "@/app/lib/tenancy";
 import { authorizeCapabilityExecution } from "@/features/agents/capabilities/registry";
@@ -24,8 +26,22 @@ export async function POST(request: Request): Promise<NextResponse> {
       planId?: string;
       workerId?: string;
       approvalGranted?: unknown;
+      claimGatePassed?: unknown;
+      claimGate?: unknown;
+      result?: unknown;
+      draftHash?: unknown;
+      factContextHash?: unknown;
+      contentHash?: unknown;
+      organizationId?: unknown;
     };
     void body.approvalGranted;
+    void body.claimGatePassed;
+    void body.claimGate;
+    void body.result;
+    void body.draftHash;
+    void body.factContextHash;
+    void body.contentHash;
+    void body.organizationId;
     const executionId = body.executionId?.trim() ?? "";
     const stepId = body.stepId?.trim() ?? "";
     const capabilityId = body.capabilityId?.trim() ?? "";
@@ -45,6 +61,18 @@ export async function POST(request: Request): Promise<NextResponse> {
         { ok: false, code: "forbidden", message: decision.failure.reason },
         { status: 403 },
       );
+    }
+    let claimBinding: { draftHash: string; factContextHash: string; checkId: string } | null = null;
+    if (capabilityId === "MARKETING_RECORD_PLAN") {
+      const planId = body.planId?.trim() ?? "";
+      const claimGate = await requirePassingClaimGate(actor, planId);
+      if (!claimGate.ok) {
+        return NextResponse.json(
+          { ok: false, code: "recheck", message: claimGate.error || CLAIM_GATE_RECHECK_MESSAGE },
+          { status: 422 },
+        );
+      }
+      claimBinding = claimGate;
     }
     const existing = await prisma.agentGovernedEvidence.findFirst({
       where: {
@@ -67,7 +95,16 @@ export async function POST(request: Request): Promise<NextResponse> {
         actorId: actor.userId,
         action: "approval.granted",
         status: "APPROVED",
-        metadata: { idempotencyKey },
+        metadata: {
+          idempotencyKey,
+          ...(claimBinding
+            ? {
+              draftHash: claimBinding.draftHash,
+              factContextHash: claimBinding.factContextHash,
+              checkId: claimBinding.checkId,
+            }
+            : {}),
+        },
       });
     }
     return NextResponse.json({ ok: true, approval: "APPROVED" }, { status: existing ? 200 : 201 });

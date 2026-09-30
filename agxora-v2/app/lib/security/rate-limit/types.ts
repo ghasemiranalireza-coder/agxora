@@ -17,6 +17,7 @@ export type RateLimitPolicyId =
   | "agents.creative_publish_status"
   | "agents.social_connect"
   | "agents.business_fact"
+  | "agents.claim_gate"
   | "integrations.mutate"
   | "ai.chat"
   | "gmail.mutate";

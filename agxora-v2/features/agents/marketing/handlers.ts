@@ -56,6 +56,7 @@ export interface MarketingTransport {
     readonly idempotencyKey: string;
     readonly executionId: string;
     readonly stepId: string;
+    readonly planId: string;
     readonly plan: unknown;
   }): Promise<MarketingRecordResult>;
   verify(input: {
@@ -178,6 +179,7 @@ export async function handleMarketingTool(ctx: ToolInvocationContext): Promise<T
       idempotencyKey: readString(ctx.params, "idempotencyKey"),
       executionId: readString(ctx.params, "executionId"),
       stepId: readString(ctx.params, "stepId"),
+      planId: readString(ctx.params, "planId"),
       plan,
     });
     if (!recorded.ok || recorded.stored !== true || !recorded.planRecordId) {

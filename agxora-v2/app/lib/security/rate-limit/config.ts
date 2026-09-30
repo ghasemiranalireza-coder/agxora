@@ -115,6 +115,13 @@ export const RATE_LIMIT_POLICIES: Record<RateLimitPolicyId, RateLimitPolicy> = {
     keyKind: "user",
     failClosed: true,
   },
+  "agents.claim_gate": {
+    id: "agents.claim_gate",
+    max: 60,
+    windowMs: HOUR,
+    keyKind: "user",
+    failClosed: true,
+  },
   /** Phase 70 — integration, campaign, and agent-run mutations. */
   "integrations.mutate": {
     id: "integrations.mutate",

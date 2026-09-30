@@ -1263,6 +1263,9 @@ export const agentOsService = {
         const plan = agentsStore.getSnapshot().plans.find((item) => item.id === resolved.planId);
         const step = plan?.steps.find((item) => item.id === resolved.stepId);
         if (step?.idempotencyKey && step.capabilityId) {
+          if (step.capabilityId === "MARKETING_RECORD_PLAN") {
+            await agentsStore.flushPersistence();
+          }
           const response = await fetch("/api/v1/agents/governed-approval", {
             method: "POST",
             credentials: "include",
@@ -1277,7 +1280,12 @@ export const agentOsService = {
             }),
           });
           if (!response.ok) {
-            throw new Error("Governed approval was not recorded.");
+            if (step.capabilityId === "MARKETING_RECORD_PLAN") agentsStore.upsertApproval(approval);
+            const payload = (await response.json().catch(() => null)) as { message?: string; error?: string } | null;
+            const fallback = step.capabilityId === "MARKETING_RECORD_PLAN"
+              ? "This marketing content must be checked again."
+              : "Governed approval was not recorded.";
+            throw new Error(payload?.message ?? payload?.error ?? fallback);
           }
         }
       }
