@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, type FormEvent, type JSX } from "react";
+import { useCallback, useState, type FormEvent, type JSX } from "react";
 import { Button, Card, FormField, FormInput, FormTextArea } from "@/app/components/ui";
 import { describeRecovery } from "@/app/lib/data-rights/recovery";
 import { localizeThrownError, useT } from "@/app/lib/i18n";
 import { useAgentOperatingSystem } from "../hooks";
+import { MarketingClaimNotice, marketingDraftFingerprint } from "./MarketingClaimNotice";
 import { MarketingImageControls } from "./MarketingImageControls";
 import { editMarketingDraft } from "../marketing/edit";
 import { asksToPublishOrAdvertise, isMarketingPlanGoal } from "../marketing/intent";
@@ -76,6 +77,13 @@ export function BusinessGoalPanel(): JSX.Element {
   const [workerId, setWorkerId] = useState("");
   const [busy, setBusy] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
+  const [claimCheck, setClaimCheck] = useState<{
+    fingerprint: string;
+    result: "PASS" | "BLOCKED" | "EDIT_REQUIRED" | "UNCHECKED";
+  } | null>(null);
+  const onClaimResult = useCallback((result: "PASS" | "BLOCKED" | "EDIT_REQUIRED" | "UNCHECKED", fingerprint: string) => {
+    setClaimCheck({ result, fingerprint });
+  }, []);
   const goal: BusinessGoal | undefined = aos.businessGoals[0];
   const plan = goal
     ? aos.plans.find((item) => item.id === goal.planId)
@@ -96,6 +104,8 @@ export function BusinessGoalPanel(): JSX.Element {
     prepareResult && typeof prepareResult === "object" && prepareResult !== null && "plan" in prepareResult
       ? ((prepareResult as { plan?: MarketingPlanDocument }).plan ?? undefined)
       : undefined;
+  const draftFingerprint = marketingDraft ? marketingDraftFingerprint(marketingDraft) : "";
+  const claimsPass = claimCheck?.fingerprint === draftFingerprint && claimCheck.result === "PASS";
   const recordResult = plan?.steps.find((step) => step.capabilityId === "MARKETING_RECORD_PLAN")?.result;
   const planRecordId =
     recordResult && typeof recordResult === "object" && recordResult !== null && "planRecordId" in recordResult
@@ -343,6 +353,7 @@ export function BusinessGoalPanel(): JSX.Element {
               ) : null}
               {marketingDraft ? (
                 <div className="space-y-2" data-testid="marketing-draft">
+                  <MarketingClaimNotice key={draftFingerprint} plan={marketingDraft} planId={plan?.id ?? ""} onResult={onClaimResult} />
                   <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                     {t("agents.businessGoal.marketing.proposal")}
                   </p>
@@ -432,7 +443,12 @@ export function BusinessGoalPanel(): JSX.Element {
                     : t("agents.businessGoal.change", { company })}
               </p>
               <div className="flex flex-wrap gap-2">
-                <Button size="sm" variant="secondary" disabled={busy} onClick={() => void decide("APPROVED")}>
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  disabled={busy || (marketingGoal && !claimsPass)}
+                  onClick={() => void decide("APPROVED")}
+                >
                   {t("agents.actions.approve")}
                 </Button>
                 <Button size="sm" variant="ghost" disabled={busy} onClick={() => void decide("REJECTED")}>
