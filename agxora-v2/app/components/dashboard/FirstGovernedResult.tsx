@@ -182,9 +182,9 @@ export function FirstGovernedResult(): JSX.Element | null {
       if (!response.ok || !body.ok) throw new Error(body.error || t("dashboard.firstResult.startFailed"));
       await agentsStore.hydrateAsync({ force: true });
       const resumed = await resumeFirstMarketingGoal();
+      const next = await reload();
       if (resumed === "paused") throw new Error(t("dashboard.firstResult.runtimePaused"));
-      if (resumed === "missing") throw new Error(t("dashboard.firstResult.reload"));
-      await reload();
+      if (resumed === "missing" && !next.proposal) throw new Error(t("dashboard.firstResult.reload"));
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : t("dashboard.firstResult.startFailed"));
     } finally {

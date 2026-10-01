@@ -16,13 +16,17 @@ import { emptyAgentsState, filterStateForOrganization, normalizeState, type Agen
 import { validateStoredMarketingPlan, type MarketingPlanDocument } from "@/features/agents/marketing/planSchema";
 import type { Actor } from "@/app/lib/tenancy/types";
 import type { MarketingChannelIntent } from "@/features/agents/marketing/planSchema";
+import { buildMarketingProjection, draftMarketingPlan } from "./prepare";
 import {
   confirmedFactRefs,
   deriveFirstResult,
   findFirstMarketingGoal,
   marketingAccessDecision,
   missingFirstResultFacts,
+  offerFromConfirmedFacts,
+  persistFirstMarketingDraft,
   placeFirstMarketingGoal,
+  preparedDraftFromState,
   type FirstResultStep,
 } from "./firstResult";
 
@@ -229,6 +233,80 @@ export async function beginFirstMarketingGoal(
       reused: placed.reused,
       goalId: placed.goalId,
       next: "prepare" as const,
+    };
+  });
+}
+
+/**
+ * Persist the real model draft on the prepare step the claim gate already reads.
+ * Does not approve or record. A stored draft is reused instead of calling the model again.
+ */
+export async function persistFirstMarketingDraftForActor(actor: Actor): Promise<
+  | { readonly ok: true; readonly reused: boolean; readonly planId: string; readonly executionId: string; readonly recordStepId: string }
+  | { readonly ok: false; readonly status: number; readonly code: string; readonly error: string }
+> {
+  requireFirstCustomerProductionReady();
+  const access = await readAccess(actor.organizationId);
+  if (!access.allowed) return { ok: false, status: 403, code: access.code, error: BLOCKED_MESSAGE };
+
+  const current = await prisma.agentOsState.findUnique({ where: { organizationId: actor.organizationId } });
+  const currentState = current ? readState(current.payload, actor.organizationId) : emptyAgentsState();
+  const goal = findFirstMarketingGoal(currentState.businessGoals, actor.organizationId);
+  if (!goal) return { ok: false, status: 409, code: "missing_goal", error: "The first marketing goal is not ready." };
+  let draft: MarketingPlanDocument | null = preparedDraftFromState(currentState, actor.organizationId);
+  if (!draft) {
+    const offer = offerFromConfirmedFacts(confirmedFactRefs(currentState, actor.organizationId));
+    const built = await buildMarketingProjection({
+      organizationId: actor.organizationId,
+      statement: goal.statement,
+      offer,
+      state: currentState,
+      channelIntent: goal.channelIntent,
+    });
+    if (!built.ok || built.missingFacts.length > 0) {
+      return { ok: false, status: 422, code: "missing_facts", error: "Confirm the business facts AGXORA may use." };
+    }
+    const prepared = await draftMarketingPlan({ projection: built.projection });
+    if (!prepared.ok) return { ok: false, status: prepared.status, code: "prepare_failed", error: prepared.error };
+    draft = prepared.plan;
+  }
+
+  const lockKey = `first-marketing:${actor.organizationId}`;
+  const plan = draft;
+  return prisma.$transaction(async (tx) => {
+    await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtext(${lockKey})::bigint)`;
+    const row = await tx.agentOsState.findUnique({ where: { organizationId: actor.organizationId } });
+    const state = row ? readState(row.payload, actor.organizationId) : emptyAgentsState();
+    const persisted = persistFirstMarketingDraft(state, {
+      organizationId: actor.organizationId,
+      actorId: actor.userId,
+      plan,
+    });
+    if (!persisted.ok) {
+      const error = persisted.code === "worker_paused"
+        ? "The Marketing Worker is paused. Resume it before AGXORA can prepare the plan."
+        : "The first marketing goal is not ready.";
+      return { ok: false as const, status: persisted.code === "invalid_plan" ? 422 : 409, code: persisted.code, error };
+    }
+    if (persisted.changed) {
+      const payload = { ...persisted.state, version: SCHEMA_VERSION } as unknown as Prisma.InputJsonValue;
+      await tx.agentOsState.upsert({
+        where: { organizationId: actor.organizationId },
+        create: {
+          id: randomUUID(),
+          organizationId: actor.organizationId,
+          schemaVersion: SCHEMA_VERSION,
+          payload,
+        },
+        update: { schemaVersion: SCHEMA_VERSION, payload },
+      });
+    }
+    return {
+      ok: true as const,
+      reused: persisted.reused,
+      planId: persisted.planId,
+      executionId: persisted.executionId,
+      recordStepId: persisted.recordStepId,
     };
   });
 }
