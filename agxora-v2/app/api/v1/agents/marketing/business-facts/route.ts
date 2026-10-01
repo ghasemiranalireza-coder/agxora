@@ -15,12 +15,20 @@ export async function GET(request: Request): Promise<NextResponse> {
   try {
     const actor = await requireCurrentActor();
     const url = new URL(request.url);
+    void url.searchParams.get("organizationId");
+    void url.searchParams.get("authoritative");
+    void url.searchParams.get("status");
+    void url.searchParams.get("provenance");
     const memoryId = url.searchParams.get("memoryId")?.trim() || undefined;
     const result = await listBusinessFactsForActor(actor, memoryId);
     if (!result.ok) {
       return NextResponse.json({ ok: false, error: result.error }, { status: result.status });
     }
-    return NextResponse.json({ ok: true, facts: result.facts });
+    return NextResponse.json({
+      ok: true,
+      facts: result.facts,
+      needsAttention: result.needsAttention,
+    });
   } catch (error) {
     return jsonError(error);
   }

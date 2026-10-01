@@ -16,11 +16,43 @@ const CATEGORY_LABEL: Record<BusinessFactCategory, string> = {
   PROHIBITED_CLAIM: "Claim that must not be made",
 };
 
+interface FactHistory {
+  readonly statement: string;
+  readonly status: string;
+  readonly recordedAt: string;
+}
+
 interface SavedFact {
   readonly memoryId: string;
   readonly category: string | null;
   readonly statement: string;
   readonly allowedForMarketing: boolean;
+  readonly status?: string;
+  readonly provenance?: string;
+  readonly authoritative?: boolean;
+  readonly conflict?: boolean;
+  readonly updatedAt?: string;
+  readonly verifiedAt?: string | null;
+  readonly previous?: FactHistory | null;
+}
+
+function categoryLabel(category: string | null): string {
+  if (!category) return "Business fact";
+  return CATEGORY_LABEL[category as BusinessFactCategory] ?? category;
+}
+
+function when(value: string | null | undefined): string {
+  if (!value) return "Not recorded";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
+}
+
+function attentionLabel(fact: SavedFact): string {
+  if (fact.conflict) return "Conflict";
+  if (fact.status === "STALE") return "Stale";
+  if (fact.status === "REJECTED") return "Rejected";
+  return fact.status ?? "Needs attention";
 }
 
 export function VerifiedBusinessFacts(): JSX.Element {
@@ -29,31 +61,44 @@ export function VerifiedBusinessFacts(): JSX.Element {
   const [allowedForMarketing, setAllowedForMarketing] = useState(true);
   const [preview, setPreview] = useState<{ category: BusinessFactCategory; statement: string; allowedForMarketing: boolean } | null>(null);
   const [saved, setSaved] = useState<readonly SavedFact[]>([]);
+  const [needsAttention, setNeedsAttention] = useState<readonly SavedFact[]>([]);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
   async function load(): Promise<void> {
     const response = await fetch("/api/v1/agents/marketing/business-facts");
-    const body = (await response.json()) as { ok?: boolean; facts?: SavedFact[]; error?: string };
+    const body = (await response.json()) as {
+      ok?: boolean;
+      facts?: SavedFact[];
+      needsAttention?: SavedFact[];
+      error?: string;
+    };
     if (!response.ok || !body.ok) {
       setError(body.error ?? "Verified business facts could not be loaded.");
       return;
     }
     setSaved(body.facts ?? []);
+    setNeedsAttention(body.needsAttention ?? []);
   }
 
   useEffect(() => {
     let cancelled = false;
     void fetch("/api/v1/agents/marketing/business-facts")
       .then(async (response) => {
-        const body = (await response.json()) as { ok?: boolean; facts?: SavedFact[]; error?: string };
+        const body = (await response.json()) as {
+          ok?: boolean;
+          facts?: SavedFact[];
+          needsAttention?: SavedFact[];
+          error?: string;
+        };
         if (cancelled) return;
         if (!response.ok || !body.ok) {
           setError(body.error ?? "Verified business facts could not be loaded.");
           return;
         }
         setSaved(body.facts ?? []);
+        setNeedsAttention(body.needsAttention ?? []);
       })
       .catch(() => {
         if (!cancelled) setError("Verified business facts could not be loaded.");
@@ -166,17 +211,53 @@ export function VerifiedBusinessFacts(): JSX.Element {
       ) : null}
       {message ? <p className="text-sm">{message}</p> : null}
       {error ? <p className="text-sm">{error}</p> : null}
-      {saved.length > 0 ? (
-        <ul className="space-y-2 text-sm">
-          {saved.map((fact) => (
-            <li key={fact.memoryId}>
-              {fact.category ? `${CATEGORY_LABEL[fact.category as BusinessFactCategory] ?? fact.category}: ` : ""}
-              {fact.statement}
-              {" "}
-              <span style={{ color: "var(--agx-text-muted, #94a3b8)" }}>Verified</span>
-            </li>
-          ))}
-        </ul>
+      <section className="space-y-2 text-sm">
+        <h3 className="font-medium">Verified / authoritative</h3>
+        {saved.length > 0 ? (
+          <ul className="space-y-3">
+            {saved.map((fact) => (
+              <li key={fact.memoryId} className="space-y-1">
+                <p>{categoryLabel(fact.category)}: {fact.statement}</p>
+                <p style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                  Marketing: {fact.allowedForMarketing ? "Allowed" : "Not allowed"}
+                  {" · "}
+                  Verified: {when(fact.verifiedAt)}
+                  {" · "}
+                  Updated: {when(fact.updatedAt)}
+                </p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p style={{ color: "var(--agx-text-muted, #94a3b8)" }}>No authoritative facts yet.</p>
+        )}
+      </section>
+      {needsAttention.length > 0 ? (
+        <section className="space-y-2 text-sm">
+          <h3 className="font-medium">Needs attention</h3>
+          <ul className="space-y-3">
+            {needsAttention.map((fact) => (
+              <li key={fact.memoryId} className="space-y-1">
+                <p>{categoryLabel(fact.category)}: {fact.statement}</p>
+                <p style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                  {attentionLabel(fact)}
+                  {fact.status ? ` · Status: ${fact.status}` : ""}
+                  {" · "}
+                  Updated: {when(fact.updatedAt)}
+                </p>
+                {fact.previous ? (
+                  <p style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    Previous statement: {fact.previous.statement}
+                    {" · "}
+                    {fact.previous.status}
+                    {" · "}
+                    {when(fact.previous.recordedAt)}
+                  </p>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </section>
       ) : null}
     </Card>
   );
