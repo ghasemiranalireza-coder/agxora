@@ -1244,11 +1244,13 @@ html[dir="rtl"] .p31-hero__globe {
   .p31-hero__copy {
     text-align: start;
     max-width: none;
+    min-width: 0;
   }
 
   .p31-hero__headline,
   .p31-hero__subtitle {
     margin-inline: 0;
+    max-width: 100%;
   }
 
   .p31-hero__cta {
@@ -1348,11 +1350,47 @@ html[dir="rtl"] .p31-hero__globe {
   .p31-wrap,
   .p31-nav,
   .p31-hero__shell {
-    width: calc(100% - 36px);
+    width: calc(
+      100% - max(36px, env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px) + 24px)
+    );
+  }
+
+  .p31-nav {
+    gap: 10px;
+  }
+
+  .p31-nav__end {
+    min-width: 0;
+    gap: 6px;
+  }
+
+  .p31-wordmark {
+    letter-spacing: 0.12em;
+    font-size: 11px;
+  }
+
+  .p31-nav__menu {
+    padding: 8px 10px;
+  }
+
+  .p31-hero__shell,
+  .p31-hero__copy,
+  .p31-hero__cta,
+  .p31-hero__brandmark,
+  .p31-hero__headline,
+  .p31-hero__subtitle {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .p31-hero__headline,
+  .p31-hero__subtitle,
+  .p31-hero__brandmark {
+    overflow-wrap: break-word;
   }
 
   .p31 h1.p31-hero__headline {
-    font-size: clamp(36px, 11vw, 48px) !important;
+    font-size: clamp(30px, 9vw, 44px) !important;
   }
 
   .p31 h2.p31-display {
@@ -1366,8 +1404,38 @@ html[dir="rtl"] .p31-hero__globe {
   }
 
   .p31-hero__globe {
-    max-width: 240px;
+    max-width: min(220px, 100%);
     opacity: 0.86;
+    justify-self: center;
+    margin-inline: auto;
+  }
+
+  .p31-globe__ring--outer {
+    inset: 6%;
+    transform: none;
+  }
+
+  .p31-hero__chips {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 12px;
+    margin-top: 16px;
+  }
+
+  .p31-hero__chips li {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .p31-product__stage,
+  .p31-product__rail {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .p31-product__stage {
+    padding: 20px 16px 24px;
   }
 
   .p31-hero__cta .p31-btn {
@@ -1384,7 +1452,9 @@ html[dir="rtl"] .p31-hero__globe {
   }
 
   .p31-wrap--wide {
-    width: calc(100% - 36px);
+    width: calc(
+      100% - max(36px, env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px) + 24px)
+    );
   }
 
   .p31-footer__row {
@@ -1417,25 +1487,16 @@ html[dir="rtl"] .p31-hero__globe {
   }
 
   .p31 h1.p31-hero__headline {
-    font-size: clamp(30px, 9vw, 38px) !important;
+    font-size: clamp(28px, 8.4vw, 34px) !important;
   }
 
   .p31-hero__subtitle {
-    margin-top: 10px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
+    margin-top: 8px;
+    margin-bottom: 20px;
   }
 
   .p31-hero__globe {
-    max-width: 168px;
-  }
-
-  .p31-hero__chips {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    max-width: min(168px, 100%);
   }
 }
 
