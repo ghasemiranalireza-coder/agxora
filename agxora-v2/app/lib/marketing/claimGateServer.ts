@@ -161,6 +161,15 @@ async function serverDraft(actor: Actor, planId: string, submittedPlan?: unknown
   return { ok: true as const, plan: validated.plan };
 }
 
+/** Read-only claim check. Does not store a result and does not approve the draft. */
+export async function previewMarketingClaimGate(
+  actor: Actor,
+  plan: Pick<MarketingPlanDocument, "strategy" | "audience" | "offer" | "contentThemes" | "contentItems">,
+): Promise<ClaimGateEvaluation> {
+  const checked = await loadContext(actor, plan, "preview");
+  return checked.evaluation;
+}
+
 export async function evaluatePlanForActor(actor: Actor, input: { planId: string; submittedPlan?: unknown }) {
   const loaded = await serverDraft(actor, input.planId, input.submittedPlan);
   if (!loaded.ok) return loaded;

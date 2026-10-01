@@ -13,6 +13,7 @@ import { hasPaidAccess } from "@/app/lib/billing/subscriptionState";
 import { prisma } from "@/app/lib/db/prisma";
 import { requireFirstCustomerProductionReady } from "@/app/lib/production/requireReady";
 import { emptyAgentsState, filterStateForOrganization, normalizeState, type AgentsPersistedState, type LegacyAgentsPersistedState } from "@/features/agents/repositories/state";
+import { previewMarketingClaimGate } from "@/app/lib/marketing/claimGateServer";
 import { validateStoredMarketingPlan, type MarketingPlanDocument } from "@/features/agents/marketing/planSchema";
 import type { Actor } from "@/app/lib/tenancy/types";
 import type { MarketingChannelIntent } from "@/features/agents/marketing/planSchema";
@@ -28,6 +29,7 @@ import {
   persistFirstMarketingDraft,
   placeFirstMarketingGoal,
   preparedDraftFromState,
+  retainSupportedMarketingCopy,
   type FirstResultStep,
 } from "./firstResult";
 
@@ -271,7 +273,11 @@ export async function persistFirstMarketingDraftForActor(actor: Actor): Promise<
     }
     const prepared = await draftMarketingPlan({ projection: built.projection });
     if (!prepared.ok) return { ok: false, status: prepared.status, code: "prepare_failed", error: prepared.error };
-    draft = prepared.plan;
+    const preview = await previewMarketingClaimGate(actor, prepared.plan);
+    const revised = preview.result === "PASS" ? prepared.plan : retainSupportedMarketingCopy(prepared.plan, preview.claims);
+    const checked = validateStoredMarketingPlan(revised);
+    if (!checked.ok) return { ok: false, status: 422, code: "invalid_plan", error: checked.error };
+    draft = checked.plan;
   }
 
   const lockKey = `first-marketing:${actor.organizationId}`;

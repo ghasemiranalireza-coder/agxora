@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { authorizeGovernedMutation } from "@/features/agents/evidence/governedAuthorization";
+import { evaluateMarketingClaims } from "./claimGate";
 import { parseModelMarketingProposal } from "@/features/agents/marketing/planSchema";
 import { emptyAgentsState, type AgentsPersistedState } from "@/features/agents/repositories";
 import type { AgentRuntime, BusinessGoal, MemoryRecord } from "@/features/agents/types";
@@ -20,6 +21,7 @@ import {
   persistFirstMarketingDraft,
   placeFirstMarketingGoal,
   preparedDraftFromState,
+  retainSupportedMarketingCopy,
 } from "./firstResult";
 
 const ORG = "11111111-1111-4111-8111-111111111111";
@@ -94,6 +96,26 @@ describe("phase 27 first governed result", () => {
     const blocked = place(paused);
     expect(blocked.ok).toBe(false);
     if (!blocked.ok) expect(blocked.code).toBe("runtime_paused");
+  });
+
+  it("replaces unsupported draft sentences with the confirmed offer", () => {
+    const plan = samplePlan("Fresh ingredients prepared every morning for local guests.");
+    const support = [{
+      id: "fact-offer",
+      text: plan.offer,
+      prohibited: false,
+      status: "VERIFIED",
+      updatedAt: NOW,
+      contentHash: "offer",
+    }];
+    const before = evaluateMarketingClaims({ plan, support, organizationName: "Restaurant Menzel" });
+    expect(before.result).toBe("EDIT_REQUIRED");
+    const kept = retainSupportedMarketingCopy(plan, before.claims);
+    const after = evaluateMarketingClaims({ plan: kept, support, organizationName: "Restaurant Menzel" });
+    expect(after.result).toBe("PASS");
+    expect(kept.offer).toBe(plan.offer);
+    expect(kept.strategy).toContain(plan.offer);
+    expect(kept.strategy).not.toContain("Fresh ingredients");
   });
 
   it("requires confirmation before facts become authoritative", () => {
