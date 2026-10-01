@@ -219,9 +219,9 @@
     "label": "Integrations",
     "description": "Connector availability — none connected by default",
     "title": "Integrations",
-    "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
+    "panelDescription": "Gmail and YouTube can be connected after a separate authorization. Other providers stay unavailable.",
     "openCenter": "Open Integration Center",
-    "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+    "notice": "Accepting the AGXORA Terms does not authorize access to an external account. A connection appears only after you confirm permissions and the provider completes OAuth.",
     "emptyTitle": "No live integrations connected",
     "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
     "columns": {

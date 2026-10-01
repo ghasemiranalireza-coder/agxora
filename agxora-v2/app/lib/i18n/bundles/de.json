@@ -547,9 +547,9 @@
       "label": "Integrationen",
       "description": "Konnektor-Verfügbarkeit — standardmäßig nichts verbunden",
       "title": "Integrationen",
-      "panelDescription": "Diese Seite meldet keinen Live-Konnektorstatus. Der First-Customer-Pfad behandelt den Katalog nicht als verbunden.",
+      "panelDescription": "Gmail und YouTube können nach einer gesonderten Berechtigung verbunden werden. Andere Anbieter bleiben nicht verfügbar.",
       "openCenter": "Integrationszentrum öffnen",
-      "notice": "Gmail, Stripe, HubSpot und ähnliche Konnektoren gelten hier nicht als verbunden. Behandeln Sie diesen Katalog nicht als betriebsbereit.",
+      "notice": "Die Annahme der AGXORA-AGB berechtigt nicht zum Zugriff auf ein externes Konto. Eine Verbindung erscheint erst, nachdem Sie Berechtigungen bestätigt haben und der Anbieter OAuth abgeschlossen hat.",
       "emptyTitle": "Keine live verbundenen Integrationen",
       "emptyDescription": "Externe Konnektoren gehören nicht zum First-Customer-Betriebspfad. Nicht verfügbare oder zukünftige Adapter werden nicht als verbunden angezeigt.",
       "columns": {
@@ -864,7 +864,8 @@
       "COMMON_VALIDATION": "Bitte prüfen Sie Ihre Eingabe und versuchen Sie es erneut.",
       "COMMON_UNKNOWN": "Ein unbekannter Fehler ist aufgetreten.",
       "COMMON_INTERNAL": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
-    }
+    },
+    "acknowledgePrivacy": "Bitte bestätigen Sie die Datenschutzinformation, um fortzufahren."
   },
   "dashboard": {
     "skipToContent": "Zum Dashboard-Inhalt springen",
@@ -1459,7 +1460,9 @@
       "passwordPlaceholder": "Min. 8 Zeichen, Buchstaben + Zahlen",
       "confirmPasswordPlaceholder": "Passwort wiederholen",
       "failed": "Registrierung fehlgeschlagen",
-      "loading": "Konto erstellen"
+      "loading": "Konto erstellen",
+      "acknowledgePrivacy": "Ich habe die Informationen in der",
+      "marketingConsent": "Ich willige ein, dass AGXORA mich zu Produktinformationen kontaktieren darf. Diese Einwilligung ist freiwillig und unabhängig von der Plattformverbindung."
     },
     "forgot": {
       "title": "Passwort vergessen",
@@ -6391,6 +6394,53 @@
       "legendConnectedHint": "Eine aktive Bindung existiert für diesen Arbeitsbereich.",
       "legendAttention": "Aufmerksamkeit",
       "legendAttentionHint": "Fehler, Degradierung oder ausstehende Aktion — nie ein Fake-Erfolg."
+    },
+    "authorization": {
+      "eyebrow": "Externe Plattform",
+      "account": "Konto",
+      "accountPending": "Die Plattform bestätigt das Konto während OAuth.",
+      "autoConfirm": "Ich bestätige die automatische Veröffentlichung für diese Plattform, dieses Konto und diese Inhaltsart.",
+      "cancel": "Abbrechen",
+      "connect": "Verbinden",
+      "disconnect": "Trennen",
+      "automaticPublishing": "Automatische Veröffentlichung",
+      "termsDoNotAuthorize": "Die Annahme der AGXORA-AGB berechtigt nicht zum Zugriff auf ein externes Konto.",
+      "manage": "Verwalten",
+      "permissions": "Berechtigungen",
+      "noneGranted": "Keine erteilt",
+      "connectedDate": "Verbunden",
+      "lastSync": "Letzte Synchronisierung",
+      "turnOff": "Ausschalten",
+      "turnOn": "Einschalten",
+      "autoBody": "Die automatische Veröffentlichung bleibt aus, bis Sie Plattform, Konto, Inhaltsart und die Nutzung der KI-Erstellung bestätigen.",
+      "frequencyManual": "Nach den gespeicherten Veröffentlichungseinstellungen",
+      "status": {
+        "connected": "Verbunden",
+        "disconnected": "Getrennt",
+        "expired": "Berechtigung abgelaufen",
+        "revoked": "Berechtigung widerrufen",
+        "error": "Verbindungsfehler",
+        "pending": "Berechtigung ausstehend",
+        "notConnected": "Nicht verbunden"
+      },
+      "permission": {
+        "connect_account": "Konto verbinden",
+        "read_content": "Inhalte lesen",
+        "create_content": "Inhalte erstellen",
+        "publish_posts": "Beiträge veröffentlichen",
+        "schedule_posts": "Beiträge planen",
+        "edit_posts": "Beiträge bearbeiten",
+        "delete_posts": "Beiträge löschen",
+        "read_comments": "Kommentare lesen",
+        "reply_comments": "Kommentare beantworten",
+        "read_messages": "Nachrichten lesen",
+        "reply_messages": "Nachrichten beantworten",
+        "read_analytics": "Analytics/Statistiken lesen",
+        "use_media": "Medien verwenden",
+        "send_email": "E-Mails senden",
+        "create_ai_content": "KI-Inhalte erstellen",
+        "auto_publish_ai": "KI-Inhalte automatisch veröffentlichen"
+      }
     }
   },
   "intelligence": {
@@ -6798,7 +6848,8 @@
         "terms": "AGB",
         "cookies": "Cookies",
         "imprint": "Impressum",
-        "contact": "Kontakt"
+        "contact": "Kontakt",
+        "framework": "Rechtsrahmen"
       },
       "footer": {
         "home": "Start",
@@ -6874,7 +6925,10 @@
       "liability": "7. Allgemeine Haftungsbegrenzung",
       "liabilityBody": "Soweit gesetzlich zulässig, haftet AGXORA nicht für indirekte, zufällige oder Folgeschäden. Unsere Gesamthaftung für bezahlte Abonnements ist auf Gebühren beschränkt, die in den zwölf Monaten vor dem Anspruch gezahlt wurden.",
       "contact": "8. Kontakt",
-      "contactBodyBefore": "Rechtliche Fragestellungen:"
+      "contactBodyBefore": "Rechtliche Fragestellungen:",
+      "externalPlatforms": "Verbindung externer Plattformen",
+      "externalPlatformsBody": "Die Annahme der AGB berechtigt AGXORA nicht, auf externe Konten zuzugreifen. Plattformzugriff, KI-Inhalte, automatische Veröffentlichung und Marketingeinwilligung sind gesonderte Berechtigungen. Der vollständige Rahmen steht im",
+      "frameworkLink": "AGXORA-Rechtsrahmen"
     },
     "cookies": {
       "title": "Cookie-Richtlinie",
@@ -6914,6 +6968,11 @@
       "contactBodyMiddle": "oder",
       "contactBodyAfter": "für Unternehmensanfragen.",
       "contactSales": "Vertrieb kontaktieren"
+    },
+    "framework": {
+      "title": "AGXORA Rechtsrahmen",
+      "eyebrow": "Rechtliches",
+      "reviewNotice": "Dieser Text unterstützt die rechtliche Ausgestaltung. Er ist keine Rechtsberatung und kein Nachweis vollständiger Gesetzmäßigkeit. Vor dem öffentlichen Produktionsstart ist eine Prüfung durch eine qualifizierte deutsche Anwaltskanzlei für IT-/SaaS-Recht, Datenschutz, KI-Recht, Verbraucherrecht und Plattformrecht erforderlich."
     }
   },
   "onboarding": {
@@ -7101,6 +7160,20 @@
         "label": "Gemeinnützig",
         "description": "Missionen, Spender, Programme und Wirkung"
       }
+    },
+    "legal": {
+      "agbTitle": "AGXORA AGB",
+      "privacyTitle": "Datenschutz",
+      "platformTitle": "Externe Plattform verbinden",
+      "agbCheckbox": "Ich akzeptiere die AGXORA AGB.",
+      "termsLink": "AGB",
+      "privacyCheckbox": "Ich habe die Datenschutzinformationen zur Kenntnis genommen.",
+      "privacyLink": "Datenschutzerklärung",
+      "platformBody": "Das Verbinden einer Plattform ist freiwillig und ist nicht in der Annahme der AGB enthalten. Wählen Sie Konto und Berechtigungen, bevor OAuth startet.",
+      "platformLink": "Integrationen",
+      "skip": "Überspringen",
+      "continue": "Weiter",
+      "failed": "Die Bestätigung konnte nicht gespeichert werden."
     }
   },
   "creator": {

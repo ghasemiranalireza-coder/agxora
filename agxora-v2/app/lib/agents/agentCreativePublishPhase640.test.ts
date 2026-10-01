@@ -43,6 +43,10 @@ import { buildHealthPayload } from "@/app/lib/production/health";
 import { parseProductionReadinessFromHealth } from "@/app/lib/production/clientReadiness";
 import { disconnectYouTubeForActor } from "@/app/lib/social/oauth/youtube";
 import { setSocialOAuthStateStoreForTests } from "@/app/lib/social/oauth/state";
+import {
+  createMemoryAuthorizationStore,
+  setAuthorizationStoreForTests,
+} from "@/app/lib/platform-authorization/service";
 import { POST as publishRoutePost } from "@/app/api/v1/agents/creative/publish/route";
 import { POST as connectRoutePost } from "@/app/api/v1/agents/social/youtube/connect/route";
 import { GET as callbackRouteGet } from "@/app/api/v1/agents/social/youtube/callback/route";
@@ -657,6 +661,7 @@ describe("Phase 64.0 OAuth route behavior", () => {
     process.env.AGXORA_YOUTUBE_OAUTH_CLIENT_ID = "client";
     process.env.AGXORA_YOUTUBE_OAUTH_CLIENT_SECRET = "secret";
     process.env.AGXORA_YOUTUBE_OAUTH_REDIRECT_URI = "https://app.example/callback";
+    setAuthorizationStoreForTests(createMemoryAuthorizationStore());
   });
 
   afterEach(() => {
@@ -664,6 +669,7 @@ describe("Phase 64.0 OAuth route behavior", () => {
     vi.restoreAllMocks();
     setSocialCredentialStoreForTests(null);
     setSocialOAuthStateStoreForTests(null);
+    setAuthorizationStoreForTests(null);
   });
 
   it("connect route returns authorizationUrl", async () => {
@@ -673,7 +679,13 @@ describe("Phase 64.0 OAuth route behavior", () => {
       new Request("https://app.example/api/v1/agents/social/youtube/connect", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ redirectPath: "/agents?tab=social" }),
+        body: JSON.stringify({
+          redirectPath: "/agents?tab=social",
+          confirmed: true,
+          permissions: ["connect_account", "read_content", "publish_posts"],
+          aiContent: false,
+          automaticPublishing: false,
+        }),
       }),
     );
     expect(response.status).toBe(200);

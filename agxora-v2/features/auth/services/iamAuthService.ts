@@ -57,6 +57,8 @@ export const iamAuthService = {
     input: SignUpInput & {
       readonly companyName?: string;
       readonly acceptTerms: boolean;
+      readonly acknowledgePrivacy?: boolean;
+      readonly marketingConsent?: boolean;
     },
   ): Promise<{ userId: string; companyName?: string }> {
     const result = await identityRegister(input);

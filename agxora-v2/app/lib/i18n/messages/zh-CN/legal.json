@@ -10,7 +10,8 @@
       "terms": "条款",
       "cookies": "曲奇饼",
       "imprint": "版本说明",
-      "contact": "联系方式"
+      "contact": "联系方式",
+      "framework": "Legal framework"
     },
     "footer": {
       "home": "家",
@@ -86,7 +87,10 @@
     "liability": "7. 责任限制",
     "liabilityBody": "在法律允许的最大范围内，AGXORA 不对间接、偶然或后果性损害承担责任。我们对付费订阅的总责任仅限于索赔前十二个月内支付的费用。",
     "contact": "8. 联系方式",
-    "contactBodyBefore": "法律问题："
+    "contactBodyBefore": "法律问题：",
+    "externalPlatforms": "External platform connections",
+    "externalPlatformsBody": "Accepting these Terms does not authorize AGXORA to access external accounts. Platform access, AI content, automatic publishing, and marketing consent are separate authorizations. The full framework is in the",
+    "frameworkLink": "AGXORA legal framework"
   },
   "cookies": {
     "title": "Cookie 政策",
@@ -126,5 +130,10 @@
     "contactBodyMiddle": "或者",
     "contactBodyAfter": "供企业查询。",
     "contactSales": "联系销售部门"
+  },
+  "framework": {
+    "title": "AGXORA legal framework",
+    "eyebrow": "Legal",
+    "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
   }
 }

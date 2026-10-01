@@ -10,7 +10,8 @@
       "terms": "Умови",
       "cookies": "Печиво",
       "imprint": "Вихідні дані",
-      "contact": "контакт"
+      "contact": "контакт",
+      "framework": "Legal framework"
     },
     "footer": {
       "home": "додому",
@@ -86,7 +87,10 @@
     "liability": "7. Обмеження відповідальності",
     "liabilityBody": "У межах, дозволених законом, AGXORA не несе відповідальності за непрямі, випадкові чи непрямі збитки. Наша сукупна відповідальність за платні підписки обмежується комісіями, сплаченими за дванадцять місяців, що передували претензії.",
     "contact": "8. Контакт",
-    "contactBodyBefore": "Правові питання:"
+    "contactBodyBefore": "Правові питання:",
+    "externalPlatforms": "External platform connections",
+    "externalPlatformsBody": "Accepting these Terms does not authorize AGXORA to access external accounts. Platform access, AI content, automatic publishing, and marketing consent are separate authorizations. The full framework is in the",
+    "frameworkLink": "AGXORA legal framework"
   },
   "cookies": {
     "title": "Політика використання файлів cookie",
@@ -126,5 +130,10 @@
     "contactBodyMiddle": "або",
     "contactBodyAfter": "для запитів підприємства.",
     "contactSales": "Зверніться до відділу продажів"
+  },
+  "framework": {
+    "title": "AGXORA legal framework",
+    "eyebrow": "Legal",
+    "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
   }
 }

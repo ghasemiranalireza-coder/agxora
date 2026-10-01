@@ -21,6 +21,10 @@ export async function POST(request: Request): Promise<NextResponse> {
     if (limited) return limited;
 
     await disconnectYouTubeForActor(actor);
+    const { revokePlatformAuthorization } = await import(
+      "@/app/lib/platform-authorization/service"
+    );
+    await revokePlatformAuthorization(actor, "youtube", "customer_disconnected");
     return NextResponse.json({ ok: true, disconnected: true });
   } catch (error) {
     return jsonError(error);

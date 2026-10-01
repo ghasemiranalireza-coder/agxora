@@ -58,6 +58,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     await markIntegrationConnectedForActor(actor, "email_gmail", {
       accountLabel: result.emailAddress ?? null,
       externalAccountId: result.emailAddress ?? null,
+      oauthScopes: result.grantedScopes,
     });
     const redirectPath = result.redirectPath ?? defaultPath;
     return redirectWithGmailStatus(request.url, redirectPath, "connected");

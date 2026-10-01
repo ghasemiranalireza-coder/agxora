@@ -31,6 +31,7 @@ const MESSAGE_TO_KEY: Record<string, string> = {
   "You do not have access to this route.": "errors.noRouteAccess",
   "Insufficient permissions.": "errors.insufficientPermissions",
   "You must accept the terms to continue.": "errors.acceptTerms",
+  "You must acknowledge the privacy information to continue.": "errors.acknowledgePrivacy",
   "Message content is required": "errors.required",
   "Valid email required": "errors.invalidEmail",
   "Invitation expired": "team.invite.failed",

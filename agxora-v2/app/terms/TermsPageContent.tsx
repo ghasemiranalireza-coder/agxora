@@ -48,6 +48,12 @@ export function TermsPageContent(): JSX.Element {
       <h2>{t("legal.terms.liability")}</h2>
       <p>{t("legal.terms.liabilityBody")}</p>
 
+      <h2>{t("legal.terms.externalPlatforms")}</h2>
+      <p>
+        {t("legal.terms.externalPlatformsBody")}{" "}
+        <Link href="/legal/framework">{t("legal.terms.frameworkLink")}</Link>
+      </p>
+
       <h2>{t("legal.terms.contact")}</h2>
       <p>
         {t("legal.terms.contactBodyBefore")}{" "}

@@ -16,6 +16,8 @@ type Body = {
   readonly displayName?: string;
   readonly companyName?: string;
   readonly acceptTerms?: boolean;
+  readonly acknowledgePrivacy?: boolean;
+  readonly marketingConsent?: boolean;
 };
 
 export async function POST(request: Request): Promise<NextResponse> {
@@ -34,6 +36,12 @@ export async function POST(request: Request): Promise<NextResponse> {
         "You must accept the terms to continue.",
       );
     }
+    if (body.acknowledgePrivacy === false) {
+      throw new PersistenceError(
+        "validation",
+        "You must acknowledge the privacy information to continue.",
+      );
+    }
     if (!body.email || !body.password || !body.displayName) {
       throw new PersistenceError(
         "validation",
@@ -45,6 +53,9 @@ export async function POST(request: Request): Promise<NextResponse> {
       password: body.password,
       displayName: body.displayName,
       companyName: body.companyName,
+      acceptTerms: body.acceptTerms === true,
+      acknowledgePrivacy: body.acknowledgePrivacy === true,
+      marketingConsent: body.marketingConsent === true,
     });
     return authSuccessResponse(result);
   } catch (error) {

@@ -12,6 +12,8 @@ import {
 import type { WorkspacePermissionFlags } from "@/app/lib/integrations/permission-flags";
 import { useCanonicalIntegrations } from "../hooks/useCanonicalIntegrations";
 import { ProviderCard } from "./ProviderCard";
+import { PlatformAuthorizationDialog } from "./PlatformAuthorizationDialog";
+import { toPersistenceProviderId } from "@/app/lib/integrations/ids";
 import { IntegrationDeveloperTools } from "./IntegrationDeveloperTools";
 
 async function api<T>(path: string, init?: RequestInit): Promise<T> {
@@ -49,33 +51,26 @@ export function IntegrationCenter(): JSX.Element {
   } = useCanonicalIntegrations();
   const [filter, setFilter] = useState<CenterFilter>("all");
   const [showTools, setShowTools] = useState(false);
+  const [authTarget, setAuthTarget] = useState<{
+    provider: string;
+    displayName: string;
+    accountLabel: string | null;
+  } | null>(null);
 
   const visible = useMemo(
     () => filterResolvedProviders(providers, filter),
     [providers, filter],
   );
 
-  async function connect(provider: string) {
-    setBusy(provider);
-    setError(null);
-    try {
-      const result = await api<{ authorizationUrl?: string }>(
-        `/api/v1/integrations/${provider}/connect`,
-        {
-          method: "POST",
-          body: JSON.stringify({ redirectPath: "/dashboard/integrations" }),
-        },
-      );
-      if (result.authorizationUrl) {
-        window.location.assign(result.authorizationUrl);
-        return;
-      }
-      await reload();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : t("businessAgent.connectFailed"));
-    } finally {
-      setBusy(null);
-    }
+  function connect(provider: string) {
+    const match = providers.find(
+      (item) => (toPersistenceProviderId(item.providerId) ?? item.providerId) === provider,
+    );
+    setAuthTarget({
+      provider,
+      displayName: match?.displayName ?? provider,
+      accountLabel: match?.accountLabel ?? null,
+    });
   }
 
   async function disconnect(provider: string) {
@@ -280,6 +275,23 @@ export function IntegrationCenter(): JSX.Element {
       ) : null}
 
       {showTools ? <IntegrationDeveloperTools /> : null}
+      {authTarget ? (
+        <PlatformAuthorizationDialog
+          provider={authTarget.provider}
+          displayName={authTarget.displayName}
+          accountLabel={authTarget.accountLabel}
+          redirectPath="/dashboard/settings#integrations"
+          onClose={() => setAuthTarget(null)}
+          onConnected={(authorizationUrl) => {
+            setAuthTarget(null);
+            if (authorizationUrl) {
+              window.location.assign(authorizationUrl);
+              return;
+            }
+            void reload();
+          }}
+        />
+      ) : null}
     </div>
   );
 }

@@ -61,9 +61,17 @@ class AdapterIdentityApi implements IdentityApi {
   }
 
   async register(
-    input: SignUpInput & { readonly companyName?: string; readonly acceptTerms: boolean },
+    input: SignUpInput & {
+      readonly companyName?: string;
+      readonly acceptTerms: boolean;
+      readonly acknowledgePrivacy?: boolean;
+      readonly marketingConsent?: boolean;
+    },
   ): Promise<RegisterResult> {
     if (!input.acceptTerms) throw new Error("You must accept the terms to continue.");
+    if (input.acknowledgePrivacy === false) {
+      throw new Error("You must acknowledge the privacy information to continue.");
+    }
     if (input.companyName?.trim()) {
       if (typeof window !== "undefined") {
         window.localStorage.setItem(
@@ -84,6 +92,8 @@ class AdapterIdentityApi implements IdentityApi {
           displayName: input.displayName,
           companyName: input.companyName,
           acceptTerms: input.acceptTerms,
+          acknowledgePrivacy: input.acknowledgePrivacy === true,
+          marketingConsent: input.marketingConsent === true,
         }),
       });
       const payload = (await response.json()) as {
@@ -175,7 +185,12 @@ export const login = (input: SignInInput & { rememberMe?: boolean }) =>
   identityApi.login(input);
 export const logout = () => identityApi.logout();
 export const register = (
-  input: SignUpInput & { companyName?: string; acceptTerms: boolean },
+  input: SignUpInput & {
+    companyName?: string;
+    acceptTerms: boolean;
+    acknowledgePrivacy?: boolean;
+    marketingConsent?: boolean;
+  },
 ) => identityApi.register(input);
 export const forgotPassword = (input: ForgotPasswordInput) =>
   identityApi.forgotPassword(input);

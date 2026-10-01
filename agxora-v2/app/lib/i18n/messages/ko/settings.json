@@ -219,9 +219,9 @@
     "label": "통합",
     "description": "Connector availability — none connected by default",
     "title": "통합",
-    "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
+    "panelDescription": "Gmail and YouTube can be connected after a separate authorization. Other providers stay unavailable.",
     "openCenter": "개방형 통합 센터",
-    "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+    "notice": "Accepting the AGXORA Terms does not authorize access to an external account. A connection appears only after you confirm permissions and the provider completes OAuth.",
     "columns": {
       "integration": "완성",
       "category": "범주",

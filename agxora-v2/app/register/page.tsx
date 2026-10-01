@@ -43,6 +43,8 @@ function RegisterForm(): JSX.Element {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(false);
+  const [acknowledgePrivacy, setAcknowledgePrivacy] = useState(false);
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -63,6 +65,7 @@ function RegisterForm(): JSX.Element {
     if (passwordError) return passwordError;
     if (password !== confirmPassword) return "errors.passwordMismatch";
     if (!acceptTerms) return "errors.acceptTerms";
+    if (!acknowledgePrivacy) return "errors.acknowledgePrivacy";
     return null;
   };
 
@@ -83,6 +86,8 @@ function RegisterForm(): JSX.Element {
         displayName,
         companyName: companyName.trim(),
         acceptTerms,
+        acknowledgePrivacy,
+        marketingConsent,
       });
       await refresh();
       const next = search.get("next");
@@ -255,11 +260,24 @@ function RegisterForm(): JSX.Element {
           {t("auth.register.acceptTerms")}{" "}
           <Link href="/terms" style={{ color: "#22d3ee" }}>
             {t("auth.register.termsOfService")}
-          </Link>{" "}
-          {t("auth.register.and")}{" "}
+          </Link>
+        </AuthCheckbox>
+        <AuthCheckbox
+          id="reg-privacy"
+          checked={acknowledgePrivacy}
+          onChange={setAcknowledgePrivacy}
+        >
+          {t("auth.register.acknowledgePrivacy")}{" "}
           <Link href="/privacy" style={{ color: "#22d3ee" }}>
             {t("auth.register.privacyPolicy")}
           </Link>
+        </AuthCheckbox>
+        <AuthCheckbox
+          id="reg-marketing"
+          checked={marketingConsent}
+          onChange={setMarketingConsent}
+        >
+          {t("auth.register.marketingConsent")}
         </AuthCheckbox>
 
         <AuthFieldError message={error ? t(error) : null} />

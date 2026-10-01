@@ -547,9 +547,9 @@
       "label": "Integrasi",
       "description": "Connector availability — none connected by default",
       "title": "Integrasi",
-      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
+      "panelDescription": "Gmail and YouTube can be connected after a separate authorization. Other providers stay unavailable.",
       "openCenter": "Buka Pusat Integrasi",
-      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "notice": "Accepting the AGXORA Terms does not authorize access to an external account. A connection appears only after you confirm permissions and the provider completes OAuth.",
       "emptyTitle": "No live integrations connected",
       "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
@@ -864,7 +864,8 @@
       "COMMON_VALIDATION": "Periksa input Anda dan coba lagi.",
       "COMMON_UNKNOWN": "Terjadi kesalahan yang tidak diketahui.",
       "COMMON_INTERNAL": "Terjadi kesalahan tak terduga. Silakan coba lagi."
-    }
+    },
+    "acknowledgePrivacy": "Please acknowledge the privacy information to continue."
   },
   "dashboard": {
     "skipToContent": "Lewati ke konten dasbor",
@@ -1453,7 +1454,9 @@
       "passwordPlaceholder": "Minimal 8 karakter, huruf + angka",
       "confirmPasswordPlaceholder": "Ulangi kata sandi",
       "failed": "Pendaftaran gagal",
-      "loading": "Buat akun"
+      "loading": "Buat akun",
+      "acknowledgePrivacy": "I have read the",
+      "marketingConsent": "I agree that AGXORA may contact me about product information. This consent is optional and separate from connecting a platform."
     },
     "forgot": {
       "title": "Lupa kata sandi",
@@ -6335,6 +6338,53 @@
         "publish": "Publish",
         "send": "Send"
       }
+    },
+    "authorization": {
+      "eyebrow": "External platform",
+      "account": "Account",
+      "accountPending": "The platform will confirm the account during OAuth.",
+      "autoConfirm": "I confirm automatic publishing for this platform, account, and content type.",
+      "cancel": "Cancel",
+      "connect": "Connect",
+      "disconnect": "Disconnect",
+      "automaticPublishing": "Automatic publishing",
+      "termsDoNotAuthorize": "Accepting the AGXORA Terms does not authorize access to an external account.",
+      "manage": "Manage",
+      "permissions": "Permissions",
+      "noneGranted": "None granted",
+      "connectedDate": "Connected",
+      "lastSync": "Last synchronization",
+      "turnOff": "Turn off",
+      "turnOn": "Turn on",
+      "autoBody": "Automatic publishing stays off until you confirm the platform, account, content type, and that AI generation may be used.",
+      "frequencyManual": "According to the customer's saved publishing settings",
+      "status": {
+        "connected": "Connected",
+        "disconnected": "Disconnected",
+        "expired": "Authorization expired",
+        "revoked": "Authorization revoked",
+        "error": "Connection error",
+        "pending": "Authorization pending",
+        "notConnected": "Not connected"
+      },
+      "permission": {
+        "connect_account": "Connect account",
+        "read_content": "Read content",
+        "create_content": "Create content",
+        "publish_posts": "Publish posts",
+        "schedule_posts": "Schedule posts",
+        "edit_posts": "Edit posts",
+        "delete_posts": "Delete posts",
+        "read_comments": "Read comments",
+        "reply_comments": "Reply to comments",
+        "read_messages": "Read messages",
+        "reply_messages": "Reply to messages",
+        "read_analytics": "Read analytics",
+        "use_media": "Use media",
+        "send_email": "Send email",
+        "create_ai_content": "Create AI content",
+        "auto_publish_ai": "Publish AI content automatically"
+      }
     }
   },
   "intelligence": {
@@ -6742,7 +6792,8 @@
         "terms": "Ketentuan",
         "cookies": "kue",
         "imprint": "Jejak",
-        "contact": "Kontak"
+        "contact": "Kontak",
+        "framework": "Legal framework"
       },
       "footer": {
         "home": "Rumah",
@@ -6818,7 +6869,10 @@
       "liability": "7. Batasan tanggung jawab",
       "liabilityBody": "Sejauh diizinkan oleh hukum, AGXORA tidak bertanggung jawab atas kerugian tidak langsung, insidental, atau konsekuensial. Tanggung jawab agregat kami untuk langganan berbayar terbatas pada biaya yang dibayarkan dalam dua belas bulan sebelum klaim.",
       "contact": "8. Kontak",
-      "contactBodyBefore": "Pertanyaan hukum:"
+      "contactBodyBefore": "Pertanyaan hukum:",
+      "externalPlatforms": "External platform connections",
+      "externalPlatformsBody": "Accepting these Terms does not authorize AGXORA to access external accounts. Platform access, AI content, automatic publishing, and marketing consent are separate authorizations. The full framework is in the",
+      "frameworkLink": "AGXORA legal framework"
     },
     "cookies": {
       "title": "Kebijakan Cookie",
@@ -6858,6 +6912,11 @@
       "contactBodyMiddle": "atau",
       "contactBodyAfter": "untuk pertanyaan perusahaan.",
       "contactSales": "Hubungi Penjualan"
+    },
+    "framework": {
+      "title": "AGXORA legal framework",
+      "eyebrow": "Legal",
+      "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
     }
   },
   "onboarding": {
@@ -7045,6 +7104,20 @@
         "label": "Nirlaba",
         "description": "Misi, donatur, program, dan dampak"
       }
+    },
+    "legal": {
+      "agbTitle": "AGXORA Terms",
+      "privacyTitle": "Privacy",
+      "platformTitle": "Connect an external platform",
+      "agbCheckbox": "I accept the AGXORA Terms.",
+      "termsLink": "Terms",
+      "privacyCheckbox": "I have read the privacy information.",
+      "privacyLink": "Privacy Policy",
+      "platformBody": "Connecting a platform is optional and is not included in accepting the Terms. Choose the account and permissions before OAuth starts.",
+      "platformLink": "Integrations",
+      "skip": "Skip",
+      "continue": "Continue",
+      "failed": "The confirmation could not be saved."
     }
   },
   "creator": {

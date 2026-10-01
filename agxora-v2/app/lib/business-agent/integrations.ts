@@ -77,6 +77,11 @@ async function upsertConnection(
       | "canPublish"
       | "canSendEmail"
       | "canDelete"
+      | "aiContentAuthorized"
+      | "automaticPublishingAuthorized"
+      | "lastSuccessfulSync"
+      | "grantedScopes"
+      | "authorizationVersion"
     >
   >,
 ): Promise<IntegrationConnection> {
@@ -105,6 +110,11 @@ async function upsertConnection(
       canPublish: patch.canPublish ?? SAFE_PERMISSIONS.canPublish,
       canSendEmail: patch.canSendEmail ?? SAFE_PERMISSIONS.canSendEmail,
       canDelete: patch.canDelete ?? SAFE_PERMISSIONS.canDelete,
+      aiContentAuthorized: patch.aiContentAuthorized ?? false,
+      automaticPublishingAuthorized: patch.automaticPublishingAuthorized ?? false,
+      lastSuccessfulSync: patch.lastSuccessfulSync ?? null,
+      grantedScopes: patch.grantedScopes ? [...patch.grantedScopes] : [],
+      authorizationVersion: patch.authorizationVersion ?? null,
     },
     update: patch,
   });
@@ -172,6 +182,7 @@ export async function connectIntegrationForActor(
   actor: Actor,
   provider: IntegrationProviderId | string,
   redirectPath?: string,
+  authorizationBody?: unknown,
 ): Promise<{ readonly authorizationUrl?: string; readonly connected: boolean }> {
   assertCanManageIntegrations(actor);
   const persistenceId = persistenceProviderFromUnknown(String(provider));
@@ -182,6 +193,13 @@ export async function connectIntegrationForActor(
   const canonical = toCanonicalProviderId(persistenceId);
   if (!canonical) {
     throw new PersistenceError("validation", "Unknown integration provider");
+  }
+
+  if (entry.implementationStatus === "oauth_ready") {
+    const { requireExplicitPlatformGrant } = await import(
+      "@/app/lib/platform-authorization/service"
+    );
+    await requireExplicitPlatformGrant(actor, persistenceId, authorizationBody ?? {});
   }
 
   const { adapterContextFromActor, getProviderAdapter } = await import(
@@ -273,7 +291,13 @@ export async function disconnectIntegrationForActor(
     connectedAt: null,
     accountLabel: null,
     externalAccountId: null,
+    aiContentAuthorized: false,
+    automaticPublishingAuthorized: false,
   });
+  const { revokePlatformAuthorization } = await import(
+    "@/app/lib/platform-authorization/service"
+  );
+  await revokePlatformAuthorization(actor, persistenceId, "customer_disconnected");
   await recordExternalAction({
     actor,
     provider: persistenceId,
@@ -301,11 +325,24 @@ export async function updatePermissionsForActor(
       },
     },
   });
+  const { unsupportedFlagUpdates } = await import(
+    "@/app/lib/platform-authorization/policy"
+  );
+  const rejected = unsupportedFlagUpdates({ provider: persistenceId, flags });
+  if (rejected.length > 0) {
+    throw new PersistenceError(
+      "validation",
+      `Permission is not supported by this platform: ${rejected.join(", ")}`,
+    );
+  }
   const merged: IntegrationPermissionFlags = {
     ...flagsFromRow(existing),
     ...flags,
   };
-  const row = await upsertConnection(actor, persistenceId, merged);
+  const row = await upsertConnection(actor, persistenceId, {
+    ...merged,
+    ...(merged.canPublish ? {} : { automaticPublishingAuthorized: false }),
+  });
   await recordExternalAction({
     actor,
     provider: persistenceId,
@@ -322,6 +359,7 @@ export async function markIntegrationConnectedForActor(
   input: {
     readonly accountLabel?: string | null;
     readonly externalAccountId?: string | null;
+    readonly oauthScopes?: readonly string[];
   },
 ): Promise<void> {
   await upsertConnection(actor, provider, {
@@ -331,6 +369,15 @@ export async function markIntegrationConnectedForActor(
     lastError: null,
     connectedAt: new Date(),
     disconnectedAt: null,
+    lastSuccessfulSync: new Date(),
+  });
+  const { finalizePlatformAuthorization } = await import(
+    "@/app/lib/platform-authorization/service"
+  );
+  await finalizePlatformAuthorization(actor, provider, {
+    accountLabel: input.accountLabel,
+    externalAccountId: input.externalAccountId,
+    oauthScopes: input.oauthScopes,
   });
   await recordExternalAction({
     actor,

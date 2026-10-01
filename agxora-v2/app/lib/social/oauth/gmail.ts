@@ -26,6 +26,7 @@ export type GmailConnectResult = {
 export type GmailCallbackResult = {
   readonly connected: true;
   readonly emailAddress?: string;
+  readonly grantedScopes?: readonly string[];
   readonly redirectPath?: string;
 };
 
@@ -51,8 +52,10 @@ function requireGmailOAuthConfigured(): NonNullable<
 export async function beginGmailOAuthForActor(
   actor: Actor,
   redirectPath?: string,
+  scopes?: readonly string[],
 ): Promise<GmailConnectResult> {
   const config = requireGmailOAuthConfigured();
+  const requestedScopes = scopes && scopes.length > 0 ? scopes : config.scopes;
   const pkce = createPkcePair();
   const issued = await issueSocialOAuthState({
     actor,
@@ -65,11 +68,11 @@ export async function beginGmailOAuthForActor(
     client_id: config.clientId,
     redirect_uri: config.redirectUri,
     response_type: "code",
-    scope: config.scopes.join(" "),
+    scope: requestedScopes.join(" "),
     state: issued.state,
     access_type: "offline",
     prompt: "consent",
-    include_granted_scopes: "true",
+    include_granted_scopes: scopes && scopes.length > 0 ? "false" : "true",
     code_challenge: pkce.challenge,
     code_challenge_method: "S256",
   });
@@ -116,6 +119,7 @@ export async function completeGmailOAuthForActor(
     refresh_token?: string;
     expires_in?: number;
     token_type?: string;
+    scope?: string;
   };
   if (!tokens.access_token) {
     throw new PersistenceError("forbidden", "OAuth token exchange failed", {
@@ -146,13 +150,17 @@ export async function completeGmailOAuthForActor(
       ? new Date(Date.now() + tokens.expires_in * 1000)
       : undefined;
 
+  const grantedScopes = tokens.scope
+    ? tokens.scope.split(" ").filter((scope) => scope.length > 0)
+    : [...config.scopes];
+
   await upsertSocialCredentialForActor(actor, "gmail", {
     tokens: {
       accessToken: tokens.access_token,
       refreshToken: tokens.refresh_token,
       tokenType: tokens.token_type,
     },
-    scopes: [...config.scopes],
+    scopes: grantedScopes,
     externalAccountId: emailAddress,
     externalAccountName: emailAddress,
     accessTokenExpiresAt: expiresAt,
@@ -161,6 +169,7 @@ export async function completeGmailOAuthForActor(
   return {
     connected: true,
     emailAddress,
+    grantedScopes,
     redirectPath: resolveSafeInternalPath(
       consumed.redirectPath,
       GMAIL_OAUTH_FALLBACK_PATH,
