@@ -12,7 +12,7 @@ import { buildMarketingPlan } from "@/features/agents/orchestration/goalPlan";
 import { createApproval, createExecution } from "@/features/agents/execution";
 import { validateStoredMarketingPlan, isMarketingChannelIntent, MARKETING_CHANNEL_INTENTS, type MarketingChannelIntent, type MarketingPlanDocument } from "@/features/agents/marketing/planSchema";
 import type { AgentsPersistedState } from "@/features/agents/repositories";
-import type { AgentApproval, AgentExecution, AgentPlan, AgentTask, BusinessGoal, PlanStep, WorkforceWorker } from "@/features/agents/types";
+import { EMPTY_ANALYTICS, type AgentApproval, type AgentExecution, type AgentPlan, type AgentRuntime, type AgentTask, type BusinessGoal, type PlanStep, type WorkforceWorker } from "@/features/agents/types";
 import { authoritativeBusinessFacts } from "./businessFact";
 import { buildActivationMarketingWorker } from "./workerRecord";
 
@@ -189,6 +189,38 @@ export type PlaceFirstGoalResult =
       readonly changed: false;
       readonly state: AgentsPersistedState;
     };
+
+/**
+ * The marketing plan is attached to the existing CRM assistant runtime.
+ * A missing runtime is registered once, the same way the workspace registers it.
+ * A paused runtime is left paused.
+ */
+export function ensureCrmAssistantRuntime(
+  state: AgentsPersistedState,
+  organizationId: string,
+  now = new Date().toISOString(),
+): { readonly state: AgentsPersistedState; readonly changed: boolean } {
+  const tenant = organizationId.trim();
+  const existing = (state.runtimes ?? []).find(
+    (item) => item.organizationId === tenant && item.agentId === "crm_assistant",
+  );
+  if (existing) return { state, changed: false };
+  const runtime: AgentRuntime = {
+    instanceId: `ainst_${randomUUID()}`,
+    organizationId: tenant,
+    agentId: "crm_assistant",
+    status: "active",
+    health: "healthy",
+    enabled: true,
+    queueDepth: 0,
+    lastHeartbeatAt: now,
+    analytics: { ...EMPTY_ANALYTICS },
+    config: {},
+    createdAt: now,
+    updatedAt: now,
+  };
+  return { state: { ...state, runtimes: [...(state.runtimes ?? []), runtime] }, changed: true };
+}
 
 /**
  * Insert at most one first marketing goal. An existing goal is returned unchanged,

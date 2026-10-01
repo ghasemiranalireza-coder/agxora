@@ -16,6 +16,7 @@ import {
   marketingAccessDecision,
   missingFirstResultFacts,
   parseFirstResultStart,
+  ensureCrmAssistantRuntime,
   persistFirstMarketingDraft,
   placeFirstMarketingGoal,
   preparedDraftFromState,
@@ -75,6 +76,26 @@ function place(state: AgentsPersistedState, organizationId = ORG, channel = "web
 }
 
 describe("phase 27 first governed result", () => {
+  it("registers one CRM assistant runtime when the workspace has none", () => {
+    const bare = { ...withConfirmedFacts(ORG), runtimes: [] };
+    const ensured = ensureCrmAssistantRuntime(bare, ORG, NOW);
+    expect(ensured.changed).toBe(true);
+    expect(ensured.state.runtimes.filter((item) => item.agentId === "crm_assistant")).toHaveLength(1);
+    const placed = place(ensured.state);
+    expect(placed.ok).toBe(true);
+    const again = ensureCrmAssistantRuntime(ensured.state, ORG, NOW);
+    expect(again.changed).toBe(false);
+    expect(again.state.runtimes).toHaveLength(1);
+    const paused = {
+      ...withConfirmedFacts(ORG),
+      runtimes: [{ ...runtime(ORG), status: "paused" as const }],
+    };
+    expect(ensureCrmAssistantRuntime(paused, ORG, NOW).changed).toBe(false);
+    const blocked = place(paused);
+    expect(blocked.ok).toBe(false);
+    if (!blocked.ok) expect(blocked.code).toBe("runtime_paused");
+  });
+
   it("requires confirmation before facts become authoritative", () => {
     const drafts = draftFirstResultFacts({
       businessName: "Restaurant Menzel",
