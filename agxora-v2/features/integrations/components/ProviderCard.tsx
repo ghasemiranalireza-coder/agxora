@@ -194,14 +194,16 @@ export function ProviderCard({
           <legend>{t("businessAgent.permissions")}</legend>
           {(
             [
-              ["canRead", t("businessAgent.permRead")],
-              ["canCreateDraft", t("businessAgent.permDraft")],
-              ["canSchedule", t("businessAgent.permSchedule")],
-              ["canPublish", t("businessAgent.permPublish")],
-              ["canSendEmail", t("businessAgent.permSend")],
-              ["canDelete", t("businessAgent.permDelete")],
+              ["canRead", "read", t("businessAgent.permRead")],
+              ["canCreateDraft", "create", t("businessAgent.permDraft")],
+              ["canSchedule", "schedule", t("businessAgent.permSchedule")],
+              ["canPublish", "publish", t("businessAgent.permPublish")],
+              ["canSendEmail", "send", t("businessAgent.permSend")],
+              ["canDelete", "delete", t("businessAgent.permDelete")],
             ] as const
-          ).map(([key, label]) => (
+          )
+            .filter(([, capability]) => item.implementedCapabilities.includes(capability))
+            .map(([key, , label]) => (
             <label key={key} className="agx-integrations__perm">
               <input
                 type="checkbox"

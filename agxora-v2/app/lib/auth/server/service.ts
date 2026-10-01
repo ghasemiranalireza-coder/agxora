@@ -134,6 +134,9 @@ export async function registerWithPassword(input: {
   readonly password: string;
   readonly displayName: string;
   readonly companyName?: string;
+  readonly acceptTerms?: boolean;
+  readonly acknowledgePrivacy?: boolean;
+  readonly marketingConsent?: boolean;
 }): Promise<AuthSuccess> {
   const email = normalizeEmail(input.email);
   assertPasswordPolicy(input.password);
@@ -187,6 +190,19 @@ export async function registerWithPassword(input: {
         status: "ACTIVE",
       },
     });
+
+    if (input.acceptTerms || input.acknowledgePrivacy || input.marketingConsent) {
+      const { recordRegistrationAcceptances } = await import(
+        "@/app/lib/platform-authorization/service"
+      );
+      await recordRegistrationAcceptances(tx, {
+        userId: user.id,
+        organizationId: organization.id,
+        acceptTerms: input.acceptTerms === true,
+        acknowledgePrivacy: input.acknowledgePrivacy === true,
+        marketingConsent: input.marketingConsent === true,
+      });
+    }
 
     return { user, workspaceId: workspace.id, organizationId: organization.id };
   });

@@ -547,9 +547,9 @@
       "label": "एकीकरण",
       "description": "Connector availability — none connected by default",
       "title": "एकीकरण",
-      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
+      "panelDescription": "Gmail and YouTube can be connected after a separate authorization. Other providers stay unavailable.",
       "openCenter": "एकीकरण केंद्र खोलें",
-      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "notice": "Accepting the AGXORA Terms does not authorize access to an external account. A connection appears only after you confirm permissions and the provider completes OAuth.",
       "emptyTitle": "No live integrations connected",
       "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
@@ -864,7 +864,8 @@
       "COMMON_VALIDATION": "अपना इनपुट जाँचें और पुनः प्रयास करें।",
       "COMMON_UNKNOWN": "एक अज्ञात त्रुटि हुई।",
       "COMMON_INTERNAL": "एक अप्रत्याशित त्रुटि हुई। कृपया पुनः प्रयास करें।"
-    }
+    },
+    "acknowledgePrivacy": "Please acknowledge the privacy information to continue."
   },
   "dashboard": {
     "skipToContent": "डैशबोर्ड सामग्री पर जाएं",
@@ -1453,7 +1454,9 @@
       "passwordPlaceholder": "न्यूनतम 8 अक्षर, अक्षर + संख्याएँ",
       "confirmPasswordPlaceholder": "पासवर्ड दोहराएं",
       "failed": "साइन अप करने में विफल रहा",
-      "loading": "खाता बनाएं"
+      "loading": "खाता बनाएं",
+      "acknowledgePrivacy": "I have read the",
+      "marketingConsent": "I agree that AGXORA may contact me about product information. This consent is optional and separate from connecting a platform."
     },
     "forgot": {
       "title": "पासवर्ड भूल गए",
@@ -6335,6 +6338,53 @@
         "publish": "Publish",
         "send": "Send"
       }
+    },
+    "authorization": {
+      "eyebrow": "External platform",
+      "account": "Account",
+      "accountPending": "The platform will confirm the account during OAuth.",
+      "autoConfirm": "I confirm automatic publishing for this platform, account, and content type.",
+      "cancel": "Cancel",
+      "connect": "Connect",
+      "disconnect": "Disconnect",
+      "automaticPublishing": "Automatic publishing",
+      "termsDoNotAuthorize": "Accepting the AGXORA Terms does not authorize access to an external account.",
+      "manage": "Manage",
+      "permissions": "Permissions",
+      "noneGranted": "None granted",
+      "connectedDate": "Connected",
+      "lastSync": "Last synchronization",
+      "turnOff": "Turn off",
+      "turnOn": "Turn on",
+      "autoBody": "Automatic publishing stays off until you confirm the platform, account, content type, and that AI generation may be used.",
+      "frequencyManual": "According to the customer's saved publishing settings",
+      "status": {
+        "connected": "Connected",
+        "disconnected": "Disconnected",
+        "expired": "Authorization expired",
+        "revoked": "Authorization revoked",
+        "error": "Connection error",
+        "pending": "Authorization pending",
+        "notConnected": "Not connected"
+      },
+      "permission": {
+        "connect_account": "Connect account",
+        "read_content": "Read content",
+        "create_content": "Create content",
+        "publish_posts": "Publish posts",
+        "schedule_posts": "Schedule posts",
+        "edit_posts": "Edit posts",
+        "delete_posts": "Delete posts",
+        "read_comments": "Read comments",
+        "reply_comments": "Reply to comments",
+        "read_messages": "Read messages",
+        "reply_messages": "Reply to messages",
+        "read_analytics": "Read analytics",
+        "use_media": "Use media",
+        "send_email": "Send email",
+        "create_ai_content": "Create AI content",
+        "auto_publish_ai": "Publish AI content automatically"
+      }
     }
   },
   "intelligence": {
@@ -6742,7 +6792,8 @@
         "terms": "शर्तें",
         "cookies": "कुकीज़",
         "imprint": "छाप",
-        "contact": "संपर्क"
+        "contact": "संपर्क",
+        "framework": "Legal framework"
       },
       "footer": {
         "home": "घर",
@@ -6818,7 +6869,10 @@
       "liability": "7. दायित्व की सीमा",
       "liabilityBody": "कानून द्वारा अनुमत अधिकतम सीमा तक, AGXORA अप्रत्यक्ष, आकस्मिक या परिणामी क्षति के लिए उत्तरदायी नहीं है। सशुल्क सदस्यता के लिए हमारी कुल देनदारी दावे से पहले के बारह महीनों में भुगतान की गई फीस तक सीमित है।",
       "contact": "8. संपर्क करें",
-      "contactBodyBefore": "कानूनी प्रश्न:"
+      "contactBodyBefore": "कानूनी प्रश्न:",
+      "externalPlatforms": "External platform connections",
+      "externalPlatformsBody": "Accepting these Terms does not authorize AGXORA to access external accounts. Platform access, AI content, automatic publishing, and marketing consent are separate authorizations. The full framework is in the",
+      "frameworkLink": "AGXORA legal framework"
     },
     "cookies": {
       "title": "कूकी नीति",
@@ -6858,6 +6912,11 @@
       "contactBodyMiddle": "या",
       "contactBodyAfter": "उद्यम पूछताछ के लिए.",
       "contactSales": "बिक्री से संपर्क करें"
+    },
+    "framework": {
+      "title": "AGXORA legal framework",
+      "eyebrow": "Legal",
+      "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
     }
   },
   "onboarding": {
@@ -7045,6 +7104,20 @@
         "label": "गैर-लाभ",
         "description": "मिशन, दानदाता, कार्यक्रम और प्रभाव"
       }
+    },
+    "legal": {
+      "agbTitle": "AGXORA Terms",
+      "privacyTitle": "Privacy",
+      "platformTitle": "Connect an external platform",
+      "agbCheckbox": "I accept the AGXORA Terms.",
+      "termsLink": "Terms",
+      "privacyCheckbox": "I have read the privacy information.",
+      "privacyLink": "Privacy Policy",
+      "platformBody": "Connecting a platform is optional and is not included in accepting the Terms. Choose the account and permissions before OAuth starts.",
+      "platformLink": "Integrations",
+      "skip": "Skip",
+      "continue": "Continue",
+      "failed": "The confirmation could not be saved."
     }
   },
   "creator": {

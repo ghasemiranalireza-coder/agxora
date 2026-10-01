@@ -28,7 +28,12 @@ export interface IdentityApi {
   login(input: SignInInput & { readonly rememberMe?: boolean }): Promise<LoginResult>;
   logout(): Promise<void>;
   register(
-    input: SignUpInput & { readonly companyName?: string; readonly acceptTerms: boolean },
+    input: SignUpInput & {
+      readonly companyName?: string;
+      readonly acceptTerms: boolean;
+      readonly acknowledgePrivacy?: boolean;
+      readonly marketingConsent?: boolean;
+    },
   ): Promise<RegisterResult>;
   forgotPassword(input: ForgotPasswordInput): Promise<{ readonly token: string }>;
   resetPassword(input: ResetPasswordInput): Promise<void>;

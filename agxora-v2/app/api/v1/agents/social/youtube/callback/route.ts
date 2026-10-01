@@ -27,6 +27,14 @@ export async function GET(request: Request): Promise<NextResponse> {
     }
 
     const result = await completeYouTubeOAuthForActor(actor, { code, state });
+    const { markIntegrationConnectedForActor } = await import(
+      "@/app/lib/business-agent/integrations"
+    );
+    await markIntegrationConnectedForActor(actor, "youtube", {
+      accountLabel: result.displayName ?? null,
+      externalAccountId: result.handle ?? null,
+      oauthScopes: result.grantedScopes,
+    });
     const redirectUrl = buildSafeSameOriginRedirectUrl(
       request.url,
       result.redirectPath,

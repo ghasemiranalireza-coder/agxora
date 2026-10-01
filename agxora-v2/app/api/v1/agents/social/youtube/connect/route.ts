@@ -23,7 +23,15 @@ export async function POST(request: Request): Promise<NextResponse> {
     const body = (await request.json().catch(() => ({}))) as {
       redirectPath?: string;
     };
-    const result = await beginYouTubeOAuthForActor(actor, body.redirectPath);
+    const { requireExplicitPlatformGrant } = await import(
+      "@/app/lib/platform-authorization/service"
+    );
+    const grant = await requireExplicitPlatformGrant(actor, "youtube", body);
+    const result = await beginYouTubeOAuthForActor(
+      actor,
+      body.redirectPath,
+      grant.oauthScopes,
+    );
     return NextResponse.json({ ok: true, authorizationUrl: result.authorizationUrl });
   } catch (error) {
     return jsonError(error);

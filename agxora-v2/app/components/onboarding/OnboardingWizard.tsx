@@ -15,6 +15,7 @@ import { useOrganization } from "../../lib/organization";
 import { isServerAuthMode } from "../../lib/auth/mode";
 import { persistOnboardingFinanceSettings } from "../../lib/finance/documents/onboardingFinanceClient";
 import { checkoutHrefForIntent, readPlanIntent } from "../../lib/billing/planHandoff";
+import { LegalOnboardingSteps } from "./LegalOnboardingSteps";
 
 const surfaceTransition = [
   `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
@@ -68,6 +69,7 @@ export function OnboardingWizard(): JSX.Element {
   const [goals, setGoals] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [legalComplete, setLegalComplete] = useState(false);
 
   const resolvedCountry = country.trim() || t("onboarding.defaultCountry");
 
@@ -138,7 +140,7 @@ export function OnboardingWizard(): JSX.Element {
   };
 
   const next = (): void => {
-    if (!canContinue()) return;
+    if (!legalComplete || !canContinue()) return;
     if (step < 4) {
       setStep((step + 1) as Step);
       return;
@@ -174,6 +176,7 @@ export function OnboardingWizard(): JSX.Element {
           transition: surfaceTransition,
         }}
       >
+        <LegalOnboardingSteps onComplete={() => setLegalComplete(true)} />
         <p
           style={{
             margin: 0,
@@ -643,12 +646,12 @@ export function OnboardingWizard(): JSX.Element {
           <button
             type="button"
             onClick={next}
-            disabled={!canContinue() || submitting}
+            disabled={!legalComplete || !canContinue() || submitting}
             style={{
               ...buttonStyle(tokens, true),
-              opacity: !canContinue() || submitting ? 0.55 : 1,
+              opacity: !legalComplete || !canContinue() || submitting ? 0.55 : 1,
               cursor:
-                !canContinue() || submitting ? "not-allowed" : "pointer",
+                !legalComplete || !canContinue() || submitting ? "not-allowed" : "pointer",
               marginLeft: "auto",
             }}
           >

@@ -547,9 +547,9 @@
       "label": "통합",
       "description": "Connector availability — none connected by default",
       "title": "통합",
-      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
+      "panelDescription": "Gmail and YouTube can be connected after a separate authorization. Other providers stay unavailable.",
       "openCenter": "개방형 통합 센터",
-      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "notice": "Accepting the AGXORA Terms does not authorize access to an external account. A connection appears only after you confirm permissions and the provider completes OAuth.",
       "emptyTitle": "No live integrations connected",
       "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
@@ -864,7 +864,8 @@
       "COMMON_VALIDATION": "입력 내용을 확인한 뒤 다시 시도하세요.",
       "COMMON_UNKNOWN": "알 수 없는 오류가 발생했습니다.",
       "COMMON_INTERNAL": "예기치 않은 오류가 발생했습니다. 다시 시도하세요."
-    }
+    },
+    "acknowledgePrivacy": "Please acknowledge the privacy information to continue."
   },
   "dashboard": {
     "skipToContent": "대시보드 콘텐츠로 건너뛰기",
@@ -1453,7 +1454,9 @@
       "passwordPlaceholder": "최소 8자, 문자 + 숫자",
       "confirmPasswordPlaceholder": "비밀번호를 반복하세요",
       "failed": "가입 실패",
-      "loading": "계정 만들기"
+      "loading": "계정 만들기",
+      "acknowledgePrivacy": "I have read the",
+      "marketingConsent": "I agree that AGXORA may contact me about product information. This consent is optional and separate from connecting a platform."
     },
     "forgot": {
       "title": "비밀번호를 잊으셨나요?",
@@ -6335,6 +6338,53 @@
         "publish": "Publish",
         "send": "Send"
       }
+    },
+    "authorization": {
+      "eyebrow": "External platform",
+      "account": "Account",
+      "accountPending": "The platform will confirm the account during OAuth.",
+      "autoConfirm": "I confirm automatic publishing for this platform, account, and content type.",
+      "cancel": "Cancel",
+      "connect": "Connect",
+      "disconnect": "Disconnect",
+      "automaticPublishing": "Automatic publishing",
+      "termsDoNotAuthorize": "Accepting the AGXORA Terms does not authorize access to an external account.",
+      "manage": "Manage",
+      "permissions": "Permissions",
+      "noneGranted": "None granted",
+      "connectedDate": "Connected",
+      "lastSync": "Last synchronization",
+      "turnOff": "Turn off",
+      "turnOn": "Turn on",
+      "autoBody": "Automatic publishing stays off until you confirm the platform, account, content type, and that AI generation may be used.",
+      "frequencyManual": "According to the customer's saved publishing settings",
+      "status": {
+        "connected": "Connected",
+        "disconnected": "Disconnected",
+        "expired": "Authorization expired",
+        "revoked": "Authorization revoked",
+        "error": "Connection error",
+        "pending": "Authorization pending",
+        "notConnected": "Not connected"
+      },
+      "permission": {
+        "connect_account": "Connect account",
+        "read_content": "Read content",
+        "create_content": "Create content",
+        "publish_posts": "Publish posts",
+        "schedule_posts": "Schedule posts",
+        "edit_posts": "Edit posts",
+        "delete_posts": "Delete posts",
+        "read_comments": "Read comments",
+        "reply_comments": "Reply to comments",
+        "read_messages": "Read messages",
+        "reply_messages": "Reply to messages",
+        "read_analytics": "Read analytics",
+        "use_media": "Use media",
+        "send_email": "Send email",
+        "create_ai_content": "Create AI content",
+        "auto_publish_ai": "Publish AI content automatically"
+      }
     }
   },
   "intelligence": {
@@ -6742,7 +6792,8 @@
         "terms": "자귀",
         "cookies": "쿠키",
         "imprint": "날인",
-        "contact": "연락하다"
+        "contact": "연락하다",
+        "framework": "Legal framework"
       },
       "footer": {
         "home": "집",
@@ -6818,7 +6869,10 @@
       "liability": "7. 책임의 제한",
       "liabilityBody": "법률이 허용하는 최대 한도 내에서 AGXORA는 간접적, 우발적 또는 결과적 손해에 대해 책임을 지지 않습니다. 유료 구독에 대한 당사의 총 책임은 청구 전 12개월 동안 지불한 요금으로 제한됩니다.",
       "contact": "8. 연락처",
-      "contactBodyBefore": "법적 질문:"
+      "contactBodyBefore": "법적 질문:",
+      "externalPlatforms": "External platform connections",
+      "externalPlatformsBody": "Accepting these Terms does not authorize AGXORA to access external accounts. Platform access, AI content, automatic publishing, and marketing consent are separate authorizations. The full framework is in the",
+      "frameworkLink": "AGXORA legal framework"
     },
     "cookies": {
       "title": "쿠키 정책",
@@ -6858,6 +6912,11 @@
       "contactBodyMiddle": "또는",
       "contactBodyAfter": "기업문의.",
       "contactSales": "영업팀에 문의"
+    },
+    "framework": {
+      "title": "AGXORA legal framework",
+      "eyebrow": "Legal",
+      "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
     }
   },
   "onboarding": {
@@ -7045,6 +7104,20 @@
         "label": "비영리",
         "description": "미션, 기부자, 프로그램 및 영향"
       }
+    },
+    "legal": {
+      "agbTitle": "AGXORA Terms",
+      "privacyTitle": "Privacy",
+      "platformTitle": "Connect an external platform",
+      "agbCheckbox": "I accept the AGXORA Terms.",
+      "termsLink": "Terms",
+      "privacyCheckbox": "I have read the privacy information.",
+      "privacyLink": "Privacy Policy",
+      "platformBody": "Connecting a platform is optional and is not included in accepting the Terms. Choose the account and permissions before OAuth starts.",
+      "platformLink": "Integrations",
+      "skip": "Skip",
+      "continue": "Continue",
+      "failed": "The confirmation could not be saved."
     }
   },
   "creator": {

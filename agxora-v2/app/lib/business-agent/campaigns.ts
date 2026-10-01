@@ -284,6 +284,12 @@ export async function executeCampaignItemForActor(
         ? "schedule"
         : "publish";
   await assertProviderPermission(actor, item.provider, permission);
+  if (kind === "publish" && policy.mode === "AUTONOMOUS") {
+    const { assertAutomaticPublishingAllowed } = await import(
+      "@/app/lib/platform-authorization/service"
+    );
+    await assertAutomaticPublishingAllowed(actor, item.provider);
+  }
 
   const canonical = toCanonicalProviderId(item.provider);
   const capability: ProviderCapability =

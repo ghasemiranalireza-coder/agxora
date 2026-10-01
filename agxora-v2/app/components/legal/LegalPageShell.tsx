@@ -26,6 +26,7 @@ export function LegalPageShell({
         <nav className="p39-legal__nav" aria-label={t("legal.shell.navLabel")}>
           <Link href="/privacy">{t("legal.shell.nav.privacy")}</Link>
           <Link href="/terms">{t("legal.shell.nav.terms")}</Link>
+          <Link href="/legal/framework">{t("legal.shell.nav.framework")}</Link>
           <Link href="/cookies">{t("legal.shell.nav.cookies")}</Link>
           <Link href="/imprint">{t("legal.shell.nav.imprint")}</Link>
           <Link href="/contact">{t("legal.shell.nav.contact")}</Link>

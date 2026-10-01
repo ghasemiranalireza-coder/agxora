@@ -25,6 +25,7 @@ export type SocialCredentialSummary = {
   readonly externalAccountName?: string;
   readonly accessTokenExpiresAt?: Date;
   readonly revokedAt?: Date;
+  readonly hasRefreshToken?: boolean;
 };
 
 type CredentialStore = {
@@ -140,12 +141,19 @@ const databaseCredentialStore: CredentialStore = {
       where: { organizationId_platform: { organizationId, platform } },
     });
     if (!row || !isActiveCredential(row)) return null;
+    let hasRefreshToken = false;
+    try {
+      hasRefreshToken = Boolean(decryptTokens(row.encryptedPayload).refreshToken);
+    } catch {
+      hasRefreshToken = false;
+    }
     return {
       platform: row.platform,
       externalAccountId: row.externalAccountId ?? undefined,
       externalAccountName: row.externalAccountName ?? undefined,
       accessTokenExpiresAt: row.accessTokenExpiresAt ?? undefined,
       revokedAt: row.revokedAt ?? undefined,
+      hasRefreshToken,
     };
   },
 
@@ -238,6 +246,10 @@ const databaseCredentialStore: CredentialStore = {
             accessTokenExpiresAt: null,
           },
         });
+        const { recordTokenRevocation } = await import(
+          "@/app/lib/platform-authorization/service"
+        );
+        await recordTokenRevocation(actor, platform);
         return null;
       }
       const nextTokens: StoredSocialTokens = {
@@ -283,6 +295,7 @@ const memoryCredentialStore: CredentialStore = {
       externalAccountId: input.externalAccountId,
       externalAccountName: input.externalAccountName,
       accessTokenExpiresAt: input.accessTokenExpiresAt,
+      hasRefreshToken: Boolean(input.tokens.refreshToken),
     };
     memoryCredentials.set(memoryKey(actor.organizationId, platform), {
       summary,
@@ -320,6 +333,10 @@ const memoryCredentialStore: CredentialStore = {
           summary: { ...item.summary, revokedAt: new Date() },
           tokens: { accessToken: "" },
         });
+        const { recordTokenRevocation } = await import(
+          "@/app/lib/platform-authorization/service"
+        );
+        await recordTokenRevocation(actor, platform);
         return null;
       }
       const nextTokens = { ...item.tokens, accessToken: refreshed.accessToken };

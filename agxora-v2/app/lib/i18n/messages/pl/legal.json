@@ -10,7 +10,8 @@
       "terms": "Warunki",
       "cookies": "Ciastka",
       "imprint": "Odcisk",
-      "contact": "Kontakt"
+      "contact": "Kontakt",
+      "framework": "Legal framework"
     },
     "footer": {
       "home": "Dom",
@@ -86,7 +87,10 @@
     "liability": "7. Ograniczenie odpowiedzialności",
     "liabilityBody": "W maksymalnym zakresie dozwolonym przez prawo AGXORA nie ponosi odpowiedzialności za szkody pośrednie, przypadkowe lub wtórne. Nasza łączna odpowiedzialność za płatne subskrypcje ogranicza się do opłat uiszczonych w ciągu dwunastu miesięcy poprzedzających roszczenie.",
     "contact": "8. Kontakt",
-    "contactBodyBefore": "Pytania prawne:"
+    "contactBodyBefore": "Pytania prawne:",
+    "externalPlatforms": "External platform connections",
+    "externalPlatformsBody": "Accepting these Terms does not authorize AGXORA to access external accounts. Platform access, AI content, automatic publishing, and marketing consent are separate authorizations. The full framework is in the",
+    "frameworkLink": "AGXORA legal framework"
   },
   "cookies": {
     "title": "Polityka plików cookie",
@@ -126,5 +130,10 @@
     "contactBodyMiddle": "Lub",
     "contactBodyAfter": "w przypadku zapytań przedsiębiorstw.",
     "contactSales": "Skontaktuj się z działem sprzedaży"
+  },
+  "framework": {
+    "title": "AGXORA legal framework",
+    "eyebrow": "Legal",
+    "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
   }
 }

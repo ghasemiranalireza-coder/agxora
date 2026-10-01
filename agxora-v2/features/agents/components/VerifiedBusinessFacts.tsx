@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type FormEvent, type JSX } from "react";
 import { Button, Card, FormField, FormSelect, FormTextArea } from "@/app/components/ui";
+import { catalogCopy, useT } from "@/app/lib/i18n";
 import { BUSINESS_FACT_CATEGORIES, type BusinessFactCategory } from "../memory/businessContext";
 
 const CATEGORY_LABEL: Record<BusinessFactCategory, string> = {
@@ -48,14 +49,18 @@ function when(value: string | null | undefined): string {
   return date.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
 }
 
-function attentionLabel(fact: SavedFact): string {
-  if (fact.conflict) return "Conflict";
-  if (fact.status === "STALE") return "Stale";
-  if (fact.status === "REJECTED") return "Rejected";
-  return fact.status ?? "Needs attention";
+function attentionLabel(
+  fact: SavedFact,
+  t: ReturnType<typeof useT>,
+): string {
+  if (fact.conflict) return catalogCopy(t, "agents.facts.conflict", "Conflict");
+  if (fact.status === "STALE") return catalogCopy(t, "agents.facts.stale", "Stale");
+  if (fact.status === "REJECTED") return catalogCopy(t, "agents.facts.rejected", "Rejected");
+  return fact.status ?? catalogCopy(t, "agents.facts.needsAttention", "Needs attention");
 }
 
 export function VerifiedBusinessFacts(): JSX.Element {
+  const t = useT();
   const [category, setCategory] = useState<BusinessFactCategory>("OFFER");
   const [statement, setStatement] = useState("");
   const [allowedForMarketing, setAllowedForMarketing] = useState(true);
@@ -160,7 +165,7 @@ export function VerifiedBusinessFacts(): JSX.Element {
   return (
     <Card className="space-y-4 p-4">
       <div className="space-y-1">
-        <h2 className="text-lg font-semibold">Verified business facts</h2>
+        <h2 className="text-lg font-semibold">{catalogCopy(t, "agents.facts.title", "Verified business facts")}</h2>
         <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           These facts can be used by AGXORA when preparing marketing and other business work. Only facts you confirm become verified.
         </p>
@@ -183,7 +188,7 @@ export function VerifiedBusinessFacts(): JSX.Element {
             rows={3}
             value={statement}
             onChange={(event) => setStatement(event.target.value)}
-            placeholder="Write the fact exactly as you want it stored."
+            placeholder={catalogCopy(t, "agents.facts.placeholder", "Write the fact exactly as you want it stored.")}
           />
         </FormField>
         <label className="flex items-center gap-2 text-sm">
@@ -192,19 +197,19 @@ export function VerifiedBusinessFacts(): JSX.Element {
             checked={allowedForMarketing}
             onChange={(event) => setAllowedForMarketing(event.target.checked)}
           />
-          Marketing may use this fact
+          {catalogCopy(t, "agents.facts.marketing", "Marketing may use this fact")}
         </label>
-        <Button type="submit" variant="secondary">Review fact</Button>
+        <Button type="submit" variant="secondary">{catalogCopy(t, "agents.facts.review", "Review fact")}</Button>
       </form>
       {preview ? (
         <div className="space-y-3 rounded-md border p-3" style={{ borderColor: "var(--agx-border, #334155)" }}>
-          <p className="text-sm font-medium">This is exactly what will be stored after you confirm.</p>
+          <p className="text-sm font-medium">{catalogCopy(t, "agents.facts.preview", "This is exactly what will be stored after you confirm.")}</p>
           <p className="text-sm">Category: {CATEGORY_LABEL[preview.category]}</p>
           <p className="text-sm">Statement: {preview.statement}</p>
           <p className="text-sm">Marketing: {preview.allowedForMarketing ? "Allowed" : "Not allowed"}</p>
           <p className="text-sm">Status after confirmation: Verified</p>
           <div className="flex gap-2">
-            <Button type="button" disabled={busy} onClick={() => void confirm()}>Confirm and save</Button>
+            <Button type="button" disabled={busy} onClick={() => void confirm()}>{catalogCopy(t, "agents.facts.confirm", "Confirm and save")}</Button>
             <Button type="button" variant="secondary" disabled={busy} onClick={() => setPreview(null)}>Cancel</Button>
           </div>
         </div>
@@ -229,18 +234,18 @@ export function VerifiedBusinessFacts(): JSX.Element {
             ))}
           </ul>
         ) : (
-          <p style={{ color: "var(--agx-text-muted, #94a3b8)" }}>No authoritative facts yet.</p>
+          <p style={{ color: "var(--agx-text-muted, #94a3b8)" }}>{catalogCopy(t, "agents.facts.empty", "No authoritative facts yet.")}</p>
         )}
       </section>
       {needsAttention.length > 0 ? (
         <section className="space-y-2 text-sm">
-          <h3 className="font-medium">Needs attention</h3>
+          <h3 className="font-medium">{catalogCopy(t, "agents.facts.needsAttention", "Needs attention")}</h3>
           <ul className="space-y-3">
             {needsAttention.map((fact) => (
               <li key={fact.memoryId} className="space-y-1">
                 <p>{categoryLabel(fact.category)}: {fact.statement}</p>
                 <p style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  {attentionLabel(fact)}
+                  {attentionLabel(fact, t)}
                   {fact.status ? ` · Status: ${fact.status}` : ""}
                   {" · "}
                   Updated: {when(fact.updatedAt)}

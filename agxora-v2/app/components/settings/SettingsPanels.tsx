@@ -19,6 +19,7 @@ import {
 } from "../../lib/settings";
 import { useTheme, type ThemeMode } from "../../lib/theme";
 import { Button, EmptyState } from "../ui";
+import { ConnectedPlatformsPanel } from "./ConnectedPlatformsPanel";
 import { useAuth } from "../../lib/auth";
 import { isServerAuthMode } from "../../lib/auth/mode";
 import { controlPlaneClient } from "../../lib/control-plane/client";
@@ -701,10 +702,7 @@ function IntegrationsPanel(): JSX.Element {
       description={t("settings.integrations.panelDescription")}
     >
       <SettingsNotice>{t("settings.integrations.notice")}</SettingsNotice>
-      <EmptyState
-        title={t("settings.integrations.emptyTitle")}
-        description={t("settings.integrations.emptyDescription")}
-      />
+      <ConnectedPlatformsPanel emptyTitleKey="settings.integrations.emptyTitle" />
     </SettingsPanel>
   );
 }

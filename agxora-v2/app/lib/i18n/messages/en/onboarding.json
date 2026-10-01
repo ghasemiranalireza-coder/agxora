@@ -183,5 +183,19 @@
       "label": "Non-Profit",
       "description": "Missions, donors, programs, and impact"
     }
+  },
+  "legal": {
+    "agbTitle": "AGXORA Terms",
+    "privacyTitle": "Privacy",
+    "platformTitle": "Connect an external platform",
+    "agbCheckbox": "I accept the AGXORA Terms.",
+    "termsLink": "Terms",
+    "privacyCheckbox": "I have read the privacy information.",
+    "privacyLink": "Privacy Policy",
+    "platformBody": "Connecting a platform is optional and is not included in accepting the Terms. Choose the account and permissions before OAuth starts.",
+    "platformLink": "Integrations",
+    "skip": "Skip",
+    "continue": "Continue",
+    "failed": "The confirmation could not be saved."
   }
 }

@@ -58,6 +58,9 @@ model User {
   socialOAuthStates       SocialOAuthState[]
   agentRuns               AgentRun[]
   externalActionAudits    ExternalActionAudit[]
+  legalAcceptances        LegalAcceptance[]
+  platformAuthorizations  PlatformAuthorization[]
+  authorizationAuditLogs  AuthorizationAuditLog[]
   createdDeliveryNotes    DeliveryNote[] @relation("DeliveryNoteCreatedBy")
   createdInvoices         Invoice[]      @relation("InvoiceCreatedBy")
   uploadedFinanceLogos    FinanceDocumentLogo[] @relation("FinanceDocumentLogoUploadedBy")
@@ -98,6 +101,9 @@ model Organization {
   creativePublishAttempts   CreativePublishAttempt[]
   creativeYouTubeUploadSessions CreativeYouTubeUploadSession[]
   integrationConnections    IntegrationConnection[]
+  legalAcceptances          LegalAcceptance[]
+  platformAuthorizations    PlatformAuthorization[]
+  authorizationAuditLogs    AuthorizationAuditLog[]
   agentPolicies             AgentPolicy[]
   agentRuns                 AgentRun[]
   campaigns                 Campaign[]
@@ -640,6 +646,8 @@ enum IntegrationConnectionStatus {
   connected
   disconnected
   error
+  expired
+  revoked
 }
 
 enum AutonomyMode {
@@ -688,30 +696,36 @@ enum ExternalActionStatus {
   cancelled
 }
 
-/// Org+workspace connection metadata and SAFE-default permissions. Never stores OAuth tokens.
+/// PlatformConnection: org+workspace connection metadata. Never stores passwords or OAuth tokens.
 model IntegrationConnection {
-  id                  String                       @id @default(uuid()) @db.Uuid
-  organizationId      String                       @db.Uuid
-  workspaceId         String                       @db.Uuid
-  provider            IntegrationProvider
-  status              IntegrationConnectionStatus  @default(not_connected)
-  accountLabel        String?
-  externalAccountId   String?
-  lastError           String?
-  canRead             Boolean                      @default(true)
-  canCreateDraft      Boolean                      @default(true)
-  canSchedule         Boolean                      @default(false)
-  canPublish          Boolean                      @default(false)
-  canSendEmail        Boolean                      @default(false)
-  canDelete           Boolean                      @default(false)
-  createdByUserId     String                       @db.Uuid
-  connectedAt         DateTime?
-  disconnectedAt      DateTime?
-  createdAt           DateTime                     @default(now())
-  updatedAt           DateTime                     @updatedAt
+  id                            String                      @id @default(uuid()) @db.Uuid
+  organizationId                String                      @db.Uuid
+  workspaceId                   String                      @db.Uuid
+  provider                      IntegrationProvider
+  status                        IntegrationConnectionStatus @default(not_connected)
+  accountLabel                  String?
+  externalAccountId             String?
+  lastError                     String?
+  canRead                       Boolean                     @default(true)
+  canCreateDraft                Boolean                     @default(true)
+  canSchedule                   Boolean                     @default(false)
+  canPublish                    Boolean                     @default(false)
+  canSendEmail                  Boolean                     @default(false)
+  canDelete                     Boolean                     @default(false)
+  aiContentAuthorized           Boolean                     @default(false)
+  automaticPublishingAuthorized Boolean                     @default(false)
+  authorizationVersion          String?
+  lastSuccessfulSync            DateTime?
+  grantedScopes                 String[]                    @default([])
+  createdByUserId               String                      @db.Uuid
+  connectedAt                   DateTime?
+  disconnectedAt                DateTime?
+  createdAt                     DateTime                    @default(now())
+  updatedAt                     DateTime                    @updatedAt
 
-  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  organization           Organization            @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace              Workspace               @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  platformAuthorizations PlatformAuthorization[]
 
   @@unique([organizationId, workspaceId, provider])
   @@index([organizationId, workspaceId])
@@ -1311,4 +1325,121 @@ model CommercialBillingEvent {
   @@index([organizationId, createdAt])
   @@index([eventType])
   @@map("commercial_billing_events")
+}
+
+enum LegalAuthorizationType {
+  agb
+  privacy
+  platform
+  ai_content
+  automatic_publishing
+  marketing
+}
+
+enum PlatformAuthorizationStatus {
+  pending
+  connected
+  disconnected
+  expired
+  revoked
+  error
+}
+
+model LegalAcceptance {
+  id                   String                 @id @default(uuid()) @db.Uuid
+  userId               String                 @db.Uuid
+  organizationId       String                 @db.Uuid
+  legalDocument        String
+  legalDocumentVersion String
+  authorizationType    LegalAuthorizationType
+  platform             String?
+  authorizationVersion String
+  acceptedAt           DateTime               @default(now())
+  revokedAt            DateTime?
+  metadata             Json                   @default("{}")
+
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, userId, authorizationType])
+  @@index([userId, legalDocument, legalDocumentVersion])
+  @@map("legal_acceptances")
+}
+
+model PlatformAuthorization {
+  id                            String                      @id @default(uuid()) @db.Uuid
+  organizationId                String                      @db.Uuid
+  workspaceId                   String                      @db.Uuid
+  userId                        String                      @db.Uuid
+  connectionId                  String?                     @db.Uuid
+  provider                      IntegrationProvider
+  externalAccountId             String?
+  accountLabel                  String?
+  status                        PlatformAuthorizationStatus @default(pending)
+  grantedScopes                 String[]                    @default([])
+  authorizationVersion          String
+  legalDocumentVersion          String
+  aiContentAuthorized           Boolean                     @default(false)
+  automaticPublishingAuthorized Boolean                     @default(false)
+  confirmationText              String
+  authorizedAt                  DateTime                    @default(now())
+  revokedAt                     DateTime?
+  lastSuccessfulSync            DateTime?
+  lastError                     String?
+  createdAt                     DateTime                    @default(now())
+  updatedAt                     DateTime                    @updatedAt
+
+  organization Organization           @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  user         User                   @relation(fields: [userId], references: [id], onDelete: Restrict)
+  connection   IntegrationConnection? @relation(fields: [connectionId], references: [id], onDelete: SetNull)
+  permissions  PlatformPermission[]
+
+  @@unique([organizationId, workspaceId, provider])
+  @@index([organizationId, userId])
+  @@index([organizationId, status])
+  @@map("platform_authorizations")
+}
+
+model PlatformPermission {
+  id              String   @id @default(uuid()) @db.Uuid
+  organizationId  String   @db.Uuid
+  authorizationId String   @db.Uuid
+  permissionKey   String
+  granted         Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  authorization PlatformAuthorization @relation(fields: [authorizationId], references: [id], onDelete: Cascade)
+
+  @@unique([authorizationId, permissionKey])
+  @@index([organizationId, permissionKey])
+  @@map("platform_permissions")
+}
+
+model AuthorizationAuditLog {
+  id                   String    @id @default(uuid()) @db.Uuid
+  userId               String    @db.Uuid
+  organizationId       String    @db.Uuid
+  workspaceId          String?   @db.Uuid
+  provider             String
+  externalAccountId    String?
+  authorizationStatus  String
+  grantedScopes        String[]  @default([])
+  authorizationVersion String
+  legalDocument        String?
+  legalDocumentVersion String?
+  authorizationType    String
+  event                String
+  authorizedAt         DateTime?
+  revokedAt            DateTime?
+  metadata             Json      @default("{}")
+  createdAt            DateTime  @default(now())
+
+  user         User         @relation(fields: [userId], references: [id], onDelete: Restrict)
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, createdAt])
+  @@index([userId, createdAt])
+  @@index([organizationId, provider, createdAt])
+  @@map("authorization_audit_logs")
 }

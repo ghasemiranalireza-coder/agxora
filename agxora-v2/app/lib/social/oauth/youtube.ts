@@ -26,6 +26,8 @@ export type YouTubeConnectResult = {
 export type YouTubeCallbackResult = {
   readonly connected: true;
   readonly displayName?: string;
+  readonly handle?: string;
+  readonly grantedScopes?: readonly string[];
   readonly redirectPath?: string;
 };
 
@@ -45,9 +47,11 @@ function requireYouTubeEnabled(): void {
 export async function beginYouTubeOAuthForActor(
   actor: Actor,
   redirectPath?: string,
+  scopes?: readonly string[],
 ): Promise<YouTubeConnectResult> {
   requireYouTubeEnabled();
   const config = getYouTubeOAuthConfig()!;
+  const requestedScopes = scopes && scopes.length > 0 ? scopes : config.scopes;
   const pkce = createPkcePair();
   const issued = await issueSocialOAuthState({
     actor,
@@ -63,10 +67,11 @@ export async function beginYouTubeOAuthForActor(
     client_id: config.clientId,
     redirect_uri: config.redirectUri,
     response_type: "code",
-    scope: config.scopes.join(" "),
+    scope: requestedScopes.join(" "),
     state: issued.state,
     access_type: "offline",
     prompt: "consent",
+    include_granted_scopes: scopes && scopes.length > 0 ? "false" : "true",
     code_challenge: pkce.challenge,
     code_challenge_method: "S256",
   });
@@ -113,6 +118,7 @@ export async function completeYouTubeOAuthForActor(
     refresh_token?: string;
     expires_in?: number;
     token_type?: string;
+    scope?: string;
   };
   if (!tokens.access_token) {
     throw new PersistenceError("forbidden", "OAuth token exchange failed", {
@@ -145,13 +151,17 @@ export async function completeYouTubeOAuthForActor(
       ? new Date(Date.now() + tokens.expires_in * 1000)
       : undefined;
 
+  const grantedScopes = tokens.scope
+    ? tokens.scope.split(" ").filter((scope) => scope.length > 0)
+    : [...config.scopes];
+
   await upsertSocialCredentialForActor(actor, "youtube", {
     tokens: {
       accessToken: tokens.access_token,
       refreshToken: tokens.refresh_token,
       tokenType: tokens.token_type,
     },
-    scopes: [...config.scopes],
+    scopes: grantedScopes,
     externalAccountId: channelId,
     externalAccountName: channelName,
     accessTokenExpiresAt: expiresAt,
@@ -167,6 +177,8 @@ export async function completeYouTubeOAuthForActor(
   return {
     connected: true,
     displayName: channelName,
+    handle: channelId,
+    grantedScopes,
     redirectPath: resolveSafeInternalPath(
       consumed.redirectPath,
       YOUTUBE_OAUTH_FALLBACK_PATH,

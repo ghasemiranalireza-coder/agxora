@@ -37,6 +37,7 @@ export async function POST(
       actor,
       persistenceId,
       body.redirectPath,
+      body,
     );
     return NextResponse.json({
       ok: true,

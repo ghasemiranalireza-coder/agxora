@@ -292,5 +292,52 @@
     "legendConnectedHint": "Eine aktive Bindung existiert für diesen Arbeitsbereich.",
     "legendAttention": "Aufmerksamkeit",
     "legendAttentionHint": "Fehler, Degradierung oder ausstehende Aktion — nie ein Fake-Erfolg."
+  },
+  "authorization": {
+    "eyebrow": "Externe Plattform",
+    "account": "Konto",
+    "accountPending": "Die Plattform bestätigt das Konto während OAuth.",
+    "autoConfirm": "Ich bestätige die automatische Veröffentlichung für diese Plattform, dieses Konto und diese Inhaltsart.",
+    "cancel": "Abbrechen",
+    "connect": "Verbinden",
+    "disconnect": "Trennen",
+    "automaticPublishing": "Automatische Veröffentlichung",
+    "termsDoNotAuthorize": "Die Annahme der AGXORA-AGB berechtigt nicht zum Zugriff auf ein externes Konto.",
+    "manage": "Verwalten",
+    "permissions": "Berechtigungen",
+    "noneGranted": "Keine erteilt",
+    "connectedDate": "Verbunden",
+    "lastSync": "Letzte Synchronisierung",
+    "turnOff": "Ausschalten",
+    "turnOn": "Einschalten",
+    "autoBody": "Die automatische Veröffentlichung bleibt aus, bis Sie Plattform, Konto, Inhaltsart und die Nutzung der KI-Erstellung bestätigen.",
+    "frequencyManual": "Nach den gespeicherten Veröffentlichungseinstellungen",
+    "status": {
+      "connected": "Verbunden",
+      "disconnected": "Getrennt",
+      "expired": "Berechtigung abgelaufen",
+      "revoked": "Berechtigung widerrufen",
+      "error": "Verbindungsfehler",
+      "pending": "Berechtigung ausstehend",
+      "notConnected": "Nicht verbunden"
+    },
+    "permission": {
+      "connect_account": "Konto verbinden",
+      "read_content": "Inhalte lesen",
+      "create_content": "Inhalte erstellen",
+      "publish_posts": "Beiträge veröffentlichen",
+      "schedule_posts": "Beiträge planen",
+      "edit_posts": "Beiträge bearbeiten",
+      "delete_posts": "Beiträge löschen",
+      "read_comments": "Kommentare lesen",
+      "reply_comments": "Kommentare beantworten",
+      "read_messages": "Nachrichten lesen",
+      "reply_messages": "Nachrichten beantworten",
+      "read_analytics": "Analytics/Statistiken lesen",
+      "use_media": "Medien verwenden",
+      "send_email": "E-Mails senden",
+      "create_ai_content": "KI-Inhalte erstellen",
+      "auto_publish_ai": "KI-Inhalte automatisch veröffentlichen"
+    }
   }
 }

@@ -16,6 +16,7 @@ import { agentsStore } from "../store";
 import { SOCIAL_PLATFORMS, type BrandTone, type SocialPlatformId } from "../growth/types";
 import { useAgentOperatingSystem } from "../hooks";
 import { WebsitePreview } from "../website/preview";
+import { PlatformAuthorizationDialog } from "@/features/integrations/components/PlatformAuthorizationDialog";
 import type { WebsiteProject } from "../website/types";
 
 export type GrowthWorkspaceMode = "growth" | "website" | "social";
@@ -49,6 +50,7 @@ export function GrowthWorkspace({
   const project = snapshot.websiteProjects[0] as WebsiteProject | undefined;
   const [notice, setNotice] = useState(t("agents.growth.noticeReady"));
   const [busy, setBusy] = useState(false);
+  const [youtubeAuthOpen, setYoutubeAuthOpen] = useState(false);
   const [companyName, setCompanyName] = useState(profile?.companyName ?? "");
   const [industry, setIndustry] = useState(profile?.industry ?? "");
   const [description, setDescription] = useState(profile?.description ?? "");
@@ -340,25 +342,7 @@ export function GrowthWorkspace({
                 size="sm"
                 variant="secondary"
                 disabled={busy}
-                onClick={() =>
-                  void run(async () => {
-                    const response = await fetch("/api/v1/agents/social/youtube/connect", {
-                      method: "POST",
-                      credentials: "include",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({ redirectPath: "/agents?tab=social" }),
-                    });
-                    const payload = (await response.json()) as {
-                      ok?: boolean;
-                      authorizationUrl?: string;
-                      message?: string;
-                    };
-                    if (!response.ok || !payload.authorizationUrl) {
-                      throw new Error(payload.message || "YouTube connect failed");
-                    }
-                    window.location.href = payload.authorizationUrl;
-                  }, "agents.growth.noticeYouTubeConnect")
-                }
+                onClick={() => setYoutubeAuthOpen(true)}
               >
                 {t("agents.growth.actions.connectYouTube")}
               </Button>
@@ -488,6 +472,18 @@ export function GrowthWorkspace({
             </div>
           ))}
         </Card>
+      ) : null}
+      {youtubeAuthOpen ? (
+        <PlatformAuthorizationDialog
+          provider="youtube"
+          displayName="YouTube"
+          redirectPath="/agents?tab=social"
+          onClose={() => setYoutubeAuthOpen(false)}
+          onConnected={(authorizationUrl) => {
+            setYoutubeAuthOpen(false);
+            if (authorizationUrl) window.location.assign(authorizationUrl);
+          }}
+        />
       ) : null}
     </div>
   );

@@ -125,7 +125,15 @@ export class GmailProviderAdapter implements ProviderAdapter {
 
   async connect(ctx: AdapterContext): Promise<AdapterConnectResult> {
     const actor = requireAdapterActor(ctx);
-    const result = await beginGmailOAuthForActor(actor, ctx.redirectPath);
+    const { lookupGrantedPermissionKeys } = await import(
+      "@/app/lib/platform-authorization/service"
+    );
+    const { oauthScopesForPermissions } = await import(
+      "@/app/lib/platform-authorization/policy"
+    );
+    const granted = await lookupGrantedPermissionKeys(actor, "email_gmail");
+    const scopes = granted ? oauthScopesForPermissions("email_gmail", granted) : undefined;
+    const result = await beginGmailOAuthForActor(actor, ctx.redirectPath, scopes);
     return {
       authorizationUrl: result.authorizationUrl,
       connected: false,
