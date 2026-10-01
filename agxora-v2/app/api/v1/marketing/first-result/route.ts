@@ -5,7 +5,7 @@
 
 import { NextResponse } from "next/server";
 import { jsonError } from "@/app/lib/crm/persistence/http";
-import { beginFirstMarketingGoal, loadFirstResultStatus } from "@/app/lib/marketing/firstResultServer";
+import { beginFirstMarketingGoal, loadFirstResultStatus, persistFirstMarketingDraftForActor } from "@/app/lib/marketing/firstResultServer";
 import { parseFirstResultStart } from "@/app/lib/marketing/firstResult";
 import { requireCurrentActor } from "@/app/lib/tenancy";
 
@@ -43,12 +43,20 @@ export async function POST(request: Request): Promise<NextResponse> {
         { status: started.status },
       );
     }
+    const stored = await persistFirstMarketingDraftForActor(actor);
+    if (!stored.ok) {
+      return NextResponse.json(
+        { ok: false, error: stored.error, code: stored.code },
+        { status: stored.status },
+      );
+    }
     return NextResponse.json({
       ok: true,
       created: started.created,
-      reused: started.reused,
+      reused: started.reused || stored.reused,
       goalId: started.goalId,
-      next: started.next,
+      draftReady: true,
+      next: "review",
     });
   } catch (error) {
     return jsonError(error);

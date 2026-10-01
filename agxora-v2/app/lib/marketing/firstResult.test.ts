@@ -1,6 +1,8 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { authorizeGovernedMutation } from "@/features/agents/evidence/governedAuthorization";
+import { parseModelMarketingProposal } from "@/features/agents/marketing/planSchema";
 import { emptyAgentsState, type AgentsPersistedState } from "@/features/agents/repositories";
 import type { AgentRuntime, BusinessGoal, MemoryRecord } from "@/features/agents/types";
 import { applyConfirmedBusinessFact } from "./businessFact";
@@ -14,7 +16,9 @@ import {
   marketingAccessDecision,
   missingFirstResultFacts,
   parseFirstResultStart,
+  persistFirstMarketingDraft,
   placeFirstMarketingGoal,
+  preparedDraftFromState,
 } from "./firstResult";
 
 const ORG = "11111111-1111-4111-8111-111111111111";
@@ -251,6 +255,96 @@ describe("phase 27 first governed result", () => {
     expect(unverified.next).not.toBe("verified");
   });
 
+  it("stores one draft on the prepare step and waits for approval", () => {
+    const placed = place(withConfirmedFacts(ORG));
+    if (!placed.ok) throw new Error(placed.code);
+    const first = persistFirstMarketingDraft(placed.state, {
+      organizationId: ORG,
+      actorId: "user_1",
+      plan: samplePlan(),
+      now: NOW,
+    });
+    if (!first.ok) throw new Error(first.code);
+    expect(first.created).toBe(true);
+    expect(first.approvalState).toBe("REQUIRES_APPROVAL");
+    expect(preparedDraftFromState(first.state, ORG)?.strategy).toContain("weekday lunch");
+    expect(first.state.tasks).toHaveLength(1);
+    expect(first.state.executions).toHaveLength(1);
+    expect(first.state.approvals).toHaveLength(1);
+    expect(first.state.plans).toHaveLength(1);
+    const record = first.state.plans[0]?.steps.find((step) => step.capabilityId === "MARKETING_RECORD_PLAN");
+    const blocked = authorizeGovernedMutation({
+      organizationId: ORG,
+      actorId: "user_1",
+      capabilityId: "MARKETING_RECORD_PLAN",
+      idempotencyKey: record?.idempotencyKey ?? "",
+      executionId: first.executionId,
+      stepId: first.recordStepId,
+      state: first.state,
+    });
+    expect(blocked.ok).toBe(false);
+
+    const approvedState = {
+      ...first.state,
+      approvals: first.state.approvals.map((item) => ({ ...item, state: "APPROVED" as const })),
+    };
+    const allowed = authorizeGovernedMutation({
+      organizationId: ORG,
+      actorId: "user_1",
+      capabilityId: "MARKETING_RECORD_PLAN",
+      idempotencyKey: record?.idempotencyKey ?? "",
+      executionId: first.executionId,
+      stepId: first.recordStepId,
+      state: approvedState,
+    });
+    expect(allowed.ok).toBe(true);
+
+    const second = persistFirstMarketingDraft(first.state, {
+      organizationId: ORG,
+      actorId: "user_1",
+      plan: samplePlan("A different strategy that must not replace the stored draft."),
+      now: NOW,
+    });
+    if (!second.ok) throw new Error(second.code);
+    expect(second.reused).toBe(true);
+    expect(second.changed).toBe(false);
+    expect(second.state.tasks).toHaveLength(1);
+    expect(second.state.executions).toHaveLength(1);
+    expect(second.state.approvals).toHaveLength(1);
+    expect(preparedDraftFromState(second.state, ORG)?.strategy).toContain("weekday lunch");
+    const foreign = persistFirstMarketingDraft(first.state, {
+      organizationId: OTHER,
+      actorId: "user_2",
+      plan: samplePlan(),
+      now: NOW,
+    });
+    expect(foreign.ok).toBe(false);
+  });
+
+  it("does not store an invalid or paused-worker draft", () => {
+    const placed = place(withConfirmedFacts(ORG));
+    if (!placed.ok) throw new Error(placed.code);
+    const invalid = persistFirstMarketingDraft(placed.state, {
+      organizationId: ORG,
+      actorId: "user_1",
+      plan: { ...samplePlan(), simulated: true },
+      now: NOW,
+    });
+    expect(invalid.ok).toBe(false);
+    const paused = {
+      ...placed.state,
+      workers: (placed.state.workers ?? []).map((worker) => ({ ...worker, status: "PAUSED" as const })),
+    };
+    const blocked = persistFirstMarketingDraft(paused, {
+      organizationId: ORG,
+      actorId: "user_1",
+      plan: samplePlan(),
+      now: NOW,
+    });
+    expect(blocked.ok).toBe(false);
+    if (!blocked.ok) expect(blocked.code).toBe("worker_paused");
+  });
+
   it("keeps the route from trusting client authority", () => {
     const route = readFileSync(path.join(ROOT, "app/api/v1/marketing/first-result/route.ts"), "utf8");
     const server = readFileSync(path.join(ROOT, "app/lib/marketing/firstResultServer.ts"), "utf8");
@@ -259,11 +353,43 @@ describe("phase 27 first governed result", () => {
     expect(route).toContain("parseFirstResultStart");
     expect(server).toContain("pg_advisory_xact_lock");
     expect(server).toContain("actor.organizationId");
+    expect(server).toContain("persistFirstMarketingDraft");
+    expect(server).toContain("draftMarketingPlan");
     expect(server).not.toContain("body.organizationId");
+    expect(server).not.toContain('state: "APPROVED"');
     const claim = readFileSync(path.join(ROOT, "app/lib/marketing/claimGate.ts"), "utf8");
     expect(claim).toContain("CLAIM_GATE_VERSION");
   });
 });
+
+function samplePlan(strategy = "Invite guests to the weekday lunch menu.") {
+  const parsed = parseModelMarketingProposal(
+    {
+      strategy,
+      audience: "",
+      offer: "Daily changing lunch menu",
+      channelIntent: "website",
+      contentThemes: ["lunch"],
+      contentItems: [1, 2, 3, 4, 5, 6, 7].map((day) => ({
+        day,
+        theme: "Lunch",
+        draftCopy: `Day ${day} lunch.`,
+        callToAction: "Visit",
+      })),
+    },
+    {
+      goalStatement: FIRST_MARKETING_GOAL_STATEMENT,
+      organizationName: "Restaurant Menzel",
+      offer: "Daily changing lunch menu",
+      facts: [],
+      contextRecordIds: [],
+      narrowedFromPublish: false,
+    },
+    "gpt-4.1",
+  );
+  if (!parsed.ok) throw new Error(parsed.error);
+  return parsed.plan;
+}
 
 function waitingInput() {
   return {

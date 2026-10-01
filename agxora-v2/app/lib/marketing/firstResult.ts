@@ -9,9 +9,10 @@ import { canUseCapability, type PaidAccess } from "@/app/lib/billing/entitlement
 import type { PlanCode } from "@/app/lib/billing/catalog";
 import { isBusinessMemoryValue, type BusinessFactCategory } from "@/features/agents/memory/businessContext";
 import { buildMarketingPlan } from "@/features/agents/orchestration/goalPlan";
-import { isMarketingChannelIntent, MARKETING_CHANNEL_INTENTS, type MarketingChannelIntent } from "@/features/agents/marketing/planSchema";
+import { createApproval, createExecution } from "@/features/agents/execution";
+import { validateStoredMarketingPlan, isMarketingChannelIntent, MARKETING_CHANNEL_INTENTS, type MarketingChannelIntent, type MarketingPlanDocument } from "@/features/agents/marketing/planSchema";
 import type { AgentsPersistedState } from "@/features/agents/repositories";
-import type { BusinessGoal, WorkforceWorker } from "@/features/agents/types";
+import type { AgentApproval, AgentExecution, AgentPlan, AgentTask, BusinessGoal, PlanStep, WorkforceWorker } from "@/features/agents/types";
 import { authoritativeBusinessFacts } from "./businessFact";
 import { buildActivationMarketingWorker } from "./workerRecord";
 
@@ -285,6 +286,228 @@ export function placeFirstMarketingGoal(
       workers: nextWorkers,
       businessGoals: [...(state.businessGoals ?? []), stored],
       plans: [...state.plans, plan],
+    },
+  };
+}
+
+function asRecord(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  return value as Record<string, unknown>;
+}
+
+/** The draft the claim gate reads from the prepare step. A client payload is not accepted here. */
+export function preparedDraftFromState(
+  state: AgentsPersistedState,
+  organizationId: string,
+): MarketingPlanDocument | null {
+  const goal = findFirstMarketingGoal(state.businessGoals, organizationId);
+  if (!goal?.planId) return null;
+  const plan = state.plans.find((item) => item.id === goal.planId && item.organizationId === organizationId);
+  const result = asRecord(plan?.steps.find((step) => step.capabilityId === "MARKETING_PREPARE_PLAN")?.result);
+  const validated = validateStoredMarketingPlan(result?.plan);
+  return validated.ok ? validated.plan : null;
+}
+
+export interface PersistDraftInput {
+  readonly organizationId: string;
+  readonly actorId: string;
+  readonly plan: MarketingPlanDocument;
+  readonly now?: string;
+}
+
+export type PersistDraftResult =
+  | {
+      readonly ok: true;
+      readonly created: boolean;
+      readonly reused: boolean;
+      readonly changed: boolean;
+      readonly planId: string;
+      readonly executionId: string;
+      readonly recordStepId: string;
+      readonly approvalState: AgentApproval["state"];
+      readonly state: AgentsPersistedState;
+    }
+  | {
+      readonly ok: false;
+      readonly code: "missing_goal" | "missing_plan" | "invalid_plan" | "worker_paused";
+      readonly changed: false;
+      readonly state: AgentsPersistedState;
+    };
+
+function patchStep(plan: AgentPlan, stepId: string, patch: Partial<PlanStep>, now: string): AgentPlan {
+  return {
+    ...plan,
+    updatedAt: now,
+    steps: plan.steps.map((step) => (step.id === stepId ? { ...step, ...patch } : step)),
+  };
+}
+
+/**
+ * Store one model draft on the existing prepare step and leave the record step waiting.
+ * Does not approve, record, or verify. A second call keeps the first draft and the first execution.
+ */
+export function persistFirstMarketingDraft(
+  state: AgentsPersistedState,
+  input: PersistDraftInput,
+): PersistDraftResult {
+  const organizationId = input.organizationId.trim();
+  const now = input.now ?? new Date().toISOString();
+  const goal = findFirstMarketingGoal(state.businessGoals, organizationId);
+  if (!goal?.planId) return { ok: false, code: "missing_goal", changed: false, state };
+  const plan = state.plans.find((item) => item.id === goal.planId && item.organizationId === organizationId);
+  if (!plan) return { ok: false, code: "missing_plan", changed: false, state };
+  const validated = validateStoredMarketingPlan(input.plan);
+  if (!validated.ok) return { ok: false, code: "invalid_plan", changed: false, state };
+  const active = activeMarketingWorker(state.workers, organizationId);
+  const stored = preparedDraftFromState(state, organizationId);
+  if (!stored && !active) return { ok: false, code: "worker_paused", changed: false, state };
+
+  const context = plan.steps.find((step) => step.capabilityId === "MARKETING_LOAD_BUSINESS_CONTEXT");
+  const prepare = plan.steps.find((step) => step.capabilityId === "MARKETING_PREPARE_PLAN");
+  const record = plan.steps.find((step) => step.capabilityId === "MARKETING_RECORD_PLAN");
+  if (!context || !prepare || !record) return { ok: false, code: "missing_plan", changed: false, state };
+
+  let nextPlan = plan;
+  let changed = false;
+  if (!stored) {
+    nextPlan = patchStep(nextPlan, context.id, {
+      status: "completed",
+      result: { action: "load_business_context", readOnly: true, mutated: false, verified: true },
+    }, now);
+    nextPlan = patchStep(nextPlan, prepare.id, {
+      status: "completed",
+      result: {
+        action: "prepare_marketing_plan",
+        readOnly: true,
+        mutated: false,
+        simulated: false,
+        modelId: validated.plan.modelId,
+        plan: validated.plan,
+      },
+    }, now);
+    nextPlan = patchStep(nextPlan, record.id, { status: "blocked" }, now);
+    changed = true;
+  } else if (record.status === "pending") {
+    nextPlan = patchStep(nextPlan, record.id, { status: "blocked" }, now);
+    changed = true;
+  }
+
+  const tasks = state.tasks ?? [];
+  const existingTask = tasks.find((item) => item.id === goal.taskId && item.organizationId === organizationId)
+    ?? tasks.find((item) => item.organizationId === organizationId && item.input.businessGoalId === goal.id);
+  const executions = state.executions ?? [];
+  const existingExecution = existingTask
+    ? executions.find((item) => item.id === existingTask.executionId && item.organizationId === organizationId)
+      ?? executions.find((item) => item.taskId === existingTask.id && item.organizationId === organizationId)
+    : undefined;
+  const approvals = state.approvals ?? [];
+  const existingApproval = approvals.find(
+    (item) =>
+      item.organizationId === organizationId &&
+      item.planId === plan.id &&
+      item.stepId === record.id,
+  );
+
+  const workerId = goal.workerId ?? active?.id;
+  const actorId = goal.actorId || input.actorId.trim();
+  let task: AgentTask = existingTask ?? {
+    id: `atask_${randomUUID()}`,
+    organizationId,
+    agentInstanceId: plan.agentInstanceId,
+    title: goal.statement,
+    status: "blocked",
+    priority: 1,
+    planId: plan.id,
+    input: {
+      goal: goal.statement,
+      businessGoalId: goal.id,
+      workerId,
+      actorId,
+      marketingOffer: goal.marketingOffer,
+      marketingNarrowed: goal.marketingNarrowed === true,
+      channelIntent: goal.channelIntent,
+    },
+    attempt: 1,
+    maxAttempts: 1,
+    createdAt: now,
+  };
+  let execution: AgentExecution = existingExecution ?? {
+    ...createExecution({
+      organizationId,
+      agentInstanceId: plan.agentInstanceId,
+      taskId: task.id,
+      goal: goal.statement,
+      lifecycle: "WAITING_FOR_APPROVAL",
+      workerId,
+      actorId,
+    }),
+    planId: plan.id,
+    currentStepId: record.id,
+    blockedReason: "This marketing plan needs approval before it is stored.",
+  };
+  if (!existingExecution) changed = true;
+  if (execution.planId !== plan.id || execution.currentStepId !== record.id) {
+    execution = { ...execution, planId: plan.id, currentStepId: record.id, updatedAt: now };
+    changed = true;
+  }
+  if (task.executionId !== execution.id || task.planId !== plan.id || task.status !== "blocked") {
+    task = { ...task, executionId: execution.id, planId: plan.id, status: existingApproval?.state === "APPROVED" ? task.status : "blocked" };
+    if (!existingTask || existingTask.executionId !== execution.id) changed = true;
+  }
+
+  const approval: AgentApproval = existingApproval ?? createApproval({
+    organizationId,
+    agentInstanceId: plan.agentInstanceId,
+    executionId: execution.id,
+    taskId: task.id,
+    planId: plan.id,
+    stepId: record.id,
+    toolId: record.toolId,
+    action: record.title,
+    reason: "Store the approved marketing plan. Nothing is published.",
+  });
+  if (!existingApproval) changed = true;
+  if (approval.state === "APPROVED") {
+    // A granted approval stays granted. This function never creates one.
+  }
+
+  const nextGoal: BusinessGoal = goal.taskId === task.id && goal.executionId === execution.id
+    ? goal
+    : { ...goal, taskId: task.id, executionId: execution.id, planId: plan.id, updatedAt: now };
+  if (nextGoal !== goal) changed = true;
+
+  if (!changed) {
+    return {
+      ok: true,
+      created: false,
+      reused: true,
+      changed: false,
+      planId: plan.id,
+      executionId: execution.id,
+      recordStepId: record.id,
+      approvalState: approval.state,
+      state,
+    };
+  }
+
+  return {
+    ok: true,
+    created: !stored,
+    reused: Boolean(stored),
+    changed: true,
+    planId: plan.id,
+    executionId: execution.id,
+    recordStepId: record.id,
+    approvalState: approval.state,
+    state: {
+      ...state,
+      plans: state.plans.map((item) => (item.id === nextPlan.id ? nextPlan : item)),
+      tasks: existingTask ? tasks.map((item) => (item.id === task.id ? task : item)) : [...tasks, task],
+      executions: existingExecution
+        ? executions.map((item) => (item.id === execution.id ? execution : item))
+        : [...executions, execution],
+      approvals: existingApproval ? approvals : [...approvals, approval],
+      businessGoals: (state.businessGoals ?? []).map((item) => (item.id === goal.id ? nextGoal : item)),
     },
   };
 }
