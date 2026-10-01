@@ -24,6 +24,7 @@ import {
   marketingAccessDecision,
   missingFirstResultFacts,
   offerFromConfirmedFacts,
+  ensureCrmAssistantRuntime,
   persistFirstMarketingDraft,
   placeFirstMarketingGoal,
   preparedDraftFromState,
@@ -189,7 +190,9 @@ export async function beginFirstMarketingGoal(
   return prisma.$transaction(async (tx) => {
     await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtext(${lockKey})::bigint)`;
     const row = await tx.agentOsState.findUnique({ where: { organizationId: actor.organizationId } });
-    const state = row ? readState(row.payload, actor.organizationId) : emptyAgentsState();
+    const loaded = row ? readState(row.payload, actor.organizationId) : emptyAgentsState();
+    const ensured = ensureCrmAssistantRuntime(loaded, actor.organizationId);
+    const state = ensured.state;
     const placed = placeFirstMarketingGoal(state, {
       organizationId: actor.organizationId,
       actorId: actor.userId,
