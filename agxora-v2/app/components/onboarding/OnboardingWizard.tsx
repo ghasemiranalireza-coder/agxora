@@ -14,6 +14,7 @@ import { useOptionalAuth } from "../../lib/auth";
 import { useOrganization } from "../../lib/organization";
 import { isServerAuthMode } from "../../lib/auth/mode";
 import { persistOnboardingFinanceSettings } from "../../lib/finance/documents/onboardingFinanceClient";
+import { checkoutHrefForIntent, readPlanIntent } from "../../lib/billing/planHandoff";
 
 const surfaceTransition = [
   `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
@@ -128,7 +129,8 @@ export function OnboardingWizard(): JSX.Element {
         bic,
       });
 
-      router.push("/dashboard");
+      const intent = readPlanIntent(new URLSearchParams(window.location.search));
+      router.push(intent ? checkoutHrefForIntent(intent) : "/dashboard");
     } catch (err) {
       setError(t(resolveUserFacingErrorKey(err, "onboarding.failed")));
       setSubmitting(false);

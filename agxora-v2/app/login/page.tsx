@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useState, type FormEvent, type JSX } from "react";
+import { Suspense, useEffect, useState, type FormEvent, type JSX } from "react";
 import {
   AuthCard,
   AuthCheckbox,
@@ -20,12 +20,16 @@ import { needsWelcome } from "../lib/auth/welcomeFlags";
 import { getRememberedEmail } from "../lib/identity";
 import { useT, resolveUserFacingErrorKey } from "../lib/i18n";
 import { iamAuthService } from "../../features/auth";
+import { checkoutHrefForIntent, pathWithPlan, readPlanIntent, rememberPlanSearch } from "../lib/billing/planHandoff";
 
 function LoginForm(): JSX.Element {
   const t = useT();
   const { refresh } = useAuth();
   const router = useRouter();
   const search = useSearchParams();
+  useEffect(() => {
+    rememberPlanSearch(search);
+  }, [search]);
   const remembered = getRememberedEmail();
   const [email, setEmail] = useState(remembered ?? "");
   const [password, setPassword] = useState("");
@@ -57,12 +61,17 @@ function LoginForm(): JSX.Element {
       const result = await iamAuthService.login({ email, password, rememberMe });
       await refresh();
       const next = search.get("next");
+      const intent = readPlanIntent(search);
       if (next && next.startsWith("/invite/")) {
         router.replace(next);
         return;
       }
       if (needsWelcome(result.userId)) {
-        router.replace("/welcome");
+        router.replace(pathWithPlan("/welcome", intent));
+        return;
+      }
+      if (intent) {
+        router.replace(checkoutHrefForIntent(intent));
         return;
       }
       router.replace(next && next.startsWith("/") ? next : "/dashboard");
@@ -84,11 +93,12 @@ function LoginForm(): JSX.Element {
           <div>
             {t("auth.login.noAccount")}{" "}
             <AuthLink
-              href={
+              href={pathWithPlan(
                 search.get("next")?.startsWith("/")
                   ? `/register?next=${encodeURIComponent(search.get("next") ?? "")}`
-                  : "/register"
-              }
+                  : "/register",
+                readPlanIntent(search),
+              )}
             >
               {t("auth.login.startFree")}
             </AuthLink>

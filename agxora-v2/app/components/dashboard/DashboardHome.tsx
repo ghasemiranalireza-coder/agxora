@@ -16,6 +16,7 @@ import { AttentionPanel, type AttentionItem } from "./AttentionPanel";
 import { BusinessOverview } from "./BusinessOverview";
 import { CommandCenter } from "./CommandCenter";
 import { ActivationChecklist } from "./ActivationChecklist";
+import { FirstGovernedResult } from "./FirstGovernedResult";
 import { HeroSection } from "./HeroSection";
 import { QuickActions } from "./QuickActions";
 import "./dashboard.css";
@@ -91,6 +92,7 @@ export function DashboardHome(): JSX.Element {
   return (
     <div className="agx-dashboard-home">
       <HeroSection />
+      <FirstGovernedResult />
       <ActivationChecklist />
       <CommandCenter />
       <AttentionPanel items={attention} summary={summary} />
