@@ -327,6 +327,43 @@ function asRecord(value: unknown): Record<string, unknown> | null {
   return value as Record<string, unknown>;
 }
 
+/**
+ * Keep model sentences the claim gate already accepts.
+ * Unsupported or prohibited sentences are replaced with the confirmed offer.
+ * The claim gate still has to pass the stored text. This does not approve it.
+ */
+export function retainSupportedMarketingCopy(
+  plan: MarketingPlanDocument,
+  claims: readonly { readonly text: string; readonly kind: string }[],
+): MarketingPlanDocument {
+  const blocked = claims
+    .filter((claim) => claim.kind === "UNSUPPORTED_FACT" || claim.kind === "PROHIBITED_CLAIM")
+    .map((claim) => claim.text.trim())
+    .filter((text) => text.length > 0)
+    .sort((left, right) => right.length - left.length);
+  if (blocked.length === 0) return plan;
+  const offer = plan.offer.trim();
+  const rewrite = (text: string): string => {
+    let next = text;
+    for (const sentence of blocked) {
+      if (next.includes(sentence)) next = next.split(sentence).join(offer);
+    }
+    return next;
+  };
+  return {
+    ...plan,
+    strategy: rewrite(plan.strategy),
+    audience: rewrite(plan.audience),
+    contentThemes: plan.contentThemes.map(rewrite),
+    contentItems: plan.contentItems.map((item) => ({
+      ...item,
+      theme: rewrite(item.theme),
+      draftCopy: rewrite(item.draftCopy),
+      callToAction: rewrite(item.callToAction),
+    })),
+  };
+}
+
 /** The draft the claim gate reads from the prepare step. A client payload is not accepted here. */
 export function preparedDraftFromState(
   state: AgentsPersistedState,
