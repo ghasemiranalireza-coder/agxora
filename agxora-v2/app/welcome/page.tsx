@@ -10,6 +10,7 @@ import {
 } from "../components/auth/AuthCard";
 import { useAuth } from "../lib/auth";
 import { completeWelcome } from "../lib/auth/welcomeFlags";
+import { checkoutHrefForIntent, readPlanIntent, rememberPlanSearch } from "../lib/billing/planHandoff";
 import { useT } from "../lib/i18n";
 
 export default function WelcomePage(): JSX.Element {
@@ -30,7 +31,9 @@ export default function WelcomePage(): JSX.Element {
 
   function onContinue() {
     completeWelcome(user?.id);
-    router.replace("/onboarding");
+    const params = new URLSearchParams(window.location.search);
+    const intent = rememberPlanSearch(params) ?? readPlanIntent();
+    router.replace(intent ? checkoutHrefForIntent(intent) : "/onboarding");
   }
 
   if (!hydrated || !isAuthenticated || !user) {

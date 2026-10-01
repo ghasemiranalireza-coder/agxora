@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState, type JSX } from "react";
 import { VAT_NOTICE } from "@/app/lib/billing/catalog";
+import { resolveSelectedInterval, resolveSelectedPlan } from "@/app/lib/billing/planIntent";
 import { Button } from "../ui";
 import { useLocale } from "../../lib/i18n";
 import { SettingsNotice, SettingsPanel } from "./forms/SettingsControls";
@@ -59,6 +60,7 @@ export function BillingSettingsPanel(): JSX.Element {
   const [busy, setBusy] = useState<string | null>(null);
   const [confirmCancel, setConfirmCancel] = useState(false);
   const [interval, setInterval] = useState<"month" | "year">("month");
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     const response = await fetch("/api/v1/billing/subscription", { cache: "no-store" });
@@ -67,7 +69,8 @@ export function BillingSettingsPanel(): JSX.Element {
       throw new Error(body.message || t("settings.billing.loadError"));
     }
     setView(body);
-    if (body.subscription?.interval) setInterval(body.subscription.interval);
+    const queryInterval = resolveSelectedInterval(new URLSearchParams(window.location.search).get("interval"));
+    if (!queryInterval && body.subscription?.interval) setInterval(body.subscription.interval);
   }, [t]);
 
   useEffect(() => {
@@ -81,7 +84,12 @@ export function BillingSettingsPanel(): JSX.Element {
           return;
         }
         setView(body);
-        if (body.subscription?.interval) setInterval(body.subscription.interval);
+        const params = new URLSearchParams(window.location.search);
+        const plan = resolveSelectedPlan(params.get("plan"));
+        const queryInterval = resolveSelectedInterval(params.get("interval"));
+        if (plan) setSelectedPlan(plan);
+        if (queryInterval) setInterval(queryInterval);
+        else if (body.subscription?.interval) setInterval(body.subscription.interval);
       })
       .catch(() => {
         if (!cancelled) setError(t("settings.billing.loadError"));
@@ -138,6 +146,13 @@ export function BillingSettingsPanel(): JSX.Element {
     <SettingsPanel title={t("settings.billing.title")} description={t("settings.billing.panelDescription")}>
       <SettingsNotice>{t("settings.billing.notFinanceNotice")}</SettingsNotice>
       <SettingsNotice>{t("settings.billing.returnNotice")}</SettingsNotice>
+      {selectedPlan ? (
+        <SettingsNotice>
+          {t("settings.billing.selectedPlan", {
+            plan: view?.catalog?.find((item) => item.code === selectedPlan)?.name ?? selectedPlan,
+          })}
+        </SettingsNotice>
+      ) : null}
       {error ? <SettingsNotice>{error}</SettingsNotice> : null}
       {notice ? <SettingsNotice>{notice}</SettingsNotice> : null}
       {!view && !error ? <SettingsNotice>{t("settings.billing.loading")}</SettingsNotice> : null}
@@ -203,7 +218,12 @@ export function BillingSettingsPanel(): JSX.Element {
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
-              <Button size="sm" variant="primary" disabled={busy === plan.code} onClick={() => void checkout(plan.code)}>
+              <Button
+                size="sm"
+                variant={!selectedPlan || plan.code === selectedPlan ? "primary" : "secondary"}
+                disabled={busy === plan.code}
+                onClick={() => void checkout(plan.code)}
+              >
                 {subscription ? t("settings.billing.changePlan") : t("settings.billing.checkout")}
               </Button>
             </div>
@@ -211,6 +231,16 @@ export function BillingSettingsPanel(): JSX.Element {
         </div>
       ) : null}
 
+      {subscription?.paidAccess &&
+      (subscription.planCode === "agxora_business" || subscription.planCode === "agxora_professional") ? (
+        <div className="mb-4">
+          <Link href="/dashboard#first-result">
+            <Button size="sm" variant="primary">
+              {t("settings.billing.continueSetup")}
+            </Button>
+          </Link>
+        </div>
+      ) : null}
       <div className="mb-4">
         <Link href="/dashboard/finance">
           <Button size="sm" variant="secondary">

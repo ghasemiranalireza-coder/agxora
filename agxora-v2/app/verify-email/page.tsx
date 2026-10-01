@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useState, type FormEvent, type JSX } from "react";
+import { Suspense, useEffect, useState, type FormEvent, type JSX } from "react";
 import { useAuth } from "../lib/auth";
 import { localizeThrownError, useT } from "../lib/i18n";
 import {
@@ -10,6 +10,7 @@ import {
   authButtonStyle,
   authInputStyle,
 } from "../components/auth/AuthCard";
+import { checkoutHrefForIntent, readPlanIntent, rememberPlanSearch } from "../lib/billing/planHandoff";
 
 function VerifyEmailForm(): JSX.Element {
   const t = useT();
@@ -18,6 +19,9 @@ function VerifyEmailForm(): JSX.Element {
   const router = useRouter();
   const params = useSearchParams();
   const [token, setToken] = useState(params.get("token") ?? "");
+  useEffect(() => {
+    rememberPlanSearch(params);
+  }, [params]);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -43,7 +47,8 @@ function VerifyEmailForm(): JSX.Element {
     setError(null);
     try {
       await verifyEmail({ token });
-      router.replace("/dashboard");
+      const intent = readPlanIntent(params);
+      router.replace(intent ? checkoutHrefForIntent(intent) : "/dashboard");
     } catch (err) {
       setError(localizeThrownError(t, err, "iam.verifyEmail.verificationFailed"));
     } finally {

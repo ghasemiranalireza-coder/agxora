@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Suspense, useState, type FormEvent, type JSX } from "react";
+import { Suspense, useEffect, useState, type FormEvent, type JSX } from "react";
 import {
   AuthCard,
   AuthCheckbox,
@@ -25,12 +25,16 @@ import {
 import { markWelcomePending } from "../lib/auth/welcomeFlags";
 import { useT, resolveUserFacingErrorKey } from "../lib/i18n";
 import { iamAuthService } from "../../features/auth";
+import { pathWithPlan, readPlanIntent, rememberPlanSearch } from "../lib/billing/planHandoff";
 
 function RegisterForm(): JSX.Element {
   const t = useT();
   const { refresh } = useAuth();
   const router = useRouter();
   const search = useSearchParams();
+  useEffect(() => {
+    rememberPlanSearch(search);
+  }, [search]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -87,7 +91,8 @@ function RegisterForm(): JSX.Element {
         return;
       }
       markWelcomePending(result.userId);
-      router.replace("/welcome");
+      const intent = readPlanIntent(search);
+      router.replace(pathWithPlan("/welcome", intent));
     } catch (err) {
       setError(resolveUserFacingErrorKey(err, "auth.register.failed"));
     } finally {
@@ -103,11 +108,12 @@ function RegisterForm(): JSX.Element {
         <>
           {t("auth.register.haveAccount")}{" "}
           <AuthLink
-            href={
+            href={pathWithPlan(
               search.get("next")?.startsWith("/")
                 ? `/login?next=${encodeURIComponent(search.get("next") ?? "")}`
-                : "/login"
-            }
+                : "/login",
+              readPlanIntent(search),
+            )}
           >
             {t("auth.register.signIn")}
           </AuthLink>

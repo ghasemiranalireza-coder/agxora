@@ -9,6 +9,7 @@ import {
   priceCents,
   type BillingInterval,
 } from "@/app/lib/billing/catalog";
+import { registerHref } from "@/app/lib/billing/planIntent";
 import { LanguageSwitcher, useLocale } from "../../lib/i18n";
 import "./pricing.css";
 
@@ -30,7 +31,7 @@ export function PricingPageView(): JSX.Element {
           <Link href="/demo">{t("pricing.navBookDemo")}</Link>
           <Link href="/login">{t("pricing.navSignIn")}</Link>
           <LanguageSwitcher id="pricing-language" />
-          <Link href="/register" className="p35-pricing__nav-cta">
+          <Link href={registerHref("agxora_business", interval)} className="p35-pricing__nav-cta">
             {t("pricing.choosePlan")}
           </Link>
         </nav>
@@ -71,7 +72,7 @@ export function PricingPageView(): JSX.Element {
             return (
               <Link
                 key={plan.code}
-                href="/register"
+                href={registerHref(plan.code, interval)}
                 className={`p35-plan${plan.recommended ? " is-recommended" : ""}`}
                 aria-label={`${plan.name} — ${t("pricing.choosePlan")}`}
               >
@@ -104,7 +105,7 @@ export function PricingPageView(): JSX.Element {
         </div>
 
         <div className="p35-pricing__actions" aria-label={t("pricing.commercialActions")}>
-          <Link href="/register" className="p35-pricing__action p35-pricing__action--primary">
+          <Link href={registerHref("agxora_business", interval)} className="p35-pricing__action p35-pricing__action--primary">
             {t("pricing.choosePlan")}
           </Link>
           <Link href="/demo" className="p35-pricing__action">
