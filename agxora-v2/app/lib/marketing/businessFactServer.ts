@@ -17,11 +17,11 @@ import { isBusinessMemoryValue } from "@/features/agents/memory/businessContext"
 import {
   BUSINESS_FACT_CAPABILITY,
   applyConfirmedBusinessFact,
-  authoritativeBusinessFacts,
   businessFactHash,
   businessFactIdempotencyKey,
   isAuthoritativeBusinessFact,
   parseBusinessFactConfirmation,
+  projectBusinessFactRead,
   type AppliedBusinessFact,
   type ConfirmedBusinessFact,
 } from "./businessFact";
@@ -33,28 +33,20 @@ function asRecord(value: unknown): Record<string, unknown> | null {
 
 export async function listBusinessFactsForActor(actor: Actor, memoryId?: string) {
   const state = await getAgentOsStateForActor(actor);
-  const facts = authoritativeBusinessFacts(state.memories, actor.organizationId);
+  const read = projectBusinessFactRead(state.memories, actor.organizationId);
   if (memoryId) {
-    const one = facts.find((record) => record.id === memoryId);
-    if (!one) {
+    const fact = read.facts.find((item) => item.memoryId === memoryId);
+    const withheld = read.needsAttention.find((item) => item.memoryId === memoryId);
+    if (!fact && !withheld) {
       return { ok: false as const, status: 404, error: "Business fact was not found." };
     }
-    return { ok: true as const, facts: [publicFact(one)] };
+    return {
+      ok: true as const,
+      facts: fact ? [fact] : [],
+      needsAttention: withheld ? [withheld] : [],
+    };
   }
-  return { ok: true as const, facts: facts.map(publicFact) };
-}
-
-function publicFact(record: { id: string; value: unknown }) {
-  const value = asRecord(record.value);
-  const fact = asRecord(value?.fact);
-  return {
-    memoryId: record.id,
-    category: typeof fact?.category === "string" ? fact.category : null,
-    statement: typeof value?.content === "string" ? value.content : "",
-    allowedForMarketing: fact?.allowedForMarketing === true,
-    status: "VERIFIED",
-    authoritative: true,
-  };
+  return { ok: true as const, facts: read.facts, needsAttention: read.needsAttention };
 }
 
 export async function confirmBusinessFactForActor(

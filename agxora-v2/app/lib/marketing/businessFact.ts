@@ -10,6 +10,8 @@ import {
   isBusinessMemoryValue,
   type BusinessFactCategory,
   type BusinessFactDetails,
+  type BusinessMemoryProvenance,
+  type BusinessMemoryStatus,
   type BusinessMemoryValue,
 } from "@/features/agents/memory/businessContext";
 import type { MemoryRecord } from "@/features/agents/types";
@@ -128,6 +130,79 @@ export function authoritativeBusinessFacts(
   organizationId: string,
 ): readonly MemoryRecord[] {
   return memories.filter((record) => isAuthoritativeBusinessFact(record, organizationId));
+}
+
+export interface BusinessFactHistoryView {
+  readonly statement: string;
+  readonly status: BusinessMemoryStatus;
+  readonly recordedAt: string;
+}
+
+/** Read model for one stored organization business fact. Client fields are not inputs. */
+export interface BusinessFactView {
+  readonly memoryId: string;
+  readonly category: string | null;
+  readonly statement: string;
+  readonly allowedForMarketing: boolean;
+  readonly status: BusinessMemoryStatus;
+  readonly provenance: BusinessMemoryProvenance;
+  readonly authoritative: boolean;
+  readonly conflict: boolean;
+  readonly updatedAt: string;
+  readonly verifiedAt: string | null;
+  readonly previous: BusinessFactHistoryView | null;
+}
+
+function isOrganizationBusinessFact(record: MemoryRecord, organizationId: string): boolean {
+  if (record.organizationId !== organizationId || record.scope !== "business") return false;
+  if (!isBusinessMemoryValue(record.value)) return false;
+  return record.value.memoryType === "BUSINESS_FACT" && record.value.subjectType === "organization";
+}
+
+function previousHistory(value: BusinessMemoryValue): BusinessFactHistoryView | null {
+  const previous = value.history.at(-1);
+  if (!previous) return null;
+  return {
+    statement: previous.content,
+    status: previous.status,
+    recordedAt: previous.recordedAt,
+  };
+}
+
+function toBusinessFactView(record: MemoryRecord, organizationId: string): BusinessFactView {
+  const value = record.value as BusinessMemoryValue;
+  return {
+    memoryId: record.id,
+    category: value.fact?.category ?? null,
+    statement: value.content,
+    allowedForMarketing: value.fact?.allowedForMarketing === true,
+    status: value.status,
+    provenance: value.provenance,
+    authoritative: isAuthoritativeBusinessFact(record, organizationId),
+    conflict: value.conflict === true,
+    updatedAt: value.updatedAt,
+    verifiedAt: typeof value.verifiedAt === "string" ? value.verifiedAt : null,
+    previous: previousHistory(value),
+  };
+}
+
+/**
+ * Split stored organization business facts into the set the claim gate can use
+ * and the set it withholds. Authoritative uses the existing predicate only.
+ */
+export function projectBusinessFactRead(
+  memories: readonly MemoryRecord[],
+  organizationId: string,
+): { readonly facts: readonly BusinessFactView[]; readonly needsAttention: readonly BusinessFactView[] } {
+  const facts: BusinessFactView[] = [];
+  const needsAttention: BusinessFactView[] = [];
+  for (const record of memories) {
+    if (!isOrganizationBusinessFact(record, organizationId)) continue;
+    const view = toBusinessFactView(record, organizationId);
+    if (view.authoritative) facts.push(view);
+    else needsAttention.push(view);
+  }
+  return { facts, needsAttention };
 }
 
 function sameFact(value: BusinessMemoryValue, fact: ConfirmedBusinessFact): boolean {
