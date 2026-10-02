@@ -236,6 +236,24 @@ const databaseCredentialStore: CredentialStore = {
     }
 
     try {
+      if (platform === "instagram") {
+        const { refreshInstagramAccessToken } = await import("./instagram/client");
+        const refreshed = await refreshInstagramAccessToken({ accessToken: tokens.accessToken });
+        if (!refreshed) return null;
+        const nextTokens: StoredSocialTokens = {
+          ...tokens,
+          accessToken: refreshed.accessToken,
+          refreshToken: refreshed.accessToken,
+        };
+        await prisma.socialPlatformCredential.update({
+          where: { id: row.id },
+          data: {
+            encryptedPayload: encryptTokens(nextTokens),
+            accessTokenExpiresAt: refreshed.expiresAt ?? null,
+          },
+        });
+        return refreshed.accessToken;
+      }
       const refreshed = await refreshGoogleAccessToken(tokens.refreshToken, platform);
       if (refreshed.invalidGrant) {
         await prisma.socialPlatformCredential.update({
@@ -323,6 +341,17 @@ const memoryCredentialStore: CredentialStore = {
     }
     if (!item.tokens.refreshToken) return null;
     try {
+      if (platform === "instagram") {
+        const { refreshInstagramAccessToken } = await import("./instagram/client");
+        const refreshed = await refreshInstagramAccessToken({ accessToken: item.tokens.accessToken });
+        if (!refreshed) return null;
+        const nextTokens = { ...item.tokens, accessToken: refreshed.accessToken, refreshToken: refreshed.accessToken };
+        memoryCredentials.set(memoryKey(actor.organizationId, platform), {
+          summary: { ...item.summary, accessTokenExpiresAt: refreshed.expiresAt },
+          tokens: nextTokens,
+        });
+        return refreshed.accessToken;
+      }
       const refreshed = await refreshGoogleAccessToken(
         item.tokens.refreshToken,
         platform,
@@ -370,6 +399,7 @@ export function setSocialCredentialStoreForTests(store: CredentialStore | null):
 export function socialPlatformFromSocialId(platformId: string): SocialPlatform | null {
   if (platformId === "youtube") return "youtube";
   if (platformId === "gmail" || platformId === "email_gmail") return "gmail";
+  if (platformId === "instagram") return "instagram";
   return null;
 }
 

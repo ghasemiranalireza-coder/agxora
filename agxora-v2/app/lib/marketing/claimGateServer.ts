@@ -161,6 +161,28 @@ async function serverDraft(actor: Actor, planId: string, submittedPlan?: unknown
   return { ok: true as const, plan: validated.plan };
 }
 
+/** Current plan and facts must still match a stored PASS. Does not create a check. */
+export async function requireCurrentClaimGatePass(
+  actor: Actor,
+  plan: Pick<MarketingPlanDocument, "strategy" | "audience" | "offer" | "contentThemes" | "contentItems">,
+  planId: string,
+): Promise<{ readonly ok: true; readonly contentHash: string } | { readonly ok: false; readonly error: string }> {
+  const checked = await loadContext(actor, plan, planId);
+  const idempotencyKey = claimGateIdempotencyKey(actor.organizationId, planId, checked.checkId);
+  const existing = await prisma.agentGovernedExecution.findUnique({
+    where: { organizationId_idempotencyKey: { organizationId: actor.organizationId, idempotencyKey } },
+  });
+  const decision = assessClaimGateApproval({
+    organizationId: actor.organizationId,
+    planId,
+    draftHash: checked.evaluation.contentHash,
+    factContextHash: checked.factsHash,
+    stored: parseStoredCheck(actor.organizationId, asRecord(existing?.outcome)),
+  });
+  if (!decision.ok || existing?.status !== "COMPLETED") return { ok: false, error: CLAIM_GATE_RECHECK_MESSAGE };
+  return { ok: true, contentHash: checked.evaluation.contentHash };
+}
+
 /** Read-only claim check. Does not store a result and does not approve the draft. */
 export async function previewMarketingClaimGate(
   actor: Actor,

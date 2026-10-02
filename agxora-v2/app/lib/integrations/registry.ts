@@ -92,7 +92,7 @@ export const PROVIDER_REGISTRY: readonly CanonicalProviderDefinition[] = [
     requiredPlan: null,
     supportsConnection: false,
     supportsMultipleAccounts: false,
-    description: "Official Meta OAuth is not implemented yet.",
+    description: "Instagram Login for one professional account. Image publish stays on the governed marketing capability.",
   }),
   def({
     providerId: "facebook",

@@ -227,6 +227,11 @@ export async function publishCreativeForActor(
     platform: plan.platform,
     modality: plan.modality,
   });
+  if (target.socialPlatform === "instagram") {
+    throw new PersistenceError("forbidden", "Instagram publishing uses the governed marketing capability.", {
+      details: [{ field: "platform", message: "governed_instagram_required" }],
+    });
+  }
 
   const storedPrimary = await getStoredPrimaryCreativeAsset({
     organizationId: actor.organizationId,

@@ -60,7 +60,13 @@ describe("external platform authorization policy", () => {
     ]);
     expect(supportedPermissionKeys("email_gmail")).not.toContain("publish_posts");
     expect(supportedPermissionKeys("email_gmail")).not.toContain("delete_posts");
-    expect(supportedPermissionKeys("instagram")).toEqual([]);
+    expect(supportedPermissionKeys("instagram")).toEqual([
+      "connect_account",
+      "read_content",
+      "publish_posts",
+    ]);
+    expect(supportedPermissionKeys("instagram")).not.toContain("auto_publish_ai");
+    expect(supportedPermissionKeys("instagram")).not.toContain("read_messages");
     expect(supportedPermissionKeys("youtube")).not.toContain("read_comments");
     expect(supportedPermissionKeys("youtube")).not.toContain("reply_messages");
   });
