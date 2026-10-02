@@ -14,6 +14,7 @@
  */
 
 import type { ToolId, ToolInputSchema } from "../types";
+import { instagramPublishAvailabilityFromEnv } from "./instagramAvailability";
 
 export type CapabilityMode = "READ" | "WRITE";
 export type CapabilityAvailabilityStatus = "LIVE" | "BLOCKED" | "SIMULATED" | "FUTURE";
@@ -363,6 +364,21 @@ export const CAPABILITIES: readonly CapabilityContract[] = [
     verifies: true,
     availability: "LIVE",
     evidenceType: "marketing_plan_readback",
+    inputSchema: objectSchema(sharedProperties, ["step", "goal"]),
+  }),
+  defineCapability({
+    id: "MARKETING_PUBLISH_INSTAGRAM",
+    name: "Publish to Instagram",
+    description: "Publish one approved marketing image to the organization's connected Instagram professional account.",
+    domain: "marketing",
+    toolId: "marketing",
+    action: "publish_instagram_image",
+    mutating: true,
+    approvalRequired: true,
+    permission: "marketing.write",
+    verifies: true,
+    availability: instagramPublishAvailabilityFromEnv(),
+    evidenceType: "instagram_media_readback",
     inputSchema: objectSchema(sharedProperties, ["step", "goal"]),
   }),
   ...futureMarketingCapabilities(),

@@ -14,6 +14,7 @@ import {
 } from "@/app/lib/marketing/firstResult";
 import { resumeFirstMarketingGoal } from "@/app/lib/marketing/resumeFirstGoal";
 import { MarketingClaimNotice, marketingDraftFingerprint } from "@/features/agents/components/MarketingClaimNotice";
+import { InstagramPublishPanel } from "./InstagramPublishPanel";
 import { useAgentOperatingSystem } from "@/features/agents/hooks";
 import { editMarketingDraft } from "@/features/agents/marketing/edit";
 import type { MarketingChannelIntent, MarketingPlanDocument } from "@/features/agents/marketing/planSchema";
@@ -418,6 +419,9 @@ export function FirstGovernedResult(): JSX.Element | null {
         <div className="agx-first-result__grid" data-testid="first-result-verified">
           <h3>{t("dashboard.firstResult.verifiedTitle")}</h3>
           <p>{t("dashboard.firstResult.verifiedBody")}</p>
+          {goal && plan && draft?.channelIntent === "instagram" ? (
+            <InstagramPublishPanel goalId={goal.id} planId={plan.id} day={draft.contentItems[0]?.day ?? 1} />
+          ) : null}
         </div>
       ) : null}
       {status.stored && !status.verified && status.approvalGranted ? <p>{t("dashboard.firstResult.verifying")}</p> : null}

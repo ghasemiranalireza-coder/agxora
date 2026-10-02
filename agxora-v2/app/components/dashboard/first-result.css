@@ -94,3 +94,24 @@
   overflow-wrap: anywhere;
   margin: 0;
 }
+
+.agx-ig-publish {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.agx-ig-publish__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+
+.agx-ig-publish__actions a,
+.agx-ig-publish__actions button {
+  max-width: 100%;
+}

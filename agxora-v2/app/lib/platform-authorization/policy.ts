@@ -124,6 +124,9 @@ export function isPlatformPermissionKey(value: string): value is PlatformPermiss
 export function supportedPermissionKeys(provider: string): readonly PlatformPermissionKey[] {
   const canonical = toCanonicalProviderId(provider);
   if (!canonical) return [];
+  if (canonical === "instagram") {
+    return ["connect_account", "read_content", "publish_posts"];
+  }
   let definition;
   try {
     definition = getProviderDefinition(canonical);
@@ -199,6 +202,11 @@ const YOUTUBE_SCOPE = {
   upload: "https://www.googleapis.com/auth/youtube.upload",
 } as const;
 
+const INSTAGRAM_SCOPE = {
+  basic: "instagram_business_basic",
+  publish: "instagram_business_content_publish",
+} as const;
+
 export function oauthScopesForPermissions(
   provider: string,
   keys: readonly string[],
@@ -228,6 +236,14 @@ export function oauthScopesForPermissions(
     if (scopes.size === 0) scopes.add(YOUTUBE_SCOPE.read);
     return [...scopes];
   }
+  if (canonical === "instagram") {
+    const scopes = new Set<string>();
+    if (set.has("connect_account") || set.has("read_content")) scopes.add(INSTAGRAM_SCOPE.basic);
+    if (set.has("publish_posts") || set.has("create_content") || set.has("use_media")) {
+      scopes.add(INSTAGRAM_SCOPE.publish);
+    }
+    return [...scopes];
+  }
   return [];
 }
 
@@ -253,6 +269,12 @@ export function intersectWithOAuthScopes(
       if (key === "read_content" || key === "read_analytics") return covers("youtube.readonly");
       if (key === "publish_posts" || key === "create_content" || key === "use_media") {
         return covers("youtube.upload");
+      }
+    }
+    if (canonical === "instagram") {
+      if (key === "read_content") return covers("instagram_business_basic");
+      if (key === "publish_posts" || key === "create_content" || key === "use_media") {
+        return covers("instagram_business_content_publish");
       }
     }
     return true;

@@ -107,6 +107,13 @@ export const RATE_LIMIT_POLICIES: Record<RateLimitPolicyId, RateLimitPolicy> = {
     keyKind: "user",
     failClosed: true,
   },
+  "agents.instagram_publish": {
+    id: "agents.instagram_publish",
+    max: 20,
+    windowMs: HOUR,
+    keyKind: "user",
+    failClosed: true,
+  },
   /** Phase 24 — customer-confirmed business facts. */
   "agents.business_fact": {
     id: "agents.business_fact",

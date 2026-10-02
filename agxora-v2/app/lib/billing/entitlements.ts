@@ -44,6 +44,7 @@ export const AGENT_CAPABILITY_ENTITLEMENT: Readonly<Record<string, CommercialCap
   MARKETING_RECORD_PLAN: "MARKETING_WORKFORCE",
   MARKETING_VERIFY_PLAN: "MARKETING_WORKFORCE",
   MARKETING_CREATE_IMAGE: "MARKETING_IMAGE_CREATION",
+  MARKETING_PUBLISH_INSTAGRAM: "SOCIAL_PUBLISH",
 };
 
 export function isCommercialCapabilityId(value: string): value is CommercialCapabilityId {
