@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState, type FormEvent, type JSX } from "react";
+import { Suspense, useEffect, useRef, useState, type FormEvent, type JSX } from "react";
 import {
   AuthCard,
   AuthCheckbox,
@@ -16,7 +16,7 @@ import {
 } from "../components/auth/AuthCard";
 import { useAuth } from "../lib/auth";
 import { isValidEmail } from "../lib/auth/formValidation";
-import { destinationAfterLiveSession } from "../lib/auth/serverSessionGate";
+import { freshLoginDestination, observerLoginRedirect } from "../lib/auth/loginNavigation";
 import { needsWelcome } from "../lib/auth/welcomeFlags";
 import { checkoutHrefForIntent, pathWithPlan, readPlanIntent, rememberPlanSearch } from "../lib/billing/planHandoff";
 import { getRememberedEmail } from "../lib/identity";
@@ -28,12 +28,17 @@ function LoginForm(): JSX.Element {
   const { refresh, hydrated, session, status } = useAuth();
   const router = useRouter();
   const search = useSearchParams();
+  const loginNavigationOwned = useRef(false);
   useEffect(() => {
     rememberPlanSearch(search);
   }, [search]);
   useEffect(() => {
-    if (!hydrated || status !== "authenticated" || !session) return;
-    router.replace(destinationAfterLiveSession(search.get("next")));
+    const destination = observerLoginRedirect({
+      loginNavigationOwned: loginNavigationOwned.current,
+      authenticated: hydrated && status === "authenticated" && Boolean(session),
+      next: search.get("next"),
+    });
+    if (destination) router.replace(destination);
   }, [hydrated, status, session, router, search]);
   const remembered = getRememberedEmail();
   const [email, setEmail] = useState(remembered ?? "");
@@ -62,25 +67,22 @@ function LoginForm(): JSX.Element {
     if (!validate()) return;
     setBusy(true);
     setError(null);
+    loginNavigationOwned.current = true;
     try {
       const result = await iamAuthService.login({ email, password, rememberMe });
       await refresh();
       const next = search.get("next");
       const intent = readPlanIntent(search);
-      if (next && next.startsWith("/invite/")) {
-        router.replace(next);
-        return;
-      }
-      if (needsWelcome(result.userId)) {
-        router.replace(pathWithPlan("/welcome", intent));
-        return;
-      }
-      if (intent) {
-        router.replace(checkoutHrefForIntent(intent));
-        return;
-      }
-      router.replace(next && next.startsWith("/") ? next : "/dashboard");
+      router.replace(
+        freshLoginDestination({
+          next,
+          needsOnboarding: needsWelcome(result.userId),
+          welcomeHref: pathWithPlan("/welcome", intent),
+          checkoutHref: intent ? checkoutHrefForIntent(intent) : null,
+        }),
+      );
     } catch (err) {
+      loginNavigationOwned.current = false;
       setError(resolveUserFacingErrorKey(err, "auth.login.failed"));
     } finally {
       setBusy(false);
