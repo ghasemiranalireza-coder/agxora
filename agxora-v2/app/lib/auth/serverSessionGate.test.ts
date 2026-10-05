@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   buildLoginRedirectPath,
@@ -35,6 +36,37 @@ describe("serverSessionGate", () => {
         AGXORA_AUTH_REQUIRED: "false",
       }),
     ).toBe(false);
+  });
+
+  it("reads NODE_ENV and AGXORA_AUTH_REQUIRED as direct properties", () => {
+    const source = readFileSync(
+      new URL("./serverSessionGate.ts", import.meta.url),
+      "utf8",
+    );
+    const start = source.indexOf("function readServerSessionEnv");
+    const end = source.indexOf("export function resolveProxySession");
+    const gate = source.slice(start, end);
+    expect(gate).toContain("process.env.NODE_ENV");
+    expect(gate).toContain("process.env.AGXORA_AUTH_REQUIRED");
+    expect(gate).not.toMatch(/=\s*process\.env\b/);
+  });
+
+  it("requires a server session by default in production", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("AGXORA_AUTH_REQUIRED", "");
+    expect(isServerSessionRequired()).toBe(true);
+  });
+
+  it("requires a server session by default when AGXORA_AUTH_REQUIRED is true", () => {
+    vi.stubEnv("NODE_ENV", "development");
+    vi.stubEnv("AGXORA_AUTH_REQUIRED", "true");
+    expect(isServerSessionRequired()).toBe(true);
+  });
+
+  it("does not require a server session by default for a local demo", () => {
+    vi.stubEnv("NODE_ENV", "development");
+    vi.stubEnv("AGXORA_AUTH_REQUIRED", "false");
+    expect(isServerSessionRequired()).toBe(false);
   });
 
   it("ignores the local demo cookie in production", () => {

@@ -11,11 +11,23 @@ export type ProxySessionInput = {
   readonly authRequired?: string | null;
 };
 
+function readServerSessionEnv(): {
+  readonly NODE_ENV?: string | null;
+  readonly AGXORA_AUTH_REQUIRED?: string | null;
+} {
+  // Direct property reads match getAuthMode(). Passing the whole process.env
+  // object leaves the production client polyfill as {} and turns this gate off.
+  return {
+    NODE_ENV: process.env.NODE_ENV,
+    AGXORA_AUTH_REQUIRED: process.env.AGXORA_AUTH_REQUIRED,
+  };
+}
+
 export function isServerSessionRequired(
   env: {
     readonly NODE_ENV?: string | null;
     readonly AGXORA_AUTH_REQUIRED?: string | null;
-  } = process.env,
+  } = readServerSessionEnv(),
 ): boolean {
   return (
     env.AGXORA_AUTH_REQUIRED === "true" || env.NODE_ENV === "production"
