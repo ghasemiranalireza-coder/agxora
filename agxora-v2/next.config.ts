@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { canonicalAliasRedirects } from "./app/lib/production/canonicalHost";
 import { productionOnlyHeaders } from "./app/lib/production/securityHeaders";
 
 /**
@@ -19,6 +20,9 @@ const nextConfig: NextConfig = {
     // Ensures Turbopack treats agxora-v2 as the project root when
     // `npm run dev` / `npm run build` are executed from this folder.
     root: process.cwd(),
+  },
+  async redirects() {
+    return canonicalAliasRedirects();
   },
   async headers() {
     return [
