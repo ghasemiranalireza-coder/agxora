@@ -16,20 +16,25 @@ import {
 } from "../components/auth/AuthCard";
 import { useAuth } from "../lib/auth";
 import { isValidEmail } from "../lib/auth/formValidation";
+import { destinationAfterLiveSession } from "../lib/auth/serverSessionGate";
 import { needsWelcome } from "../lib/auth/welcomeFlags";
+import { checkoutHrefForIntent, pathWithPlan, readPlanIntent, rememberPlanSearch } from "../lib/billing/planHandoff";
 import { getRememberedEmail } from "../lib/identity";
 import { useT, resolveUserFacingErrorKey } from "../lib/i18n";
 import { iamAuthService } from "../../features/auth";
-import { checkoutHrefForIntent, pathWithPlan, readPlanIntent, rememberPlanSearch } from "../lib/billing/planHandoff";
 
 function LoginForm(): JSX.Element {
   const t = useT();
-  const { refresh } = useAuth();
+  const { refresh, hydrated, session, status } = useAuth();
   const router = useRouter();
   const search = useSearchParams();
   useEffect(() => {
     rememberPlanSearch(search);
   }, [search]);
+  useEffect(() => {
+    if (!hydrated || status !== "authenticated" || !session) return;
+    router.replace(destinationAfterLiveSession(search.get("next")));
+  }, [hydrated, status, session, router, search]);
   const remembered = getRememberedEmail();
   const [email, setEmail] = useState(remembered ?? "");
   const [password, setPassword] = useState("");
@@ -83,6 +88,13 @@ function LoginForm(): JSX.Element {
   };
 
   const displayError = fieldError ? t(fieldError) : error ? t(error) : null;
+  const liveSession = hydrated && status === "authenticated" && session;
+
+  if (!hydrated || liveSession) {
+    return (
+      <AuthCard title={t("auth.login.loading")}>{t("common.loading")}</AuthCard>
+    );
+  }
 
   return (
     <AuthCard

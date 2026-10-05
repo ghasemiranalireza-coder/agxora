@@ -37,6 +37,28 @@ describe("production dashboard proxy session gate", () => {
     expect(location).toContain("dashboard");
   });
 
+  it("does not send a stale server cookie from /login back to /dashboard", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    const response = proxy(
+      requestWithCookies("/login", {
+        [SERVER_SESSION_COOKIE]: "stale-not-a-live-session",
+      }),
+    );
+    expect(response.status).toBe(200);
+    expect(response.headers.get("location")).toBeNull();
+  });
+
+  it("does not bounce /login?next=/dashboard when the cookie is only present", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    const headers = new Headers();
+    headers.set("cookie", `${SERVER_SESSION_COOKIE}=stale-not-a-live-session`);
+    const response = proxy(
+      new NextRequest("https://agxora.de/login?next=%2Fdashboard", { headers }),
+    );
+    expect(response.status).toBe(200);
+    expect(response.headers.get("location")).toBeNull();
+  });
+
   it("allows production /dashboard when the httpOnly server cookie is present", () => {
     vi.stubEnv("NODE_ENV", "production");
     const response = proxy(

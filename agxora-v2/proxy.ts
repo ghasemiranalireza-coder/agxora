@@ -7,7 +7,6 @@ import {
 import { AUTH_SESSION_COOKIE } from "./app/lib/auth/sessionStore";
 import { SERVER_SESSION_COOKIE } from "./app/lib/tenancy/sessionCookie";
 import {
-  AUTH_PAGE_PREFIXES,
   ADMIN_ROUTE_PREFIXES,
   PRIVATE_ROUTE_PREFIXES,
   isPublicPath,
@@ -42,17 +41,10 @@ export function proxy(request: NextRequest) {
   const tokenCheck = validateSessionToken(session);
   const isPrivate = matchesPrefix(pathname, PRIVATE_ROUTE_PREFIXES);
   const isAdmin = matchesPrefix(pathname, ADMIN_ROUTE_PREFIXES);
-  const isAuthPage = matchesPrefix(pathname, AUTH_PAGE_PREFIXES);
   const isPublicExact = isPublicPath(pathname);
-
-  // Authenticated users leave auth forms.
-  if (hasSession && isAuthPage) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/dashboard";
-    const redirect = NextResponse.redirect(url);
-    applySecurityHeaders(redirect.headers);
-    return redirect;
-  }
+  // Cookie presence is not a live session. /login must not bounce a stale
+  // agxora.server.session cookie back to /dashboard. A real session leaves
+  // /login from the client after /api/v1/auth/me resolves.
 
   // Production and AGXORA_AUTH_REQUIRED=true require the httpOnly server cookie.
   // Local demo cookie must not unlock /dashboard while APIs still 401.

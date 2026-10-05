@@ -67,6 +67,14 @@ export function resolveProxySession(input: ProxySessionInput): {
   };
 }
 
+/** Where a resolved /api/v1/auth/me session may navigate. External URLs stay off. */
+export function destinationAfterLiveSession(nextPath: string | null | undefined): string {
+  if (nextPath && nextPath.startsWith("/") && !nextPath.startsWith("//")) {
+    return nextPath;
+  }
+  return "/dashboard";
+}
+
 export function buildLoginRedirectPath(nextPath: string): string {
   const next =
     nextPath.startsWith("/") && !nextPath.startsWith("//")

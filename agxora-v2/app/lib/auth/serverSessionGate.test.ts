@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   buildLoginRedirectPath,
+  destinationAfterLiveSession,
   isServerSessionRequired,
   resolveProxySession,
 } from "./serverSessionGate";
@@ -110,5 +111,14 @@ describe("serverSessionGate", () => {
     expect(buildLoginRedirectPath("//evil.example")).toBe(
       "/login?next=%2Fdashboard",
     );
+  });
+
+  it("sends a live session to the safe next path or the dashboard", () => {
+    expect(destinationAfterLiveSession("/dashboard")).toBe("/dashboard");
+    expect(destinationAfterLiveSession("/login?next=%2Fdashboard")).toBe(
+      "/login?next=%2Fdashboard",
+    );
+    expect(destinationAfterLiveSession(null)).toBe("/dashboard");
+    expect(destinationAfterLiveSession("//evil.example")).toBe("/dashboard");
   });
 });
