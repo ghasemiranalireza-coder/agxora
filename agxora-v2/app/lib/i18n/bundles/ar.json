@@ -41,7 +41,8 @@
     "previous": "السابق",
     "settings": "الإعدادات",
     "profile": "الملف الشخصي",
-    "dashboard": "لوحة التحكم"
+    "dashboard": "لوحة التحكم",
+    "dataDeletion": "حذف البيانات"
   },
   "navigation": {
     "dashboard": "لوحة التحكم",
@@ -3332,7 +3333,8 @@
       "terms": "شروط",
       "cookies": "ملفات تعريف الارتباط",
       "imprint": "بصمة",
-      "copyright": "© {year} {company}"
+      "copyright": "© {year} {company}",
+      "dataDeletion": "حذف البيانات"
     },
     "globeAria": "AGXORA AI CORE — كرة أرضية ثلاثية الأبعاد",
     "visuals": {
@@ -6805,7 +6807,8 @@
         "cookies": "ملفات تعريف الارتباط",
         "imprint": "بصمة",
         "contact": "اتصال",
-        "framework": "Legal framework"
+        "framework": "Legal framework",
+        "dataDeletion": "حذف البيانات"
       },
       "footer": {
         "home": "بيت",
@@ -6854,7 +6857,12 @@
       "cookiePolicy": "سياسة ملفات تعريف الارتباط",
       "contactSection": "8. الاتصال",
       "contactBodyBefore": "أسئلة:",
-      "contactBodyMiddle": "أو"
+      "contactBodyMiddle": "أو",
+      "dataBusiness": "سجلات المنظمة التي تدخلها: عملاء إدارة العلاقات، وجهات الاتصال، والملاحظات، وبيانات المستندات الوصفية، والفواتير، وإشعارات التسليم.",
+      "dataConnections": "الحسابات المتصلة: عندما تربط منظمة YouTube أو Gmail أو Instagram، تحفظ AGXORA معرّف الحساب ورموز OAuth المشفّرة لذلك الاتصال. يحفظ اتصال Instagram أيضًا اسم مستخدم Instagram. عندما يكون النشر على Instagram مفعّلًا وينشر شخص بشكل صريح، ترسل AGXORA صورة واحدة معتمدة وتعليقها إلى حساب Instagram ذلك. لا تتلقى AGXORA رسائل Instagram أو إحصاءاته. اتصال صفحات Facebook غير متاح.",
+      "deletionInstructionsBefore": "طريقة طلب الحذف موضحة في",
+      "deletionInstructionsLink": "صفحة حذف بيانات المستخدم",
+      "deletionInstructionsAfter": "."
     },
     "terms": {
       "title": "شروط الخدمة",
@@ -6929,6 +6937,23 @@
       "title": "AGXORA legal framework",
       "eyebrow": "Legal",
       "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+    },
+    "deletion": {
+      "title": "حذف بيانات المستخدم",
+      "eyebrow": "قانوني",
+      "intro": "تشرح هذه الصفحة كيف يمكن حذف البيانات الشخصية في حساب AGXORA داخل المنتج أو طلب حذفها بالبريد. فتح هذه الصفحة لا يحذف البيانات. لا توفر AGXORA استدعاء حذف تلقائيًا لـ Meta أو لأي منصة أخرى.",
+      "inProduct": "1. الحذف داخل المنتج",
+      "inProductBody": "يمكن للمنظمة التي سجلت الدخول حذف جهات اتصال إدارة العلاقات والملاحظات وبيانات المستندات الوصفية. يمكن حذف سجل العميل فقط إذا لم تكن هناك فاتورة أو إشعار تسليم مرتبط به. إذا كانت المستندات المالية مرتبطة، يُرفض الحذف وتبقى تلك المستندات.",
+      "retained": "2. السجلات التي تبقى",
+      "retainedBody": "تُحفظ الفواتير وإشعارات التسليم والتنفيذات الخاضعة للحوكمة والأدلة. لا تؤكد هذه الصفحة وجود نسخة احتياطية لقاعدة البيانات، ولا أن النسخ داخل النسخة الاحتياطية تُزال.",
+      "exportTitle": "3. التصدير",
+      "exportBody": "يمكن للمنظمة التي سجلت الدخول تنزيل تصدير لبيانات أعمالها من الإعدادات.",
+      "request": "4. طلب الحذف بالبريد",
+      "requestBefore": "لطلب حذف حساب من AGXORA، أو بيانات شخصية لا يمكنك حذفها في المنتج، راسل",
+      "requestAfter": "اذكر بريد الحساب واسم المنظمة حتى يمكن التعرف على الحساب.",
+      "connected": "5. Instagram وYouTube وGmail",
+      "connectedBody": "يمكن للمنظمة التي سجلت الدخول قطع اتصال YouTube أو Gmail أو Instagram داخل المنتج عندما يكون الاتصال موجودًا. قطع الاتصال يمسح الرموز المشفّرة المحفوظة ويعلّم الاتصال كملغى. قد يبقى معرّف الحساب المحفوظ في سجل هذا الاتصال. قطع الاتصال لا يحذف سجلات المنظمة الأخرى. قطع اتصال Instagram لا يزيل منشورًا نُشر بالفعل على Instagram. لا يوجد في هذا الموقع استدعاء حذف بيانات من Meta ولا webhook من Meta.",
+      "related": "6. صفحات ذات صلة"
     }
   },
   "onboarding": {

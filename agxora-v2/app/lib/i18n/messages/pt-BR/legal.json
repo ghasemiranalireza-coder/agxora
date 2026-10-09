@@ -11,7 +11,8 @@
       "cookies": "Biscoitos",
       "imprint": "Imprimir",
       "contact": "Contato",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "Exclusão de dados"
     },
     "footer": {
       "home": "Lar",
@@ -60,7 +61,12 @@
     "cookiePolicy": "Política de Cookies",
     "contactSection": "8. Contato",
     "contactBodyBefore": "Questões:",
-    "contactBodyMiddle": "ou"
+    "contactBodyMiddle": "ou",
+    "dataBusiness": "Registros da organização que você informa: clientes de CRM, contatos, notas, metadados de documentos, faturas e notas de entrega.",
+    "dataConnections": "Contas conectadas: quando uma organização conecta o YouTube, o Gmail ou o Instagram, a AGXORA guarda um identificador da conta e tokens OAuth criptografados dessa conexão. Uma conexão com o Instagram também guarda o nome de usuário do Instagram. Quando a publicação no Instagram está ativada e alguém publica de forma explícita, a AGXORA envia uma imagem aprovada e a legenda para essa conta do Instagram. A AGXORA não recebe mensagens nem insights do Instagram. A conexão com Páginas do Facebook não está disponível.",
+    "deletionInstructionsBefore": "Como pedir a exclusão está descrito na",
+    "deletionInstructionsLink": "página de exclusão de dados do usuário",
+    "deletionInstructionsAfter": "."
   },
   "terms": {
     "title": "Termos de Serviço",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "Exclusão de dados do usuário",
+    "eyebrow": "Jurídico",
+    "intro": "Esta página explica como dados pessoais de uma conta AGXORA podem ser excluídos no produto ou solicitados por e-mail. Abrir esta página não exclui dados. A AGXORA não oferece um callback automático de exclusão para a Meta nem para outra plataforma.",
+    "inProduct": "1. Exclusão no produto",
+    "inProductBody": "Uma organização conectada pode excluir contatos de CRM, notas e metadados de documentos. Um registro de cliente só pode ser excluído se não houver fatura nem nota de entrega vinculada. Se houver documentos financeiros vinculados, a exclusão é recusada e esses documentos permanecem.",
+    "retained": "2. Registros que permanecem",
+    "retainedBody": "Faturas, notas de entrega, execuções governadas e evidências são mantidas. Esta página não confirma que exista um backup do banco de dados, nem que cópias em um backup sejam removidas.",
+    "exportTitle": "3. Exportação",
+    "exportBody": "Uma organização conectada pode baixar, em Configurações, uma exportação dos seus dados de negócio.",
+    "request": "4. Solicitar exclusão por e-mail",
+    "requestBefore": "Para pedir à AGXORA que exclua uma conta, ou dados pessoais que você não consegue excluir no produto, escreva para",
+    "requestAfter": "Inclua o e-mail da conta e o nome da organização para que a conta possa ser identificada.",
+    "connected": "5. Instagram, YouTube e Gmail",
+    "connectedBody": "Uma organização conectada pode desconectar o YouTube, o Gmail ou o Instagram no produto quando essa conexão existe. Desconectar apaga os tokens criptografados armazenados e marca a conexão como revogada. O identificador da conta armazenado pode permanecer nesse registro. Desconectar não exclui outros registros da organização. Desconectar o Instagram não remove uma publicação já feita no Instagram. Este site não tem um callback de exclusão de dados da Meta nem um webhook da Meta.",
+    "related": "6. Páginas relacionadas"
   }
 }

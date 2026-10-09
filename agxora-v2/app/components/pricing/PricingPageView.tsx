@@ -121,6 +121,7 @@ export function PricingPageView(): JSX.Element {
           <Link href="/terms">{t("common.terms")}</Link>
           <Link href="/cookies">{t("common.cookies")}</Link>
           <Link href="/imprint">{t("common.imprint")}</Link>
+          <Link href="/data-deletion">{t("common.dataDeletion")}</Link>
           <Link href="/contact">{t("common.contact")}</Link>
         </nav>
       </main>

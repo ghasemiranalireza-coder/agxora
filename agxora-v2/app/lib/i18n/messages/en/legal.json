@@ -11,7 +11,8 @@
       "cookies": "Cookies",
       "imprint": "Imprint",
       "contact": "Contact",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "Data deletion"
     },
     "footer": {
       "home": "Home",
@@ -60,7 +61,12 @@
     "cookiePolicy": "Cookie Policy",
     "contactSection": "8. Contact",
     "contactBodyBefore": "Questions:",
-    "contactBodyMiddle": "or"
+    "contactBodyMiddle": "or",
+    "dataBusiness": "Organization records you enter: CRM customers, contacts, notes, document metadata, invoices, and delivery notes.",
+    "dataConnections": "Connected accounts: when an organization connects YouTube, Gmail, or Instagram, AGXORA stores an account identifier and encrypted OAuth tokens for that connection. An Instagram connection also stores the Instagram username. When Instagram publishing is enabled and someone explicitly publishes, AGXORA sends one approved image and its caption to that Instagram account. AGXORA does not receive Instagram messages or insights. Facebook Pages connection is not available.",
+    "deletionInstructionsBefore": "How to ask for deletion is described on the",
+    "deletionInstructionsLink": "user data deletion",
+    "deletionInstructionsAfter": " page."
   },
   "terms": {
     "title": "Terms of Service",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "User data deletion",
+    "eyebrow": "Legal",
+    "intro": "This page explains how personal data in an AGXORA account can be deleted in the product or requested by email. Opening this page does not delete data. AGXORA does not provide an automated deletion callback for Meta or any other platform.",
+    "inProduct": "1. Deletion inside the product",
+    "inProductBody": "A signed-in organization can delete CRM contacts, notes, and document metadata. A customer record can be deleted only when no invoice or delivery note is attached. If financial documents are attached, deletion is refused and those documents remain.",
+    "retained": "2. Records that stay",
+    "retainedBody": "Invoices, delivery notes, governed executions, and governed evidence are retained. This page does not confirm that a database backup exists, or that copies held in a backup are removed.",
+    "exportTitle": "3. Export",
+    "exportBody": "A signed-in organization can download an export of its business data from Settings.",
+    "request": "4. Request deletion by email",
+    "requestBefore": "To ask AGXORA to delete an account, or personal data you cannot delete in the product, email",
+    "requestAfter": "Include the account email and the organization name so the account can be identified.",
+    "connected": "5. Instagram, YouTube, and Gmail",
+    "connectedBody": "A signed-in organization can disconnect YouTube, Gmail, or Instagram in the product when that connection exists. Disconnect clears the stored encrypted tokens and marks the connection revoked. The stored account identifier can remain on that connection record. Disconnect does not delete other organization records. Disconnecting Instagram does not remove a post already published on Instagram. This site has no Meta data-deletion callback and no Meta webhook.",
+    "related": "6. Related pages"
   }
 }

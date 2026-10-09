@@ -96,6 +96,7 @@ export const config = {
     "/terms",
     "/cookies",
     "/imprint",
+    "/data-deletion",
     "/offline",
     "/login",
     "/register",

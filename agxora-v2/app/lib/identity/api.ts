@@ -81,6 +81,7 @@ export const ROUTE_ACCESS = {
     "/terms",
     "/cookies",
     "/imprint",
+    "/data-deletion",
     "/logout",
   ],
   private: ["/dashboard", "/workspace", "/onboarding", "/welcome"],

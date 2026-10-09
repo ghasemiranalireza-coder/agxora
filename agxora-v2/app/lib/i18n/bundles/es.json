@@ -41,7 +41,8 @@
     "previous": "Anterior",
     "settings": "Ajustes",
     "profile": "Perfil",
-    "dashboard": "Panel"
+    "dashboard": "Panel",
+    "dataDeletion": "Eliminación de datos"
   },
   "navigation": {
     "dashboard": "Panel",
@@ -3332,7 +3333,8 @@
       "terms": "Términos",
       "cookies": "Galletas",
       "imprint": "Imprimir",
-      "copyright": "© {year} {company}"
+      "copyright": "© {year} {company}",
+      "dataDeletion": "Eliminación de datos"
     },
     "globeAria": "AGXORA AI CORE — globo 3D",
     "visuals": {
@@ -6805,7 +6807,8 @@
         "cookies": "Galletas",
         "imprint": "Imprimir",
         "contact": "Contacto",
-        "framework": "Legal framework"
+        "framework": "Legal framework",
+        "dataDeletion": "Eliminación de datos"
       },
       "footer": {
         "home": "Hogar",
@@ -6854,7 +6857,12 @@
       "cookiePolicy": "Política de cookies",
       "contactSection": "8. Contacto",
       "contactBodyBefore": "Preguntas:",
-      "contactBodyMiddle": "o"
+      "contactBodyMiddle": "o",
+      "dataBusiness": "Registros de la organización que usted introduce: clientes de CRM, contactos, notas, metadatos de documentos, facturas y albaranes.",
+      "dataConnections": "Cuentas conectadas: cuando una organización conecta YouTube, Gmail o Instagram, AGXORA guarda un identificador de cuenta y tokens OAuth cifrados de esa conexión. Una conexión de Instagram también guarda el nombre de usuario de Instagram. Cuando la publicación en Instagram está activada y alguien publica de forma explícita, AGXORA envía una imagen aprobada y su texto a esa cuenta de Instagram. AGXORA no recibe mensajes ni estadísticas de Instagram. La conexión de Páginas de Facebook no está disponible.",
+      "deletionInstructionsBefore": "Cómo solicitar la eliminación se describe en la",
+      "deletionInstructionsLink": "página de eliminación de datos de usuario",
+      "deletionInstructionsAfter": "."
     },
     "terms": {
       "title": "Términos de servicio",
@@ -6929,6 +6937,23 @@
       "title": "AGXORA legal framework",
       "eyebrow": "Legal",
       "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+    },
+    "deletion": {
+      "title": "Eliminación de datos de usuario",
+      "eyebrow": "Legal",
+      "intro": "Esta página explica cómo se pueden eliminar en el producto los datos personales de una cuenta de AGXORA, o cómo solicitarlo por correo. Abrir esta página no elimina datos. AGXORA no ofrece una devolución de llamada automática de eliminación para Meta ni para otra plataforma.",
+      "inProduct": "1. Eliminación dentro del producto",
+      "inProductBody": "Una organización con sesión iniciada puede eliminar contactos de CRM, notas y metadatos de documentos. Un registro de cliente solo se puede eliminar si no tiene una factura ni un albarán asociado. Si hay documentos financieros asociados, la eliminación se rechaza y esos documentos permanecen.",
+      "retained": "2. Registros que se conservan",
+      "retainedBody": "Se conservan facturas, albaranes, ejecuciones gobernadas y evidencias. Esta página no confirma que exista una copia de seguridad de la base de datos, ni que se eliminen las copias de una copia de seguridad.",
+      "exportTitle": "3. Exportación",
+      "exportBody": "Una organización con sesión iniciada puede descargar desde Ajustes una exportación de sus datos de negocio.",
+      "request": "4. Solicitar la eliminación por correo",
+      "requestBefore": "Para pedir a AGXORA que elimine una cuenta, u otros datos personales que no pueda eliminar en el producto, escriba a",
+      "requestAfter": "Incluya el correo de la cuenta y el nombre de la organización para que la cuenta pueda identificarse.",
+      "connected": "5. Instagram, YouTube y Gmail",
+      "connectedBody": "Una organización con sesión iniciada puede desconectar YouTube, Gmail o Instagram en el producto cuando esa conexión existe. Desconectar borra los tokens cifrados guardados y marca la conexión como revocada. El identificador de cuenta guardado puede permanecer en ese registro. Desconectar no elimina otros registros de la organización. Desconectar Instagram no retira una publicación ya publicada en Instagram. Este sitio no tiene una devolución de llamada de eliminación de datos de Meta ni un webhook de Meta.",
+      "related": "6. Páginas relacionadas"
     }
   },
   "onboarding": {

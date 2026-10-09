@@ -11,7 +11,8 @@
       "cookies": "Cookie",
       "imprint": "dấu ấn",
       "contact": "Liên hệ",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "Xóa dữ liệu"
     },
     "footer": {
       "home": "Trang chủ",
@@ -60,7 +61,12 @@
     "cookiePolicy": "Chính sách cookie",
     "contactSection": "8. Liên hệ",
     "contactBodyBefore": "Câu hỏi:",
-    "contactBodyMiddle": "hoặc"
+    "contactBodyMiddle": "hoặc",
+    "dataBusiness": "Hồ sơ tổ chức bạn nhập: khách hàng CRM, liên hệ, ghi chú, siêu dữ liệu tài liệu, hóa đơn và phiếu giao hàng.",
+    "dataConnections": "Tài khoản đã kết nối: khi một tổ chức kết nối YouTube, Gmail hoặc Instagram, AGXORA lưu mã định danh tài khoản và token OAuth đã mã hóa của kết nối đó. Kết nối Instagram cũng lưu tên người dùng Instagram. Khi đăng lên Instagram được bật và ai đó đăng một cách rõ ràng, AGXORA gửi một ảnh đã duyệt và chú thích của ảnh tới tài khoản Instagram đó. AGXORA không nhận tin nhắn hoặc thông tin chi tiết từ Instagram. Kết nối Trang Facebook không có sẵn.",
+    "deletionInstructionsBefore": "Cách yêu cầu xóa được mô tả trên",
+    "deletionInstructionsLink": "trang xóa dữ liệu người dùng",
+    "deletionInstructionsAfter": "."
   },
   "terms": {
     "title": "Điều khoản dịch vụ",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "Xóa dữ liệu người dùng",
+    "eyebrow": "Pháp lý",
+    "intro": "Trang này giải thích cách dữ liệu cá nhân trong tài khoản AGXORA có thể được xóa trong sản phẩm hoặc được yêu cầu qua email. Mở trang này không xóa dữ liệu. AGXORA không cung cấp callback xóa tự động cho Meta hoặc nền tảng khác.",
+    "inProduct": "1. Xóa trong sản phẩm",
+    "inProductBody": "Tổ chức đã đăng nhập có thể xóa liên hệ CRM, ghi chú và siêu dữ liệu tài liệu. Hồ sơ khách hàng chỉ có thể xóa khi không có hóa đơn hoặc phiếu giao hàng đính kèm. Nếu có tài liệu tài chính đính kèm, việc xóa bị từ chối và các tài liệu đó vẫn còn.",
+    "retained": "2. Hồ sơ được giữ lại",
+    "retainedBody": "Hóa đơn, phiếu giao hàng, lần thực thi được quản trị và bằng chứng được giữ lại. Trang này không xác nhận rằng bản sao lưu cơ sở dữ liệu tồn tại, hoặc các bản sao trong bản sao lưu bị xóa.",
+    "exportTitle": "3. Xuất dữ liệu",
+    "exportBody": "Tổ chức đã đăng nhập có thể tải bản xuất dữ liệu kinh doanh từ Cài đặt.",
+    "request": "4. Yêu cầu xóa qua email",
+    "requestBefore": "Để yêu cầu AGXORA xóa tài khoản, hoặc dữ liệu cá nhân bạn không thể xóa trong sản phẩm, hãy gửi email tới",
+    "requestAfter": "Ghi email tài khoản và tên tổ chức để tài khoản có thể được xác định.",
+    "connected": "5. Instagram, YouTube và Gmail",
+    "connectedBody": "Tổ chức đã đăng nhập có thể ngắt YouTube, Gmail hoặc Instagram trong sản phẩm khi kết nối đó tồn tại. Ngắt kết nối xóa token đã mã hóa đang lưu và đánh dấu kết nối là đã thu hồi. Mã định danh tài khoản đã lưu có thể còn trên bản ghi kết nối đó. Ngắt kết nối không xóa các hồ sơ tổ chức khác. Ngắt Instagram không gỡ bài đã đăng trên Instagram. Trang này không có callback xóa dữ liệu của Meta và không có webhook của Meta.",
+    "related": "6. Trang liên quan"
   }
 }

@@ -37,6 +37,7 @@ export function LandingFooter(): JSX.Element {
           <Link href="/terms">{t("landing.footer.terms")}</Link>
           <Link href="/cookies">{t("landing.footer.cookies")}</Link>
           <Link href="/imprint">{t("landing.footer.imprint")}</Link>
+          <Link href="/data-deletion">{t("landing.footer.dataDeletion")}</Link>
         </nav>
         <p>
           <a href={`mailto:${COMPANY.email.company}`}>{COMPANY.email.company}</a>

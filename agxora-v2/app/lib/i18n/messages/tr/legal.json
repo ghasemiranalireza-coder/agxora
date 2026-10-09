@@ -11,7 +11,8 @@
       "cookies": "Çerezler",
       "imprint": "Baskı",
       "contact": "Temas etmek",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "Veri silme"
     },
     "footer": {
       "home": "Ev",
@@ -60,7 +61,12 @@
     "cookiePolicy": "Çerez Politikası",
     "contactSection": "8. İletişim",
     "contactBodyBefore": "Sorular:",
-    "contactBodyMiddle": "veya"
+    "contactBodyMiddle": "veya",
+    "dataBusiness": "Girdiğiniz kuruluş kayıtları: CRM müşterileri, kişiler, notlar, belge meta verileri, faturalar ve irsaliyeler.",
+    "dataConnections": "Bağlı hesaplar: bir kuruluş YouTube, Gmail veya Instagram bağladığında AGXORA bu bağlantı için bir hesap tanımlayıcısı ve şifrelenmiş OAuth belirteçleri saklar. Bir Instagram bağlantısı Instagram kullanıcı adını da saklar. Instagram yayınlama açıksa ve bir kişi açıkça yayınlarsa, AGXORA onaylanmış bir görseli ve açıklamasını o Instagram hesabına gönderir. AGXORA Instagram mesajları veya içgörüleri almaz. Facebook Sayfaları bağlantısı kullanılamaz.",
+    "deletionInstructionsBefore": "Silme talebinin nasıl yapılacağı",
+    "deletionInstructionsLink": "kullanıcı verisi silme sayfasında",
+    "deletionInstructionsAfter": " açıklanır."
   },
   "terms": {
     "title": "Hizmet Şartları",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "Kullanıcı verisi silme",
+    "eyebrow": "Yasal",
+    "intro": "Bu sayfa, bir AGXORA hesabındaki kişisel verilerin üründe nasıl silinebileceğini veya e-posta ile nasıl talep edilebileceğini açıklar. Bu sayfayı açmak veri silmez. AGXORA, Meta veya başka bir platform için otomatik silme geri çağrısı sunmaz.",
+    "inProduct": "1. Ürün içinde silme",
+    "inProductBody": "Oturum açmış bir kuruluş CRM kişilerini, notları ve belge meta verilerini silebilir. Bir müşteri kaydı yalnızca bağlı fatura veya irsaliye yoksa silinebilir. Finansal belgeler bağlıysa silme reddedilir ve bu belgeler kalır.",
+    "retained": "2. Saklanan kayıtlar",
+    "retainedBody": "Faturalar, irsaliyeler, yönetilen yürütmeler ve kanıtlar saklanır. Bu sayfa, bir veritabanı yedeğinin var olduğunu veya yedekteki kopyaların kaldırıldığını doğrulamaz.",
+    "exportTitle": "3. Dışa aktarma",
+    "exportBody": "Oturum açmış bir kuruluş, Ayarlar’dan iş verilerinin bir dışa aktarmasını indirebilir.",
+    "request": "4. E-posta ile silme talebi",
+    "requestBefore": "AGXORA’dan bir hesabı veya üründe silemediğiniz kişisel verileri silmesini istemek için şu adrese yazın",
+    "requestAfter": "Hesabın belirlenebilmesi için hesap e-postasını ve kuruluş adını ekleyin.",
+    "connected": "5. Instagram, YouTube ve Gmail",
+    "connectedBody": "Oturum açmış bir kuruluş, bağlantı varsa YouTube, Gmail veya Instagram bağlantısını üründe kesebilir. Bağlantıyı kesmek saklanan şifrelenmiş belirteçleri temizler ve bağlantıyı iptal edilmiş olarak işaretler. Saklanan hesap tanımlayıcısı bu bağlantı kaydında kalabilir. Bağlantıyı kesmek diğer kuruluş kayıtlarını silmez. Instagram bağlantısını kesmek, Instagram’da yayımlanmış bir gönderiyi kaldırmaz. Bu sitede bir Meta veri silme geri çağrısı ve bir Meta webhook yoktur.",
+    "related": "6. İlgili sayfalar"
   }
 }

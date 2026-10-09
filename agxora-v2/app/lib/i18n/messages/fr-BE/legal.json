@@ -11,7 +11,8 @@
       "cookies": "Cookies",
       "imprint": "Imprimer",
       "contact": "Contact",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "Suppression des données"
     },
     "footer": {
       "home": "Maison",
@@ -60,7 +61,12 @@
     "cookiePolicy": "Politique en matière de cookies",
     "contactSection": "8. Contacter",
     "contactBodyBefore": "Questions :",
-    "contactBodyMiddle": "ou"
+    "contactBodyMiddle": "ou",
+    "dataBusiness": "Données d’organisation que vous saisissez : clients CRM, contacts, notes, métadonnées de documents, factures et bons de livraison.",
+    "dataConnections": "Comptes connectés : lorsqu’une organisation connecte YouTube, Gmail ou Instagram, AGXORA conserve un identifiant de compte et des jetons OAuth chiffrés pour cette connexion. Une connexion Instagram conserve aussi le nom d’utilisateur Instagram. Lorsque la publication Instagram est activée et qu’une personne publie explicitement, AGXORA envoie une image approuvée et sa légende à ce compte Instagram. AGXORA ne reçoit pas les messages ni les statistiques Instagram. La connexion des Pages Facebook n’est pas disponible.",
+    "deletionInstructionsBefore": "La façon de demander une suppression est décrite sur la",
+    "deletionInstructionsLink": "page de suppression des données utilisateur",
+    "deletionInstructionsAfter": "."
   },
   "terms": {
     "title": "Conditions d'utilisation",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "Suppression des données utilisateur",
+    "eyebrow": "Mentions légales",
+    "intro": "Cette page explique comment les données personnelles d’un compte AGXORA peuvent être supprimées dans le produit ou demandées par e-mail. Ouvrir cette page ne supprime aucune donnée. AGXORA ne fournit pas de rappel automatique de suppression pour Meta ni pour une autre plateforme.",
+    "inProduct": "1. Suppression dans le produit",
+    "inProductBody": "Une organisation connectée peut supprimer les contacts CRM, les notes et les métadonnées de documents. Une fiche client ne peut être supprimée que si aucune facture ni aucun bon de livraison n’y est lié. Si des documents financiers sont liés, la suppression est refusée et ces documents restent.",
+    "retained": "2. Données conservées",
+    "retainedBody": "Les factures, bons de livraison, exécutions gouvernées et preuves sont conservés. Cette page ne confirme pas qu’une sauvegarde de base de données existe, ni que des copies dans une sauvegarde sont effacées.",
+    "exportTitle": "3. Export",
+    "exportBody": "Une organisation connectée peut télécharger un export de ses données d’activité depuis les paramètres.",
+    "request": "4. Demander une suppression par e-mail",
+    "requestBefore": "Pour demander à AGXORA de supprimer un compte, ou des données personnelles que vous ne pouvez pas supprimer dans le produit, écrivez à",
+    "requestAfter": "Indiquez l’e-mail du compte et le nom de l’organisation afin que le compte puisse être identifié.",
+    "connected": "5. Instagram, YouTube et Gmail",
+    "connectedBody": "Une organisation connectée peut déconnecter YouTube, Gmail ou Instagram dans le produit lorsque cette connexion existe. La déconnexion efface les jetons chiffrés enregistrés et marque la connexion comme révoquée. L’identifiant de compte enregistré peut rester sur cet enregistrement. La déconnexion ne supprime pas les autres données de l’organisation. Déconnecter Instagram ne retire pas une publication déjà publiée sur Instagram. Ce site n’a pas de rappel de suppression de données Meta ni de webhook Meta.",
+    "related": "6. Pages associées"
   }
 }

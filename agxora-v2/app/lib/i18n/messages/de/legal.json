@@ -11,7 +11,8 @@
       "cookies": "Cookies",
       "imprint": "Impressum",
       "contact": "Kontakt",
-      "framework": "Rechtsrahmen"
+      "framework": "Rechtsrahmen",
+      "dataDeletion": "Datenlöschung"
     },
     "footer": {
       "home": "Start",
@@ -60,7 +61,12 @@
     "cookiePolicy": "Cookie-Richtlinie",
     "contactSection": "8. Kontakt",
     "contactBodyBefore": "Fragen:",
-    "contactBodyMiddle": "oder"
+    "contactBodyMiddle": "oder",
+    "dataBusiness": "Organisationsdaten, die Sie eingeben: CRM-Kunden, Kontakte, Notizen, Dokumentmetadaten, Rechnungen und Lieferscheine.",
+    "dataConnections": "Verbundene Konten: Wenn eine Organisation YouTube, Gmail oder Instagram verbindet, speichert AGXORA eine Kontokennung und verschlüsselte OAuth-Token für diese Verbindung. Eine Instagram-Verbindung speichert außerdem den Instagram-Benutzernamen. Wenn die Instagram-Veröffentlichung aktiviert ist und jemand ausdrücklich veröffentlicht, sendet AGXORA ein freigegebenes Bild und seine Bildunterschrift an dieses Instagram-Konto. AGXORA empfängt keine Instagram-Nachrichten oder Insights. Eine Verbindung mit Facebook-Seiten ist nicht verfügbar.",
+    "deletionInstructionsBefore": "Wie Sie eine Löschung beantragen, steht auf der",
+    "deletionInstructionsLink": "Seite zur Löschung von Nutzerdaten",
+    "deletionInstructionsAfter": "."
   },
   "terms": {
     "title": "Nutzungsbedingungen",
@@ -135,5 +141,22 @@
     "title": "AGXORA Rechtsrahmen",
     "eyebrow": "Rechtliches",
     "reviewNotice": "Dieser Text unterstützt die rechtliche Ausgestaltung. Er ist keine Rechtsberatung und kein Nachweis vollständiger Gesetzmäßigkeit. Vor dem öffentlichen Produktionsstart ist eine Prüfung durch eine qualifizierte deutsche Anwaltskanzlei für IT-/SaaS-Recht, Datenschutz, KI-Recht, Verbraucherrecht und Plattformrecht erforderlich."
+  },
+  "deletion": {
+    "title": "Löschung von Nutzerdaten",
+    "eyebrow": "Rechtliches",
+    "intro": "Diese Seite erklärt, wie personenbezogene Daten in einem AGXORA-Konto im Produkt gelöscht oder per E-Mail zur Löschung angefragt werden können. Das Öffnen dieser Seite löscht keine Daten. AGXORA bietet keinen automatischen Lösch-Callback für Meta oder eine andere Plattform.",
+    "inProduct": "1. Löschung im Produkt",
+    "inProductBody": "Eine angemeldete Organisation kann CRM-Kontakte, Notizen und Dokumentmetadaten löschen. Ein Kundendatensatz kann nur gelöscht werden, wenn keine Rechnung und kein Lieferschein zugeordnet ist. Sind Finanzdokumente zugeordnet, wird die Löschung abgelehnt und diese Dokumente bleiben.",
+    "retained": "2. Daten, die bleiben",
+    "retainedBody": "Rechnungen, Lieferscheine, gesteuerte Ausführungen und Nachweise bleiben gespeichert. Diese Seite bestätigt nicht, dass ein Datenbank-Backup existiert oder dass Kopien in einem Backup entfernt werden.",
+    "exportTitle": "3. Export",
+    "exportBody": "Eine angemeldete Organisation kann in den Einstellungen einen Export ihrer Geschäftsdaten herunterladen.",
+    "request": "4. Löschung per E-Mail anfragen",
+    "requestBefore": "Um AGXORA zu bitten, ein Konto oder andere personenbezogene Daten zu löschen, die Sie im Produkt nicht löschen können, schreiben Sie an",
+    "requestAfter": "Nennen Sie die Konto-E-Mail und den Namen der Organisation, damit das Konto zugeordnet werden kann.",
+    "connected": "5. Instagram, YouTube und Gmail",
+    "connectedBody": "Eine angemeldete Organisation kann YouTube, Gmail oder Instagram im Produkt trennen, wenn diese Verbindung besteht. Das Trennen löscht die gespeicherten verschlüsselten Token und markiert die Verbindung als widerrufen. Die gespeicherte Kontokennung kann in diesem Verbindungsdatensatz bleiben. Andere Organisationsdaten werden dadurch nicht gelöscht. Das Trennen von Instagram entfernt keinen Beitrag, der bereits auf Instagram veröffentlicht wurde. Diese Website hat keinen Meta-Datenlösch-Callback und keinen Meta-Webhook.",
+    "related": "6. Weitere Seiten"
   }
 }

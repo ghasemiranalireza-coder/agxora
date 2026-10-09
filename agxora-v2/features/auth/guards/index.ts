@@ -36,6 +36,7 @@ export const IAM_ROUTE_CATALOG: readonly IamRouteDefinition[] = [
   { path: "/terms", routeClass: "public" },
   { path: "/cookies", routeClass: "public" },
   { path: "/imprint", routeClass: "public" },
+  { path: "/data-deletion", routeClass: "public" },
   { path: "/session-expired", routeClass: "public" },
   { path: "/account-locked", routeClass: "public" },
   { path: "/unauthorized", routeClass: "public" },
