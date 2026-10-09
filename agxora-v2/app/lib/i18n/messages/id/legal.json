@@ -11,7 +11,8 @@
       "cookies": "kue",
       "imprint": "Jejak",
       "contact": "Kontak",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "Penghapusan data"
     },
     "footer": {
       "home": "Rumah",
@@ -60,7 +61,12 @@
     "cookiePolicy": "Kebijakan Cookie",
     "contactSection": "8. Kontak",
     "contactBodyBefore": "Pertanyaan:",
-    "contactBodyMiddle": "atau"
+    "contactBodyMiddle": "atau",
+    "dataBusiness": "Catatan organisasi yang Anda masukkan: pelanggan CRM, kontak, catatan, metadata dokumen, faktur, dan surat jalan.",
+    "dataConnections": "Akun terhubung: saat organisasi menghubungkan YouTube, Gmail, atau Instagram, AGXORA menyimpan pengenal akun dan token OAuth terenkripsi untuk koneksi itu. Koneksi Instagram juga menyimpan nama pengguna Instagram. Saat penerbitan Instagram diaktifkan dan seseorang menerbitkan secara eksplisit, AGXORA mengirim satu gambar yang disetujui dan keterangannya ke akun Instagram itu. AGXORA tidak menerima pesan atau insight Instagram. Koneksi Halaman Facebook tidak tersedia.",
+    "deletionInstructionsBefore": "Cara meminta penghapusan dijelaskan di",
+    "deletionInstructionsLink": "halaman penghapusan data pengguna",
+    "deletionInstructionsAfter": "."
   },
   "terms": {
     "title": "Ketentuan Layanan",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "Penghapusan data pengguna",
+    "eyebrow": "Hukum",
+    "intro": "Halaman ini menjelaskan bagaimana data pribadi di akun AGXORA dapat dihapus di produk atau diminta melalui email. Membuka halaman ini tidak menghapus data. AGXORA tidak menyediakan callback penghapusan otomatis untuk Meta atau platform lain.",
+    "inProduct": "1. Penghapusan di dalam produk",
+    "inProductBody": "Organisasi yang masuk dapat menghapus kontak CRM, catatan, dan metadata dokumen. Catatan pelanggan hanya dapat dihapus jika tidak ada faktur atau surat jalan yang terlampir. Jika dokumen keuangan terlampir, penghapusan ditolak dan dokumen itu tetap ada.",
+    "retained": "2. Catatan yang tetap disimpan",
+    "retainedBody": "Faktur, surat jalan, eksekusi yang diatur, dan bukti dipertahankan. Halaman ini tidak menegaskan bahwa cadangan basis data ada, atau bahwa salinan dalam cadangan dihapus.",
+    "exportTitle": "3. Ekspor",
+    "exportBody": "Organisasi yang masuk dapat mengunduh ekspor data bisnisnya dari Pengaturan.",
+    "request": "4. Minta penghapusan melalui email",
+    "requestBefore": "Untuk meminta AGXORA menghapus akun, atau data pribadi yang tidak dapat Anda hapus di produk, kirim email ke",
+    "requestAfter": "Sertakan email akun dan nama organisasi agar akun dapat diidentifikasi.",
+    "connected": "5. Instagram, YouTube, dan Gmail",
+    "connectedBody": "Organisasi yang masuk dapat memutus YouTube, Gmail, atau Instagram di produk jika koneksi itu ada. Memutus menghapus token terenkripsi yang tersimpan dan menandai koneksi sebagai dicabut. Pengenal akun yang tersimpan dapat tetap ada pada catatan koneksi itu. Memutus tidak menghapus catatan organisasi yang lain. Memutus Instagram tidak menghapus unggahan yang sudah terbit di Instagram. Situs ini tidak memiliki callback penghapusan data Meta dan tidak memiliki webhook Meta.",
+    "related": "6. Halaman terkait"
   }
 }

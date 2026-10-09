@@ -41,7 +41,8 @@
     "previous": "上一步",
     "settings": "设置",
     "profile": "个人资料",
-    "dashboard": "仪表盘"
+    "dashboard": "仪表盘",
+    "dataDeletion": "数据删除"
   },
   "navigation": {
     "dashboard": "仪表盘",
@@ -3332,7 +3333,8 @@
       "terms": "条款",
       "cookies": "曲奇饼",
       "imprint": "版本说明",
-      "copyright": "© {year} {company}"
+      "copyright": "© {year} {company}",
+      "dataDeletion": "数据删除"
     },
     "globeAria": "AGXORA AI CORE — 3D 地球",
     "visuals": {
@@ -6805,7 +6807,8 @@
         "cookies": "曲奇饼",
         "imprint": "版本说明",
         "contact": "联系方式",
-        "framework": "Legal framework"
+        "framework": "Legal framework",
+        "dataDeletion": "数据删除"
       },
       "footer": {
         "home": "家",
@@ -6854,7 +6857,12 @@
       "cookiePolicy": "Cookie 政策",
       "contactSection": "8. 联系方式",
       "contactBodyBefore": "问题：",
-      "contactBodyMiddle": "或者"
+      "contactBodyMiddle": "或者",
+      "dataBusiness": "您输入的组织记录：CRM 客户、联系人、备注、文档元数据、发票和送货单。",
+      "dataConnections": "已连接的账户：组织连接 YouTube、Gmail 或 Instagram 时，AGXORA 会保存该连接的账户标识和加密的 OAuth 令牌。Instagram 连接还会保存 Instagram 用户名。在启用 Instagram 发布且有人明确发布时，AGXORA 会把一张已批准的图片及其说明发送到该 Instagram 账户。AGXORA 不接收 Instagram 消息或洞察数据。Facebook 公共主页连接不可用。",
+      "deletionInstructionsBefore": "如何申请删除，见",
+      "deletionInstructionsLink": "用户数据删除",
+      "deletionInstructionsAfter": "页面。"
     },
     "terms": {
       "title": "服务条款",
@@ -6929,6 +6937,23 @@
       "title": "AGXORA legal framework",
       "eyebrow": "Legal",
       "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+    },
+    "deletion": {
+      "title": "用户数据删除",
+      "eyebrow": "法律",
+      "intro": "本页说明 AGXORA 账户中的个人数据如何在产品内删除，或如何通过电子邮件申请删除。打开本页不会删除数据。AGXORA 不为 Meta 或任何其他平台提供自动删除回调。",
+      "inProduct": "1. 在产品内删除",
+      "inProductBody": "已登录的组织可以删除 CRM 联系人、备注和文档元数据。只有在没有关联发票或送货单时，才能删除客户记录。如果关联了财务文档，删除会被拒绝，这些文档会保留。",
+      "retained": "2. 会保留的记录",
+      "retainedBody": "发票、送货单、受治理的执行和证据会被保留。本页不确认存在数据库备份，也不确认备份中的副本会被删除。",
+      "exportTitle": "3. 导出",
+      "exportBody": "已登录的组织可以在设置中下载其业务数据导出。",
+      "request": "4. 通过电子邮件申请删除",
+      "requestBefore": "如需请 AGXORA 删除账户，或删除您无法在产品内删除的个人数据，请发送电子邮件至",
+      "requestAfter": "请写明账户电子邮件和组织名称，以便识别该账户。",
+      "connected": "5. Instagram、YouTube 和 Gmail",
+      "connectedBody": "已登录的组织可以在产品中断开已存在的 YouTube、Gmail 或 Instagram 连接。断开连接会清除已存储的加密令牌，并将连接标记为已撤销。已保存的账户标识可能仍留在该连接记录中。断开连接不会删除其他组织记录。断开 Instagram 不会移除已经发布到 Instagram 的帖子。本网站没有 Meta 数据删除回调，也没有 Meta Webhook。",
+      "related": "6. 相关页面"
     }
   },
   "onboarding": {

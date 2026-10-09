@@ -11,7 +11,8 @@
       "cookies": "Koekjes",
       "imprint": "Afdruk",
       "contact": "Contact",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "Gegevensverwijdering"
     },
     "footer": {
       "home": "Thuis",
@@ -60,7 +61,12 @@
     "cookiePolicy": "Cookiebeleid",
     "contactSection": "8. Contactpersoon",
     "contactBodyBefore": "Vragen:",
-    "contactBodyMiddle": "of"
+    "contactBodyMiddle": "of",
+    "dataBusiness": "Organisatiegegevens die u invoert: CRM-klanten, contacten, notities, documentmetadata, facturen en pakbonnen.",
+    "dataConnections": "Gekoppelde accounts: als een organisatie YouTube, Gmail of Instagram koppelt, bewaart AGXORA een accountkenmerk en versleutelde OAuth-tokens voor die koppeling. Een Instagram-koppeling bewaart ook de Instagram-gebruikersnaam. Als Instagram-publicatie is ingeschakeld en iemand uitdrukkelijk publiceert, stuurt AGXORA één goedgekeurde afbeelding en het bijschrift naar dat Instagram-account. AGXORA ontvangt geen Instagram-berichten of insights. Een Facebook Pagina-koppeling is niet beschikbaar.",
+    "deletionInstructionsBefore": "Hoe u verwijdering aanvraagt, staat op de",
+    "deletionInstructionsLink": "pagina voor verwijdering van gebruikersgegevens",
+    "deletionInstructionsAfter": "."
   },
   "terms": {
     "title": "Servicevoorwaarden",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "Verwijdering van gebruikersgegevens",
+    "eyebrow": "Juridisch",
+    "intro": "Deze pagina legt uit hoe persoonsgegevens in een AGXORA-account in het product kunnen worden verwijderd of per e-mail kunnen worden aangevraagd. Deze pagina openen verwijdert geen gegevens. AGXORA biedt geen automatische verwijderingscallback voor Meta of een ander platform.",
+    "inProduct": "1. Verwijderen in het product",
+    "inProductBody": "Een aangemelde organisatie kan CRM-contacten, notities en documentmetadata verwijderen. Een klantrecord kan alleen worden verwijderd als er geen factuur of pakbon aan hangt. Als er financiële documenten aan hangen, wordt verwijdering geweigerd en blijven die documenten staan.",
+    "retained": "2. Gegevens die blijven",
+    "retainedBody": "Facturen, pakbonnen, bestuurde uitvoeringen en bewijs blijven bewaard. Deze pagina bevestigt niet dat een databaseback-up bestaat, of dat kopieën in een back-up worden verwijderd.",
+    "exportTitle": "3. Export",
+    "exportBody": "Een aangemelde organisatie kan in Instellingen een export van haar bedrijfsgegevens downloaden.",
+    "request": "4. Verwijdering per e-mail aanvragen",
+    "requestBefore": "Om AGXORA te vragen een account te verwijderen, of persoonsgegevens die u niet in het product kunt verwijderen, mailt u",
+    "requestAfter": "Vermeld het e-mailadres van het account en de naam van de organisatie, zodat het account kan worden herkend.",
+    "connected": "5. Instagram, YouTube en Gmail",
+    "connectedBody": "Een aangemelde organisatie kan YouTube, Gmail of Instagram in het product verbreken wanneer die koppeling bestaat. Verbreken wist de opgeslagen versleutelde tokens en markeert de koppeling als ingetrokken. Het opgeslagen accountkenmerk kan op dat koppelingsrecord blijven staan. Andere organisatiegegevens worden niet verwijderd. Instagram verbreken verwijdert geen bericht dat al op Instagram is geplaatst. Deze site heeft geen Meta-callback voor gegevensverwijdering en geen Meta-webhook.",
+    "related": "6. Gerelateerde pagina’s"
   }
 }

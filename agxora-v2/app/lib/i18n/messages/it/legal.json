@@ -11,7 +11,8 @@
       "cookies": "Biscotti",
       "imprint": "Impronta",
       "contact": "Contatto",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "Cancellazione dei dati"
     },
     "footer": {
       "home": "Casa",
@@ -60,7 +61,12 @@
     "cookiePolicy": "Politica sui cookie",
     "contactSection": "8. Contatto",
     "contactBodyBefore": "Domande:",
-    "contactBodyMiddle": "O"
+    "contactBodyMiddle": "O",
+    "dataBusiness": "Dati dell’organizzazione che inserisci: clienti CRM, contatti, note, metadati dei documenti, fatture e bolle di consegna.",
+    "dataConnections": "Account collegati: quando un’organizzazione collega YouTube, Gmail o Instagram, AGXORA conserva un identificativo dell’account e token OAuth cifrati per quella connessione. Un collegamento Instagram conserva anche il nome utente Instagram. Quando la pubblicazione su Instagram è attiva e qualcuno pubblica in modo esplicito, AGXORA invia un’immagine approvata e la sua didascalia a quell’account Instagram. AGXORA non riceve messaggi o insight di Instagram. Il collegamento delle Pagine Facebook non è disponibile.",
+    "deletionInstructionsBefore": "Come chiedere la cancellazione è descritto nella",
+    "deletionInstructionsLink": "pagina di cancellazione dei dati utente",
+    "deletionInstructionsAfter": "."
   },
   "terms": {
     "title": "Termini di servizio",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "Cancellazione dei dati utente",
+    "eyebrow": "Note legali",
+    "intro": "Questa pagina spiega come i dati personali di un account AGXORA possono essere cancellati nel prodotto o richiesti via e-mail. Aprire questa pagina non cancella i dati. AGXORA non fornisce un callback automatico di cancellazione per Meta o per un’altra piattaforma.",
+    "inProduct": "1. Cancellazione nel prodotto",
+    "inProductBody": "Un’organizzazione autenticata può cancellare contatti CRM, note e metadati dei documenti. Un record cliente può essere cancellato solo se non ha una fattura o una bolla di consegna collegata. Se sono collegati documenti finanziari, la cancellazione viene rifiutata e quei documenti restano.",
+    "retained": "2. Dati che restano",
+    "retainedBody": "Fatture, bolle di consegna, esecuzioni governate e prove vengono conservate. Questa pagina non conferma che esista un backup del database, né che le copie in un backup vengano rimosse.",
+    "exportTitle": "3. Esportazione",
+    "exportBody": "Un’organizzazione autenticata può scaricare dalle Impostazioni un’esportazione dei propri dati aziendali.",
+    "request": "4. Richiedere la cancellazione via e-mail",
+    "requestBefore": "Per chiedere ad AGXORA di cancellare un account, o dati personali che non puoi cancellare nel prodotto, scrivi a",
+    "requestAfter": "Indica l’e-mail dell’account e il nome dell’organizzazione, così l’account può essere identificato.",
+    "connected": "5. Instagram, YouTube e Gmail",
+    "connectedBody": "Un’organizzazione autenticata può scollegare YouTube, Gmail o Instagram nel prodotto quando quella connessione esiste. Lo scollegamento cancella i token cifrati memorizzati e segna la connessione come revocata. L’identificativo dell’account memorizzato può restare su quel record. Lo scollegamento non cancella gli altri dati dell’organizzazione. Scollegare Instagram non rimuove un post già pubblicato su Instagram. Questo sito non ha un callback di cancellazione dati di Meta né un webhook Meta.",
+    "related": "6. Pagine correlate"
   }
 }

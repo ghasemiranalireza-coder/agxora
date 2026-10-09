@@ -11,7 +11,8 @@
       "cookies": "کوکی‌ها",
       "imprint": "شناسه قانونی",
       "contact": "تماس",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "حذف داده‌ها"
     },
     "footer": {
       "home": "خانه",
@@ -60,7 +61,12 @@
     "cookiePolicy": "سیاست کوکی",
     "contactSection": "۸. تماس",
     "contactBodyBefore": "سوالات:",
-    "contactBodyMiddle": "یا"
+    "contactBodyMiddle": "یا",
+    "dataBusiness": "سوابق سازمانی که وارد می‌کنید: مشتریان CRM، مخاطبان، یادداشت‌ها، فراداده اسناد، فاکتورها و حواله‌های تحویل.",
+    "dataConnections": "حساب‌های متصل: وقتی سازمانی YouTube، Gmail یا Instagram را وصل می‌کند، AGXORA شناسه حساب و توکن‌های رمزنگاری‌شده OAuth آن اتصال را نگه می‌دارد. اتصال Instagram نام کاربری Instagram را هم نگه می‌دارد. وقتی انتشار Instagram فعال است و کسی به‌صراحت منتشر می‌کند، AGXORA یک تصویر تأییدشده و توضیح آن را به همان حساب Instagram می‌فرستد. AGXORA پیام یا بینش Instagram دریافت نمی‌کند. اتصال صفحه‌های Facebook در دسترس نیست.",
+    "deletionInstructionsBefore": "نحوه درخواست حذف در",
+    "deletionInstructionsLink": "صفحه حذف داده‌های کاربر",
+    "deletionInstructionsAfter": " توضیح داده شده است."
   },
   "terms": {
     "title": "شرایط استفاده",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "حذف داده‌های کاربر",
+    "eyebrow": "حقوقی",
+    "intro": "این صفحه توضیح می‌دهد داده‌های شخصی یک حساب AGXORA چگونه در محصول حذف می‌شوند یا چگونه با ایمیل درخواست حذف داده می‌شود. باز کردن این صفحه داده‌ای را حذف نمی‌کند. AGXORA فراخوان خودکار حذف برای Meta یا هیچ پلتفرم دیگری ارائه نمی‌دهد.",
+    "inProduct": "1. حذف در محصول",
+    "inProductBody": "سازمان واردشده می‌تواند مخاطبان CRM، یادداشت‌ها و فراداده اسناد را حذف کند. سابقه مشتری فقط وقتی قابل حذف است که فاکتور یا حواله تحویل به آن وصل نباشد. اگر اسناد مالی وصل باشند، حذف رد می‌شود و آن اسناد می‌مانند.",
+    "retained": "2. سوابقی که می‌مانند",
+    "retainedBody": "فاکتورها، حواله‌های تحویل، اجراهای تحت حاکمیت و شواهد نگه داشته می‌شوند. این صفحه تأیید نمی‌کند که نسخه پشتیبان پایگاه داده وجود دارد یا کپی‌های داخل نسخه پشتیبان حذف می‌شوند.",
+    "exportTitle": "3. برون‌برد",
+    "exportBody": "سازمان واردشده می‌تواند از تنظیمات برون‌برد داده‌های کسب‌وکار خود را دریافت کند.",
+    "request": "4. درخواست حذف با ایمیل",
+    "requestBefore": "برای اینکه از AGXORA بخواهید یک حساب، یا داده‌های شخصی را که در محصول نمی‌توانید حذف کنید، حذف کند به این نشانی بنویسید",
+    "requestAfter": "ایمیل حساب و نام سازمان را بنویسید تا حساب قابل شناسایی باشد.",
+    "connected": "5. Instagram، YouTube و Gmail",
+    "connectedBody": "سازمان واردشده می‌تواند YouTube، Gmail یا Instagram را در محصول قطع کند، اگر آن اتصال وجود داشته باشد. قطع اتصال توکن‌های رمزنگاری‌شده ذخیره‌شده را پاک می‌کند و اتصال را لغوشده علامت می‌زند. شناسه حساب ذخیره‌شده می‌تواند در همان سابقه اتصال بماند. قطع اتصال سایر سوابق سازمان را حذف نمی‌کند. قطع Instagram پستی را که قبلاً در Instagram منتشر شده حذف نمی‌کند. این سایت فراخوان حذف داده Meta و وب‌هوک Meta ندارد.",
+    "related": "6. صفحه‌های مرتبط"
   }
 }

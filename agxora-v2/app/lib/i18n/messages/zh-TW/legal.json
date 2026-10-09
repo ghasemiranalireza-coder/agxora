@@ -11,7 +11,8 @@
       "cookies": "餅乾",
       "imprint": "印記",
       "contact": "接觸",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "資料刪除"
     },
     "footer": {
       "home": "家",
@@ -60,7 +61,12 @@
     "cookiePolicy": "Cookie 政策",
     "contactSection": "8. 聯絡方式",
     "contactBodyBefore": "問題：",
-    "contactBodyMiddle": "或"
+    "contactBodyMiddle": "或",
+    "dataBusiness": "您輸入的組織紀錄：CRM 客戶、聯絡人、備註、文件中繼資料、發票和送貨單。",
+    "dataConnections": "已連結的帳戶：組織連結 YouTube、Gmail 或 Instagram 時，AGXORA 會保存該連結的帳戶識別碼和加密的 OAuth 權杖。Instagram 連結還會保存 Instagram 使用者名稱。在啟用 Instagram 發布且有人明確發布時，AGXORA 會把一張已核准的圖片及其說明傳送到該 Instagram 帳戶。AGXORA 不接收 Instagram 訊息或洞察資料。Facebook 粉絲專頁連結無法使用。",
+    "deletionInstructionsBefore": "如何申請刪除，請見",
+    "deletionInstructionsLink": "使用者資料刪除",
+    "deletionInstructionsAfter": "頁面。"
   },
   "terms": {
     "title": "服務條款",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "使用者資料刪除",
+    "eyebrow": "法律",
+    "intro": "本頁說明 AGXORA 帳戶中的個人資料如何在產品內刪除，或如何透過電子郵件申請刪除。開啟本頁不會刪除資料。AGXORA 不為 Meta 或任何其他平台提供自動刪除回呼。",
+    "inProduct": "1. 在產品內刪除",
+    "inProductBody": "已登入的組織可以刪除 CRM 聯絡人、備註和文件中繼資料。只有在沒有關聯發票或送貨單時，才能刪除客戶紀錄。如果關聯了財務文件，刪除會被拒絕，這些文件會保留。",
+    "retained": "2. 會保留的紀錄",
+    "retainedBody": "發票、送貨單、受治理的執行和證據會被保留。本頁不確認存在資料庫備份，也不確認備份中的複本會被刪除。",
+    "exportTitle": "3. 匯出",
+    "exportBody": "已登入的組織可以在設定中下載其業務資料匯出。",
+    "request": "4. 透過電子郵件申請刪除",
+    "requestBefore": "如需請 AGXORA 刪除帳戶，或刪除您無法在產品內刪除的個人資料，請傳送電子郵件至",
+    "requestAfter": "請寫明帳戶電子郵件和組織名稱，以便識別該帳戶。",
+    "connected": "5. Instagram、YouTube 和 Gmail",
+    "connectedBody": "已登入的組織可以在產品中中斷已存在的 YouTube、Gmail 或 Instagram 連結。中斷連結會清除已儲存的加密權杖，並將連結標記為已撤銷。已保存的帳戶識別碼可能仍留在該連結紀錄中。中斷連結不會刪除其他組織紀錄。中斷 Instagram 不會移除已經發布到 Instagram 的貼文。本網站沒有 Meta 資料刪除回呼，也沒有 Meta Webhook。",
+    "related": "6. 相關頁面"
   }
 }

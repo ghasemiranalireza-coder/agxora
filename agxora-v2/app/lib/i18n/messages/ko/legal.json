@@ -11,7 +11,8 @@
       "cookies": "쿠키",
       "imprint": "날인",
       "contact": "연락하다",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "데이터 삭제"
     },
     "footer": {
       "home": "집",
@@ -60,7 +61,12 @@
     "cookiePolicy": "쿠키 정책",
     "contactSection": "8. 연락처",
     "contactBodyBefore": "질문:",
-    "contactBodyMiddle": "또는"
+    "contactBodyMiddle": "또는",
+    "dataBusiness": "입력하는 조직 기록: CRM 고객, 연락처, 메모, 문서 메타데이터, 청구서, 납품서.",
+    "dataConnections": "연결된 계정: 조직이 YouTube, Gmail 또는 Instagram을 연결하면 AGXORA는 해당 연결의 계정 식별자와 암호화된 OAuth 토큰을 저장합니다. Instagram 연결은 Instagram 사용자 이름도 저장합니다. Instagram 게시가 켜져 있고 누군가 명시적으로 게시하면 AGXORA는 승인된 이미지 하나와 캡션을 해당 Instagram 계정으로 보냅니다. AGXORA는 Instagram 메시지나 인사이트를 받지 않습니다. Facebook 페이지 연결은 사용할 수 없습니다.",
+    "deletionInstructionsBefore": "삭제 요청 방법은",
+    "deletionInstructionsLink": "사용자 데이터 삭제",
+    "deletionInstructionsAfter": " 페이지에 설명되어 있습니다."
   },
   "terms": {
     "title": "서비스 약관",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "사용자 데이터 삭제",
+    "eyebrow": "법적 고지",
+    "intro": "이 페이지는 AGXORA 계정의 개인 데이터를 제품에서 삭제하거나 이메일로 삭제를 요청하는 방법을 설명합니다. 이 페이지를 열어도 데이터는 삭제되지 않습니다. AGXORA는 Meta 또는 다른 플랫폼을 위한 자동 삭제 콜백을 제공하지 않습니다.",
+    "inProduct": "1. 제품 안에서 삭제",
+    "inProductBody": "로그인한 조직은 CRM 연락처, 메모, 문서 메타데이터를 삭제할 수 있습니다. 고객 기록은 청구서나 납품서가 연결되어 있지 않을 때만 삭제할 수 있습니다. 재무 문서가 연결되어 있으면 삭제가 거부되고 해당 문서는 남습니다.",
+    "retained": "2. 남는 기록",
+    "retainedBody": "청구서, 납품서, 관리된 실행, 증거는 보관됩니다. 이 페이지는 데이터베이스 백업이 존재하는지, 또는 백업의 사본이 삭제되는지를 확인하지 않습니다.",
+    "exportTitle": "3. 내보내기",
+    "exportBody": "로그인한 조직은 설정에서 비즈니스 데이터 내보내기를 받을 수 있습니다.",
+    "request": "4. 이메일로 삭제 요청",
+    "requestBefore": "계정 또는 제품에서 삭제할 수 없는 개인 데이터의 삭제를 AGXORA에 요청하려면 다음으로 이메일을 보내십시오",
+    "requestAfter": "계정을 식별할 수 있도록 계정 이메일과 조직 이름을 포함하십시오.",
+    "connected": "5. Instagram, YouTube, Gmail",
+    "connectedBody": "로그인한 조직은 해당 연결이 있으면 제품에서 YouTube, Gmail 또는 Instagram 연결을 해제할 수 있습니다. 연결 해제는 저장된 암호화 토큰을 지우고 연결을 철회된 것으로 표시합니다. 저장된 계정 식별자는 해당 연결 기록에 남을 수 있습니다. 연결 해제는 다른 조직 기록을 삭제하지 않습니다. Instagram 연결 해제는 이미 Instagram에 게시된 게시물을 제거하지 않습니다. 이 사이트에는 Meta 데이터 삭제 콜백과 Meta 웹후크가 없습니다.",
+    "related": "6. 관련 페이지"
   }
 }

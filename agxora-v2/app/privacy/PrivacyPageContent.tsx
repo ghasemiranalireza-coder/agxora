@@ -3,7 +3,11 @@
 import type { JSX } from "react";
 import Link from "next/link";
 import { LegalPageShell } from "../components/legal";
-import { COMPANY } from "../lib/company";
+import {
+  COMPANY,
+  formatCompanyAddress,
+  hasConfiguredAddress,
+} from "../lib/company";
 import { useT } from "../lib/i18n";
 
 export function PrivacyPageContent(): JSX.Element {
@@ -22,7 +26,9 @@ export function PrivacyPageContent(): JSX.Element {
       <p>
         {COMPANY.legalName}
         <br />
-        {COMPANY.address.line1}, {COMPANY.address.line2}, {COMPANY.address.country}
+        {hasConfiguredAddress()
+          ? formatCompanyAddress()
+          : t("legal.imprint.pendingConfiguration")}
         <br />
         Email:{" "}
         <a href={`mailto:${COMPANY.email.privacy}`}>{COMPANY.email.privacy}</a>
@@ -34,6 +40,8 @@ export function PrivacyPageContent(): JSX.Element {
         <li>{t("legal.privacy.dataUsage")}</li>
         <li>{t("legal.privacy.dataBilling")}</li>
         <li>{t("legal.privacy.dataSupport")}</li>
+        <li>{t("legal.privacy.dataBusiness")}</li>
+        <li>{t("legal.privacy.dataConnections")}</li>
       </ul>
 
       <h2>{t("legal.privacy.purposes")}</h2>
@@ -50,7 +58,10 @@ export function PrivacyPageContent(): JSX.Element {
         {t("legal.privacy.yourRightsBodyBefore")}{" "}
         <a href={`mailto:${COMPANY.email.privacy}`}>{COMPANY.email.privacy}</a>.
         {" "}
-        {t("legal.privacy.yourRightsBodyAfter")}
+        {t("legal.privacy.yourRightsBodyAfter")}{" "}
+        {t("legal.privacy.deletionInstructionsBefore")}{" "}
+        <Link href="/data-deletion">{t("legal.privacy.deletionInstructionsLink")}</Link>
+        {t("legal.privacy.deletionInstructionsAfter")}
       </p>
 
       <h2>{t("legal.privacy.cookies")}</h2>

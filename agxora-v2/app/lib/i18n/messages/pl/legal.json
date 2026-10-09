@@ -11,7 +11,8 @@
       "cookies": "Ciastka",
       "imprint": "Odcisk",
       "contact": "Kontakt",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "Usuwanie danych"
     },
     "footer": {
       "home": "Dom",
@@ -60,7 +61,12 @@
     "cookiePolicy": "Polityka plików cookie",
     "contactSection": "8. Kontakt",
     "contactBodyBefore": "Pytania:",
-    "contactBodyMiddle": "Lub"
+    "contactBodyMiddle": "Lub",
+    "dataBusiness": "Dane organizacji, które wprowadzasz: klienci CRM, kontakty, notatki, metadane dokumentów, faktury i dokumenty dostawy.",
+    "dataConnections": "Połączone konta: gdy organizacja łączy YouTube, Gmail lub Instagram, AGXORA przechowuje identyfikator konta i zaszyfrowane tokeny OAuth tego połączenia. Połączenie Instagram przechowuje także nazwę użytkownika Instagram. Gdy publikowanie na Instagramie jest włączone i ktoś wyraźnie publikuje, AGXORA wysyła jeden zatwierdzony obraz i podpis na to konto Instagram. AGXORA nie otrzymuje wiadomości ani statystyk Instagram. Połączenie Stron Facebook nie jest dostępne.",
+    "deletionInstructionsBefore": "Sposób złożenia wniosku o usunięcie opisuje",
+    "deletionInstructionsLink": "strona usuwania danych użytkownika",
+    "deletionInstructionsAfter": "."
   },
   "terms": {
     "title": "Warunki świadczenia usług",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "Usuwanie danych użytkownika",
+    "eyebrow": "Informacje prawne",
+    "intro": "Ta strona wyjaśnia, jak dane osobowe konta AGXORA można usunąć w produkcie albo jak złożyć wniosek e-mailem. Otwarcie tej strony nie usuwa danych. AGXORA nie udostępnia automatycznego wywołania zwrotnego usuwania dla Meta ani innej platformy.",
+    "inProduct": "1. Usuwanie w produkcie",
+    "inProductBody": "Zalogowana organizacja może usuwać kontakty CRM, notatki i metadane dokumentów. Rekord klienta można usunąć tylko wtedy, gdy nie ma przypisanej faktury ani dokumentu dostawy. Jeśli dokumenty finansowe są przypisane, usunięcie jest odrzucane, a te dokumenty pozostają.",
+    "retained": "2. Dane, które pozostają",
+    "retainedBody": "Faktury, dokumenty dostawy, nadzorowane wykonania i dowody są przechowywane. Ta strona nie potwierdza, że istnieje kopia zapasowa bazy danych, ani że kopie w kopii zapasowej są usuwane.",
+    "exportTitle": "3. Eksport",
+    "exportBody": "Zalogowana organizacja może pobrać z Ustawień eksport swoich danych biznesowych.",
+    "request": "4. Wniosek o usunięcie e-mailem",
+    "requestBefore": "Aby poprosić AGXORA o usunięcie konta albo danych osobowych, których nie możesz usunąć w produkcie, napisz na",
+    "requestAfter": "Podaj e-mail konta i nazwę organizacji, aby konto można było zidentyfikować.",
+    "connected": "5. Instagram, YouTube i Gmail",
+    "connectedBody": "Zalogowana organizacja może rozłączyć YouTube, Gmail lub Instagram w produkcie, gdy takie połączenie istnieje. Rozłączenie czyści zapisane zaszyfrowane tokeny i oznacza połączenie jako cofnięte. Zapisany identyfikator konta może pozostać w tym rekordzie. Rozłączenie nie usuwa innych danych organizacji. Rozłączenie Instagrama nie usuwa wpisu już opublikowanego na Instagramie. Ta witryna nie ma wywołania zwrotnego usuwania danych Meta ani webhooka Meta.",
+    "related": "6. Powiązane strony"
   }
 }

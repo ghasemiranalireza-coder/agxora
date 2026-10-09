@@ -41,7 +41,8 @@
     "previous": "Назад",
     "settings": "Настройки",
     "profile": "Профиль",
-    "dashboard": "Панель"
+    "dashboard": "Панель",
+    "dataDeletion": "Удаление данных"
   },
   "navigation": {
     "dashboard": "Панель",
@@ -3332,7 +3333,8 @@
       "terms": "Условия",
       "cookies": "Файлы cookie",
       "imprint": "Выходные данные",
-      "copyright": "© {year} {company}"
+      "copyright": "© {year} {company}",
+      "dataDeletion": "Удаление данных"
     },
     "globeAria": "AGXORA AI CORE — 3D-глобус",
     "visuals": {
@@ -6805,7 +6807,8 @@
         "cookies": "Файлы cookie",
         "imprint": "Выходные данные",
         "contact": "Контакт",
-        "framework": "Legal framework"
+        "framework": "Legal framework",
+        "dataDeletion": "Удаление данных"
       },
       "footer": {
         "home": "Дом",
@@ -6854,7 +6857,12 @@
       "cookiePolicy": "Политика использования файлов cookie",
       "contactSection": "8. Контакт",
       "contactBodyBefore": "Вопросы:",
-      "contactBodyMiddle": "или"
+      "contactBodyMiddle": "или",
+      "dataBusiness": "Данные организации, которые вы вводите: клиенты CRM, контакты, заметки, метаданные документов, счета и накладные.",
+      "dataConnections": "Подключённые аккаунты: когда организация подключает YouTube, Gmail или Instagram, AGXORA хранит идентификатор аккаунта и зашифрованные токены OAuth этого подключения. Подключение Instagram также хранит имя пользователя Instagram. Когда публикация в Instagram включена и кто-то явно публикует, AGXORA отправляет одно одобренное изображение и подпись в этот аккаунт Instagram. AGXORA не получает сообщения или статистику Instagram. Подключение Страниц Facebook недоступно.",
+      "deletionInstructionsBefore": "Как запросить удаление, описано на",
+      "deletionInstructionsLink": "странице удаления данных пользователя",
+      "deletionInstructionsAfter": "."
     },
     "terms": {
       "title": "Условия использования",
@@ -6929,6 +6937,23 @@
       "title": "AGXORA legal framework",
       "eyebrow": "Legal",
       "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+    },
+    "deletion": {
+      "title": "Удаление данных пользователя",
+      "eyebrow": "Правовая информация",
+      "intro": "Эта страница объясняет, как персональные данные аккаунта AGXORA можно удалить в продукте или запросить по электронной почте. Открытие этой страницы не удаляет данные. AGXORA не предоставляет автоматический callback удаления для Meta или другой платформы.",
+      "inProduct": "1. Удаление в продукте",
+      "inProductBody": "Организация в сеансе может удалять контакты CRM, заметки и метаданные документов. Запись клиента можно удалить только если к ней не привязаны счёт или накладная. Если финансовые документы привязаны, удаление отклоняется, и эти документы остаются.",
+      "retained": "2. Данные, которые сохраняются",
+      "retainedBody": "Счета, накладные, управляемые выполнения и доказательства сохраняются. Эта страница не подтверждает, что существует резервная копия базы данных или что копии в резервной копии удаляются.",
+      "exportTitle": "3. Экспорт",
+      "exportBody": "Организация в сеансе может скачать экспорт своих деловых данных в настройках.",
+      "request": "4. Запрос удаления по электронной почте",
+      "requestBefore": "Чтобы попросить AGXORA удалить аккаунт или персональные данные, которые нельзя удалить в продукте, напишите на",
+      "requestAfter": "Укажите электронную почту аккаунта и название организации, чтобы аккаунт можно было определить.",
+      "connected": "5. Instagram, YouTube и Gmail",
+      "connectedBody": "Организация в сеансе может отключить YouTube, Gmail или Instagram в продукте, если это подключение есть. Отключение очищает сохранённые зашифрованные токены и помечает подключение как отозванное. Сохранённый идентификатор аккаунта может остаться в этой записи. Отключение не удаляет другие записи организации. Отключение Instagram не удаляет публикацию, уже размещённую в Instagram. На этом сайте нет callback удаления данных Meta и нет webhook Meta.",
+      "related": "6. Связанные страницы"
     }
   },
   "onboarding": {

@@ -11,7 +11,8 @@
       "cookies": "Biscoitos",
       "imprint": "Imprimir",
       "contact": "Contato",
-      "framework": "Legal framework"
+      "framework": "Legal framework",
+      "dataDeletion": "Eliminação de dados"
     },
     "footer": {
       "home": "Lar",
@@ -60,7 +61,12 @@
     "cookiePolicy": "Política de Cookies",
     "contactSection": "8. Contato",
     "contactBodyBefore": "Questões:",
-    "contactBodyMiddle": "ou"
+    "contactBodyMiddle": "ou",
+    "dataBusiness": "Registos da organização que introduz: clientes de CRM, contactos, notas, metadados de documentos, faturas e guias de entrega.",
+    "dataConnections": "Contas ligadas: quando uma organização liga o YouTube, o Gmail ou o Instagram, a AGXORA guarda um identificador de conta e tokens OAuth cifrados dessa ligação. Uma ligação ao Instagram guarda também o nome de utilizador do Instagram. Quando a publicação no Instagram está ativa e alguém publica de forma explícita, a AGXORA envia uma imagem aprovada e a respetiva legenda para essa conta Instagram. A AGXORA não recebe mensagens nem estatísticas do Instagram. A ligação a Páginas do Facebook não está disponível.",
+    "deletionInstructionsBefore": "Como pedir a eliminação está descrito na",
+    "deletionInstructionsLink": "página de eliminação de dados do utilizador",
+    "deletionInstructionsAfter": "."
   },
   "terms": {
     "title": "Termos de Serviço",
@@ -135,5 +141,22 @@
     "title": "AGXORA legal framework",
     "eyebrow": "Legal",
     "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+  },
+  "deletion": {
+    "title": "Eliminação de dados do utilizador",
+    "eyebrow": "Legal",
+    "intro": "Esta página explica como os dados pessoais de uma conta AGXORA podem ser eliminados no produto ou pedidos por e-mail. Abrir esta página não elimina dados. A AGXORA não disponibiliza um callback automático de eliminação para a Meta nem para outra plataforma.",
+    "inProduct": "1. Eliminação no produto",
+    "inProductBody": "Uma organização com sessão iniciada pode eliminar contactos de CRM, notas e metadados de documentos. Um registo de cliente só pode ser eliminado se não tiver uma fatura ou uma guia de entrega associada. Se existirem documentos financeiros associados, a eliminação é recusada e esses documentos permanecem.",
+    "retained": "2. Registos que ficam",
+    "retainedBody": "Faturas, guias de entrega, execuções governadas e provas são conservadas. Esta página não confirma que exista uma cópia de segurança da base de dados, nem que cópias numa cópia de segurança sejam removidas.",
+    "exportTitle": "3. Exportação",
+    "exportBody": "Uma organização com sessão iniciada pode descarregar, nas Definições, uma exportação dos seus dados de negócio.",
+    "request": "4. Pedir eliminação por e-mail",
+    "requestBefore": "Para pedir à AGXORA que elimine uma conta, ou dados pessoais que não consegue eliminar no produto, escreva para",
+    "requestAfter": "Inclua o e-mail da conta e o nome da organização para que a conta possa ser identificada.",
+    "connected": "5. Instagram, YouTube e Gmail",
+    "connectedBody": "Uma organização com sessão iniciada pode desligar o YouTube, o Gmail ou o Instagram no produto quando essa ligação existe. Desligar apaga os tokens cifrados guardados e marca a ligação como revogada. O identificador de conta guardado pode permanecer nesse registo. Desligar não elimina outros registos da organização. Desligar o Instagram não remove uma publicação já feita no Instagram. Este site não tem um callback de eliminação de dados da Meta nem um webhook da Meta.",
+    "related": "6. Páginas relacionadas"
   }
 }

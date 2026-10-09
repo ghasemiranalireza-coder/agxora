@@ -41,7 +41,8 @@
     "previous": "पिछला",
     "settings": "सेटिंग्स",
     "profile": "प्रोफ़ाइल",
-    "dashboard": "डैशबोर्ड"
+    "dashboard": "डैशबोर्ड",
+    "dataDeletion": "डेटा हटाना"
   },
   "navigation": {
     "dashboard": "डैशबोर्ड",
@@ -3332,7 +3333,8 @@
       "terms": "शर्तें",
       "cookies": "कुकीज़",
       "imprint": "छाप",
-      "copyright": "© {year} {company}"
+      "copyright": "© {year} {company}",
+      "dataDeletion": "डेटा हटाना"
     },
     "globeAria": "AGXORA AI CORE — 3D ग्लोब",
     "visuals": {
@@ -6805,7 +6807,8 @@
         "cookies": "कुकीज़",
         "imprint": "छाप",
         "contact": "संपर्क",
-        "framework": "Legal framework"
+        "framework": "Legal framework",
+        "dataDeletion": "डेटा हटाना"
       },
       "footer": {
         "home": "घर",
@@ -6854,7 +6857,12 @@
       "cookiePolicy": "कूकी नीति",
       "contactSection": "8. संपर्क करें",
       "contactBodyBefore": "प्रश्न:",
-      "contactBodyMiddle": "या"
+      "contactBodyMiddle": "या",
+      "dataBusiness": "आपके द्वारा दर्ज संगठन रिकॉर्ड: CRM ग्राहक, संपर्क, नोट, दस्तावेज़ मेटाडेटा, चालान और डिलीवरी नोट।",
+      "dataConnections": "जुड़े खाते: जब कोई संगठन YouTube, Gmail या Instagram जोड़ता है, AGXORA उस कनेक्शन का खाता पहचानकर्ता और एन्क्रिप्टेड OAuth टोकन रखता है। Instagram कनेक्शन Instagram उपयोगकर्ता नाम भी रखता है। जब Instagram प्रकाशन सक्षम हो और कोई स्पष्ट रूप से प्रकाशित करे, AGXORA एक स्वीकृत छवि और उसका कैप्शन उस Instagram खाते पर भेजता है। AGXORA Instagram संदेश या इनसाइट नहीं लेता। Facebook पेज कनेक्शन उपलब्ध नहीं है।",
+      "deletionInstructionsBefore": "हटाने का अनुरोध कैसे करें, यह",
+      "deletionInstructionsLink": "उपयोगकर्ता डेटा हटाने",
+      "deletionInstructionsAfter": " वाले पृष्ठ पर बताया गया है।"
     },
     "terms": {
       "title": "सेवा की शर्तें",
@@ -6929,6 +6937,23 @@
       "title": "AGXORA legal framework",
       "eyebrow": "Legal",
       "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+    },
+    "deletion": {
+      "title": "उपयोगकर्ता डेटा हटाना",
+      "eyebrow": "कानूनी",
+      "intro": "यह पृष्ठ बताता है कि AGXORA खाते का व्यक्तिगत डेटा उत्पाद में कैसे हटाया जा सकता है या ईमेल से कैसे अनुरोध किया जा सकता है। यह पृष्ठ खोलने से डेटा नहीं हटता। AGXORA Meta या किसी अन्य प्लेटफ़ॉर्म के लिए स्वचालित हटाने का कॉलबैक नहीं देता।",
+      "inProduct": "1. उत्पाद के अंदर हटाना",
+      "inProductBody": "साइन-इन संगठन CRM संपर्क, नोट और दस्तावेज़ मेटाडेटा हटा सकता है। ग्राहक रिकॉर्ड तभी हटाया जा सकता है जब कोई चालान या डिलीवरी नोट जुड़ा न हो। यदि वित्तीय दस्तावेज़ जुड़े हैं, तो हटाना अस्वीकार होता है और वे दस्तावेज़ बने रहते हैं।",
+      "retained": "2. रिकॉर्ड जो रहते हैं",
+      "retainedBody": "चालान, डिलीवरी नोट, शासित निष्पादन और साक्ष्य रखे जाते हैं। यह पृष्ठ यह पुष्टि नहीं करता कि डेटाबेस बैकअप मौजूद है, या बैकअप की प्रतियाँ हटाई जाती हैं।",
+      "exportTitle": "3. निर्यात",
+      "exportBody": "साइन-इन संगठन सेटिंग्स से अपने व्यवसाय डेटा का निर्यात डाउनलोड कर सकता है।",
+      "request": "4. ईमेल से हटाने का अनुरोध",
+      "requestBefore": "AGXORA से खाता, या वह व्यक्तिगत डेटा हटाने को कहने के लिए जिसे आप उत्पाद में नहीं हटा सकते, ईमेल करें",
+      "requestAfter": "खाता पहचानने के लिए खाते का ईमेल और संगठन का नाम लिखें।",
+      "connected": "5. Instagram, YouTube और Gmail",
+      "connectedBody": "साइन-इन संगठन उत्पाद में YouTube, Gmail या Instagram काट सकता है जब वह कनेक्शन मौजूद हो। काटने से संग्रहीत एन्क्रिप्टेड टोकन मिटते हैं और कनेक्शन रद्द के रूप में चिह्नित होता है। संग्रहीत खाता पहचानकर्ता उस कनेक्शन रिकॉर्ड पर रह सकता है। काटना अन्य संगठन रिकॉर्ड नहीं हटाता। Instagram काटना Instagram पर पहले से प्रकाशित पोस्ट नहीं हटाता। इस साइट पर Meta डेटा-हटाने का कॉलबैक और Meta वेबहुक नहीं है।",
+      "related": "6. संबंधित पृष्ठ"
     }
   },
   "onboarding": {

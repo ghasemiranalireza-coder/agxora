@@ -29,6 +29,7 @@ export function LegalPageShell({
           <Link href="/legal/framework">{t("legal.shell.nav.framework")}</Link>
           <Link href="/cookies">{t("legal.shell.nav.cookies")}</Link>
           <Link href="/imprint">{t("legal.shell.nav.imprint")}</Link>
+          <Link href="/data-deletion">{t("legal.shell.nav.dataDeletion")}</Link>
           <Link href="/contact">{t("legal.shell.nav.contact")}</Link>
         </nav>
       </header>

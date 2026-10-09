@@ -41,7 +41,8 @@
     "previous": "前へ",
     "settings": "設定",
     "profile": "プロフィール",
-    "dashboard": "ダッシュボード"
+    "dashboard": "ダッシュボード",
+    "dataDeletion": "データ削除"
   },
   "navigation": {
     "dashboard": "ダッシュボード",
@@ -3332,7 +3333,8 @@
       "terms": "条項",
       "cookies": "クッキー",
       "imprint": "インプリント",
-      "copyright": "© {year} {company}"
+      "copyright": "© {year} {company}",
+      "dataDeletion": "データ削除"
     },
     "globeAria": "AGXORA AI CORE — 3Dグローブ",
     "visuals": {
@@ -6805,7 +6807,8 @@
         "cookies": "クッキー",
         "imprint": "インプリント",
         "contact": "接触",
-        "framework": "Legal framework"
+        "framework": "Legal framework",
+        "dataDeletion": "データ削除"
       },
       "footer": {
         "home": "家",
@@ -6854,7 +6857,12 @@
       "cookiePolicy": "クッキーポリシー",
       "contactSection": "8. 連絡先",
       "contactBodyBefore": "質問:",
-      "contactBodyMiddle": "または"
+      "contactBodyMiddle": "または",
+      "dataBusiness": "入力する組織の記録: CRMの顧客、連絡先、メモ、文書のメタデータ、請求書、納品書。",
+      "dataConnections": "接続アカウント: 組織がYouTube、Gmail、またはInstagramを接続すると、AGXORAはその接続のアカウント識別子と暗号化されたOAuthトークンを保存します。Instagramの接続ではInstagramのユーザー名も保存します。Instagramへの公開が有効で、操作者が明示的に公開した場合、AGXORAは承認済みの画像1件とそのキャプションをそのInstagramアカウントへ送ります。AGXORAはInstagramのメッセージやインサイトを受け取りません。Facebookページの接続は利用できません。",
+      "deletionInstructionsBefore": "削除の依頼方法は",
+      "deletionInstructionsLink": "ユーザーデータ削除",
+      "deletionInstructionsAfter": "のページに記載しています。"
     },
     "terms": {
       "title": "利用規約",
@@ -6929,6 +6937,23 @@
       "title": "AGXORA legal framework",
       "eyebrow": "Legal",
       "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+    },
+    "deletion": {
+      "title": "ユーザーデータの削除",
+      "eyebrow": "法務",
+      "intro": "このページは、AGXORAアカウントの個人データを製品内で削除する方法と、メールで削除を依頼する方法を説明します。このページを開いてもデータは削除されません。AGXORAはMetaまたは他のプラットフォーム向けの自動削除コールバックを提供しません。",
+      "inProduct": "1. 製品内での削除",
+      "inProductBody": "サインインしている組織は、CRMの連絡先、メモ、文書のメタデータを削除できます。顧客レコードは、請求書または納品書が関連付けられていない場合にのみ削除できます。財務文書が関連付けられている場合、削除は拒否され、それらの文書は残ります。",
+      "retained": "2. 残る記録",
+      "retainedBody": "請求書、納品書、管理された実行、証拠は保持されます。このページは、データベースのバックアップが存在すること、またはバックアップ内の複製が削除されることを確認しません。",
+      "exportTitle": "3. エクスポート",
+      "exportBody": "サインインしている組織は、設定から事業データのエクスポートをダウンロードできます。",
+      "request": "4. メールでの削除依頼",
+      "requestBefore": "アカウント、または製品内で削除できない個人データの削除をAGXORAに依頼するには、次へメールしてください",
+      "requestAfter": "アカウントを特定できるよう、アカウントのメールアドレスと組織名を記載してください。",
+      "connected": "5. Instagram、YouTube、Gmail",
+      "connectedBody": "サインインしている組織は、接続がある場合、製品内でYouTube、Gmail、またはInstagramを切断できます。切断すると保存された暗号化トークンが消去され、接続は取り消されたものとして記録されます。保存されたアカウント識別子はその接続レコードに残ることがあります。切断しても他の組織記録は削除されません。Instagramを切断しても、すでにInstagramへ公開された投稿は削除されません。このサイトにMetaのデータ削除コールバックとMetaのWebhookはありません。",
+      "related": "6. 関連ページ"
     }
   },
   "onboarding": {

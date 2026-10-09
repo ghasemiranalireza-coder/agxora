@@ -41,7 +41,8 @@
     "previous": "Назад",
     "settings": "Налаштування",
     "profile": "Профіль",
-    "dashboard": "Панель"
+    "dashboard": "Панель",
+    "dataDeletion": "Видалення даних"
   },
   "navigation": {
     "dashboard": "Панель",
@@ -3332,7 +3333,8 @@
       "terms": "Умови",
       "cookies": "Печиво",
       "imprint": "Вихідні дані",
-      "copyright": "© {year} {company}"
+      "copyright": "© {year} {company}",
+      "dataDeletion": "Видалення даних"
     },
     "globeAria": "AGXORA AI CORE — 3D-глобус",
     "visuals": {
@@ -6805,7 +6807,8 @@
         "cookies": "Печиво",
         "imprint": "Вихідні дані",
         "contact": "контакт",
-        "framework": "Legal framework"
+        "framework": "Legal framework",
+        "dataDeletion": "Видалення даних"
       },
       "footer": {
         "home": "додому",
@@ -6854,7 +6857,12 @@
       "cookiePolicy": "Політика використання файлів cookie",
       "contactSection": "8. Контакт",
       "contactBodyBefore": "Питання:",
-      "contactBodyMiddle": "або"
+      "contactBodyMiddle": "або",
+      "dataBusiness": "Дані організації, які ви вводите: клієнти CRM, контакти, нотатки, метадані документів, рахунки та видаткові накладні.",
+      "dataConnections": "Підключені облікові записи: коли організація підключає YouTube, Gmail або Instagram, AGXORA зберігає ідентифікатор облікового запису та зашифровані токени OAuth цього підключення. Підключення Instagram також зберігає ім’я користувача Instagram. Коли публікація в Instagram увімкнена і хтось явно публікує, AGXORA надсилає одне схвалене зображення та підпис у цей обліковий запис Instagram. AGXORA не отримує повідомлення чи статистику Instagram. Підключення Сторінок Facebook недоступне.",
+      "deletionInstructionsBefore": "Як надіслати запит на видалення, описано на",
+      "deletionInstructionsLink": "сторінці видалення даних користувача",
+      "deletionInstructionsAfter": "."
     },
     "terms": {
       "title": "Умови надання послуг",
@@ -6929,6 +6937,23 @@
       "title": "AGXORA legal framework",
       "eyebrow": "Legal",
       "reviewNotice": "This text is designed to support legal compliance. It is not legal advice and it is not a certificate of compliance. Before public production launch it must be reviewed by a qualified German lawyer covering IT/SaaS law, data protection, AI law, consumer law, and platform law."
+    },
+    "deletion": {
+      "title": "Видалення даних користувача",
+      "eyebrow": "Правова інформація",
+      "intro": "Ця сторінка пояснює, як персональні дані облікового запису AGXORA можна видалити в продукті або запитати електронною поштою. Відкриття цієї сторінки не видаляє дані. AGXORA не надає автоматичний callback видалення для Meta чи іншої платформи.",
+      "inProduct": "1. Видалення в продукті",
+      "inProductBody": "Організація в сеансі може видаляти контакти CRM, нотатки та метадані документів. Запис клієнта можна видалити лише якщо до нього не прикріплено рахунок або видаткову накладну. Якщо фінансові документи прикріплено, видалення відхиляється, і ці документи залишаються.",
+      "retained": "2. Дані, які залишаються",
+      "retainedBody": "Рахунки, видаткові накладні, керовані виконання та докази зберігаються. Ця сторінка не підтверджує, що існує резервна копія бази даних або що копії в резервній копії видаляються.",
+      "exportTitle": "3. Експорт",
+      "exportBody": "Організація в сеансі може завантажити експорт своїх бізнес-даних у налаштуваннях.",
+      "request": "4. Запит на видалення електронною поштою",
+      "requestBefore": "Щоб попросити AGXORA видалити обліковий запис або персональні дані, які не можна видалити в продукті, напишіть на",
+      "requestAfter": "Вкажіть електронну пошту облікового запису та назву організації, щоб обліковий запис можна було визначити.",
+      "connected": "5. Instagram, YouTube і Gmail",
+      "connectedBody": "Організація в сеансі може відключити YouTube, Gmail або Instagram у продукті, якщо це підключення існує. Відключення очищає збережені зашифровані токени і позначає підключення як відкликане. Збережений ідентифікатор облікового запису може залишитися в цьому записі. Відключення не видаляє інші записи організації. Відключення Instagram не видаляє допис, уже опублікований в Instagram. На цьому сайті немає callback видалення даних Meta і немає webhook Meta.",
+      "related": "6. Пов’язані сторінки"
     }
   },
   "onboarding": {
